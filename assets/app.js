@@ -34,8 +34,6 @@
     $('menu').setAttribute('aria-label',t('Mở mục lục','Toggle navigation'));
   }
   let currentId = '', sectionObserver, toastTimer;
-  const savedTheme = (() => { try { return localStorage.getItem('solarshop-theme'); } catch { return null; } })();
-  if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
   function menu(open) {
     $('sidebar').classList.toggle('open', open);
     $('menu').setAttribute('aria-expanded', String(open));
@@ -121,11 +119,6 @@
     }, { rootMargin: '-90px 0px -60% 0px' });
     headings.forEach(h => sectionObserver.observe(h));
   }
-  $('theme').addEventListener('click', () => {
-    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = theme;
-    try { localStorage.setItem('solarshop-theme', theme); } catch { /* Preference persistence is optional. */ }
-  });
   $('menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('open')));
   $('scrim').addEventListener('click', () => menu(false));
   search.addEventListener('input', () => navigation(search.value));

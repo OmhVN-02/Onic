@@ -15,6 +15,18 @@ runInNewContext(read('assets/english.js'), sandbox);
 const docs = sandbox.window.SOLAR_DOCS;
 const ids = new Set();
 function assert(condition, text) { if (!condition) throw Error(text); }
+for (const unavailable of [false,true]) {
+  const root = {dataset:{}};
+  let click, saved = 'dark', pressed;
+  const button = {setAttribute: (_,value) => { pressed=value; },addEventListener: (_,handler) => { click=handler; }};
+  const localStorage = {
+    getItem(){ if(unavailable) throw Error('Storage unavailable'); return saved; },
+    setItem(_,value){ if(unavailable) throw Error('Storage unavailable'); saved=value; }
+  };
+  runInNewContext(read('assets/theme.js'), {document:{documentElement:root,getElementById:()=>button,querySelector:()=>null},localStorage});
+  click(); assert(root.dataset.theme==='light' && pressed==='true', 'Theme must switch to light');
+  click(); assert(root.dataset.theme==='dark' && pressed==='false', 'Theme must switch back to dark');
+}
 const visibleDocs = [...docs, ...sandbox.window.ONIC_ENGLISH];
 assert(!/\bno[\s-]?key\b/i.test(JSON.stringify([visibleDocs, sandbox.window.ONIC_PLUGINS, read('index.html')])), 'Internal edition label in public wiki');
 for (const doc of docs) {

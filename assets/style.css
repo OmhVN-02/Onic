@@ -89,3 +89,4 @@ footer{align-items:center;padding-bottom:env(safe-area-inset-bottom)}.footer-bra
 html[data-theme=light] .yaml-key{color:#145b78}html[data-theme=light] .yaml-string{color:#386124}html[data-theme=light] .yaml-number{color:#85410a}html[data-theme=light] .yaml-literal{color:#80315e}html[data-theme=light] .yaml-comment{color:#59695e}
 .footer-credits{margin-left:auto;color:var(--muted);min-height:40px;display:inline-flex;align-items:center}.footer-credits:hover{color:var(--accent)}
 @media(max-width:420px){.brand img.brand-icon{height:30px}}
+#theme[aria-pressed=true]{color:var(--accent);background:var(--panel2);border-color:var(--accent)}
