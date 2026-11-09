@@ -1,0 +1,41 @@
+# SolarRTP — Thông báo riêng của sản phẩm.
+# Hỗ trợ mã màu &, &#RRGGBB và MiniMessage.
+# Đặt nội dung thành "" để ẩn thông báo tương ứng.
+# RTP nhanh không gửi chat, actionbar, title hoặc âm thanh.
+
+messages:
+  prefix: ""
+
+  no-permission: "&#FCA5A5Bạn không có quyền sử dụng lệnh này."
+  player-only: "&#FCA5A5Lệnh này chỉ dành cho người chơi."
+
+  reload-success: "&#9BDCFBĐã tải lại cấu hình SolarRTP."
+  admin-usage: "&#C8CFDCDùng: &f/solarrtp reload"
+
+  rtp-disabled: "&#FCA5A5RTP hiện đang tắt."
+  rtp-menu-unavailable: "&#FCA5A5Menu RTP hiện không khả dụng."
+
+  rtp-cooldown: "&#FCA5A5Vui lòng chờ &#FDE68A{remaining}s &#FCA5A5để dùng RTP."
+  rtp-max-players: "&#FCA5A5RTP đang quá tải. Hãy thử lại sau."
+
+  rtp-world-not-exist: "&#FCA5A5Thế giới không tồn tại."
+  rtp-world-blacklisted: "&#FCA5A5Không thể dùng RTP trong thế giới này."
+
+  rtp-searching: "&#C8CFDCĐang tìm vị trí trong &#9BDCFB{world}&#C8CFDC..."
+  rtp-max-attempts: "&#FCA5A5Không tìm được vị trí an toàn sau &f{attempts} &#FCA5A5lần thử."
+  rtp-destination-disabled: "&#FCA5A5Điểm đến RTP hiện đang tắt."
+
+  rtp-countdown: "&#C8CFDCDịch chuyển sau &#9BDCFB{countdown}s&#C8CFDC."
+  rtp-countdown-actionbar: "&#C8CFDCDịch chuyển sau &#9BDCFB{countdown}s"
+
+  rtp-title-countdown: "&#9BDCFB&lʀᴛᴘ"
+  rtp-subtitle-countdown: "&#C8CFDCDịch chuyển sau &#9BDCFB{countdown}s"
+
+  rtp-success: "&#B7E4C7Đã dịch chuyển đến vị trí ngẫu nhiên."
+  rtp-success-actionbar: "&#B7E4C7Dịch chuyển thành công."
+
+  rtp-title-success: "&#9BDCFB&lʀᴛᴘ"
+  rtp-subtitle-success: "&#B7E4C7Dịch chuyển thành công."
+
+  rtp-cancelled: "&#FCA5A5Dịch chuyển bị hủy do bạn di chuyển."
+  rtp-cancelled-actionbar: "&#FCA5A5Đã hủy dịch chuyển."

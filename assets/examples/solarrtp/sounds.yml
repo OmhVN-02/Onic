@@ -1,0 +1,4 @@
+sounds:
+  rtp-countdown: ENTITY_ENDERMAN_TELEPORT
+  rtp-success: ENTITY_EXPERIENCE_ORB_PICKUP
+  rtp-cancelled: ENTITY_VILLAGER_NO

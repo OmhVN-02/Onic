@@ -1,0 +1,161 @@
+# SolarRTP | Phiên bản 1.0 | Tác giả OmhVN
+# Áp dụng thay đổi: /solarrtp reload
+# Nội dung thông báo: messages.yml | Âm thanh: sounds.yml
+config-version: 1
+enable-debug: false
+
+# -------------------------------------------------------
+# RTP — bật/tắt, đếm ngược và giới hạn
+# -------------------------------------------------------
+settings:
+  enabled: true
+  quick:
+    enabled: true             # RTP nhanh: bỏ đếm ngược và hiệu ứng.
+  teleport-countdown: 5        # Giây; 0 để dịch chuyển không đếm ngược.
+  players-in-rtp: 3            # Số người được tìm vị trí cùng lúc.
+  max-attempts: 32             # Số lần thử tìm vị trí an toàn.
+
+  # Cấm RTP từ/đến các world này, kể cả OP và RTP nhanh.
+  # Tên không phân biệt hoa/thường.
+  blacklist-worlds:
+    - "lobby"
+    - "spawn"
+
+  # Không chọn điểm đáp trên các block này.
+  unavailable-blocks:
+    - "LAVA"
+    - "WATER"
+    - "POWDER_SNOW"
+    - "MAGMA_BLOCK"
+    - "CACTUS"
+    - "FIRE"
+    - "SOUL_FIRE"
+    - "CAMPFIRE"
+    - "SOUL_CAMPFIRE"
+    - "SWEET_BERRY_BUSH"
+    - "WITHER_ROSE"
+    - "BEDROCK"
+    - "POINTED_DRIPSTONE"
+
+  # Không chọn điểm đáp trong các biome này.
+  unavailable-biomes:
+    - "OCEAN"
+    - "DEEP_OCEAN"
+    - "WARM_OCEAN"
+    - "LUKEWARM_OCEAN"
+    - "COLD_OCEAN"
+    - "DEEP_COLD_OCEAN"
+    - "FROZEN_OCEAN"
+    - "DEEP_FROZEN_OCEAN"
+    - "DEEP_LUKEWARM_OCEAN"
+
+# -------------------------------------------------------
+# WORLD — bán kính, độ cao, tâm và cooldown
+# -------------------------------------------------------
+# Thêm world tùy ý: sao chép một mục và đổi tên đúng world đã tải trên server.
+# Trường thiếu lấy từ default; min/max Y tự chọn theo môi trường nếu không đặt.
+# Bán kính/tọa độ tính bằng block; cooldown tính bằng giây.
+# Muốn hiện world trong menu: thêm nút vào gui/worlds-gui.yml.
+world-settings:
+  default:
+    min-radius: 200
+    max-radius: 5000
+    center-x: 0
+    center-z: 0
+    cooldown: 30
+
+  world:
+    min-radius: 500
+    max-radius: 5000
+    min-y: 60
+    max-y: 319
+    center-x: 0
+    center-z: 0
+    cooldown: 30
+
+  world_nether:
+    min-radius: 50
+    max-radius: 500
+    min-y: 35
+    max-y: 115
+    center-x: 0
+    center-z: 0
+    cooldown: 30
+
+  world_the_end:
+    min-radius: 1000           # Tránh vùng đảo trung tâm.
+    max-radius: 2000
+    min-y: 45
+    max-y: 100
+    center-x: 0
+    center-z: 0
+    cooldown: 30
+
+  # Ví dụ thêm world (bỏ dấu # để dùng):
+  # survival_2:
+  #   min-radius: 500
+  #   max-radius: 8000
+  #   cooldown: 45
+
+# -------------------------------------------------------
+# GUI — công tắc tổng và hai menu riêng
+# -------------------------------------------------------
+gui:
+  enabled: true               # false: tắt tổng; /rtp dùng world hiện tại.
+  rtp-gui: true               # gui/rtp-gui.yml — menu chọn nhóm.
+  worlds-gui: true            # gui/worlds-gui.yml — menu chọn world.
+  # Chỉ tắt rtp-gui: mở thẳng menu world theo môi trường hiện tại.
+  # Chỉ tắt worlds-gui: bấm nhóm sẽ RTP vào world đặt trong nút nhóm.
+  # Tắt cả hai: /rtp dùng world hiện tại; /rtp <world|quick> vẫn dùng được.
+  # Menu tắt không đọc/tạo lại tệp. Nút/nhóm không dùng thì xóa khỏi tệp GUI.
+
+# -------------------------------------------------------
+# CHUNK — tải địa hình trước khi dịch chuyển
+# -------------------------------------------------------
+chunk-loading:
+  nms: true                  # Tự dùng Paper async nếu NMS không tương thích.
+  urgent: true               # Ưu tiên tải chunk cho RTP.
+  generate: true             # Cho phép tạo chunk mới.
+  timeout-ms: 15000           # Thời gian chờ tối đa mỗi chunk (mili giây).
+  preload-radius: 1          # 1 = 3x3, 2 = 5x5, 3 = 7x7 chunk.
+
+# -------------------------------------------------------
+# THÔNG BÁO — chat và actionbar
+# -------------------------------------------------------
+messages:
+  chat-messages: true
+  action-bar-messages: true
+  use-action-bar-only: false  # true: chuyển thông báo chat sang actionbar.
+
+# -------------------------------------------------------
+# HIỆU ỨNG — title, subtitle, âm thanh và particle
+# -------------------------------------------------------
+# Title/subtitle bật riêng. RTP nhanh luôn bỏ qua các hiệu ứng này.
+# Thời gian title tính bằng mili giây; loại âm thanh chỉnh trong sounds.yml.
+effects:
+  countdown:
+    title: true
+    subtitle: true
+    sound: true
+    fade-in-ms: 0
+    stay-ms: 1500
+    fade-out-ms: 500
+    particles:
+      enabled: true
+      type: ENCHANT
+      count: 50
+
+  success:
+    title: true
+    subtitle: true
+    sound: true
+    fade-in-ms: 500
+    stay-ms: 2000
+    fade-out-ms: 500
+    particles:
+      enabled: true
+      type: ENCHANT
+      count: 50
+
+  cancelled:
+    sound: true

@@ -1,0 +1,57 @@
+# SolarRTP 1.0 — OmhVN
+# Menu bước 1: chọn nhóm; menu: phải khớp tên trong worlds-gui.yml.
+# action: menu / rtp / quick / back / close.
+# Không dùng nút/nhóm nào thì xóa mục đó; không có enabled riêng.
+# world: dùng để RTP trực tiếp khi config.yml tắt gui.worlds-gui.
+rtp-gui:
+  title: "&#2C2C2Cʀᴛᴘ"
+  matrix:
+    - "........."
+    - "..O.N.E.."
+    - "........."
+  decoration-button:
+    material: BLACK_STAINED_GLASS_PANE
+    display-name: " "
+  buttons:
+    overworld:
+      symbol: O
+      action: menu
+      menu: overworld
+      world: "world"
+      material: GRASS_BLOCK
+      display-name: "&#0bee88ᴏᴠᴇʀᴡᴏʀʟᴅ"
+      lore:
+        - "&fNhấp để chọn thế giới Overworld."
+    nether:
+      symbol: N
+      action: menu
+      menu: nether
+      world: "world_nether"
+      material: NETHERRACK
+      display-name: "&#ff4422ɴᴇᴛʜᴇʀ"
+      lore:
+        - "&fNhấp để chọn thế giới Nether."
+    the-end:
+      symbol: E
+      action: menu
+      menu: the-end
+      world: "world_the_end"
+      material: END_STONE
+      display-name: "&#ccaaffᴛʜᴇ ᴇɴᴅ"
+      lore:
+        - "&fNhấp để chọn thế giới The End."
+#    quick:
+#      symbol: Q
+#      action: quick
+#      material: ENDER_PEARL
+#      display-name: "&#00B2FFʀᴛᴘ ɴʜᴀɴʜ"
+#      lore:
+#        - "&fRTP nhanh trong thế giới hiện tại."
+#        - "&7Không đếm ngược, thông báo hay hiệu ứng."
+#        - "&7Vẫn kiểm tra an toàn và cooldown."
+#        - "&7Thế giới: &b{world}"
+#    close:
+#      symbol: C
+#      action: close
+#      material: BARRIER
+#      display-name: "&cĐóng"

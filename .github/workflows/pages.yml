@@ -63,6 +63,14 @@ jobs:
           runInNewContext(read('assets/placeholders.js'), sandbox);
           runInNewContext(read('assets/quest.js'), sandbox);
           runInNewContext(read('assets/beginner.js'), sandbox);
+          runInNewContext(read('assets/rtp-config-data.js'), sandbox);
+          runInNewContext(read('assets/rtp.js'), sandbox);
+          for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
+            if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
+            if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
+            if (!localized.find(d=>d.id==='solarrtp-home').html.includes('assets/images/solarrtp/demo.gif')) throw Error('SolarRTP demo missing');
+            if (!localized.find(d=>d.id==='solarrtp-changelog').html.includes('DevLog Plugins #141')) throw Error('SolarRTP devlog missing');
+          }
           const docs = sandbox.window.SOLAR_DOCS;
           const ids = new Set();
           function assert(condition, text) { if (!condition) throw Error(text); }

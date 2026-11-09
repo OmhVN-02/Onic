@@ -1,0 +1,70 @@
+# SolarRTP 1.0 — OmhVN
+# Menu bước 2: mỗi nhóm chứa nhiều nút world.
+# Thêm world bằng cách sao chép một nút dưới buttons, đặt world đúng tên server.
+# symbol phải xuất hiện trong matrix, hoặc dùng slot (đếm từ 0).
+# Không dùng nút/world/nhóm nào thì xóa mục đó; không có enabled riêng.
+# Mỗi nhóm có bố cục riêng; tối đa 6 hàng, mỗi hàng 9 ô.
+menus:
+  overworld:
+    title: "&8Overworld • Chọn thế giới"
+    matrix:
+      - "........."
+      - "....1...."
+      - "........."
+    decoration-button:
+      material: BLACK_STAINED_GLASS_PANE
+      display-name: " "
+    buttons:
+      main:
+        symbol: "1"
+        action: rtp
+        world: "world"
+        material: GRASS_BLOCK
+        display-name: "&#0bee88Overworld"
+        lore:
+          - "&fRTP trong thế giới &b{world}&f."
+          - "&7Người chơi: &b{players}"
+          - "&7Độ trễ: &b{ping}ms"
+
+  nether:
+    title: "&8Nether • Chọn thế giới"
+    matrix:
+      - "........."
+      - "....1...."
+      - "........."
+    decoration-button:
+      material: BLACK_STAINED_GLASS_PANE
+      display-name: " "
+    buttons:
+      main:
+        symbol: "1"
+        action: rtp
+        world: "world_nether"
+        material: NETHERRACK
+        display-name: "&#ff4422Nether"
+        lore:
+          - "&fRTP trong thế giới &b{world}&f."
+          - "&7Người chơi: &b{players}"
+          - "&7Độ trễ: &b{ping}ms"
+
+  the-end:
+    title: "&8The End • Chọn thế giới"
+    matrix:
+      - "........."
+      - "....1...."
+      - "........."
+    decoration-button:
+      material: BLACK_STAINED_GLASS_PANE
+      display-name: " "
+    buttons:
+      main:
+        symbol: "1"
+        action: rtp
+        world: "world_the_end"
+        material: END_STONE
+        display-name: "&#ccaaffThe End"
+        lore:
+          - "&fRTP trong thế giới &b{world}&f."
+          - "&7Người chơi: &b{players}"
+          - "&7Độ trễ: &b{ping}ms"
+
