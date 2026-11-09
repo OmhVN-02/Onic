@@ -6,6 +6,53 @@ window.ONIC_MOVED_GUIDES = {
 
 const onicReleaseNotes = [
   {
+    product:'solarbounty', number:148, version:'SolarBounty-1.0-dev', date:'2026-11-05',
+    sections:[
+      ['Hệ thống bounty tự động','Automatic bounty system',[
+        ['Tăng bounty theo thời gian sống và player kills.','Bounties increase with survival time and player kills.'],
+        ['Chết reset bounty, thời gian sống và kills; killer hợp lệ nhận thưởng qua Vault.','Death resets bounty, survival time and kills. Eligible killers receive rewards through Vault.'],
+        ['Lưu SQLite/MySQL, chống xử lý death trùng và giữ khoản thưởng đang chờ.','Stores data in SQLite/MySQL, prevents duplicate death processing and retains pending rewards.']
+      ]],
+      ['GUI sang ma trận','Matrix GUI layout',[
+        ['Dùng <code>P/B/R/N/.</code> để bố trí đầu người chơi, Back, Refresh, Next và ô trống.','Use <code>P/B/R/N/.</code> to place player heads, Back, Refresh, Next and empty slots.']
+      ]]
+    ],
+    link:'#solarbounty-config'
+  },
+  {
+    product:'solarbounty', number:149, version:'SolarBounty-1.0-dev', date:'2026-11-06',
+    sections:[
+      ['Cộng bounty khi hạ người chơi','Bounty inheritance on player kills',[
+        ['Killer hợp lệ vừa nhận tiền thưởng qua Vault, vừa được cộng thêm 40% bounty của đối phương vào bounty của mình.','An eligible killer receives the Vault reward and adds 40% of the victim’s bounty to their own bounty.'],
+        ['Tính theo bounty nạn nhân ngay trước khi chết.','Calculated from the victim’s bounty immediately before death.'],
+        ['Phần 40% cộng thêm ngoài tiền kill cố định đang cấu hình.','The 40% inheritance is added on top of the configured fixed kill bonus.'],
+        ['Thêm <code>bounty.kill.inherit-percent</code> để chỉnh tỷ lệ; đặt <code>0</code> để tắt.','Use <code>bounty.kill.inherit-percent</code> to change the percentage; set it to <code>0</code> to disable inheritance.'],
+        ['Config cũ thiếu tùy chọn này tự áp dụng mặc định 40%.','Existing configurations without this option default to 40%.']
+      ]]
+    ],
+    link:'#solarbounty-config'
+  },
+  {
+    product:'solarbounty', number:150, version:'SolarBounty-1.0-dev', date:'2026-11-06',
+    sections:[
+      ['Hỗ trợ đơn vị tiền K/M/B/T','K/M/B/T money units',[
+        ['Cho phép nhập bounty bằng đơn vị rút gọn, ví dụ <code>/bounty set OmhVN 1.5M</code>.','Enter bounty amounts with compact units, for example <code>/bounty set OmhVN 1.5M</code>.'],
+        ['Hỗ trợ K/M/B/T trong cấu hình tiền và hiển thị GUI, thông báo.','Supports K/M/B/T in money configuration, GUI displays and messages.'],
+        ['Giữ nguyên giá trị tiền thực trong database và Vault.','The database and Vault retain the actual monetary values.'],
+        ['Cấu hình mới mặc định <code>bounty.max: 1T</code>; config cũ giữ giới hạn đã đặt.','New configurations default to <code>bounty.max: 1T</code>; existing configurations keep their configured cap.']
+      ]],
+      ['Giảm bounty khi offline lâu','Bounty decay after extended offline time',[
+        ['Sau 15 ngày offline, mỗi 24 giờ tiếp theo giảm 10% bounty còn lại.','After 15 offline days, each additional 24 hours reduces the remaining bounty by 10%.'],
+        ['Ví dụ: <code>10K → 9K → 8.1K</code>.','Example: <code>10K → 9K → 8.1K</code>.'],
+        ['Online trở lại sẽ dừng giảm; lần rời server tiếp theo bắt đầu thời gian chờ mới.','Returning online stops decay. The next logout starts a new waiting period.'],
+        ['Không trừ tiền Vault hoặc thay đổi kills và thời gian sống.','Does not deduct Vault funds or change kills and survival time.'],
+        ['Lưu mốc giảm qua restart, không giảm trùng khi refresh.','Decay progress persists across restarts and is not applied twice on refresh.'],
+        ['Thêm <code>bounty.decay.enabled</code>, <code>bounty.decay.after-days</code> và <code>bounty.decay.percent</code> để tùy chỉnh.','Configure decay with <code>bounty.decay.enabled</code>, <code>bounty.decay.after-days</code> and <code>bounty.decay.percent</code>.']
+      ]]
+    ],
+    link:'#solarbounty-config'
+  },
+  {
     product:'solartpa', number:155, version:'SolarTPA-1.1', date:'2026-11-08',
     sections:[
       ['Sửa xung đột lệnh với EssentialsX','EssentialsX command conflicts',[
