@@ -33,15 +33,16 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
     const examples={solarshop:'total_items',solarshards:'balance_raw',solarbounty:'bounty_short'};
     docs.push({id:product+'-papi',product,group:t('TÍCH HỢP','INTEGRATIONS'),icon:'%',title:'PlaceholderAPI',
       lead:t('Tra cứu placeholder dùng trong scoreboard, TAB hoặc plugin hỗ trợ PAPI.','Reference for placeholders used in scoreboards, TAB and other PAPI-enabled plugins.'),
-      html:'<h2 id="su-dung">'+t('Cách dùng','Usage')+'</h2><p>'+t('Cài PlaceholderAPI và plugin tương ứng, rồi khởi động lại server. Expansion được plugin đăng ký trực tiếp, không cần tải qua eCloud.','Install PlaceholderAPI and the product plugin, then restart. The product registers its own expansion; no eCloud download is needed.')+'</p>'+
+      html:'<h2 id="su-dung">'+t('Bắt đầu trong 3 bước','Start in 3 steps')+'</h2><ol><li>'+t('Cài PlaceholderAPI cùng plugin bạn đang xem.','Install PlaceholderAPI and this product plugin.')+'</li><li>'+t('Khởi động lại server. Plugin tự đăng ký placeholder, không cần tải thêm từ eCloud.','Restart the server. The plugin registers its placeholders automatically; no eCloud download is needed.')+'</li><li>'+t('Vào game, nhập lệnh dưới đây để xem kết quả.','Join the server and enter this command to see the result.')+'</li></ol>'+
         code('PlaceholderAPI','/papi parse me %'+product+'_'+examples[product]+'%')+
-        '<h2 id="danh-sach">'+t('Danh sách','Reference')+'</h2>'+table(['Placeholder',t('Kết quả','Result')],rows.map(([key,vi,english])=>['<code>'+esc(key)+'</code>',t(vi,english)]))
+        '<p>'+t('Muốn hiện trên TAB hoặc scoreboard? Sao chép phần nằm giữa hai dấu <code>%</code>, gồm cả dấu <code>%</code>, vào dòng hiển thị của plugin đó.','To display this in TAB or a scoreboard, copy the placeholder including both <code>%</code> signs into that plugin’s display text.')+'</p>'+
+        '<h2 id="danh-sach">'+t('Chọn thông tin muốn hiển thị','Choose what to display')+'</h2>'+rows.map(([key,vi,english])=>'<div class="placeholder-card"><p>'+t(vi,english)+'</p>'+key.split(' · ').map(value=>'<p><code>'+esc(value)+'</code></p>').join('')+'</div>').join('')
     });
   }
   docs.push({
     id:'solartpa-papi',product:'solartpa',group:t('TÍCH HỢP','INTEGRATIONS'),icon:'%',title:t('Placeholder','Placeholders'),
     lead:t('SolarTPA 1.1 không có expansion PlaceholderAPI. Các biến dưới đây chỉ dùng trong GUI và tin nhắn của SolarTPA.','SolarTPA 1.1 has no PlaceholderAPI expansion. These variables work only in SolarTPA GUI and message templates.'),
-    html:'<h2 id="bien">'+t('Biến trong cấu hình','Configuration variables')+'</h2>'+table(['Key',t('Dùng ở đâu','Where it works')],[
+    html:'<h2 id="su-dung">'+t('Muốn sửa chữ trong menu?','Changing menu text?')+'</h2><ol><li>'+t('Mở file GUI hoặc tin nhắn bạn muốn chỉnh trong thư mục SolarTPA.','Open the GUI or message file you want to edit in the SolarTPA folder.')+'</li><li>'+t('Giữ nguyên biến có sẵn, chỉ sửa chữ xung quanh. Ví dụ <code>Người chơi: %player%</code>.','Keep the existing variable and edit the text around it. For example, <code>Player: %player%</code>.')+'</li><li>'+t('Biến chỉ hoạt động trong menu hoặc tin nhắn hỗ trợ nó; xem vị trí ở bảng dưới.','Variables work only in supported menus or messages; see the table below.')+'</li></ol><h2 id="bien">'+t('Biến trong cấu hình','Configuration variables')+'</h2>'+table(['Key',t('Dùng ở đâu','Where it works')],[
       ['<code>%player%</code>',t('Tên người chơi trong tên/lore GUI hoặc các tin nhắn có sẵn biến này.','Player name in GUI names/lore or messages that already use this variable.')],
       ['<code>%world%</code>',t('Tên thế giới hiển thị trong menu xác nhận và danh sách yêu cầu.','World display name in confirmation and request-list menus.')],
       ['<code>%is_flying%</code>',t('Trạng thái bay trong menu xác nhận (Yes/No).','Flight status in confirmation menus (Yes/No).')],

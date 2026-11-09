@@ -93,6 +93,7 @@ jobs:
           }
           assert(docs.find(d=>d.id==='solarshop-changelog')?.html.includes('DevLog Plugins #156'), 'Missing SolarShop release notes');
           assert(docs.find(d=>d.id==='solartpa-changelog')?.html.includes('DevLog Plugins #157'), 'Missing SolarTPA release notes');
+          assert(docs.find(d=>d.id==='solartpa-changelog')?.html.includes('DevLog Plugins #155'), 'Missing SolarTPA EssentialsX update');
           for (const [oldId,parentId] of Object.entries(sandbox.window.ONIC_MOVED_GUIDES)) {
             assert(!ids.has(oldId) && docs.find(d=>d.id===parentId)?.html.includes('id="'+oldId+'"'), 'Guide not merged: '+oldId);
           }

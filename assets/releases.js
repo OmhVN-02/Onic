@@ -6,6 +6,17 @@ window.ONIC_MOVED_GUIDES = {
 
 const onicReleaseNotes = [
   {
+    product:'solartpa', number:155, version:'SolarTPA-1.1', date:'2026-11-08',
+    sections:[
+      ['Sửa xung đột lệnh với EssentialsX','EssentialsX command conflicts',[
+        ['Cài cả hai plugin? Các lệnh <code>/tpa</code>, <code>/tpahere</code>, <code>/tpaccept</code>, <code>/tpdeny</code>, <code>/tpacancel</code>, <code>/tpauto</code>, <code>/tpyes</code> và <code>/tpno</code> sẽ do SolarTPA xử lý.','With both plugins installed, SolarTPA handles <code>/tpa</code>, <code>/tpahere</code>, <code>/tpaccept</code>, <code>/tpdeny</code>, <code>/tpacancel</code>, <code>/tpauto</code>, <code>/tpyes</code> and <code>/tpno</code>.'],
+        ['Muốn dùng lệnh của EssentialsX? Nhập tên đầy đủ, ví dụ <code>/essentials:tpa</code>.','To use EssentialsX instead, enter its full command name, such as <code>/essentials:tpa</code>.'],
+        ['Nút chat dùng <code>/solartpa:tpaccept</code> và <code>/solartpa:tpdeny</code>, giúp chấp nhận hoặc từ chối đúng yêu cầu SolarTPA.','Chat buttons use <code>/solartpa:tpaccept</code> and <code>/solartpa:tpdeny</code> to accept or deny the correct SolarTPA request.']
+      ]]
+    ],
+    link:'#solartpa-commands'
+  },
+  {
     product:'solarshop', number:156, version:'SolarShop-2.0-C06',
     sections:[
       ['Hook trực tiếp SolarShards','Direct SolarShards integration',[
@@ -104,13 +115,13 @@ for (const [docs, english] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,tr
     const releaseDate = release => release.date || '2026-11-09';
     const releases = onicReleaseNotes.filter(release=>release.product===product).sort((a,b)=>releaseDate(b).localeCompare(releaseDate(a)) || b.number-a.number);
     docs.push({id, product,group:english?'OPERATIONS':'VẬN HÀNH',icon:'↻',title:'Changelog',
-      lead:english?'Release notes for this product.':'Ghi chú cập nhật của sản phẩm.',
-      html:releases.map(release=>{
+      lead:english?'Newest updates first. Choose an update below to read what changed.':'Bản mới nhất ở trên. Chọn bản cập nhật bên dưới để xem thay đổi.',
+      html:'<nav class="release-index" aria-label="'+(english?'Updates':'Bản cập nhật')+'">'+releases.map(release=>`<a href="#${id}/devlog-${release.number}">#${release.number} · ${releaseDate(release).split('-').reverse().join('/')}</a>`).join('')+'</nav>'+releases.map(release=>{
         const date=releaseDate(release);
-        return `<h2 id="devlog-${release.number}">${release.version} · #${release.number}</h2><p>DevLog Plugins #${release.number} · <time datetime="${date}">${date.split('-').reverse().join(' / ')}</time></p>` +
+        return `<section class="release-card"><h2 id="devlog-${release.number}">${release.version}</h2><p class="release-meta">DevLog Plugins #${release.number} · <time datetime="${date}">${date.split('-').reverse().join(' / ')}</time></p>` +
         (release.subtitle ? '<p>'+esc(release.subtitle)+'</p>' : '') +
         release.sections.map(([vi,en,items])=>'<h3>'+esc(english?en:vi)+'</h3><ul>'+items.map(pair=>'<li>'+pair[locale]+'</li>').join('')+'</ul>').join('') +
-        `<p><a href="${release.link}">${english?'Read the guide':'Xem hướng dẫn'} ↗</a></p>`;
+        `<p><a href="${release.link}">${english?'Read the guide':'Xem hướng dẫn'} ↗</a></p></section>`;
       }).join('')
     });
   }
