@@ -79,3 +79,13 @@ footer{align-items:center;padding-bottom:env(safe-area-inset-bottom)}.footer-bra
 .nav-section summary{display:flex;align-items:center;justify-content:space-between;list-style:none;min-height:36px;padding:0 9px;font-weight:600}
 .nav-section summary::after{content:'+';color:var(--muted);font-weight:400}.nav-section[open] summary::after{content:'−'}
 .nav-section .nav-link{margin:2px 0}.sidebar .search{margin-bottom:14px}
+.brand img.brand-icon{border-radius:50%;height:37px;object-fit:cover;flex:none}
+.intro-panel img{border-radius:50%}
+.platform-badge{display:inline-flex;align-items:center;gap:6px;min-height:29px}
+.platform-badge span{display:grid;place-items:center;width:20px;height:20px;border-radius:5px;background:#fff}
+.platform-badge .folia-mark{background:#285c49}
+.platform-badge img{display:block;object-fit:contain}
+.yaml-key{color:#9ddcf9}.yaml-string{color:#b8e49b}.yaml-number{color:#fac18e}.yaml-literal{color:#f6b5d9}.yaml-comment{color:#9ba69d}.yaml-punct{color:var(--muted)}
+html[data-theme=light] .yaml-key{color:#145b78}html[data-theme=light] .yaml-string{color:#386124}html[data-theme=light] .yaml-number{color:#85410a}html[data-theme=light] .yaml-literal{color:#80315e}html[data-theme=light] .yaml-comment{color:#59695e}
+.footer-credits{margin-left:auto;color:var(--muted);min-height:40px;display:inline-flex;align-items:center}.footer-credits:hover{color:var(--accent)}
+@media(max-width:420px){.brand img.brand-icon{height:30px}}

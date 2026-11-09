@@ -36,7 +36,7 @@ window.ONIC_ENGLISH=window.SOLAR_DOCS.map(doc=>{
  let html='<h2 id="guide">Guide</h2><p>'+esc(body)+'</p>'+codeBlocks;
  if(doc.id==='bat-dau'){
   const names=['Main menu','Farm category','Quantity confirmation','Spawner confirmation','Shop manager','Category editor'];
-  html='<div class="hero-art"><div class="hero-caption">MINECRAFT SHOP SYSTEM<strong>Your shop.<br>Your rules.</strong>Items · Shards · Spawners</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="SolarShop main menu" width="345" height="170"></div>'+html+
+  html='<div class="pills"><span class="pill">2.0-C05</span>'+platformBadges+'</div><div class="hero-art"><div class="hero-caption">MINECRAFT SHOP SYSTEM<strong>Your shop.<br>Your rules.</strong>Items · Shards · Spawners</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="SolarShop main menu" width="345" height="170"></div>'+html+
   '<h2 id="anh-gui">In-game screenshots</h2><div class="cards screenshots">'+gallery.map(([id],i)=>'<figure class="card"><img src="assets/images/solarshop/'+id+'.png" alt="'+names[i]+'" loading="lazy"><figcaption>'+names[i]+'</figcaption></figure>').join('')+'</div>';
  }
  return {...doc,title,subtitle:null,group,lead,html};

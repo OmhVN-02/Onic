@@ -1,12 +1,34 @@
 /* Public documentation only. Examples are illustrative; no server credentials. */
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const code = (label, value) => `<div class="code-block"><div class="code-header"><span>${esc(label)}</span><button class="copy" type="button" aria-label="Sao chép ${esc(label)}">Sao chép ⧉</button></div><pre><code>${esc(value.trim())}</code></pre></div>`;
+function highlightYaml(text) {
+  const mark = (kind,value) => '<span class="yaml-'+kind+'">'+esc(value)+'</span>';
+  return text.split('\n').map(line => {
+    const key = /^(\s*(?:-\s+)?)([\w.-]+)(:)(?=\s|$)/.exec(line);
+    const prefix = key ? esc(key[1])+mark('key',key[2])+mark('punct',key[3]) : '';
+    const rest = key ? line.slice(key[0].length) : line;
+    const tokens = /"(?:\\.|[^"\\])*"|'(?:''|[^'])*'|(?:^|\s)#[^\n]*|\b(?:true|false|null)\b|(?<![\w.])-?\d+(?:\.\d+)?(?![\w.])/gi;
+    let out = prefix, cursor = 0;
+    for (const match of rest.matchAll(tokens)) {
+      const value = match[0], trimmed = value.trimStart();
+      const kind = trimmed.startsWith('#') ? 'comment' : /^["']/.test(trimmed) ? 'string' : /^(true|false|null)$/i.test(trimmed) ? 'literal' : 'number';
+      out += esc(rest.slice(cursor,match.index)) + mark(kind,value);
+      cursor = match.index + value.length;
+    }
+    return out + esc(rest.slice(cursor));
+  }).join('\n');
+}
+const code = (label, value) => {
+  const text = value.replace(/\r\n/g,'\n').trim();
+  const yaml = /ya?ml/i.test(label) || /^(?:\s*)[\w.-]+:(?:\s|$)/m.test(text);
+  return `<div class="code-block"><div class="code-header"><span>${esc(label)}</span><button class="copy" type="button" aria-label="Sao chép ${esc(label)}">Sao chép ⧉</button></div><pre><code>${yaml ? highlightYaml(text) : esc(text)}</code></pre></div>`;
+};
+const platformBadges = '<a class="pill platform-badge" href="https://papermc.io/software/paper/" target="_blank" rel="noopener"><span><img src="assets/images/paper.svg" alt="" width="16" height="16"></span>Paper</a><a class="pill platform-badge" href="https://papermc.io/software/folia/" target="_blank" rel="noopener"><span class="folia-mark"><img src="assets/images/folia.svg" alt="" width="16" height="16"></span>Folia</a>';
 const note = (title, text, warning = false) => `<div class="callout ${warning ? 'warning' : ''}"><strong>${title}</strong>${text}</div>`;
 const table = (headers, rows) => `<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const card = (id, icon, title, text) => `<a class="card" href="#${id}"><span class="card-icon">${icon}</span><strong>${title}<span>↗</span></strong><p>${text}</p></a>`;
 window.SOLAR_DOCS = [
 {id:'bat-dau',group:'BẮT ĐẦU',icon:'⌂',title:'Tổng quan',subtitle:'Một cửa hàng. Nhiều khả năng.',lead:'Từ chiếc shop đầu tiên đến hệ thống nhiều loại tiền. Hướng dẫn thực hành SolarShop cho quản trị viên Minecraft — bắt đầu nhỏ, cấu hình rõ, vận hành an toàn.',html:`
-<div class="pills"><span class="pill">2.0-C05</span><span class="pill">Paper / Folia</span><span class="pill">Tiếng Việt</span></div>
+<div class="pills"><span class="pill">2.0-C05</span>${platformBadges}</div>
 <div class="hero-art"><div class="hero-caption">HỆ THỐNG CỬA HÀNG MINECRAFT<strong>Shop của bạn.<br>Cách chơi của bạn.</strong>Vật phẩm · Shards · Spawner</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="Menu chính SolarShop trong Minecraft" width="345" height="170"></div>
 ${note('Bạn đang đọc tài liệu cho bản nào?','SolarShop <b>2.0-C05</b>, gồm hook SolarShards và SmartSpawner. Tài liệu phản ánh mã nguồn đã build ngày 09/11/2026.')}
 <h2 id="lo-trinh">Chọn điểm bắt đầu</h2><div class="cards">${card('cai-dat','01','Cài đặt lần đầu','Chuẩn bị server, plugin phụ thuộc và kiểm tra khởi động.')}${card('shop-dau-tien','02','Tạo shop đầu tiên','Một file YAML, một danh mục và một vật phẩm để thử.')}${card('solarshards','03','Thanh toán SolarShards','Dùng API trực tiếp, không cần lệnh trừ Shards.')}${card('smartspawner','04','Shop SmartSpawner','Bán spawner đúng dữ liệu API bằng ss-id.')}</div>

@@ -27,7 +27,9 @@ for (const doc of docs) for (const [,id] of doc.html.matchAll(/href="#([^"/]+)"/
 for (const doc of docs) for (const [,asset] of doc.html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) assert(existsSync(resolve(root, asset)), 'Missing asset: ' + asset);
 assert(docs.filter(d=>d.product==='solartpa').length === 4, 'Missing SolarTPA documentation');
 assert(sandbox.window.ONIC_TPA_CONFIGS.length === 8, 'Missing SolarTPA YAML templates');
-assert((docs.find(d=>d.id==='bat-dau').html.match(/<img /g)||[]).length === 7, 'Missing SolarShop hero or gallery screenshots');
+assert((docs.find(d=>d.id==='bat-dau').html.match(/<img\b[^>]*src="assets\/images\/solarshop\//g)||[]).length === 7, 'Missing SolarShop hero or gallery screenshots');
+assert(runInNewContext('highlightYaml("key: true # note")',sandbox).includes('yaml-literal'), 'YAML highlighting missing');
+assert(!runInNewContext('highlightYaml(' + JSON.stringify('name: "<script>"') + ')',sandbox).includes('<script>'), 'YAML highlighting must escape HTML');
 assert(sandbox.window.ONIC_ENGLISH.length === docs.length, 'Missing English guides');
 for (const [i,doc] of sandbox.window.ONIC_ENGLISH.entries()) {
   assert(doc.id === docs[i].id && doc.html && doc.title && doc.lead, 'Missing English content: ' + docs[i].id);
