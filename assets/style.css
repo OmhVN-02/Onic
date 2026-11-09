@@ -104,5 +104,3 @@ html[data-theme=light] .top-actions #theme .theme-sun{display:block}
 article .release-card h2{margin-top:0}
 .release-meta{color:var(--muted);font-size:12px}
 .release-card li{margin-bottom:12px}
-.placeholder-card{padding:12px 18px;margin:14px 0;border:1px solid var(--line);border-radius:9px;background:var(--panel);overflow-wrap:anywhere}
-.placeholder-card p{margin:8px 0}

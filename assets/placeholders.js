@@ -35,8 +35,8 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
       lead:t('Tra cứu placeholder dùng trong scoreboard, TAB hoặc plugin hỗ trợ PAPI.','Reference for placeholders used in scoreboards, TAB and other PAPI-enabled plugins.'),
       html:'<h2 id="su-dung">'+t('Bắt đầu trong 3 bước','Start in 3 steps')+'</h2><ol><li>'+t('Cài PlaceholderAPI cùng plugin bạn đang xem.','Install PlaceholderAPI and this product plugin.')+'</li><li>'+t('Khởi động lại server. Plugin tự đăng ký placeholder, không cần tải thêm từ eCloud.','Restart the server. The plugin registers its placeholders automatically; no eCloud download is needed.')+'</li><li>'+t('Vào game, nhập lệnh dưới đây để xem kết quả.','Join the server and enter this command to see the result.')+'</li></ol>'+
         code('PlaceholderAPI','/papi parse me %'+product+'_'+examples[product]+'%')+
-        '<p>'+t('Muốn hiện trên TAB hoặc scoreboard? Sao chép phần nằm giữa hai dấu <code>%</code>, gồm cả dấu <code>%</code>, vào dòng hiển thị của plugin đó.','To display this in TAB or a scoreboard, copy the placeholder including both <code>%</code> signs into that plugin’s display text.')+'</p>'+
-        '<h2 id="danh-sach">'+t('Chọn thông tin muốn hiển thị','Choose what to display')+'</h2>'+rows.map(([key,vi,english])=>'<div class="placeholder-card"><p>'+t(vi,english)+'</p>'+key.split(' · ').map(value=>'<p><code>'+esc(value)+'</code></p>').join('')+'</div>').join('')
+        '<p>'+t('Muốn hiện trên TAB hoặc scoreboard? Sao chép placeholder gồm cả hai dấu <code>%</code> vào dòng hiển thị của plugin đó.','To display this in TAB or a scoreboard, copy the placeholder including both <code>%</code> signs into that plugin’s display text.')+'</p>'+
+        '<h2 id="danh-sach">'+t('Danh sách placeholder','Placeholder reference')+'</h2>'+table(['Placeholder',t('Ý nghĩa / cách dùng','Meaning / usage')],rows.flatMap(([key,vi,english])=>key.split(' · ').map(value=>['<code>'+esc(value)+'</code>',t(vi,english)])))
     });
   }
   docs.push({
@@ -46,7 +46,8 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
       ['<code>%player%</code>',t('Tên người chơi trong tên/lore GUI hoặc các tin nhắn có sẵn biến này.','Player name in GUI names/lore or messages that already use this variable.')],
       ['<code>%world%</code>',t('Tên thế giới hiển thị trong menu xác nhận và danh sách yêu cầu.','World display name in confirmation and request-list menus.')],
       ['<code>%is_flying%</code>',t('Trạng thái bay trong menu xác nhận (Yes/No).','Flight status in confirmation menus (Yes/No).')],
-      ['<code>%type%</code> / <code>%time_left%</code>',t('Loại TPA/TPAHere và số giây còn lại trong danh sách yêu cầu.','Request type and remaining seconds in the request list.')],
+      ['<code>%type%</code>',t('Loại TPA/TPAHere trong danh sách yêu cầu.','TPA/TPAHere request type in the request list.')],
+      ['<code>%time_left%</code>',t('Số giây còn lại trong danh sách yêu cầu.','Remaining seconds in the request list.')],
       ['<code>%page%</code>',t('Số trang đích trong lore nút chuyển trang.','Target page number in navigation button lore.')],
       ['<code>%time%</code>',t('Số giây đếm ngược trong thông báo dịch chuyển.','Countdown seconds in teleport messages.')]
     ])+'<p>'+t('Các biến này không dùng được với /papi parse, TAB hay scoreboard. Plugin tích hợp có thể dùng','These variables do not work with /papi parse, TAB or scoreboards. Integrations can use the')+' <a href="#solartpa-api">SolarTPA API</a>.</p>'
