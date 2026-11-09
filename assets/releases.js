@@ -6,6 +6,76 @@ window.ONIC_MOVED_GUIDES = {
 
 const onicReleaseNotes = [
   {
+    product:'solarshop', number:177, version:'SolarShop-2.0-C03', date:'2026-07-12',
+    subtitle:'Direct Category Open Command',
+    sections:[
+      ['Lệnh mở trực tiếp danh mục','Direct category open command',[
+        ['Thêm <code>/solarshop open &lt;tên_danh_mục&gt; [tên_người_chơi]</code>, với alias <code>/ss open ...</code>.','Adds <code>/solarshop open &lt;category&gt; [player]</code>, with the <code>/ss open ...</code> alias.'],
+        ['Mở nhanh cửa hàng từ DeluxeMenus, zMenu, NPC hoặc Command Block.','Open a category directly from DeluxeMenus, zMenu, NPCs or command blocks.'],
+        ['Mở cho bản thân sẽ kiểm tra quyền danh mục; mở cho người khác cần quyền admin.','Opening for yourself checks category permissions; opening for another player requires admin permission.'],
+        ['Tự động gợi ý ID danh mục và tên người chơi khi nhấn Tab.','Tab completion suggests category IDs and player names.']
+      ]]
+    ],
+    link:'#lenh-quyen'
+  },
+  {
+    product:'solarshop', number:176, version:'SolarShop-1.7', date:'2026-07-12',
+    subtitle:'Dynamic Aliases & DeluxeMenus/zMenu Support',
+    sections:[
+      ['Bỏ hiển thị số lượng vật phẩm','Remove item count display',[
+        ['Bỏ dòng <code>Items: X</code> và số lượng vật phẩm Shards trên biểu tượng danh mục ở menu chính.','Removes <code>Items: X</code> and Shards item counts from category icons in the main menu.']
+      ]],
+      ['Tải lại alias động','Reload dynamic command aliases',[
+        ['Alias của <code>/solarshop</code> áp dụng ngay khi dùng <code>/ss reload</code> hoặc <code>/solarshop reload</code>.','Aliases for <code>/solarshop</code> update immediately with <code>/ss reload</code> or <code>/solarshop reload</code>.']
+      ]],
+      ['Mở menu DeluxeMenus và zMenu','Open DeluxeMenus and zMenu menus',[
+        ['Thêm <code>open-gui: &lt;tên_menu&gt;</code> hoặc <code>open_gui</code> trên từng Shop Item.','Adds <code>open-gui: &lt;menu_name&gt;</code> or <code>open_gui</code> to individual shop items.'],
+        ['Nhấp vật phẩm để mở menu tương ứng của DeluxeMenus hoặc zMenu, thông qua Java API hoặc lệnh console.','Click the item to open the matching DeluxeMenus or zMenu menu through its Java API or console commands.']
+      ]]
+    ],
+    link:'#vat-pham'
+  },
+  {
+    product:'solarshop', number:175, version:'SolarShop-1.7', date:'2026-07-12',
+    subtitle:'PlaceholderAPI Lore Support, Attribute Hiding & Item Count Toggle',
+    sections:[
+      ['PlaceholderAPI trong giao diện','PlaceholderAPI in shop interfaces',[
+        ['Hỗ trợ PAPI trong tên và lore của vật phẩm trong shop.','Supports PAPI in shop item display names and lore.'],
+        ['Hỗ trợ PAPI trong tên và lore của danh mục ở menu chính.','Supports PAPI in category display names and lore in the main menu.'],
+        ['Hỗ trợ PAPI trong tiêu đề cửa hàng và menu xác nhận mua.','Supports PAPI in shop and buy-confirmation menu titles.'],
+        ['Hỗ trợ PAPI trong toàn bộ lore của nút xác nhận và hủy mua.','Supports PAPI throughout the confirmation and cancellation button lore.'],
+        ['Giá trị placeholder được thay theo từng người đang xem menu.','Placeholder values are resolved for the player viewing the menu.']
+      ]],
+      ['Ẩn thuộc tính vật phẩm','Hide item attributes',[
+        ['Dùng <code>hide-attributes: true</code> hoặc <code>hide_attributes: true</code> trên Shop Item để ẩn thông tin mặc định như sát thương, giáp và tốc độ đánh.','Set <code>hide-attributes: true</code> or <code>hide_attributes: true</code> on a shop item to hide default modifiers such as damage, armor and attack speed.']
+      ]],
+      ['Tùy chọn hiển thị số lượng ở bản này','Item count options in this release',[
+        ['Trong khối <code>main</code> của file danh mục (ví dụ <code>minerals.yml</code>), dùng <code>show-item-counts: false</code> hoặc <code>show_item_counts: false</code> để tắt tổng số vật phẩm và số vật phẩm Shards trên biểu tượng.','In a category file’s <code>main</code> section (for example <code>minerals.yml</code>), use <code>show-item-counts: false</code> or <code>show_item_counts: false</code> to hide total and Shards item counts on its icon.'],
+        ['Có tùy chọn toàn cục <code>gui.show-item-counts</code> trong <code>main-menu.yml</code>.','The global option is <code>gui.show-item-counts</code> in <code>main-menu.yml</code>.'],
+        ['Ghi chú lịch sử: DevLog #176 sau đó bỏ hẳn các dòng số lượng này khỏi biểu tượng danh mục.','Historical note: DevLog #176 subsequently removes these count lines from category icons entirely.']
+      ]]
+    ],
+    link:'#giao-dien'
+  },
+  {
+    product:'solarshop', number:173, version:'SolarShop-1.6', date:'2026-07-11',
+    subtitle:'Separate Currency Config, Startup Load Fix & Unified Currency Selection',
+    sections:[
+      ['Tách cấu hình tiền tệ sang currency.yml','Separate currency.yml configuration',[
+        ['Chuyển toàn bộ cấu hình tiền tệ từ <code>config.yml</code> sang <code>currency.yml</code> để dễ quản lý.','Moves all currency settings from <code>config.yml</code> to <code>currency.yml</code>.'],
+        ['Gộp Vault, PlayerPoints, Shards và tiền tùy chỉnh vào một danh sách.','Combines Vault, PlayerPoints, Shards and custom currencies in one list.'],
+        ['Ở bản 1.6, loại tiền được định nghĩa bằng <code>type: vault | playerpoints | custom</code>.','In version 1.6, currencies use <code>type: vault | playerpoints | custom</code>.'],
+        ['Kèm ví dụ <code>gems</code> được chú thích bằng <code>#</code> để sao chép và tạo thêm tiền tùy chỉnh.','Includes a <code>gems</code> example commented out with <code>#</code> to help create additional custom currencies.']
+      ]],
+      ['Chọn tiền bằng một key','One currency selector',[
+        ['Bỏ các tùy chọn cũ như <code>shards: true</code>, <code>isShard</code> và <code>points: true</code>.','Removes legacy flags such as <code>shards: true</code>, <code>isShard</code> and <code>points: true</code>.'],
+        ['Dùng <code>currency: &lt;key&gt;</code>, ví dụ <code>currency: shards</code>, <code>currency: points</code> hoặc <code>currency: gems</code>.','Use <code>currency: &lt;key&gt;</code>, such as <code>currency: shards</code>, <code>currency: points</code> or <code>currency: gems</code>.'],
+        ['Shop mẫu <code>shards.yml</code> chuyển hoàn toàn sang <code>currency: shards</code>.','The sample <code>shards.yml</code> shop now uses <code>currency: shards</code> throughout.']
+      ]]
+    ],
+    link:'#tien-te'
+  },
+  {
     product:'solarbounty', number:148, version:'SolarBounty-1.0-dev', date:'2026-11-05',
     sections:[
       ['Hệ thống bounty tự động','Automatic bounty system',[

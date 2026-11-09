@@ -59,6 +59,11 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
     if(existing){existing.html=html;existing.title=t('Cài đặt lần đầu','First installation');existing.lead=t('Làm lần lượt từ chuẩn bị Java đến lần chạy thử đầu tiên.','Go step by step from Java setup to your first working command.');}
     else docs.splice(docs.findIndex(doc=>doc.id===p.home)+1,0,{id:p.setup,product:p.id,group:t('BẮT ĐẦU','GET STARTED'),icon:'↓',title:t('Cài đặt lần đầu','First installation'),lead:t('Chuẩn bị, cài đặt và kiểm tra '+p.name+' theo từng bước.','Prepare, install and verify '+p.name+' step by step.'),html});
     const overview=docs.find(doc=>doc.id===p.home);
+    if(p.id==='solarshards'){
+      const logo='<img src="assets/images/solarshards-logo.png" alt="SolarShards — Shards System" width="1920" height="1080" loading="lazy">';
+      overview.html='<figure class="product-wordmark">'+logo+'</figure>'+overview.html;
+      home.html=home.html.replace('<span class="card-icon">✧</span>','<span class="card-icon product-card-logo">'+logo+'</span>');
+    }
     overview.html='<div class="beginner-intro"><strong>'+t('Lần đầu dùng '+p.name+'?','New to '+p.name+'?')+'</strong><p>'+t('Bắt đầu từ cài đặt. Chỉ chỉnh cấu hình sau khi plugin đã chạy và lệnh thử hoạt động.','Start with installation. Change settings once the plugin starts and its test command works.')+'</p><a class="beginner-link" href="#'+p.setup+'">'+t('Cài đặt từng bước','Step-by-step installation')+' →</a></div><div class="pills">'+javaBadge(p.java)+'</div>'+overview.html;
     const config=docs.find(doc=>doc.id===p.config);
     config.html='<div class="beginner-intro"><strong>'+t('Chưa biết sửa file nào?','Not sure which file to edit?')+'</strong><p>'+t('Tìm tính năng muốn đổi trong bảng, mở đúng file trong plugins/'+p.folder+'/, rồi sửa một key mỗi lần. Các giá trị bên dưới là mẫu để tham khảo.','Find the feature in the table, open the matching file in plugins/'+p.folder+'/, then change one key at a time. Values below are examples.')+'</p><a href="#'+p.setup+'/sua-config">'+t('Xem cách sửa YAML lần đầu','How to edit your first YAML setting')+' →</a></div>'+config.html;
