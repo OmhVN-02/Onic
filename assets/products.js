@@ -40,5 +40,5 @@ tpaPage('api','API','◇','Tích hợp Java qua Bukkit ServicesManager.',
  '<h2 id="ket-qua">Kết quả</h2><p>SUCCESS nghĩa là gửi được, không phải đã dịch chuyển. Xử lý các trạng thái như INVALID_PLAYER, IN_COMBAT, ON_COOLDOWN, DAILY_LIMIT_REACHED, REQUEST_CANCELLED và các trạng thái khác qua RequestResult.</p>'+
  '<h2 id="events">Sự kiện</h2><p>Package: <code>org.omhvn.solartpa.api.events</code>.</p>'+table(['Sự kiện','Có thể hủy?'],[
  ['TPARequestEvent, TPAAcceptEvent, TPADenyEvent','Có'],['TPAToggleEvent, TPAutoToggleEvent','Có'],['TPACancelEvent, TPAExpireEvent','Không'],['TeleportCompleteEvent','Không; báo dịch chuyển hoàn tất.']]));
-const shortTitles={'solarshop-config':'Cấu hình','solarshards-config':'Cấu hình','solarshards-home':'Tổng quan','smartspawner':'SmartSpawner','thu-muc':'Thư mục','cai-dat':'Cài đặt','giao-dien':'GUI','phat-hanh':'Checklist'};
+const shortTitles={'solarshards-config':'Cấu hình','solarshards-home':'Tổng quan','smartspawner':'SmartSpawner','thu-muc':'Thư mục','cai-dat':'Cài đặt','giao-dien':'GUI','phat-hanh':'Checklist'};
 for(const d of docsList) if(shortTitles[d.id]) d.title=shortTitles[d.id];

@@ -1,6 +1,6 @@
 # Onic Wiki
 
-Wiki nhiều plugin Minecraft: **SolarShop 2.0-C05-NoKey**, **SolarShards** và **SolarTPA 1.1**.
+Wiki nhiều plugin Minecraft: **SolarShop 2.0-C05**, **SolarShards** và **SolarTPA 1.1**.
 
 Đây chỉ là website công khai. Không chứa mã nguồn plugin, JAR phát hành hoặc dữ liệu server.
 

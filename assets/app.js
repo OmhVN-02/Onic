@@ -73,7 +73,7 @@
     $('crumb').textContent = doc.title;
     select.value = doc.product === 'wiki' ? '' : doc.product;
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
-    $('product-version').textContent = product ? product.name + ' · ' + product.version : 'PLUGIN KNOWLEDGE BASE';
+    $('product-version').textContent = product ? [product.name,product.version].filter(Boolean).join(' · ') : 'PLUGIN KNOWLEDGE BASE';
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     const headings = [...$('article').querySelectorAll('h2[id]')];

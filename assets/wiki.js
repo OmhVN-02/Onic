@@ -68,47 +68,81 @@ function configSection(file, index, product = 'solarshop') {
 }
 const configs = window.ONIC_CONFIGS;
 const shardsConfig = window.ONIC_SHARDS_CONFIG;
-window.SOLAR_DOCS.push({id:'solarshards-config',product:'solarshards',group:'SOLARSHARDS',icon:'{}',title:'Key config & YAML mẫu',lead:'Cấu hình SolarShards NoKey: storage, currency, pay, auto-save, sounds, notifications và Vault.',html:note('Cấu hình mặc định, không phải dữ liệu server','Chỉ chứa file mặc định công khai. Mật khẩu mẫu để trống. Đừng thay backend đang có dữ liệu mà chưa sao lưu/migrate.') + configSection({path:'config.yml',content:shardsConfig},0,'solarshards')});
+window.SOLAR_DOCS.push({id:'solarshards-config',product:'solarshards',group:'SOLARSHARDS',icon:'{}',title:'Key config & YAML mẫu',lead:'Cấu hình SolarShards: storage, currency, pay, auto-save, sounds, notifications và Vault.',html:note('Cấu hình mặc định, không phải dữ liệu server','Chỉ chứa file mặc định công khai. Mật khẩu mẫu để trống. Đừng thay backend đang có dữ liệu mà chưa sao lưu/migrate.') + configSection({path:'config.yml',content:shardsConfig},0,'solarshards')});
 const order = ['config.yml','currency.yml','sounds.yml','gui/main-menu.yml','gui/category-menu.yml','gui/buy-confirm.yml','gui/admin.yml'];
 configs.sort((a,b)=>(order.indexOf(a.path)<0?100:order.indexOf(a.path))-(order.indexOf(b.path)<0?100:order.indexOf(b.path))||a.path.localeCompare(b.path));
+const shopKeys = [
+ ['main','Khối thông tin danh mục (bắt buộc).','Required category metadata.'],
+ ['main.name / title / lore','Tên biểu tượng, tiêu đề GUI và mô tả.','Category icon name, inventory title and description.'],
+ ['main.material / glow / hide-attributes','Vật liệu biểu tượng, hiệu ứng phát sáng, ẩn thuộc tính.','Icon material, glow and hidden attributes.'],
+ ['main.permission','Quyền mở danh mục; bỏ qua nếu mở cho mọi người.','Permission to open the category; omit for public access.'],
+ ['items.<id>','ID của mặt hàng. Giữ nguyên ID nếu muốn giữ lịch sử giới hạn.','Stable item ID; keep it unchanged to retain limit history.'],
+ ['items.<id>.material / name / lore','Vật liệu, tên và mô tả mặt hàng.','Item material, display name and description.'],
+ ['items.<id>.price / currency','Đơn giá và khóa trong currency.yml, ví dụ vault, shards hoặc points.','Unit price and a currency.yml key such as vault, shards or points.'],
+ ['items.<id>.max-amount / slots','Số lượng tối đa mỗi lượt và vị trí tính từ 0.','Maximum quantity per purchase and zero-based slot.'],
+ ['items.<id>.permission','Quyền mua mặt hàng; không thay thế quyền danh mục.','Permission to buy this item, separate from category access.'],
+ ['items.<id>.ss-id','Loại mob hoặc ID SmartSpawner; thay cho lệnh give.','SmartSpawner mob type or registered ID; replaces give commands.'],
+ ['items.<id>.commands','Lệnh phần thưởng; không phát thêm material. Bị bỏ qua nếu có ss-id.','Reward commands replace ordinary item delivery and are ignored when ss-id is set.'],
+ ['items.<id>.limits.personal.max / type','Giới hạn cá nhân.','Per-player limit.'],
+ ['items.<id>.limits.global.max / type','Giới hạn toàn server. max > 0; type: permanent, daily, weekly hoặc monthly.','Server-wide limit. Set max > 0; type: permanent, daily, weekly or monthly.'],
+ ['items.<id>.rare / glow / hide-attributes','Đánh dấu vật phẩm hiếm, phát sáng hoặc ẩn thuộc tính.','Rare item flag, glow or hidden attributes.'],
+ ['items.<id>.enchantments / nbt-data / disname','Enchant, dữ liệu vật phẩm và tên hiển thị bổ sung.','Enchantments, serialized item data and alternate display name.'],
+ ['items.<id>.open-gui','Mở GUI ngoài, cần cấu hình plugin tương ứng.','Open an external GUI; requires the matching integration.'],
+ ['page1.items … page10.items','Cấu hình nhiều trang thay cho items ở cấp gốc.','Paged categories replace the root items section.'],
+];
+function shopConfigGuide(english) {
+ const say=(vi,en)=>english?en:vi;
+ const example=`main:
+  name: '&aExample shop'
+  title: 'Example shop'
+  material: CHEST
+items:
+  diamond:
+    material: DIAMOND
+    price: 100
+    currency: vault
+    max-amount: 16
+    slots: 0
+    limits:
+      personal:
+        max: 32
+        type: daily
+  zombie_spawner:
+    material: SPAWNER
+    ss-id: zombie
+    currency: shards
+    price: 200
+    max-amount: 1
+    slots: 1`;
+ const files=configs.filter(f=>f.path.startsWith('shop/'));
+ return '<h2 id="shop-keys">'+say('Key tạo shop','Shop keys')+'</h2>'+table(['Key',say('Ý nghĩa','Description')],shopKeys.map(([key,vi,en])=>['<code>'+esc(key)+'</code>',say(vi,en)]))+
+ '<h2 id="shop-example">'+say('Ví dụ: một shop hoàn chỉnh','Example: a complete shop')+'</h2>'+code('shop/example.yml',example)+
+ '<p>'+say('Đặt file trong <code>plugins/SolarShop/shop/</code>. Trong <code>gui/main-menu.yml</code>, ánh xạ ký tự menu tới ID <code>example</code>. Sau đó chạy <code>/solarshop reload</code> và thử <code>/solarshop open example</code>.','Place the file in <code>plugins/SolarShop/shop/</code>. In <code>gui/main-menu.yml</code>, map a menu character to the <code>example</code> category ID. Then run <code>/solarshop reload</code> and try <code>/solarshop open example</code>.')+'</p>'+
+ '<h2 id="shop-samples">'+say('Tải shop mẫu','Download example shops')+'</h2><div class="file-index">'+files.map(f=>'<a href="assets/examples/solarshop/'+f.path+'" download>'+esc(f.path)+'</a>').join('')+'</div>';
+}
 const reference = {
- id:'solarshop-config',product:'solarshop',group:'TRA CỨU CẤU HÌNH',icon:'{}',title:'Tất cả key & YAML mẫu',
- lead:'Tra cứu cấu hình SolarShop C05 NoKey: key, giá trị mặc định, chú thích và toàn bộ YAML gốc. Tìm bằng Ctrl/Cmd + F hoặc ô tìm kiếm wiki.',
- html:note('Đọc trước khi chép cấu hình','19 file mẫu được chụp từ source mặc định C05. Sao lưu file đang dùng, chỉ lấy phần cần chỉnh; không ghi đè database credentials. File shop mẫu bổ sung như limited_shop/keys không nhất thiết tự được tạo ở lần chạy đầu.')+
- `<h2 id="chon-file">Chọn file</h2><div class="file-index">${configs.map((f,i)=>`<a href="#solarshop-config/file-${i}">${esc(f.path)}</a>`).join('')}</div>`+
- `<h2 id="schema-shop">Key vật phẩm không có trong mọi file mẫu</h2>`+table(['Đường dẫn ví dụ','Ý nghĩa'],[
- ['items.&lt;id&gt;.material / name / lore','Loại vật phẩm, tên và mô tả.'],
- ['items.&lt;id&gt;.price / currency / max-amount / slots','Giá, loại tiền, số lượng mỗi lượt và ô GUI.'],
- ['items.&lt;id&gt;.ss-id','Hook SmartSpawner. Bỏ commands give cũ khi chuyển sang ss-id.'],
- ['items.&lt;id&gt;.commands','Lệnh phần thưởng; có commands thì không phát thêm material thông thường.'],
- ['items.&lt;id&gt;.limits.personal.max / type','Hạn mức cá nhân. type: permanent, daily, weekly, monthly.'],
- ['items.&lt;id&gt;.limits.global.max / type','Hạn mức toàn server; max phải lớn hơn 0.'],
- ['items.&lt;id&gt;.permission / glow / hide-attributes','Quyền mua, phát sáng, ẩn thuộc tính.'],
- ['items.&lt;id&gt;.enchantments / nbt-data / disname','Enchant, dữ liệu serialized và tên hiển thị bổ sung.'],
- ['items.&lt;id&gt;.open-gui / open_gui','Cấu hình mở GUI ngoài. Kiểm tra tích hợp thực tế.'],
- ['items.&lt;id&gt;.shards / isShard / isShards / points','Cờ tương thích cấu hình cũ; ưu tiên dùng currency rõ ràng.'],
- ['items.&lt;id&gt;.conditional-commands','Có được đọc/lưu; không coi việc tồn tại key là bảo đảm luồng thực thi.'],
- ['page1.items … page10.items','Cấu trúc nhiều trang; không trộn với items cấp gốc.']
- ])+configs.map((file,i)=>configSection(file,i)).join('')
+ id:'solarshop-config',product:'solarshop',group:'XÂY DỰNG SHOP',icon:'{}',title:'Cấu hình shop',
+ lead:'Tra cứu các key để tạo một danh mục và các mặt hàng trong shop/<id>.yml.',
+ html:shopConfigGuide(false)
 };
 window.SOLAR_DOCS.splice(3,0,reference);
 // Keep each product together in global navigation; overview before configuration.
 const shardsReferenceIndex = window.SOLAR_DOCS.findIndex(d => d.id === 'solarshards-config');
 const shardsReference = window.SOLAR_DOCS.splice(shardsReferenceIndex, 1)[0];
 const registry = [
- {id:'solarshop',name:'SolarShop',version:'2.0-C05 NoKey',route:'bat-dau',icon:'▦',text:'Cửa hàng, nhiều loại tiền, giới hạn mua và SmartSpawner.',status:'16 hướng dẫn + 19 YAML mẫu'},
- {id:'solarshards',name:'SolarShards',version:'NoKey · source hiện có',route:'solarshards-home',icon:'✧',text:'Tiền tệ Shards, cấu hình lưu trữ và hook với SolarShop.',status:'Tổng quan + tra cứu config'},
+ {id:'solarshop',name:'SolarShop',version:'2.0-C05',route:'bat-dau',icon:'▦',text:'Cửa hàng, nhiều loại tiền, giới hạn mua và SmartSpawner.',status:'Hướng dẫn và key tạo shop'},
+ {id:'solarshards',name:'SolarShards',version:'',route:'solarshards-home',icon:'✧',text:'Tiền tệ Shards, cấu hình lưu trữ và hook với SolarShop.',status:'Tổng quan + tra cứu config'},
  {id:'solarbounty',name:'SolarBounty',icon:'◎',text:'Chuyên mục được dành sẵn. Chưa xuất bản hướng dẫn đã đối chiếu.',status:'Chưa có tài liệu'},
  {id:'solarrtp',name:'SolarRTP / SolarRTPZone',icon:'⌁',text:'Chuyên mục được dành sẵn. Chưa xuất bản hướng dẫn đã đối chiếu.',status:'Chưa có tài liệu'}
 ];
 window.ONIC_PLUGINS = registry;
 window.SOLAR_DOCS.unshift({id:'wiki',product:'wiki',group:'ONIC WIKI',icon:'⌂',title:'Tất cả plugin',subtitle:'Một wiki. Cả hệ sinh thái.',lead:'Tài liệu plugin Minecraft của Onic: chọn sản phẩm, tìm key cấu hình và làm theo hướng dẫn đúng phiên bản. Không phải mỗi plugin một website.',html:
  `<div class="pills"><span class="pill">ONIC KNOWLEDGE BASE</span><span class="pill">Hướng dẫn tiếng Việt</span><span class="pill">Cấu hình có thể sao chép</span></div><h2 id="plugins">Chọn plugin của bạn</h2><div class="cards plugin-cards">${registry.map(p=>p.route?card(p.route,p.icon,p.name,`${p.text}<br><span class="product-status">${p.status}</span>`):`<div class="card planned"><span class="card-icon">${p.icon}</span><strong>${p.name}</strong><p>${p.text}</p><span class="product-status">${p.status}</span></div>`).join('')}</div>`+
- `<h2 id="config-hub">Bạn đang tìm key config?</h2><div class="cards">${card('solarshop-config','{}','SolarShop · cấu hình','config.yml, currency.yml, sounds, toàn bộ GUI, ngôn ngữ và shop mẫu.')}${card('solarshards-config','{}','SolarShards · cấu hình','Storage, tiền tệ, chuyển tiền, tự lưu, âm thanh, thông báo và Vault.')}</div>`+
+ `<h2 id="config-hub">Bạn đang tìm key config?</h2><div class="cards">${card('solarshop-config','{}','Cấu hình shop','Key tạo danh mục, mặt hàng, giá, quyền và giới hạn mua.')}${card('solarshards-config','{}','SolarShards · cấu hình','Storage, tiền tệ, chuyển tiền, tự lưu, âm thanh, thông báo và Vault.')}</div>`+
  note('Cấu hình phải đi cùng phiên bản','Mỗi chuyên mục ghi rõ phạm vi và nguồn đối chiếu. Không sao chép config SolarShop sang SolarShards; không giả định một key tồn tại trong mọi bản.')+
  `<h2 id="dieu-huong">Cách dùng wiki</h2><ol><li>Chọn plugin ở các thẻ hoặc bộ chọn bên trái.</li><li>Dùng tìm kiếm để tìm nội dung/key, hỗ trợ tiếng Việt không dấu.</li><li>Trong trang cấu hình, chọn file, xem bảng key hoặc mở toàn bộ YAML có chú thích.</li><li>Copy phần cần dùng hoặc tải tệp mẫu. Backup trước khi áp dụng.</li></ol><h2 id="dong-gop">Tài liệu cho các plugin khác</h2><p>Wiki hỗ trợ nhiều chuyên mục. SolarBounty, SolarRTP và các sản phẩm khác sẽ có nội dung riêng khi được đối chiếu nguồn; các thẻ chưa có tài liệu không dẫn tới trang trống hoặc nội dung suy đoán.</p>`});
 window.SOLAR_DOCS.push({id:'solarshards-home',product:'solarshards',group:'SOLARSHARDS',icon:'✧',title:'Tổng quan & tích hợp',lead:'Chuyên mục riêng cho SolarShards, không phải chỉ là một trang con của SolarShop.',html:
- `<h2 id="nguon-shards">Phạm vi tài liệu</h2><p>Cấu hình được đối chiếu với bản NoKey trong source SolarShards hiện có ngày 09/11/2026. Đây là hướng dẫn tổng quan và tra cứu config, chưa phải tài liệu A–Z đầy đủ cho SolarShards.</p>`+
+ `<h2 id="nguon-shards">Phạm vi tài liệu</h2><p>Cấu hình được đối chiếu với SolarShards hiện có ngày 09/11/2026. Đây là hướng dẫn tổng quan và tra cứu config, chưa phải tài liệu A–Z đầy đủ cho SolarShards.</p>`+
  `<h2 id="bat-dau-shards">Bắt đầu</h2><ol><li>Sao lưu server, cài bản SolarShards phù hợp với môi trường.</li><li>Khởi động và kiểm tra plugin enable thành công.</li><li>Chỉnh storage và currency trong config.yml; dùng mật khẩu DB riêng.</li><li>Thay storage/backend thì restart và kiểm tra dữ liệu trước khi mở bán.</li></ol>`+
  `<h2 id="shop-shards">Dùng cùng SolarShop</h2><p>SolarShop C05 dùng API SolarShards cho <code>currency: shards</code>. Không cần bật Shards làm economy chính của Vault. Xem <a href="#solarshards">hướng dẫn thanh toán trong SolarShop</a>.</p>`+
  note('Vault không nên bật tùy tiện','<code>vault.hook-as-primary-economy</code> mặc định false. Chỉ bật nếu muốn Shards trở thành nền kinh tế chính cho các plugin dùng Vault.',true)+
