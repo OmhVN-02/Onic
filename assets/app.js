@@ -96,7 +96,7 @@
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('afterbegin',
       '<p class="ai-disclosure"><span aria-hidden="true">✦</span>'+t('Một số sản phẩm có sự hỗ trợ của AI trong quá trình phát triển.','Some products are developed with AI assistance.')+'</p>');
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
-      '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
+      '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a></div>');
     $('article').querySelectorAll('a.card[href^="#"]').forEach(link => {
       const targetId = link.getAttribute('href').slice(1).split('/')[0];
       const target = docs.find(item => item.id === targetId);

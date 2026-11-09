@@ -266,6 +266,9 @@ const onicReleaseNotes = [
   }
 ];
 
+onicReleaseNotes.push(...[{"product": "solarshop", "number": 74, "version": "SolarShop-1.2-beta-01", "date": "2026-04-08", "sections": [["Cấu hình và GUI", "Configuration and menus", [["Bỏ hoàn toàn chức năng giảm giá.", "Completely removes the discount feature."], ["Sửa lại toàn bộ cấu hình, thêm các tùy chỉnh mới trong hook.yml và sounds.yml.", "Reworks the configuration and adds new options in hook.yml and sounds.yml."], ["Làm lại các tệp danh mục shop và tệp GUI chính.", "Reworks shop category files and the main GUI file."], ["Thêm tùy chỉnh database cho người dùng.", "Adds configurable database settings."]]]], "link": "#solarshop-config"}, {"product": "solarshop", "number": 122, "version": "SolarShop-1.3-Alpha-rc01", "date": "2026-05-28", "sections": [["Nút số lượng", "Quantity buttons", [["Thêm kiểu cấu hình mới để tùy chỉnh nút tăng/giảm số lượng và bước nhảy theo max stack của vật phẩm. Giá trị 0 ẩn nút tương ứng.", "Adds configurable quantity adjustment buttons and increments based on the item’s maximum stack size. A value of 0 hides the corresponding button."]]]], "example": "# Cấu hình các nút điều chỉnh số lượng\nadjust-buttons:\n  plus:\n    material: LIME_STAINED_GLASS_PANE\n    name: '&a+{}'\n  minus:\n    material: RED_STAINED_GLASS_PANE\n    name: '&c-{}'\n  # Bước nhảy theo max stack; 0 là ẩn nút\n  stack-increments:\n    - \"1/4/8\"\n    - \"1/12/24\"\n    - \"1/16/32\"\n    - \"1/10/64\"\n    - \"1/0/0\"", "link": "#giao-dien"}, {"product": "solarshop", "number": 121, "version": "SolarShop-1.3-Alpha-rc01", "date": "2026-05-28", "sections": [["Chống dupe GUI", "GUI duplication protection", [["Thêm cơ chế bảo vệ chống dupe vật phẩm cho tất cả GUI bằng ghost items.", "Adds item duplication protection to all GUIs using ghost items."]]]], "link": "#giao-dien"}]);
+window.ONIC_PLUGINS.find(product=>product.id==='solarshop').updatedAt='2026-11-09';
+
 for (const [docs, english] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) {
   for (const [id, parentId] of Object.entries(window.ONIC_MOVED_GUIDES)) {
     const index = docs.findIndex(doc => doc.id === id);
@@ -279,13 +282,14 @@ for (const [docs, english] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,tr
     const id = product + '-changelog';
     const releaseDate = release => release.date || '2026-11-09';
     const releases = onicReleaseNotes.filter(release=>release.product===product).sort((a,b)=>releaseDate(b).localeCompare(releaseDate(a)) || b.number-a.number);
-    docs.push({id, product,group:english?'OPERATIONS':'VẬN HÀNH',icon:'↻',title:'Changelog',
+    docs.push({id, product,updatedAt:product==='solarshop'?'2026-11-09':undefined,group:english?'OPERATIONS':'VẬN HÀNH',icon:'↻',title:'Changelog',
       lead:english?'Newest updates first. Choose an update below to read what changed.':'Bản mới nhất ở trên. Chọn bản cập nhật bên dưới để xem thay đổi.',
       html:'<nav class="release-index" aria-label="'+(english?'Updates':'Bản cập nhật')+'">'+releases.map(release=>`<a href="#${id}/devlog-${release.number}">#${release.number} · ${releaseDate(release).split('-').reverse().join('/')}</a>`).join('')+'</nav>'+releases.map(release=>{
         const date=releaseDate(release);
         return `<section class="release-card"><h2 id="devlog-${release.number}">${release.version}</h2><p class="release-meta">DevLog Plugins #${release.number} · <time datetime="${date}">${date.split('-').reverse().join(' / ')}</time></p>` +
         (release.subtitle ? '<p>'+esc(release.subtitle)+'</p>' : '') +
         release.sections.map(([vi,en,items])=>'<h3>'+esc(english?en:vi)+'</h3><ul>'+items.map(pair=>'<li>'+pair[locale]+'</li>').join('')+'</ul>').join('') +
+        (release.example ? code('YAML · adjust-buttons',release.example) : '') +
         `<p><a href="${release.link}">${english?'Read the guide':'Xem hướng dẫn'} ↗</a></p></section>`;
       }).join('')
     });

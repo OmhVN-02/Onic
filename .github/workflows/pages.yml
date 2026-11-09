@@ -109,6 +109,12 @@ jobs:
           }
           if(read('index.html').indexOf('id="search"')>read('index.html').indexOf('id="plugin-picker"')) throw Error('Product picker must be below search');
           if(read('assets/app.js').includes('<h2 id="contributors">')) throw Error('Credits still embedded on homepage');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            const shop=localized.find(doc=>doc.id==='solarshop-changelog');
+            for(const number of [74,122,121]) if(!shop.html.includes('DevLog Plugins #'+number)) throw Error('Missing SolarShop historical devlog: '+number);
+            for(const value of ['adjust-buttons','LIME_STAINED_GLASS_PANE','RED_STAINED_GLASS_PANE','1/4/8','1/12/24','1/16/32','1/10/64','1/0/0']) if(!shop.html.includes(value)) throw Error('Missing adjustment configuration: '+value);
+          }
+          if(read('assets/app.js').includes('Cấu hình SolarShop') || !read('assets/app.js').includes('Xem tài liệu')) throw Error('Homepage CTA selection incorrect');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;
