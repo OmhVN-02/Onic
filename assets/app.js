@@ -1,9 +1,34 @@
 'use strict';
 (() => {
-  const docs = window.SOLAR_DOCS;
+  let docs = window.SOLAR_DOCS;
   const $ = id => document.getElementById(id);
   const search = $('search');
   const select = $('plugin-select');
+  const language = $('language');
+  let lang = new URLSearchParams(location.search).get('lang');
+  if (!['vi','en'].includes(lang)) {
+    try { lang = localStorage.getItem('onic-language'); } catch { /* Optional preference. */ }
+  }
+  if (lang !== 'en') lang = 'vi';
+  const t = (vi,en) => lang === 'en' ? en : vi;
+  function applyLanguage() {
+    docs = lang === 'en' ? window.ONIC_ENGLISH : window.SOLAR_DOCS;
+    document.documentElement.lang = lang;
+    language.value = lang;
+    search.placeholder = t('Tìm hướng dẫn…','Search guides…');
+    search.setAttribute('aria-label',search.placeholder);
+    document.querySelector('.plugin-label').textContent = t('CHUYÊN MỤC PLUGIN','PLUGIN');
+    document.querySelector('.wiki-home').textContent = t('← Chọn plugin','← Choose plugin');
+    select.options[0].textContent = t('Chọn plugin','Choose plugin');
+    select.setAttribute('aria-label', select.options[0].textContent);
+    document.querySelector('.toc > div').textContent = t('TRONG TRANG NÀY','ON THIS PAGE');
+    document.querySelector('.feedback').textContent = t('Góp ý tài liệu ↗','Send feedback ↗');
+    document.querySelector('.skip').textContent = t('Đi đến nội dung','Skip to content');
+    document.querySelector('.sidebar-note').textContent = t('Onic · Tài liệu nhiều plugin','Onic · Plugin documentation');
+    document.querySelector('footer span').textContent = t('Tài liệu & cấu hình mẫu công khai','Public documentation and example configs');
+    $('theme').setAttribute('aria-label',t('Đổi giao diện sáng tối','Toggle light or dark theme'));
+    $('menu').setAttribute('aria-label',t('Mở mục lục','Toggle navigation'));
+  }
   let currentId = '', sectionObserver, toastTimer;
   const savedTheme = (() => { try { return localStorage.getItem('solarshop-theme'); } catch { return null; } })();
   if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
@@ -35,8 +60,8 @@
       const label = document.createElement('span'); label.textContent = doc.title;
       link.append(icon, label); $('navigation').append(link);
     }
-    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = select.value ? 'Không có kết quả phù hợp.' : 'Chọn plugin để xem tài liệu.'; $('navigation').append(empty); }
-    $('search-status').textContent = query ? `${count} bài phù hợp` : '';
+    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = select.value ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
+    $('search-status').textContent = query ? count + t(' bài phù hợp',' matching guides') : '';
   }
   function render() {
     let route;
@@ -55,7 +80,8 @@
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
     const siblings = docs.filter(d => d.product === doc.product);
     const index = siblings.indexOf(doc), previous = siblings[index - 1], next = siblings[index + 1];
-    $('page-navigation').innerHTML = `${previous ? `<a href="#${previous.id}"><small>← TRƯỚC</small>${esc(previous.title)}</a>` : '<span></span>'}${next ? `<a href="#${next.id}"><small>TIẾP THEO →</small>${esc(next.title)}</a>` : ''}`;
+    $('page-navigation').innerHTML = `${previous ? `<a href="#${previous.id}"><small>${t('← TRƯỚC','← PREVIOUS')}</small>${esc(previous.title)}</a>` : '<span></span>'}${next ? `<a href="#${next.id}"><small>${t('TIẾP THEO →','NEXT →')}</small>${esc(next.title)}</a>` : ''}`;
+    if (lang === 'en') $('article').querySelectorAll('.copy').forEach(button => { button.textContent = 'Copy ⧉'; button.setAttribute('aria-label','Copy example'); });
     navigation(search.value);
     menu(false);
     if (section && headings.some(h => h.id === section)) document.getElementById(section).scrollIntoView();
@@ -76,6 +102,16 @@
   $('menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('open')));
   $('scrim').addEventListener('click', () => menu(false));
   search.addEventListener('input', () => navigation(search.value));
+  language.addEventListener('change', () => {
+    lang = language.value;
+    try { localStorage.setItem('onic-language',lang); } catch { /* Optional preference. */ }
+    const url = new URL(location.href);
+    url.searchParams.set('lang',lang);
+    history.replaceState(null,'',url);
+    search.value = '';
+    applyLanguage();
+    render();
+  });
   select.addEventListener('change', () => {
     search.value = '';
     const target = (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
@@ -94,15 +130,16 @@
     const value = button.closest('.code-block').querySelector('code').textContent;
     try {
       await navigator.clipboard.writeText(value);
-      $('toast').textContent = 'Đã sao chép cấu hình'; $('toast').classList.add('visible');
+      $('toast').textContent = t('Đã sao chép cấu hình','Copied to clipboard'); $('toast').classList.add('visible');
       clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 2000);
     } catch {
       const range = document.createRange(); range.selectNodeContents(button.closest('.code-block').querySelector('code'));
       window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
-      $('toast').textContent = 'Đã chọn nội dung. Nhấn Ctrl/Cmd + C để sao chép.'; $('toast').classList.add('visible');
+      $('toast').textContent = t('Đã chọn nội dung. Nhấn Ctrl/Cmd + C để sao chép.','Text selected. Press Ctrl/Cmd + C to copy.'); $('toast').classList.add('visible');
       clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 4000);
     }
   });
   window.addEventListener('hashchange', render);
+  applyLanguage();
   render();
 })();

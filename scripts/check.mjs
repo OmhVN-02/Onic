@@ -11,6 +11,7 @@ runInNewContext(source, sandbox);
 runInNewContext(read('assets/config-data.js'), sandbox);
 runInNewContext(read('assets/wiki.js'), sandbox);
 runInNewContext(read('assets/products.js'), sandbox);
+runInNewContext(read('assets/english.js'), sandbox);
 const docs = sandbox.window.SOLAR_DOCS;
 const ids = new Set();
 function assert(condition, text) { if (!condition) throw Error(text); }
@@ -24,7 +25,12 @@ for (const doc of docs) for (const [,id] of doc.html.matchAll(/href="#([^"/]+)"/
 for (const doc of docs) for (const [,asset] of doc.html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) assert(existsSync(resolve(root, asset)), 'Missing asset: ' + asset);
 assert(docs.filter(d=>d.product==='solartpa').length === 4, 'Missing SolarTPA documentation');
 assert(sandbox.window.ONIC_TPA_CONFIGS.length === 8, 'Missing SolarTPA YAML templates');
-assert((docs.find(d=>d.id==='bat-dau').html.match(/<img /g)||[]).length === 6, 'Missing SolarShop screenshots');
+assert((docs.find(d=>d.id==='bat-dau').html.match(/<img /g)||[]).length === 7, 'Missing SolarShop hero or gallery screenshots');
+assert(sandbox.window.ONIC_ENGLISH.length === docs.length, 'Missing English guides');
+for (const [i,doc] of sandbox.window.ONIC_ENGLISH.entries()) {
+  assert(doc.id === docs[i].id && doc.html && doc.title && doc.lead, 'Missing English content: ' + docs[i].id);
+  for (const [,asset] of doc.html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) assert(existsSync(resolve(root,asset)), 'Missing English asset: ' + asset);
+}
 for (const doc of docs) for (const [,article,section] of doc.html.matchAll(/href="#([^"/]+)\/([^"]+)"/g)) {
   const target = docs.find(d => d.id === article);
   assert(target && target.html.includes('id="' + section + '"'), 'Broken section link: ' + article + '/' + section);
