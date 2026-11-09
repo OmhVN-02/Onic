@@ -18,7 +18,7 @@
     let group = '', count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
-      if (select.value !== 'all' && doc.product !== select.value) continue;
+      if (!select.value || doc.product !== select.value) continue;
       // Search decoded visible text, not HTML markup or entity codes.
       const template = document.createElement('template');
       template.innerHTML = doc.html;
@@ -26,7 +26,7 @@
       if (!keywords.every(word => text.includes(word))) continue;
       count++;
       if (doc.group !== group) {
-        const heading = document.createElement('div'); heading.className = 'nav-group'; heading.textContent = (doc.product === 'solarshop' ? 'SOLARSHOP / ' : '') + doc.group;
+        const heading = document.createElement('div'); heading.className = 'nav-group'; heading.textContent = doc.group;
         $('navigation').append(heading); group = doc.group;
       }
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
@@ -35,7 +35,7 @@
       const label = document.createElement('span'); label.textContent = doc.title;
       link.append(icon, label); $('navigation').append(link);
     }
-    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = 'Chưa có kết quả. Thử “shards”, “quyền” hoặc “túi đầy”.'; $('navigation').append(empty); }
+    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = select.value ? 'Không có kết quả phù hợp.' : 'Chọn plugin để xem tài liệu.'; $('navigation').append(empty); }
     $('search-status').textContent = query ? `${count} bài phù hợp` : '';
   }
   function render() {
@@ -46,11 +46,11 @@
     const samePage = currentId === doc.id;
     currentId = doc.id;
     $('crumb').textContent = doc.title;
-    select.value = doc.product === 'wiki' ? 'all' : doc.product;
+    select.value = doc.product === 'wiki' ? '' : doc.product;
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
     $('product-version').textContent = product ? product.name + ' · ' + product.version : 'PLUGIN KNOWLEDGE BASE';
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
-    $('article').innerHTML = `<div class="eyebrow">${esc(product ? product.name.toUpperCase() : 'ONIC')} / ${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
+    $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
     const siblings = docs.filter(d => d.product === doc.product);
@@ -78,7 +78,7 @@
   search.addEventListener('input', () => navigation(search.value));
   select.addEventListener('change', () => {
     search.value = '';
-    const target = select.value === 'all' ? 'wiki' : (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
+    const target = (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
     if (target) location.hash = target;
     navigation();
   });

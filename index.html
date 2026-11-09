@@ -11,6 +11,7 @@
   <script src="assets/docs.js" defer></script>
   <script src="assets/config-data.js" defer></script>
   <script src="assets/wiki.js" defer></script>
+  <script src="assets/products.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
@@ -21,9 +22,9 @@
     <div class="top-actions"><span id="product-version" class="version">PLUGIN KNOWLEDGE BASE</span><a class="github" href="https://github.com/OmhVN-02/Onic" target="_blank" rel="noopener">GitHub ↗</a><button id="theme" class="icon-button" aria-label="Đổi giao diện sáng tối">◐</button><button id="menu" class="icon-button mobile" aria-label="Mở mục lục" aria-expanded="false">☰</button></div>
   </header>
   <aside id="sidebar" class="sidebar" aria-label="Điều hướng tài liệu">
-    <a href="#wiki" class="wiki-home">← Tất cả plugin</a>
+    <a href="#wiki" class="wiki-home">← Chọn plugin</a>
     <label class="plugin-label" for="plugin-select">CHUYÊN MỤC PLUGIN</label>
-    <select id="plugin-select" aria-label="Chọn plugin"><option value="all">Toàn bộ wiki</option><option value="solarshop">SolarShop · C05 NoKey</option><option value="solarshards">SolarShards</option></select>
+    <select id="plugin-select" aria-label="Chọn plugin"><option value="" disabled>Chọn plugin</option><option value="solarshop">SolarShop</option><option value="solarshards">SolarShards</option><option value="solartpa">SolarTPA</option></select>
     <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm hướng dẫn…" aria-label="Tìm trong tài liệu"><kbd>/</kbd></label>
     <p id="search-status" class="sr-only" aria-live="polite"></p>
     <nav id="navigation"></nav>

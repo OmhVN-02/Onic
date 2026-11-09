@@ -1,4 +1,4 @@
-name: Publish SolarShop Docs
+name: Publish Onic Wiki
 on:
   push:
     branches: [main]
@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node scripts/generate-data.mjs
       - run: node scripts/check.mjs
       - uses: actions/configure-pages@v5
       - name: Assemble public files only

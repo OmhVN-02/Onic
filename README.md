@@ -1,6 +1,6 @@
 # Onic Wiki
 
-Wiki nhiều plugin Minecraft. Hiện có hướng dẫn **SolarShop 2.0-C05-NoKey** và chuyên mục **SolarShards**; SolarBounty/SolarRTP được đánh dấu chưa có tài liệu, không giả định đã hoàn chỉnh.
+Wiki nhiều plugin Minecraft: **SolarShop 2.0-C05-NoKey**, **SolarShards** và **SolarTPA 1.1**.
 
 Đây chỉ là website công khai. Không chứa mã nguồn plugin, JAR phát hành hoặc dữ liệu server.
 
@@ -9,6 +9,7 @@ Wiki nhiều plugin Minecraft. Hiện có hướng dẫn **SolarShop 2.0-C05-NoK
 Yêu cầu Node.js 18+ để chạy công cụ preview/kiểm tra (website không cần Node trên hosting).
 
 ```sh
+node scripts/generate-data.mjs
 node scripts/check.mjs
 node scripts/preview.mjs
 ```
@@ -25,8 +26,8 @@ Workflow chạy khi push `main` hoặc được chạy thủ công. Thư mục u
 
 - Nội dung: `assets/docs.js`, mỗi bài có ID ổn định, nhóm, tiêu đề và HTML.
 - Chuyên mục plugin, trang chủ và bảng key: `assets/wiki.js`.
-- Snapshot YAML mặc định SolarShop: `assets/config-data.js`. Tệp tải xuống trong `assets/examples/solarshop/`.
-- YAML SolarShards: `assets/examples/solarshards/config.yml`, bản hiển thị trong `wiki.js`.
+- YAML mặc định của các plugin nằm trong `assets/examples/`. `assets/config-data.js` được tạo từ đó khi build, không lưu bản trùng trong Git.
+- Hướng dẫn SolarTPA và ảnh SolarShop: `assets/products.js`.
 - Khi thêm plugin, tạo mục trong `ONIC_PLUGINS`, thêm option của bộ chọn và các bài có trường `product`. Bài chưa hoàn thành phải ghi rõ phạm vi.
 - Giao diện: `assets/style.css`.
 - Tìm kiếm, routing và copy: `assets/app.js`.

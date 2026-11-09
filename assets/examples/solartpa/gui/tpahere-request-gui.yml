@@ -1,0 +1,56 @@
+# SolarTPA — Xác nhận yêu cầu gọi người khác đến mình
+# Áp dụng sau khi chỉnh bằng /solartpa reload, sau đó mở lại menu.
+# Mỗi dòng matrix là một hàng. Dùng 1 đến 6 hàng, mỗi hàng 9 ký tự liền nhau.
+# Dấu chấm là ô trống. symbol phải trùng ký tự tương ứng trong matrix.
+# material là tên Material, display-name là tên vật phẩm, lore là các dòng mô tả.
+# Tiêu đề, tên vật phẩm và lore hỗ trợ mã màu & và MiniMessage.
+# name là tiêu đề menu. icons chứa từng vật phẩm và vị trí symbol của chúng.
+# X hủy/từ chối, C gửi/chấp nhận, L thế giới, P thông tin người chơi, F trạng thái bay.
+# Với nút thao tác, dùng một vị trí cho mỗi symbol trong matrix.
+# Tên vật phẩm và lore hỗ trợ %player%, %world%, %is_flying%.
+# Các biến mô tả người chơi đối diện. %is_flying% hiển thị Yes hoặc No.
+# location-icon lấy material theo gui.world-materials trong config.yml nếu không ghi riêng.
+
+request-gui:
+  name: "&#2C2C2Cᴛᴘᴀʜᴇʀᴇ ʀᴇꞯᴜᴇꜱᴛ"
+
+  matrix:
+    - "........."
+    - ".X.LPF.C."
+    - "........."
+
+  icons:
+    cancel-icon:
+      symbol: "X"
+      material: RED_STAINED_GLASS_PANE
+      display-name: "&cᴄᴀɴᴄᴇʟ"
+      lore:
+        - "&7Nhấp để hủy yêu cầu này."
+
+    location-icon:
+      symbol: "L"
+      display-name: "&eʟᴏᴄᴀᴛɪᴏɴ"
+      lore:
+        - "&7Thế giới: &f%world%"
+
+    player-icon:
+      symbol: "P"
+      material: PLAYER_HEAD
+      display-name: "&aᴘʟᴀʏᴇʀ ɪɴꜰᴏ"
+      lore:
+        - "&7Tên: &f%player%"
+
+    confirm-icon:
+      symbol: "C"
+      material: LIME_STAINED_GLASS_PANE
+      display-name: "&aᴄᴏɴꜰɪʀᴍ"
+      lore:
+        - "&7Nhấp để yêu cầu &f%player%"
+        - "&7dịch chuyển đến bạn."
+
+    fly-icon:
+      symbol: "F"
+      material: FEATHER
+      display-name: "&bꜰʟʏ ꜱᴛᴀᴛᴜꜱ"
+      lore:
+        - "&7Trạng thái bay: &f%is_flying%"

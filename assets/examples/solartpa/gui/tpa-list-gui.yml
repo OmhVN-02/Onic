@@ -1,0 +1,71 @@
+# SolarTPA — Danh sách yêu cầu đang chờ, hỗ trợ nhiều trang
+# Áp dụng sau khi chỉnh bằng /solartpa reload, sau đó mở lại menu.
+# Mỗi dòng matrix là một hàng. Dùng 1 đến 6 hàng, mỗi hàng 9 ký tự liền nhau.
+# Dấu chấm là ô trống. symbol phải trùng ký tự tương ứng trong matrix.
+# material là tên Material, display-name là tên vật phẩm, lore là các dòng mô tả.
+# Tiêu đề, tên vật phẩm và lore hỗ trợ mã màu & và MiniMessage.
+# title là tiêu đề menu danh sách.
+# Mẫu có 9 ô yêu cầu ở hàng đầu, nút trang ở hai góc dưới.
+# Nút trang vẫn hiển thị khi chỉ có một trang và không chuyển khi đã tới đầu/cuối.
+# R là ô yêu cầu, D từ chối tất cả, < trang trước, > trang sau, # trang trí.
+# empty-icon hiện khi không có yêu cầu. Có thể đặt E trong matrix để chọn vị trí.
+# decoration.enabled bật/tắt vật phẩm trang trí ở các ô có symbol tương ứng.
+# request-item.display-name hỗ trợ %player% là tên người gửi.
+# request-item.lore hỗ trợ %player%, %world%, %type% và %time_left% tính bằng giây.
+# %type% lấy từ gui.type-tpa và gui.type-tpahere trong config.yml.
+# Lore nút chuyển trang hỗ trợ %page% là số trang sẽ mở.
+# Nhấn trái lên yêu cầu để chấp nhận, nhấn phải để từ chối.
+
+title: "&8Danh sách yêu cầu dịch chuyển"
+
+matrix:
+  - "RRRRRRRRR"
+  - "....E...."
+  - "<...D...>"
+
+empty-icon:
+  symbol: "E"
+  material: BARRIER
+  display-name: "&c&lKhông có yêu cầu nào"
+  lore:
+    - "&7Hiện tại bạn không có bất kỳ"
+    - "&7yêu cầu dịch chuyển nào đang chờ."
+
+deny-all-button:
+  symbol: "D"
+  material: RED_STAINED_GLASS_PANE
+  display-name: "&c&lTừ chối tất cả"
+  lore:
+    - "&7Nhấn để từ chối toàn bộ"
+    - "&7yêu cầu dịch chuyển đang chờ."
+
+previous-page:
+  symbol: "<"
+  material: ARROW
+  display-name: "&aTrang Trước"
+  lore:
+    - "&7Quay lại trang %page%"
+
+next-page:
+  symbol: ">"
+  material: ARROW
+  display-name: "&aTrang Sau"
+  lore:
+    - "&7Chuyển sang trang %page%"
+
+request-item:
+  symbol: "R"
+  display-name: "&a%player%"
+  lore:
+    - "&7Loại: %type%"
+    - "&7Thế giới: &f%world%"
+    - "&7Còn lại: &f%time_left%s"
+    - ""
+    - "&aNhấn để đồng ý yêu cầu"
+    - "&cChuột phải để từ chối"
+
+decoration:
+  enabled: false
+  symbol: "#"
+  material: BLACK_STAINED_GLASS_PANE
+  display-name: " "

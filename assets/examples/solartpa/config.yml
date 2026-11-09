@@ -1,0 +1,146 @@
+#  _____ ____   _
+# |_   _|  _ \ / \
+#   | | | |_) / _ \
+#   | | |  __/ ___ \
+#   |_| |_| /_/   \_\
+# SolarTPA 1.1 — OmhVN
+# Dùng /solartpa reload sau khi chỉnh. Quyền cần có là solartpa.admin.
+# Giữ thụt lề bằng dấu cách và đặt nội dung có mã màu trong dấu nháy.
+
+
+# Tên thế giới thực ở bên trái, tên hiển thị trong tin nhắn và GUI ở bên phải.
+# Có thể thêm thế giới khác theo cùng cấu trúc.
+worlds:
+  world: "Overworld"       # Thế giới chính
+  world_nether: "Nether"   # Thế giới Nether
+  world_the_end: "End"     # Thế giới The End
+  spawn: "Spawn"           # Spawn
+  rtpq: "RTPQueue"         # RTP Queue
+  duels2: "Duels Map"      # Duels Map
+
+# DỊCH CHUYỂN
+teleport:
+  # Thời gian chờ trước khi dịch chuyển, tính bằng giây. Đặt 0 để dịch chuyển ngay.
+  countdown: 5
+  # Khoảng cách được đi trong lúc đếm ngược, tính bằng block.
+  # -1 cho phép đi tự do. 0 hủy khi đổi block X, Y hoặc Z.
+  # Số dương giới hạn khoảng cách theo chiều ngang tính từ điểm bắt đầu.
+  allowed-walk-range: 0
+  # true kiểm tra chỗ đứng và tìm lên/xuống tối đa 5 block nếu vị trí đích không an toàn.
+  # Nếu vẫn không có chỗ an toàn, hủy dịch chuyển. false dùng vị trí của người được đến.
+  safe-teleport: false
+  # Tiêu đề và hạt khi đếm ngược hoặc dịch chuyển thành công.
+  effect:
+    # Bật tiêu đề lúc đếm ngược và sau khi dịch chuyển thành công.
+    title-enabled: true
+    # Dòng tiêu đề chính. Hỗ trợ mã màu & và MiniMessage.
+    title: "<gradient:#00B2FF:#00FFB2>&lᴛᴇʟᴇᴘᴏʀᴛ</gradient>"
+    # Dòng phụ hiển thị khi dịch chuyển thành công.
+    # Lúc đếm ngược dùng teleport-countdown trong messages.yml.
+    subtitle: "&aDịch chuyển thành công!"
+    # Bật hạt bao quanh người chơi khi đếm ngược và hiệu ứng khi đến nơi.
+    particle-enabled: true
+    # Tên Particle hợp lệ trên phiên bản server. Ví dụ ENCHANT, HAPPY_VILLAGER.
+    # Tên không hợp lệ sẽ khiến hiệu ứng hạt không được phát.
+    particle-type: "ENCHANT"
+    # Số hạt mỗi lần phát. 0 để không phát hạt.
+    particle-count: 50
+
+# YÊU CẦU DỊCH CHUYỂN
+request:
+  # Thời gian một yêu cầu còn hiệu lực, tính bằng giây. Nhỏ nhất là 1.
+  expiration-time: 120
+  # Thời gian chờ giữa hai yêu cầu gửi tới cùng một người, tính bằng giây.
+  # 0 bỏ thời gian chờ. Quyền solartpa.cooldown.bypass cho phép bỏ qua.
+  cooldown: 30
+  # Giới hạn số yêu cầu gửi tới cùng một người. -1 không giới hạn.
+  # Quyền solartpa.limit.bypass cho phép bỏ qua.
+  # Bộ đếm hiện lưu trong bộ nhớ và xóa khi người gửi thoát server.
+  daily-limit: -1
+
+# GIAO DIỆN
+# Bố cục và vật phẩm nằm trong thư mục gui, mỗi menu một tệp.
+# Hướng dẫn chỉnh bố cục và các biến nằm ở đầu từng tệp GUI.
+gui:
+  # Nội dung thay cho %type% đối với yêu cầu dịch chuyển đến người khác.
+  type-tpa: "&b&lTPA"
+  # Nội dung thay cho %type% đối với yêu cầu gọi người khác đến mình.
+  type-tpahere: "&d&lTPAHERE"
+  # Bật menu xác nhận khi gửi/chấp nhận yêu cầu.
+  # false dùng tin nhắn để xác nhận. Menu danh sách vẫn mở được bằng /tpa list.
+  enabled: true
+  # Ưu tiên mở danh sách yêu cầu khi dùng /tpaccept không ghi tên người gửi.
+  # Khi có nhiều yêu cầu, lệnh cũng có thể mở danh sách để chọn.
+  open-list-on-accept: true
+  # Cho phép người chơi dùng /gui để bật/tắt menu xác nhận cho bản thân.
+  # Lệnh chỉ khả dụng khi gui.enabled bật.
+  command-enabled: false
+  # Vật liệu của biểu tượng thế giới trong menu xác nhận.
+  # Khóa là tên thế giới thực, giá trị là tên Material. Thế giới thiếu mục dùng STONE.
+  world-materials:
+    world: GRASS_BLOCK        # Thế giới chính (Overworld)
+    world_nether: NETHERRACK  # Thế giới Nether
+    world_the_end: END_STONE  # Thế giới The End
+    spawn: BEACON             # World Spawn
+    rtpq: COMPASS             # World RTP Queue
+    duels2: DIAMOND_SWORD     # World Duels Map
+
+# BOSSBAR CỦA /tpauto
+# Thanh hiển thị khi người chơi bật tự chấp nhận yêu cầu.
+# tpauto tự tắt khi chết hoặc bị PvPManager đánh dấu combat.
+# Sửa xong dùng /solartpa reload để cập nhật cả thanh đang hiện.
+boss-bar:
+  # true hiện thanh cho người đang bật /tpauto. false ẩn thanh.
+  enabled: true
+  # Màu thanh hỗ trợ BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW.
+  # Có thể nhập chữ thường, mã &a hoặc HEX như "#00FF00".
+  # HEX được quy đổi sang màu thanh gần nhất. Màu chữ chỉnh riêng trong text.
+  color: "YELLOW"
+  # Kiểu thanh PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12 hoặc NOTCHED_20.
+  # PROGRESS là thanh liền, NOTCHED chia thanh thành số đoạn tương ứng.
+  # Chấp nhận chữ thường và khoảng trắng ở đầu/cuối giá trị.
+  overlay: "PROGRESS"
+  # Nội dung và màu chữ của thanh. Luôn đặt chuỗi trong dấu nháy.
+  # Hỗ trợ &a, &l, &#RRGGBB, <#RRGGBB> và MiniMessage.
+  # Ví dụ "<gradient:#00B2FF:#00FFB2>Tự chấp nhận</gradient>".
+  text: "&e&lAuto Accept &8&l| &aEnabled"
+
+# THẾ GIỚI BỊ CHẶN
+blacklisted-worlds:
+  # Bật kiểm tra danh sách thế giới bị chặn bên dưới.
+  enabled: true
+  # Tên thế giới thực, ghi đúng cả chữ hoa/thường.
+  # Chặn yêu cầu từ/đến các thế giới này. /tpauto tự tắt khi người chơi đi vào.
+  worlds:
+    - "world_nether"
+    - "world_the_end"
+
+# HIỂN THỊ THÔNG BÁO
+# Nội dung từng thông báo nằm trong messages.yml, âm thanh trong sounds.yml.
+messages:
+  # Hiện thông báo ở ActionBar, phía trên thanh vật phẩm.
+  # Ưu tiên khóa <tên-thông-báo>-actionbar trong messages.yml nếu có.
+  action-bar-messages: true
+  # Hiện thông báo trong khung chat, gồm nút chấp nhận/từ chối có thể nhấn.
+  chat-messages: true
+  # true ưu tiên chỉ hiện ActionBar kể cả khi chat-messages bật.
+  # Người chơi có thể dùng /tpaccept hoặc /tpdeny để trả lời yêu cầu.
+  use-action-bar-only: false
+  # Ghi chi tiết xử lý thông báo vào console khi cần kiểm tra lỗi.
+  debug: false
+
+# TẢI CHUNK TRƯỚC KHI DỊCH CHUYỂN
+chunk-loading:
+  # Ưu tiên bộ tải NMS/Moonrise. Nếu không tương thích hoặc gặp lỗi, dùng Paper async.
+  nms: true
+  # Yêu cầu ưu tiên cao cho việc tải chunk. Áp dụng sau /solartpa reload.
+  urgent: true
+  # Cho phép tạo chunk mới khi vùng đích chưa từng được tạo.
+  # false có thể khiến dịch chuyển thất bại nếu vùng đích chưa có chunk.
+  generate: true
+  # Thời gian tối đa chờ tải chunk, tính bằng mili giây.
+  # 15000 tương đương 15 giây. Nhỏ nhất là 1000 mili giây.
+  timeout-ms: 15000
+  # Bán kính tải trước quanh chunk đích, tính bằng chunk. Giá trị từ 1 đến 3.
+  # 1 tải vùng 3x3, 2 tải 5x5, 3 tải 7x7 chunk.
+  preload-radius: 1
