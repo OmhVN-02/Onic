@@ -22,6 +22,11 @@ const code = (label, value) => {
   return `<div class="code-block"><div class="code-header"><span>${esc(label)}</span><button class="copy" type="button" aria-label="Sao chép ${esc(label)}">Sao chép ⧉</button></div><pre><code>${yaml ? highlightYaml(text) : esc(text)}</code></pre></div>`;
 };
 const platformBadges = '<a class="pill platform-badge" href="https://papermc.io/software/paper/" target="_blank" rel="noopener"><span><img src="assets/images/paper.svg" alt="" width="16" height="16"></span>Paper</a><a class="pill platform-badge" href="https://papermc.io/software/folia/" target="_blank" rel="noopener"><span class="folia-mark"><img src="assets/images/folia.svg" alt="" width="16" height="16"></span>Folia</a>';
+const shopDemo = en => {
+  const preview='assets/images/solarshop/demo-preview.png', gif='assets/images/solarshop/demo.gif';
+  const play=en?'Play demo':'Phát demo', stop=en?'Stop demo':'Dừng demo';
+  return `<h2 id="demo">${en?'SolarShop in action':'Giới thiệu SolarShop'}</h2><figure class="demo-frame"><img src="${preview}" width="760" height="413" loading="lazy" alt="${en?'SolarShop purchase menu':'Giao diện mua hàng SolarShop'}"><figcaption><button type="button" class="demo-toggle" aria-pressed="false" data-preview="${preview}" data-gif="${gif}" data-play="${play}" data-stop="${stop}">${play}</button><span>${en?'22 seconds · No audio':'22 giây · Không âm thanh'}</span><a href="${gif}" target="_blank" rel="noopener">${en?'Open GIF':'Mở GIF'} ↗</a></figcaption></figure>`;
+};
 const note = (title, text, warning = false) => `<div class="callout ${warning ? 'warning' : ''}"><strong>${title}</strong>${text}</div>`;
 const table = (headers, rows) => `<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const card = (id, icon, title, text) => `<a class="card" href="#${id}"><span class="card-icon">${icon}</span><strong>${title}<span>↗</span></strong><p>${text}</p></a>`;
@@ -30,6 +35,7 @@ window.SOLAR_DOCS = [
 <div class="pills"><span class="pill">2.0-C05</span>${platformBadges}</div>
 <div class="hero-art"><div class="hero-caption"><img class="solarshop-wordmark" src="assets/images/solarshop-logo.png" alt="SolarShop — Shop System" width="1920" height="1080">Vật phẩm · Shards · Spawner</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="Menu chính SolarShop trong Minecraft" width="345" height="170"></div>
 ${note('Bạn đang đọc tài liệu cho bản nào?','SolarShop <b>2.0-C05</b>, gồm hook SolarShards và SmartSpawner. Tài liệu phản ánh mã nguồn đã build ngày 09/11/2026.')}
+${shopDemo(false)}
 <h2 id="lo-trinh">Chọn điểm bắt đầu</h2><div class="cards">${card('cai-dat','01','Cài đặt lần đầu','Chuẩn bị server, plugin phụ thuộc và kiểm tra khởi động.')}${card('shop-dau-tien','02','Tạo shop đầu tiên','Một file YAML, một danh mục và một vật phẩm để thử.')}${card('solarshards','03','Thanh toán SolarShards','Dùng API trực tiếp, không cần lệnh trừ Shards.')}${card('smartspawner','04','Shop SmartSpawner','Bán spawner đúng dữ liệu API bằng ss-id.')}</div>
 <h2 id="cach-doc">Lộ trình từ A–Z</h2><ol><li>Cài plugin và kiểm tra các file được tạo.</li><li>Tạo một danh mục nhỏ, thử bằng tài khoản không OP.</li><li>Thêm loại tiền, quyền và giới hạn theo nhu cầu.</li><li>Chỉnh giao diện, sao lưu rồi mới mở shop chính thức.</li></ol>
 <h2 id="pham-vi">Khả năng & giới hạn</h2><p>SolarShop hỗ trợ menu danh mục, xác nhận số lượng, mua vật phẩm hoặc chạy lệnh, nhiều loại tiền và giới hạn mua cá nhân/toàn server.</p>`},

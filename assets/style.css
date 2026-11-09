@@ -95,3 +95,8 @@ html[data-theme=light] .yaml-key{color:#145b78}html[data-theme=light] .yaml-stri
 html[data-theme=light] .top-actions #theme .theme-moon{display:none}
 html[data-theme=light] .top-actions #theme .theme-sun{display:block}
 .standalone-nav{margin-top:12px;border:1px solid var(--line);min-height:38px}
+.demo-frame{margin:14px 0 24px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.demo-frame img{display:block;width:100%;height:auto}
+.demo-frame figcaption{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 14px;color:var(--muted);font-size:12px}
+.demo-frame figcaption a{margin-left:auto}
+.demo-toggle{min-height:38px;border:1px solid var(--line);border-radius:6px;padding:0 11px;background:var(--panel2);color:var(--accent)}

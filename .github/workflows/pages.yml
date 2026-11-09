@@ -93,7 +93,7 @@ jobs:
             assert(!ids.has(oldId) && docs.find(d=>d.id===parentId)?.html.includes('id="'+oldId+'"'), 'Guide not merged: '+oldId);
           }
           assert(sandbox.window.ONIC_TPA_CONFIGS.length === 8, 'Missing SolarTPA YAML templates');
-          assert((docs.find(d=>d.id==='bat-dau').html.match(/<img\b[^>]*src="assets\/images\/solarshop\//g)||[]).length === 7, 'Missing SolarShop hero or gallery screenshots');
+          assert((docs.find(d=>d.id==='bat-dau').html.match(/<img\b[^>]*src="assets\/images\/solarshop\//g)||[]).length === 8, 'Missing SolarShop demo, hero or gallery screenshots');
           assert(runInNewContext('highlightYaml("key: true # note")',sandbox).includes('yaml-literal'), 'YAML highlighting missing');
           assert(!runInNewContext('highlightYaml(' + JSON.stringify('name: "<script>"') + ')',sandbox).includes('<script>'), 'YAML highlighting must escape HTML');
           assert(sandbox.window.ONIC_ENGLISH.length === docs.length, 'Missing English guides');
