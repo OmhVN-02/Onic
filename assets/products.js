@@ -42,3 +42,18 @@ tpaPage('api','API','◇','Tích hợp Java qua Bukkit ServicesManager.',
  ['TPARequestEvent, TPAAcceptEvent, TPADenyEvent','Có'],['TPAToggleEvent, TPAutoToggleEvent','Có'],['TPACancelEvent, TPAExpireEvent','Không'],['TeleportCompleteEvent','Không; báo dịch chuyển hoàn tất.']]));
 const shortTitles={'solarshards-config':'Cấu hình','solarshards-home':'Tổng quan','smartspawner':'SmartSpawner','thu-muc':'Thư mục','cai-dat':'Cài đặt','giao-dien':'GUI','phat-hanh':'Checklist'};
 for(const d of docsList) if(shortTitles[d.id]) d.title=shortTitles[d.id];
+function tpaScreenshots(en) {
+  const files = [["request-tooltip","Chi tiết yêu cầu và thao tác chấp nhận / từ chối","Request details and accept / deny actions"],["request-list","Danh sách yêu cầu dịch chuyển","Teleport request list"],["chat-request","Thông báo yêu cầu trong chat","Chat request notification"],["here-player","Thông tin người chơi","Player information"],["here-flight","Trạng thái bay","Flight status"],["here-world","Thông tin thế giới","World information"],["here-confirm","Menu xác nhận TPAHere","TPAHere confirmation"],["tpa-confirm","Menu xác nhận TPA","TPA confirmation"],["auto-accept","BossBar khi bật tự chấp nhận","Auto-accept boss bar"]];
+  const groups = [
+    [en?'Request menus':'Menu yêu cầu',[7,6,1,0]],
+    [en?'TPAHere details':'Chi tiết TPAHere',[3,4,5]],
+    [en?'Chat and auto-accept':'Chat và tự chấp nhận',[2,8]]
+  ];
+  return '<h2 id="anh-gui">'+(en?'In-game screenshots':'Ảnh trong game')+'</h2>'+groups.map(([heading,indices])=>
+    '<h3>'+heading+'</h3><div class="cards screenshots tpa-screenshots">'+indices.map(i=>{
+      const [file,vi,english]=files[i], caption=esc(en?english:vi);
+      const src='assets/images/solartpa/'+file+'.png';
+      return '<figure class="card"><a href="'+src+'" target="_blank" rel="noopener"><img src="'+src+'" alt="'+caption+'" loading="lazy"></a><figcaption>'+caption+'</figcaption></figure>';
+    }).join('')+'</div>').join('');
+}
+docsList.find(d=>d.id==='solartpa-home').html += tpaScreenshots(false);

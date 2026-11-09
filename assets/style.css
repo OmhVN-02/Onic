@@ -100,3 +100,5 @@ html[data-theme=light] .top-actions #theme .theme-sun{display:block}
 .demo-frame figcaption{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 14px;color:var(--muted);font-size:12px}
 .demo-frame figcaption a{margin-left:auto}
 .demo-toggle{min-height:38px;border:1px solid var(--line);border-radius:6px;padding:0 11px;background:var(--panel2);color:var(--accent)}
+.tpa-screenshots figure{display:flex;flex-direction:column;justify-content:space-between}
+.tpa-screenshots img{width:auto;max-width:100%;margin-inline:auto}

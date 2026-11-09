@@ -38,5 +38,6 @@ window.ONIC_ENGLISH=window.SOLAR_DOCS.map(doc=>{
   html='<div class="pills"><span class="pill">2.0-C05</span>'+platformBadges+'</div><div class="hero-art"><div class="hero-caption"><img class="solarshop-wordmark" src="assets/images/solarshop-logo.png" alt="SolarShop — Shop System" width="1920" height="1080">Items · Shards · Spawners</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="SolarShop main menu" width="345" height="170"></div>'+html+
   shopDemo(true)+'<h2 id="anh-gui">In-game screenshots</h2><div class="cards screenshots">'+gallery.map(([id],i)=>'<figure class="card"><img src="assets/images/solarshop/'+id+'.png" alt="'+names[i]+'" loading="lazy"><figcaption>'+names[i]+'</figcaption></figure>').join('')+'</div>';
  }
+ if(doc.id==='solartpa-home') html += tpaScreenshots(true);
  return {...doc,title,subtitle:null,group,lead,html};
 });
