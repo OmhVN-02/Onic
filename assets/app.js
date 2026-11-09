@@ -3,7 +3,9 @@
   let docs = window.SOLAR_DOCS;
   const $ = id => document.getElementById(id);
   const search = $('search');
-  const select = $('plugin-select');
+  const picker = $('plugin-picker');
+  const pickerTrigger = picker.querySelector('summary');
+  let activeProduct = '';
   const localeButtons = [...document.querySelectorAll('[data-lang]')];
   const headerSearch = document.querySelector('.header-search');
   let lang = new URLSearchParams(location.search).get('lang');
@@ -21,10 +23,9 @@
     $('back-top').textContent = t('Về đầu trang ↑','Back to top ↑');
     search.placeholder = t('Tìm hướng dẫn…','Search guides…');
     search.setAttribute('aria-label',search.placeholder);
-    document.querySelector('.plugin-label').textContent = t('CHUYÊN MỤC PLUGIN','PLUGIN');
+    document.querySelector('.plugin-label').textContent = t('SẢN PHẨM','PRODUCT');
     document.querySelector('.wiki-home').textContent = t('← Chọn plugin','← Choose plugin');
-    select.options[0].textContent = t('Chọn plugin','Choose plugin');
-    select.setAttribute('aria-label', select.options[0].textContent);
+    $('picker-options').setAttribute('aria-label',t('Sản phẩm','Products'));
     document.querySelector('.toc > div').textContent = t('TRONG TRANG NÀY','ON THIS PAGE');
     document.querySelector('.feedback').textContent = t('Góp ý tài liệu ↗','Send feedback ↗');
     document.querySelector('.skip').textContent = t('Đi đến nội dung','Skip to content');
@@ -39,31 +40,50 @@
     $('sidebar').classList.toggle('open', open);
     $('menu').setAttribute('aria-expanded', String(open));
     $('scrim').hidden = !open;
+    if (!open) picker.open = false;
+  }
+  function renderPicker() {
+    const plugins = window.ONIC_PLUGINS.filter(p => p.route);
+    const selected = plugins.find(p => p.id === activeProduct);
+    $('picker-name').textContent = selected?.name || t('Chọn sản phẩm','Choose a product');
+    $('picker-icon').textContent = selected?.icon || '✳';
+    $('picker-options').innerHTML = plugins.map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('');
+  }
+  function navigationGroup(doc) {
+    if (doc.product !== 'solarshop') return doc.group;
+    if (['bat-dau','cai-dat','thu-muc','shop-dau-tien'].includes(doc.id)) return t('Bắt đầu','Get started');
+    if (['solarshop-config','vat-pham','tien-te','solarshards','smartspawner','gioi-han','giao-dien','tin-nhan'].includes(doc.id)) return t('Cấu hình shop','Shop setup');
+    return t('Vận hành','Operations');
   }
   function navigation(query = '') {
     const normalized = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
     const keywords = normalized(query).split(/\s+/).filter(Boolean);
-    let group = '', count = 0;
+    const groups = new Map();
+    let count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
-      if (!select.value || doc.product !== select.value) continue;
+      if (!activeProduct || doc.product !== activeProduct) continue;
       // Search decoded visible text, not HTML markup or entity codes.
       const template = document.createElement('template');
       template.innerHTML = doc.html;
       const text = normalized(`${doc.title} ${doc.lead} ${template.content.textContent}`);
       if (!keywords.every(word => text.includes(word))) continue;
       count++;
-      if (doc.group !== group) {
-        const heading = document.createElement('div'); heading.className = 'nav-group'; heading.textContent = doc.group;
-        $('navigation').append(heading); group = doc.group;
+      const name = navigationGroup(doc);
+      if (!groups.has(name)) {
+        const group = document.createElement('details'); group.className = 'nav-section';
+        const heading = document.createElement('summary'); heading.textContent = name;
+        group.append(heading); groups.set(name,group); $('navigation').append(group);
       }
+      const group = groups.get(name);
+      if (keywords.length || currentId === doc.id) group.open = true;
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span'); label.textContent = doc.title;
-      link.append(icon, label); $('navigation').append(link);
+      link.append(icon, label); group.append(link);
     }
-    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = select.value ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
+    if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = activeProduct ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
     $('search-status').textContent = query ? count + t(' bài phù hợp',' matching guides') : '';
   }
   function render() {
@@ -74,7 +94,8 @@
     const samePage = currentId === doc.id;
     currentId = doc.id;
     $('crumb').textContent = doc.title;
-    select.value = doc.product === 'wiki' ? '' : doc.product;
+    activeProduct = doc.product === 'wiki' ? '' : doc.product;
+    renderPicker();
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
@@ -119,18 +140,23 @@
   }));
   function focusSearch() {
     if (window.innerWidth <= 760) menu(true);
-    (select.value ? search : select).focus();
+    if (activeProduct) search.focus();
+    else { picker.open = true; pickerTrigger.focus(); }
   }
   headerSearch.addEventListener('click', event => { event.preventDefault(); focusSearch(); });
   $('back-top').addEventListener('click', () => { window.scrollTo({top:0}); $('article').focus({preventScroll:true}); });
-  select.addEventListener('change', () => {
+  $('picker-options').addEventListener('click', event => {
+    if (!event.target.closest('[data-product]')) return;
     search.value = '';
-    const target = (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
-    if (target) location.hash = target;
-    navigation();
+    picker.open = false;
+    pickerTrigger.focus();
   });
+  document.addEventListener('click', event => { if (!picker.contains(event.target) && !headerSearch.contains(event.target)) picker.open = false; });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { menu(false); search.blur(); }
+    if (event.key === 'Escape') {
+      if (picker.open) { picker.open = false; pickerTrigger.focus(); return; }
+      menu(false); search.blur();
+    }
     if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) && !event.ctrlKey && !event.metaKey && !event.altKey) {
       event.preventDefault(); focusSearch();
     }

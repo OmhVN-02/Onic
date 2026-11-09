@@ -7,14 +7,14 @@
   <meta name="theme-color" content="#101311">
   <title>Onic Wiki — Tài liệu sản phẩm</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=20261109-ui4">
+  <link rel="stylesheet" href="assets/style.css?v=20261109-ui5">
   <link rel="preload" as="image" href="assets/images/onic-studio.png" media="(prefers-reduced-motion: no-preference)">
   <script src="assets/docs.js?v=20261109-ui3" defer></script>
   <script src="assets/config-data.js?v=20261109-ui3" defer></script>
   <script src="assets/wiki.js?v=20261109-ui3" defer></script>
   <script src="assets/products.js?v=20261109-ui3" defer></script>
   <script src="assets/english.js?v=20261109-ui3" defer></script>
-  <script src="assets/app.js?v=20261109-ui3" defer></script>
+  <script src="assets/app.js?v=20261109-ui5" defer></script>
   <script src="assets/intro.js" defer></script>
 </head>
 <body>
@@ -37,8 +37,10 @@
   </header>
   <aside id="sidebar" class="sidebar" aria-label="Điều hướng tài liệu">
     <a href="#wiki" class="wiki-home">← Chọn plugin</a>
-    <label class="plugin-label" for="plugin-select">CHUYÊN MỤC PLUGIN</label>
-    <select id="plugin-select" aria-label="Chọn plugin"><option value="" disabled>Chọn plugin</option><option value="solarshop">SolarShop</option><option value="solarshards">SolarShards</option><option value="solartpa">SolarTPA</option></select>
+    <details id="plugin-picker">
+      <summary><span id="picker-icon" aria-hidden="true">✳</span><span class="picker-text"><small class="plugin-label">SẢN PHẨM</small><strong id="picker-name">Chọn sản phẩm</strong></span><svg class="picker-arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+      <nav id="picker-options" aria-label="Sản phẩm"></nav>
+    </details>
     <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm hướng dẫn…" aria-label="Tìm trong tài liệu"><kbd>/</kbd></label>
     <p id="search-status" class="sr-only" aria-live="polite"></p>
     <nav id="navigation"></nav>
