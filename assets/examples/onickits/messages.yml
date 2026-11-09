@@ -1,0 +1,274 @@
+# Types: chat, action bar, action_bar, both
+
+player_only:
+  text: '<gray>▪ <white>Chỉ người chơi mới có thể dùng lệnh này.'
+  type: chat
+
+cleared_inventory:
+  text: '<gray>▪ <white>Đã xóa toàn bộ vật phẩm trong túi đồ.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+premade_kit_is_empty:
+  text: '<gray>▪ <white>Premade Kit hiện đang trống.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+premade_kit_loaded:
+  text: '<gray>▪ <white>Đã trang bị <#00fc6c>ᴘʀᴇᴍᴀᴅᴇ ᴋɪᴛ<white>.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+editing_kit_room:
+  text: '<gray>▪ <white>Đang chỉnh sửa <#00fc6c>ᴋɪᴛ ʀᴏᴏᴍ <gray>(Đóng menu để lưu).'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+saved_kit_room:
+  text: '<gray>▪ <white>Đã lưu vật phẩm Kit Room mục <#00fc6c><category><white>.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+kit_command:
+  usage:
+    text:
+      - '<#ff0000>ᴇᴛʜᴀɴᴋɪᴛ ʜᴇʟᴘ'
+      - '<gray>▪ <white>/kit menu <gray>- Mở menu Kits chính'
+      - '<gray>▪ <white>/kit room <gray>- Mở kho vật phẩm Kit Room'
+      - '<gray>▪ <white>/kit premade <gray>- Nhận bộ Kit mặc định'
+      - '<gray>▪ <white>/kit load <kit|ec> <số> <gray>- Trang bị Kit hoặc Ender Chest'
+      - '<gray>▪ <white>/kit edit <kit|ec> <số> <gray>- Chỉnh sửa Kit hoặc Ender Chest'
+      - '<gray>▪ <white>/kit copy <số> <mã> <gray>- Sao chép Kit bằng mã code'
+      - '<gray>▪ <white>/kit auto <số|on|off> <gray>- Tự động nhận Kit khi hồi sinh/hạ gục'
+      - '<gray>▪ <white>/kit messages <on|off> <gray>- Bật/tắt thông báo trang bị Kit'
+    type: chat
+    sounds:
+      sound: ui.button.click
+      volume: 1.0
+      pitch: 1.0
+
+copying_kit:
+  text: '<gray>▪ <white>Đang sao chép Kit từ mã <#00fc6c><code><white>...'
+  type: action_bar
+
+copied_kit:
+  text: '<gray>▪ <white>Đã sao chép Kit từ mã <#00fc6c><code> <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+failed_to_copy_kit:
+  text: '<gray>▪ <white>Không thể sao chép Kit từ mã <#ff0000><code><white>.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+copy_kit_code_not_found:
+  text: '<gray>▪ <white>Mã Kit <#ff0000><code> <white>đã hết hạn hoặc không tồn tại.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+no_longer_seeing_kit_messages:
+  text: '<gray>▪ <white>Thông báo trang bị Kit: <state>'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+now_seeing_kit_messages:
+  text: '<gray>▪ <white>Thông báo trang bị Kit: <state>'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+kit_does_not_exist:
+  text: '<gray>▪ <white>Kit <#ff0000><kit> <white>chưa được lưu.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+imported_contents:
+  text: '<gray>▪ <white>Đã nhập vật phẩm từ túi đồ thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+generated_kit_code:
+  text: '<gray>▪ <white>Mã chia sẻ Kit của bạn: <#00fc6c><click:suggest_command:''/kit copy 1 <code>''><code></click> <gray>(Nhấn để copy)'
+  type: chat
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+kit_resetted:
+  text: '<gray>▪ <white>Đã khôi phục lại Kit.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+saved:
+  text: '<gray>▪ <white>Đã lưu <#00fc6c>ᴋɪᴛ <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+failed_to_save:
+  text: '<gray>▪ <white>Lỗi khi lưu Kit.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+player_equipped_kit:
+  text: '<gray>▪ <white><player> đã trang bị <#00fc6c>ᴋɪᴛ <kit> <gray>[<#ff0000><distance>m<gray>]'
+  type: chat
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+locked_kit:
+  text: '<gray>▪ <white>Bạn chưa mở khóa <#ff0000>ᴘʀᴇᴍɪᴜᴍ ᴋɪᴛ<white>.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+auto_kit_on:
+  text: '<gray>▪ <white>Auto Kit: <#00fc6c>ᴏɴ'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+auto_kit_off:
+  text: '<gray>▪ <white>Auto Kit: <#ff0000>ᴏꜰꜰ'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+autokit_set:
+  text: '<gray>▪ <white>Đã đặt Auto Kit thành <#00fc6c>ᴋɪᴛ <kit><white>.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+kit_admin_usage:
+  text: '<gray>▪ <white>Sử dụng: <#ff0000>/kitadmin <savepremadekit | reload>'
+  type: chat
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+saved_premade_kit:
+  text: '<gray>▪ <white>Đã lưu <#00fc6c>ᴘʀᴇᴍᴀᴅᴇ ᴋɪᴛ <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+reloaded:
+  text: '<gray>▪ <white>Đã tải lại cấu hình <#00fc6c>ᴇᴛʜᴀɴᴋɪᴛ <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+ender_chest_resetted:
+  text: '<gray>▪ <white>Đã khôi phục lại Ender Chest.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+saved_ender_chest:
+  text: '<gray>▪ <white>Đã lưu <#d980fa>ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+failed_to_save_ender_chest:
+  text: '<gray>▪ <white>Lỗi khi lưu Ender Chest.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+ender_chest_does_not_exist:
+  text: '<gray>▪ <white>Ender Chest <#ff0000><ender_chest> <white>chưa được lưu.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+equipped_ender_chest:
+  text: '<gray>▪ <white>Đã tải <#d980fa>ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ <ender_chest> <white>thành công.'
+  type: both
+  sounds:
+    sound: ui.button.click
+    volume: 1.0
+    pitch: 1.0
+
+kit_room_opened_broadcast:
+  enabled: false
+  text: '<gray>▪ <white><player> đã mở <#00fc6c>ᴋɪᴛ ʀᴏᴏᴍ<white>.'
+  type: chat
+
+kit_edit_broadcast:
+  enabled: false
+  text: '<gray>▪ <white><player> đang chỉnh sửa <#00fc6c>ᴋɪᴛ <kit><white>.'
+  type: chat
+
+ender_chest_edit_broadcast:
+  enabled: false
+  text: '<gray>▪ <white><player> đang chỉnh sửa <#d980fa>ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ <enderchest><white>.'
+  type: chat

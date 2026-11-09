@@ -1,0 +1,105 @@
+title: '<dark_gray>ᴋɪᴛ ʀᴏᴏᴍ'
+size: 54
+
+items:
+  border:
+    enabled: false
+    slots: []
+    item:
+      material: gray stained glass pane
+      amount: 1
+      name: ' '
+      flags:
+        - '*'
+  edit_button:
+    enabled: true
+    slots: [53]
+    item:
+      material: anvil
+      amount: 1
+      name: '<#ff0000>ᴇᴅɪᴛ ᴋɪᴛ ʀᴏᴏᴍ'
+      lore:
+        - '<gray>▪ <white>Quyền hạn: <#ff0000>kits.admin'
+        - '<gray>▪ <white>Đóng menu để tự động lưu'
+        - '<white>Nhấn để chỉnh sửa Kit Room.'
+      flags:
+        - '*'
+  refill_button:
+    enabled: true
+    slots: [45]
+    item:
+      material: hopper
+      amount: 1
+      name: '<#00fc6c>ʀᴇꜰɪʟʟ ɪᴛᴇᴍꜱ'
+      lore:
+        - '<gray>▪ <white>Làm đầy lại toàn bộ trang hiện tại'
+        - '<white>Nhấn để làm đầy vật phẩm.'
+      flags:
+        - '*'
+
+categories:
+  crystal_pvp:
+    item:
+      material: end crystal
+      amount: 1
+      name: '<#ff0000>ᴄʀʏꜱᴛᴀʟ ᴘᴠᴘ'
+      lore:
+        - '<#ff0000>▪ Netherite Gear'
+        - '<white>▪ End Crystal & Obsidian'
+        - '<white>▪ Respawn Anchor & Glowstone'
+        - '<white>▪ Totem Of Undying'
+        - '<white>Nhấn để xem danh mục.'
+      flags:
+        - '*'
+  potions:
+    item:
+      material: splash potion
+      amount: 1
+      name: '<#d980fa>ᴘᴏᴛɪᴏɴꜱ'
+      lore:
+        - '<#d980fa>▪ All Potions'
+        - '<white>▪ Strength II & Speed II'
+        - '<white>▪ Fire Resistance'
+        - '<white>▪ Turtle Master'
+        - '<white>Nhấn để xem danh mục.'
+      flags:
+        - '*'
+  consumables:
+    item:
+      material: golden apple
+      amount: 1
+      name: '<#ffaa00>ᴄᴏɴꜱᴜᴍᴀʙʟᴇꜱ'
+      lore:
+        - '<#ffaa00>▪ All Consumables'
+        - '<white>▪ Enchanted Golden Apple'
+        - '<white>▪ Golden Apple'
+        - '<white>▪ Ender Pearl & XP Bottle'
+        - '<white>Nhấn để xem danh mục.'
+      flags:
+        - '*'
+  arrows:
+    item:
+      material: arrow
+      amount: 1
+      name: '<#00aaff>ᴀʀʀᴏᴡꜱ'
+      lore:
+        - '<#00aaff>▪ All Arrows'
+        - '<white>▪ Slow Falling Arrow'
+        - '<white>▪ Weakness & Slowness Arrow'
+        - '<white>▪ Spectral Arrow'
+        - '<white>Nhấn để xem danh mục.'
+      flags:
+        - '*'
+  miscellaneous:
+    item:
+      material: netherite pickaxe
+      amount: 1
+      name: '<#00fc6c>ᴍɪꜱᴄᴇʟʟᴀɴᴇᴏᴜꜱ'
+      lore:
+        - '<#00fc6c>▪ All Utilities'
+        - '<white>▪ Elytra & Trident'
+        - '<white>▪ Piston & Redstone'
+        - '<white>▪ Cobweb & Shulker Box'
+        - '<white>Nhấn để xem danh mục.'
+      flags:
+        - '*'

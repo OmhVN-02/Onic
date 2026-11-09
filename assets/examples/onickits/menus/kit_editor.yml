@@ -1,0 +1,63 @@
+title: '<dark_gray>ᴋɪᴛ ᴇᴅɪᴛᴏʀ'
+size: 54
+
+items:
+  border:
+    enabled: true
+    slots: [5, 6, 7, 8]
+    item:
+      material: barrier
+      amount: 1
+      name: '<#ff0000>ʟᴏᴄᴋᴇᴅ ꜱʟᴏᴛ'
+      lore:
+        - '<gray>▪ <white>Ô này không thể đặt vật phẩm'
+      flags:
+        - '*'
+  save:
+    enabled: true
+    slots: [47]
+    item:
+      material: chest
+      amount: 1
+      name: '<#00fc6c>ꜱᴀᴠᴇ ᴋɪᴛ'
+      lore:
+        - '<gray>▪ <white>Lưu lại bố cục Kit hiện tại'
+        - '<white>Nhấn để lưu Kit.'
+      flags:
+        - '*'
+  import:
+    enabled: true
+    slots: [48]
+    item:
+      material: hopper
+      amount: 1
+      name: '<#00aaff>ɪᴍᴘᴏʀᴛ ɪɴᴠᴇɴᴛᴏʀʏ'
+      lore:
+        - '<gray>▪ <white>Chép vật phẩm từ túi đồ đang mặc'
+        - '<white>Nhấn để nhập vật phẩm.'
+      flags:
+        - '*'
+  reset:
+    enabled: true
+    slots: [49]
+    item:
+      material: cauldron
+      amount: 1
+      name: '<#ff0000>ʀᴇꜱᴇᴛ ᴋɪᴛ'
+      lore:
+        - '<gray>▪ <white>Hoàn tác các thay đổi chưa lưu'
+        - '<white>Nhấn để khôi phục.'
+      flags:
+        - '*'
+  generate_code:
+    enabled: true
+    slots: [50]
+    item:
+      material: oak sign
+      amount: 1
+      name: '<#ffaa00>ꜱʜᴀʀᴇ ᴋɪᴛ ᴄᴏᴅᴇ'
+      lore:
+        - '<gray>▪ <white>Tạo mã code chia sẻ Kit cho người khác'
+        - '<white>Nhấn để tạo mã code.'
+      flags:
+        - '*'

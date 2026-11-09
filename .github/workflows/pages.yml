@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -134,6 +134,17 @@ jobs:
             if(!localized.find(doc=>doc.id==='solarshards-api').html.includes('syntax-keyword')) throw Error('SolarShards API not highlighted');
             if(!localized.find(doc=>doc.id==='solartpa-api').html.includes('syntax-type')) throw Error('SolarTPA API not highlighted');
           }
+          if(sandbox.window.ONIC_KITS_CONFIGS.length!==9) throw Error('OnicKits YAML files missing');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(doc=>doc.product==='onickits').length!==6) throw Error('OnicKits guides missing');
+            const menu=localized.find(doc=>doc.id==='onickits-menus');
+            if((menu.html.match(/<img /g)||[]).length!==4) throw Error('OnicKits screenshots missing');
+            const command=localized.find(doc=>doc.id==='onickits-commands');
+            for(const value of ['/kitadmin savepremadekit','/kitadmin reload','kits.kit_command','kits.premium','kits.admin']) if(!command.html.includes(value)) throw Error('OnicKits command/permission missing: '+value);
+            const config=localized.find(doc=>doc.id==='onickits-config');
+            if(!config.html.includes('plugins/EthanKit/') && !config.lead.includes('plugins/EthanKit/')) throw Error('OnicKits data folder incorrect');
+          }
+          if(sandbox.window.ONIC_PLUGINS.find(product=>product.id==='onickits').status==='planned') throw Error('OnicKits still marked planned');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

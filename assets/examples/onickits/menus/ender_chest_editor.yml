@@ -1,0 +1,50 @@
+title: '<dark_gray>ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ ᴇᴅɪᴛᴏʀ'
+size: 36
+
+items:
+  border:
+    enabled: false
+    slots: []
+    item:
+      material: gray stained glass pane
+      amount: 1
+      name: ' '
+      hide_tooltip: true
+      flags:
+        - '*'
+  import:
+    enabled: true
+    slots: [30]
+    item:
+      material: hopper
+      amount: 1
+      name: '<#00aaff>ɪᴍᴘᴏʀᴛ ɪɴᴠᴇɴᴛᴏʀʏ'
+      lore:
+        - '<gray>▪ <white>Chép vật phẩm từ túi đồ hiện tại'
+        - '<white>Nhấn để nhập vật phẩm.'
+      flags:
+        - '*'
+  save:
+    enabled: true
+    slots: [31]
+    item:
+      material: ender chest
+      amount: 1
+      name: '<#00fc6c>ꜱᴀᴠᴇ ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ'
+      lore:
+        - '<gray>▪ <white>Lưu lại Ender Chest hiện tại'
+        - '<white>Nhấn để lưu Ender Chest.'
+      flags:
+        - '*'
+  reset:
+    enabled: true
+    slots: [32]
+    item:
+      material: cauldron
+      amount: 1
+      name: '<#ff0000>ʀᴇꜱᴇᴛ ᴇɴᴅᴇʀ ᴄʜᴇꜱᴛ'
+      lore:
+        - '<gray>▪ <white>Hoàn tác các thay đổi chưa lưu'
+        - '<white>Nhấn để khôi phục.'
+      flags:
+        - '*'
