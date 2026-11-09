@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -98,6 +98,12 @@ jobs:
           const fresh = sandbox.window.ONIC_IS_NEW;
           const stamp = Date.parse('2026-11-09');
           if (!fresh({updatedAt:'2026-11-09'},stamp) || fresh({updatedAt:'2026-11-09'},stamp+7*86400000) || fresh({updatedAt:'2026-11-09'},stamp-1) || fresh({},stamp)) throw Error('NEW badge expiry incorrect');
+          for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
+            const home=localized.find(doc=>doc.id==='wiki');
+            if (home.html.includes('id="lo-trinh"') || home.html.includes('Follow this order')) throw Error('Reading order still visible');
+            for(const group of ['solar','onic','other','beta']) if(!home.html.includes('id="products-'+group+'"')) throw Error('Missing product group: '+group);
+            for(const id of ['scombat','onicsus','onickits','crystalguard','antintr','solarauctionhouse','oniccore']) if(!home.html.includes('href="#'+id+'-home"') || !localized.some(doc=>doc.id===id+'-home')) throw Error('Missing product: '+id);
+          }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

@@ -46,7 +46,7 @@
     const selected = plugins.find(p => p.id === activeProduct);
     $('picker-name').textContent = selected?.name || t('Chọn sản phẩm','Choose a product');
     $('picker-icon').textContent = selected?.icon || '✳';
-    $('picker-options').innerHTML = plugins.map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)} ${newBadge(p)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('');
+    $('picker-options').innerHTML = window.ONIC_PRODUCT_GROUPS.map(group => '<div class="picker-group-title">'+esc(t(group.vi,group.en))+'</div>'+plugins.filter(p=>p.category===group.id).map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)} ${newBadge(p)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('')).join('');
   }
   function navigation(query = '') {
     const normalized = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
