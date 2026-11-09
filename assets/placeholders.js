@@ -38,4 +38,21 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
         '<h2 id="danh-sach">'+t('Danh sách','Reference')+'</h2>'+table(['Placeholder',t('Kết quả','Result')],rows.map(([key,vi,english])=>['<code>'+esc(key)+'</code>',t(vi,english)]))
     });
   }
+  docs.push({
+    id:'solartpa-papi',product:'solartpa',group:t('TÍCH HỢP','INTEGRATIONS'),icon:'%',title:t('Placeholder','Placeholders'),
+    lead:t('SolarTPA 1.1 không có expansion PlaceholderAPI. Các biến dưới đây chỉ dùng trong GUI và tin nhắn của SolarTPA.','SolarTPA 1.1 has no PlaceholderAPI expansion. These variables work only in SolarTPA GUI and message templates.'),
+    html:'<h2 id="bien">'+t('Biến trong cấu hình','Configuration variables')+'</h2>'+table(['Key',t('Dùng ở đâu','Where it works')],[
+      ['<code>%player%</code>',t('Tên người chơi trong tên/lore GUI hoặc các tin nhắn có sẵn biến này.','Player name in GUI names/lore or messages that already use this variable.')],
+      ['<code>%world%</code>',t('Tên thế giới hiển thị trong menu xác nhận và danh sách yêu cầu.','World display name in confirmation and request-list menus.')],
+      ['<code>%is_flying%</code>',t('Trạng thái bay trong menu xác nhận (Yes/No).','Flight status in confirmation menus (Yes/No).')],
+      ['<code>%type%</code> / <code>%time_left%</code>',t('Loại TPA/TPAHere và số giây còn lại trong danh sách yêu cầu.','Request type and remaining seconds in the request list.')],
+      ['<code>%page%</code>',t('Số trang đích trong lore nút chuyển trang.','Target page number in navigation button lore.')],
+      ['<code>%time%</code>',t('Số giây đếm ngược trong thông báo dịch chuyển.','Countdown seconds in teleport messages.')]
+    ])+'<p>'+t('Các biến này không dùng được với /papi parse, TAB hay scoreboard. Plugin tích hợp có thể dùng','These variables do not work with /papi parse, TAB or scoreboards. Integrations can use the')+' <a href="#solartpa-api">SolarTPA API</a>.</p>'
+  });
+  for (const product of ['solarshards','solartpa']) {
+    const overview=docs.find(doc=>doc.id===product+'-home');
+    const title=product==='solarshards'?'PlaceholderAPI':t('Placeholder trong GUI','GUI placeholders');
+    overview.html='<div class="wiki-cta"><a class="primary-cta" href="#'+product+'-papi">'+title+' ↗</a></div>'+overview.html;
+  }
 }

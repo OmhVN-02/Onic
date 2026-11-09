@@ -86,7 +86,7 @@ jobs:
           }
           for (const doc of docs) for (const [,id] of doc.html.matchAll(/href="#([^"/]+)"/g)) assert(ids.has(id) || ids.has(sandbox.window.ONIC_MOVED_GUIDES[id]), 'Broken article link: ' + id);
           for (const doc of docs) for (const [,asset] of doc.html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) assert(existsSync(resolve(root, asset)), 'Missing asset: ' + asset);
-          assert(docs.filter(d=>d.product==='solartpa').length === 5, 'Missing SolarTPA documentation or changelog');
+          assert(docs.filter(d=>d.product==='solartpa').length === 6, 'Missing SolarTPA documentation');
           for (const localeDocs of [docs,sandbox.window.ONIC_ENGLISH]) {
             const html = localeDocs.find(d=>d.id==='solartpa-home')?.html || '';
             assert((html.match(/<img\b[^>]*src="assets\/images\/solartpa\//g)||[]).length === 9, 'Missing SolarTPA screenshots');
