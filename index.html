@@ -9,7 +9,7 @@
   <script src="assets/loading.js?v=20261109-loading"></script>
   <link rel="icon" href="assets/favicon.svg?v=20261109-round" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/images/onic-studio.png">
-  <link rel="stylesheet" href="assets/style.css?v=20261109-groups">
+  <link rel="stylesheet" href="assets/style.css?v=20261109-picker-order">
   <link rel="preload" as="image" href="assets/images/onic-studio.png" media="(prefers-reduced-motion: no-preference)">
   <script src="assets/docs.js?v=20261109-auto-demo" defer></script>
   <script src="assets/theme.js" defer></script>
@@ -45,12 +45,12 @@
   </header>
   <aside id="sidebar" class="sidebar" aria-label="Điều hướng tài liệu">
     <a href="#wiki" class="wiki-home">← Chọn plugin</a>
+    <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm hướng dẫn…" aria-label="Tìm trong tài liệu"><kbd>/</kbd></label>
+    <p id="search-status" class="sr-only" aria-live="polite"></p>
     <details id="plugin-picker">
       <summary><span id="picker-icon" aria-hidden="true">✳</span><span class="picker-text"><small class="plugin-label">SẢN PHẨM</small><strong id="picker-name">Chọn sản phẩm</strong></span><svg class="picker-arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
       <nav id="picker-options" aria-label="Sản phẩm"></nav>
     </details>
-    <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm hướng dẫn…" aria-label="Tìm trong tài liệu"><kbd>/</kbd></label>
-    <p id="search-status" class="sr-only" aria-live="polite"></p>
     <nav id="navigation"></nav>
     <div class="sidebar-note"><span class="status-dot"></span> Tài liệu sản phẩm<br><small>Cập nhật 09 / 11 / 2026</small></div>
   </aside>
