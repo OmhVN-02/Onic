@@ -3,6 +3,7 @@
   const docs = window.SOLAR_DOCS;
   const $ = id => document.getElementById(id);
   const search = $('search');
+  const select = $('plugin-select');
   let currentId = '', sectionObserver, toastTimer;
   const savedTheme = (() => { try { return localStorage.getItem('solarshop-theme'); } catch { return null; } })();
   if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
@@ -17,6 +18,7 @@
     let group = '', count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
+      if (select.value !== 'all' && doc.product !== select.value) continue;
       // Search decoded visible text, not HTML markup or entity codes.
       const template = document.createElement('template');
       template.innerHTML = doc.html;
@@ -24,7 +26,7 @@
       if (!keywords.every(word => text.includes(word))) continue;
       count++;
       if (doc.group !== group) {
-        const heading = document.createElement('div'); heading.className = 'nav-group'; heading.textContent = doc.group;
+        const heading = document.createElement('div'); heading.className = 'nav-group'; heading.textContent = (doc.product === 'solarshop' ? 'SOLARSHOP / ' : '') + doc.group;
         $('navigation').append(heading); group = doc.group;
       }
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
@@ -44,11 +46,15 @@
     const samePage = currentId === doc.id;
     currentId = doc.id;
     $('crumb').textContent = doc.title;
-    document.title = `${doc.title} — SolarShop Docs`;
-    $('article').innerHTML = `<div class="eyebrow">SOLARSHOP / ${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
+    select.value = doc.product === 'wiki' ? 'all' : doc.product;
+    const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
+    $('product-version').textContent = product ? product.name + ' · ' + product.version : 'PLUGIN KNOWLEDGE BASE';
+    document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
+    $('article').innerHTML = `<div class="eyebrow">${esc(product ? product.name.toUpperCase() : 'ONIC')} / ${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
-    const index = docs.indexOf(doc), previous = docs[index - 1], next = docs[index + 1];
+    const siblings = docs.filter(d => d.product === doc.product);
+    const index = siblings.indexOf(doc), previous = siblings[index - 1], next = siblings[index + 1];
     $('page-navigation').innerHTML = `${previous ? `<a href="#${previous.id}"><small>← TRƯỚC</small>${esc(previous.title)}</a>` : '<span></span>'}${next ? `<a href="#${next.id}"><small>TIẾP THEO →</small>${esc(next.title)}</a>` : ''}`;
     navigation(search.value);
     menu(false);
@@ -70,6 +76,12 @@
   $('menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('open')));
   $('scrim').addEventListener('click', () => menu(false));
   search.addEventListener('input', () => navigation(search.value));
+  select.addEventListener('change', () => {
+    search.value = '';
+    const target = select.value === 'all' ? 'wiki' : (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
+    if (target) location.hash = target;
+    navigation();
+  });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') { menu(false); search.blur(); }
     if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) && !event.ctrlKey && !event.metaKey && !event.altKey) {

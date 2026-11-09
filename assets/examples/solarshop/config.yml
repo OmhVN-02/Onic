@@ -1,0 +1,59 @@
+#  ██████╗  ██████╗ ██╗      █████╗  ██████╗  ██████╗██╗  ██╗ ██████╗  ██████╗ 
+# ██╔════╝ ██╔═══██╗██║     ██╔══██╗ ██╔══██╗██╔════╝██║  ██║██╔═══██╗██╔═══██╗
+# ╚█████╗  ██║   ██║██║     ███████║ ██████╔╝╚█████╗ ███████║██║   ██║███████╔╝
+#  ╚═══██╗ ██║   ██║██║     ██╔══██║ ██╔══██╗ ╚═══██╗██╔══██║██║   ██║██╔════╝ 
+# ██████╔╝ ╚██████╔╝███████╗██║  ██║ ██║  ██║██████╔╝██║  ██║╚██████╔╝██║      
+# ╚═════╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝      
+#
+#  SolarShop — Cấu hình chính (Main Configuration)
+#  Paper / Folia 1.21.4+
+# ──────────────────────────────────────────────
+
+# Bật/tắt log debug trong console
+debug: false
+
+# Ngôn ngữ sử dụng (vi: Tiếng Việt, en: Tiếng Anh)
+# Các tệp ngôn ngữ nằm trong thư mục SolarShop/lang/ (vi.yml, en.yml)
+language: vi
+
+# Các alias cho lệnh /solarshop (áp dụng ngay khi reload)
+command-aliases:
+  - shop
+  - ss
+
+# ── Database ────────────────────────────────────
+# Loại: sqlite | mysql   (mặc định sqlite nếu không hợp lệ)
+database:
+  type: sqlite
+  mysql:
+    host: localhost
+    port: 3306
+    database: solarshop
+    user: root
+    password: ''
+    max-pool: 15
+    use-ssl: false
+
+# ── Economy hooks ───────────────────────────────
+# Đã di chuyển cấu hình các loại tiền tệ sang tệp currency.yml để quản lý và tùy chỉnh dễ dàng hơn.
+# (All currency configurations have been moved to currency.yml for easier management and customization).
+
+# Tùy chỉnh tin nhắn (Message Configuration)
+messages:
+  # Bật tin nhắn action bar (thanh phía trên hotbar)
+  # Enable action bar messages (above the hotbar)
+  action-bar-messages: true
+  
+  # Bật tin nhắn chat
+  # Enable chat messages
+  chat-messages: true
+  
+  # Chỉ hiển thị tin nhắn action bar, không hiển thị ở chat
+  # Show only action bar messages, disable chat messages
+  # Khi true, luôn bật action bar và tắt chat, ghi đè hai tùy chọn phía trên.
+  # When true, forces action bar on and chat off, overriding the two options above.
+  use-action-bar-only: false
+
+  # Hiển thị tên vật phẩm theo ngôn ngữ của Client người chơi (nếu vật phẩm không có tên tùy chỉnh)
+  # Display item names according to the player's client language (if the item has no custom name)
+  translate-item-names: true

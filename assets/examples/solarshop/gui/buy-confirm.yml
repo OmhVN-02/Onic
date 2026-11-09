@@ -1,0 +1,39 @@
+# Buy Confirmation Menu Configuration (Màn hình xác nhận mua)
+config-version: "1.5"
+title: "ᴄᴏɴꜰɪʀᴍ ᴘᴜʀᴄʜᴀꜱᴇ"
+close-after-purchase: false
+gui-disposition:
+  - "#########"
+  - "zyx d XYZ"
+  - "###c#a###"
+
+confirm-button:
+  name: "#00FF30ᴄᴏɴꜰɪʀᴍ"
+  lore:
+    - "&7Click to confirm purchase"
+
+cancel-button:
+  name: "#FF0000ᴄᴀɴᴄᴇʟ"
+  lore:
+    - "&7Click to cancel purchase"
+
+adjust-buttons:
+  plus:
+    material: LIME_STAINED_GLASS_PANE
+    name: "&a+{}"
+  minus:
+    material: RED_STAINED_GLASS_PANE
+    name: "&c-{}"
+  stack-increments:
+    - "1/4/8"
+    - "1/12/24"
+    - "1/16/32"
+    - "1/10/64"
+
+display-item:
+  lore-format:
+    - "&fTotal Price: {price_color}{total_price}{unit_color}{unit}"
+
+filler:
+  enabled: false
+  material: "GRAY_STAINED_GLASS_PANE"

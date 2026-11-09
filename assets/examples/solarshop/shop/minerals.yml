@@ -1,0 +1,57 @@
+# ── Khoáng sản ─────────────────────────────────
+main:
+  name: '#00F986ᴋʜᴏáɴɢ sảɴ'
+  lore:
+    - '&fNhấp để xem cửa hàng khoáng sản'
+  material: DIAMOND
+
+items:
+  coal:
+    material: COAL
+    price: 20
+    slots: 0
+
+  copper_ingot:
+    material: COPPER_INGOT
+    price: 30
+    slots: 1
+
+  lapis_lazuli:
+    material: LAPIS_LAZULI
+    price: 50
+    slots: 2
+
+  raw_iron:
+    material: RAW_IRON
+    price: 80
+    slots: 3
+
+  iron_ingot:
+    material: IRON_INGOT
+    price: 100
+    slots: 4
+
+  raw_gold:
+    material: RAW_GOLD
+    price: 120
+    slots: 5
+
+  gold_ingot:
+    material: GOLD_INGOT
+    price: 150
+    slots: 6
+
+  emerald:
+    material: EMERALD
+    price: 300
+    slots: 7
+
+  diamond:
+    material: DIAMOND
+    price: 500
+    slots: 8
+
+  netherite_scrap:
+    material: NETHERITE_SCRAP
+    price: 1500
+    slots: 9

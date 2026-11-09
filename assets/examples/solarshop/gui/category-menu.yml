@@ -1,0 +1,33 @@
+# Category Shop Menu Configuration (Giao diện cửa hàng phân mục)
+config-version: "1.5"
+title: "{main_title} - {category}"
+gui-disposition:
+  - "xxxxxxxxx"
+  - "xxxxxxxxx"
+  - "b..p.n..."
+
+pagination:
+  enabled: true
+  title-format: "{main_title} - {category} ({page}/{total_pages})"
+
+back-button:
+  enabled: true
+  material: RED_STAINED_GLASS_PANE
+  name: "#FF0000ʙᴀᴄᴋ"
+  lore:
+    - "&7Click to return to main menu"
+
+previous-button:
+  material: ARROW
+  name: "&cᴘʀᴇᴠɪᴏᴜs ᴘᴀɢᴇ"
+
+next-button:
+  material: ARROW
+  name: "&aɴᴇxᴛ ᴘᴀɢᴇ"
+
+filler:
+  enabled: false
+  material: "GRAY_STAINED_GLASS_PANE"
+
+price-format:
+  standard: '&fPrice: {price_color}{price}{unit_color}{unit}'

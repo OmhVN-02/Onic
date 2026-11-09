@@ -1,0 +1,130 @@
+# ── 1. Database Configuration ─────────────────────────────────────────────────
+# Available databases:
+#   - sqlite    : Lưu file sqlite local (.db) - Mặc định, siêu nhẹ và nhanh.
+#   - mysql     : Sử dụng MySQL Server với HikariCP connection pool.
+#   - mariadb   : Sử dụng MariaDB Server với HikariCP connection pool.
+#   - mongodb   : Sử dụng NoSQL MongoDB Database.
+#   - yaml      : Lưu dạng file YAML (players.yml) - Dùng thử nghiệm hoặc fallback.
+#
+# If type is null or unrecognized, it will use sqlite by default
+storage:
+  type: "SQLITE"
+
+  # Cấu hình SQLite local
+  sqlite:
+    file: "shards.db"
+
+  # Cấu hình MySQL / MariaDB Server
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: ""
+    table-prefix: "solarshards_"
+    use-ssl: false
+    connection-timeout: 10000
+    max-pool-size: 10
+    min-idle: 2
+    max-lifetime: 1800000
+
+  # Cấu hình NoSQL MongoDB Server
+  mongodb:
+    # Nếu điền URI, plugin sẽ ưu tiên dùng URI (ví dụ: mongodb://user:password@localhost:27017/dbname)
+    uri: ""
+    host: "localhost"
+    port: 27017
+    database: "solarshards"
+    collection: "players"
+    username: ""
+    password: ""
+    auth-database: "admin"
+
+# ── 2. Currency Settings ──────────────────────────────────────────────────────
+# Cấu hình hiển thị và giá trị của đơn vị tiền tệ Shards.
+currency:
+  # Tên gọi và ký hiệu của tiền tệ
+  name: "Shards"
+  singular: "Shard"
+  plural: "Shards"
+  symbol: "✦"
+
+  # Số dư khởi tạo cho người chơi mới tham gia server
+  starting-balance: 0
+
+  # Hạn mức số dư tối đa người chơi có thể giữ (0 = không giới hạn)
+  max-balance: 1000000000000
+
+  # ── 3. Pay & Transfer Settings ──────────────────────────────────────────────
+  # Cấu hình tính năng chuyển tiền giữa các người chơi (/shards pay)
+  pay:
+    enabled: true
+    min-amount: 1
+    max-amount: 0 # 0 = không giới hạn
+    # Tỷ lệ thuế giao dịch (0.0 = không thuế, 0.05 = 5% thuế)
+    tax-rate: 0.0
+    # Ghi log giao dịch vào console của server (tắt = false để tránh spam console)
+    log: false
+
+# ── 4. Auto-Save & Performance ────────────────────────────────────────────────
+# Cấu hình tự động lưu dữ liệu người chơi định kỳ để chống mất dữ liệu khi crash
+auto-save:
+  enabled: true
+  # Thời gian tự động lưu tính bằng GIÂY (300s = 5 phút)
+  interval: 300
+
+# ── 5. Sound Settings ─────────────────────────────────────────────────────────
+# Cấu hình âm thanh khi người chơi thực hiện các hành động trong plugin
+# Danh sách Sound: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+# Để tắt âm thanh: set enabled: false hoặc sound: "NONE"
+sounds:
+  pay-sent:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.2
+  pay-received:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.5
+  admin-action:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 2.0
+  error:
+    enabled: true
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+
+# ── 6. Notification & Silent Settings ─────────────────────────────────────────
+# Cấu hình thông báo khi Admin hoặc Console/Plugin khác thao tác số dư (/shards give/take/set/reset)
+notifications:
+  # Gửi tin nhắn cho người chơi khi được cộng Shards từ admin/plugin khác
+  # (Mặc định: false - Tắt để tránh spam nếu các plugin Quest, BattlePass, Crate đã có thông báo riêng)
+  notify-player-on-admin-give: false
+
+  # Gửi tin nhắn cho người chơi khi bị trừ Shards từ admin/plugin khác
+  notify-player-on-admin-take: false
+
+  # Gửi tin nhắn cho người chơi khi bị đặt lại số dư Shards
+  notify-player-on-admin-set: false
+
+  # Gửi tin nhắn cho người chơi khi bị reset số dư Shards
+  notify-player-on-admin-reset: false
+
+  # Phát âm thanh cho người chơi khi nhận/bị sửa Shards từ admin/plugin khác
+  play-sound-on-admin-modify: false
+
+  # Ẩn thông báo xác nhận cho Console khi chạy lệnh qua Console / Plugin bên ngoài
+  silent-console-commands: true
+
+# ── 7. Vault Integration ──────────────────────────────────────────────────────
+# Tích hợp Vault Economy
+# CẢNH BÁO: Chỉ bật nếu bạn muốn Shards làm đơn vị tiền tệ chính cho Vault trên server!
+vault:
+  hook-as-primary-economy: false
+
+version: 1.3

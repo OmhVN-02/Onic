@@ -1,0 +1,63 @@
+main:
+  name: '#FFB347ғᴏᴏᴅ'
+  lore:
+    - '&fɴʜấᴘ để xᴇᴍ ᴄửᴀ ʜàɴɢ ᴛʜứᴄ ăɴ'
+  material: COOKED_BEEF
+page1:
+ items:
+  potato:
+    material: POTATO
+    price: 75
+
+  sweet_berries:
+    material: SWEET_BERRIES
+    price: 50
+
+  melon_slice:
+    material: MELON_SLICE
+    price: 10
+
+  carrot:
+    material: CARROT
+    price: 65
+
+  apple:
+    material: APPLE
+    price: 25
+
+  cooked_chicken:
+    material: COOKED_CHICKEN
+    price: 30
+
+  cooked_beef:
+    material: COOKED_BEEF
+    price: 35
+
+  golden_carrot:
+    material: GOLDEN_CARROT
+    price: 50
+
+  golden_apple:
+    material: GOLDEN_APPLE
+    price: 250
+    max-amount: 16
+
+  baked_potato:
+    material: BAKED_POTATO
+    price: 40
+
+  bread:
+    material: BREAD
+    price: 20
+
+  cooked_porkchop:
+    material: COOKED_PORKCHOP
+    price: 35
+
+  cooked_mutton:
+    material: COOKED_MUTTON
+    price: 35
+
+  cooked_rabbit:
+    material: COOKED_RABBIT
+    price: 40

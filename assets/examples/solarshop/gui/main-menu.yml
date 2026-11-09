@@ -1,0 +1,23 @@
+# Main Menu GUI Configuration (Cấu hình Menu chính)
+config-version: "1.5"
+title: "sʜᴏᴘ"
+gui-disposition:
+  - "#########"
+  - "abcdefgk#"
+  - "#########"
+
+filler:
+  enabled: false
+  material: "GRAY_STAINED_GLASS_PANE"
+  name: " "
+
+# Map characters in layout to shop category IDs (matches yml file names)
+categories:
+  a: "farm"
+  b: "food"
+  c: "gear"
+  d: "nether"
+  e: "redstone"
+  f: "end"
+  g: "shards"
+  k: "keys"

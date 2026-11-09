@@ -1,0 +1,31 @@
+#  ██████╗  ██████╗ ██╗      █████╗  ██████╗  ██████╗██╗  ██╗ ██████╗  ██████╗ 
+# ██╔════╝ ██╔═══██╗██║     ██╔══██╗ ██╔══██╗██╔════╝██║  ██║██╔═══██╗██╔═══██╗
+# ╚█████╗  ██║   ██║██║     ███████║ ██████╔╝╚█████╗ ███████║██║   ██║███████╔╝
+#  ╚═══██╗ ██║   ██║██║     ██╔══██║ ██╔══██╗ ╚═══██╗██╔══██║██║   ██║██╔════╝ 
+# ██████╔╝ ╚██████╔╝███████╗██║  ██║ ██║  ██║██████╔╝██║  ██║╚██████╔╝██║      
+# ╚═════╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝      
+#
+#  SolarShop — Âm thanh (Sounds Configuration)
+#  Định dạng: SOUND_KEY hoặc SOUND_KEY:volume:pitch
+#  Ví dụ:
+#    menu-open: BLOCK_CHEST_OPEN
+#    menu-open: block.chest.open:1.0:1.0
+#  Hỗ trợ cả legacy enum (BLOCK_CHEST_OPEN)
+#  và Paper 1.21 key (block.chest.open)
+#  Âm lượng (volume) và cao độ (pitch) là tùy chọn (mặc định 1.0)
+#  Để trống = tắt âm thanh đó (không cảnh báo)
+# ──────────────────────────────────────────────
+
+enabled: true
+master-volume: 1.0
+
+sounds:
+  menu-open:          block.chest.open:1.0:1.0
+  menu-close:         block.chest.close:1.0:1.0
+  button-click:       ui.button.click:1.0:1.2
+  category-select:    block.note_block.pling:1.0:1.5
+  purchase-success:   entity.player.levelup:1.0:1.0
+  purchase-fail:      entity.villager.no:1.0:0.8
+  insufficient-funds: entity.villager.no:1.0:0.6
+  cooldown-active:    entity.item.break:1.0:0.6
+  cooldown-expired:   block.note_block.pling:1.0:1.0

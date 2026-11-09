@@ -1,0 +1,43 @@
+# ── Cấu hình tiền tệ (Currency Configuration) ──
+# type: vault | playerpoints | coinsengine | custom
+# - vault (hoặc coin / coins / money): Sử dụng nền kinh tế Vault (EssentialsX, CMI, v.v...)
+# - playerpoints (hoặc points): Sử dụng PlayerPoints
+# - coinsengine (hoặc excellenteconomy): Sử dụng CoinsEngine (bản mới là ExcellentEconomy)
+# - custom: Sử dụng PlaceholderAPI và lệnh trừ tiền tùy chỉnh
+
+currencies:
+  vault:
+    type: vault
+    name: Coins
+    format: "${amount}"
+    price-color: "&a"
+    unit-name: "$"
+    unit-color: "&a"
+
+  shards:
+    type: solarshards
+    price-color: "&d"
+    unit-name: " Shards"
+    unit-color: "&d"
+    format: "{amount} Shards"
+
+  points:
+    type: playerpoints
+    name: Points
+    format: "{amount} pts"
+    price-color: "&b"
+    unit-name: " Points"
+    unit-color: "&b"
+
+  # ── Ví dụ cấu hình tiền tệ tùy chỉnh (Custom Currency Example) ──
+  # (Hãy bỏ dấu thăng '#' ở trước dòng để kích hoạt và sử dụng làm khuôn mẫu)
+  # (Uncomment the lines below to activate and customize this as a template)
+  #
+  # gems:
+  #   type: custom
+  #   placeholder: "%gems_balance%"
+  #   take-command: "gems take {player} {price}"
+  #   price-color: "&a"
+  #   unit-name: " Gems"
+  #   unit-color: "&a"
+  #   format: "{amount} gems"

@@ -1,0 +1,150 @@
+main:
+  name: '#FFB6C1sʜᴀʀᴅs'
+  lore:
+    - '&fᴄʟɪᴄᴋ ᴛᴏ ᴏᴘᴇɴ sʜᴀʀᴅ sʜᴏᴘ'
+  material: AMETHYST_SHARD
+  glow: true
+
+items:
+  common_key:
+    material: TRIPWIRE_HOOK
+    name: '§x§3§C§A§7§2§0ᴄᴏᴍᴍᴏɴ ᴋᴇʏ'
+    price: 500
+    currency: shards
+    max-amount: 1
+    slots: 2
+    enchantments:
+      - 'DURABILITY:1'
+    commands:
+      - 'crate give {player} common 1'
+
+  enchant_key:
+    material: TRIPWIRE_HOOK
+    name: '§dᴇɴᴄʜᴀɴᴛ ᴋᴇʏ'
+    price: 4500
+    currency: shards
+    max-amount: 1
+    slots: 3
+    enchantments:
+      - 'DURABILITY:2'
+      - 'MENDING:1'
+    commands:
+      - 'crate give {player} enchant 1'
+
+  crimson_key:
+    material: TRIPWIRE_HOOK
+    name: '§x§C§4§2§1§1§9ᴄʀɪᴍsᴏɴ ᴋᴇʏ'
+    price: 5000
+    currency: shards
+    max-amount: 1
+    slots: 4
+    enchantments:
+      - 'FIRE_ASPECT:1'
+    commands:
+      - 'crate give {player} crimson 1'
+
+  spawner_key:
+    material: TRIPWIRE_HOOK
+    name: '§x§F§F§A§5§0§0sᴘᴀᴡɴᴇʀ ᴋᴇʏ'
+    price: 5000
+    currency: shards
+    max-amount: 1
+    slots: 5
+    enchantments:
+      - 'DURABILITY:3'
+      - 'MENDING:1'
+    commands:
+      - 'crate give {player} spawner 1'
+
+  amethyst_key:
+    material: TRIPWIRE_HOOK
+    name: '§x§6§E§3§A§A§Dᴀᴍᴇᴛʜʏsᴛ ᴋᴇʏ'
+    price: 4500
+    currency: shards
+    max-amount: 1
+    slots: 6
+    enchantments:
+      - 'DURABILITY:3'
+    commands:
+      - 'crate give {player} amethyst 1'
+
+  pig_spawner:
+    material: SPAWNER
+    name: '&dᴘɪɢ sᴘᴀᴡɴᴇʀ'
+    price: 200
+    currency: shards
+    max-amount: 1
+    slots: 9
+    ss-id: pig
+
+  cow_spawner:
+    material: SPAWNER
+    name: '&dᴄᴏᴡ sᴘᴀᴡɴᴇʀ'
+    price: 300
+    currency: shards
+    max-amount: 1
+    slots: 10
+    ss-id: cow
+
+  zombie_spawner:
+    material: SPAWNER
+    name: '&dᴢᴏᴍʙɪᴇ sᴘᴀᴡɴᴇʀ'
+    price: 350
+    currency: shards
+    max-amount: 1
+    slots: 11
+    ss-id: zombie
+
+  spider_spawner:
+    material: SPAWNER
+    name: '&dsᴘɪᴅᴇʀ sᴘᴀᴡɴᴇʀ'
+    price: 500
+    currency: shards
+    max-amount: 1
+    slots: 12
+    ss-id: spider
+
+  skeleton_spawner:
+    material: SPAWNER
+    name: '&dsᴋᴇʟᴇᴛᴏɴ sᴘᴀᴡɴᴇʀ'
+    price: 325
+    currency: shards
+    max-amount: 1
+    slots: 13
+    ss-id: skeleton
+
+  creeper_spawner:
+    material: SPAWNER
+    name: '&dᴄʀᴇᴇᴘᴇʀ sᴘᴀᴡɴᴇʀ'
+    price: 425
+    currency: shards
+    max-amount: 1
+    slots: 14
+    ss-id: creeper
+
+  zombified_piglin_spawner:
+    material: SPAWNER
+    name: '&dᴢᴏᴍʙɪꜰɪᴇᴅ ᴘɪɢʟɪɴ sᴘᴀᴡɴᴇʀ'
+    price: 500
+    currency: shards
+    max-amount: 1
+    slots: 15
+    ss-id: zombified_piglin
+
+  blaze_spawner:
+    material: SPAWNER
+    name: '&dʙʟᴀᴢᴇ sᴘᴀᴡɴᴇʀ'
+    price: 750
+    currency: shards
+    max-amount: 1
+    slots: 16
+    ss-id: blaze
+
+  iron_golem_spawner:
+    material: SPAWNER
+    name: '&dɪʀᴏɴ ɢᴏʟᴇᴍ sᴘᴀᴡɴᴇʀ'
+    price: 1000
+    currency: shards
+    max-amount: 1
+    slots: 17
+    ss-id: iron_golem

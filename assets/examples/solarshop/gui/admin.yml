@@ -1,0 +1,233 @@
+# SolarShop Admin/Editor Menus GUI Configuration
+# Cấu hình giao diện trình chỉnh sửa của Admin (SolarShop v1.6)
+
+config-version: "1.5"
+
+filler:
+  enabled: false
+  material: "GRAY_STAINED_GLASS_PANE"
+  name: " "
+
+border:
+  material: "ORANGE_STAINED_GLASS_PANE"
+  name: " "
+
+# ── 1. Edit Main Menu ──
+edit-main-menu:
+  title: "sʜᴏᴘ ᴍᴀɴᴀɢᴇʀ"
+  gui-disposition:
+    - "#########"
+    - "#ccccccc#"
+    - "#ccccccc#"
+    - "#ccccccc#"
+    - "#########"
+  buttons:
+    add-category:
+      material: "EMERALD"
+      name: "&a&lᴄʀᴇᴀᴛᴇ ɴᴇᴡ ᴄᴀᴛᴇɢᴏʀʏ"
+      lore:
+        - "&7Click to create a new shop category."
+
+# ── 2. Edit Category Items Menu ──
+edit-category-menu:
+  title: "ᴇᴅɪᴛ ᴄᴀᴛᴇɢᴏʀʏ {category}"
+  gui-disposition:
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "b#p###n##"
+  buttons:
+    back:
+      material: "ARROW"
+      name: "&cʙᴀᴄᴋ ᴛᴏ ᴍᴀɪɴ ᴍᴇɴᴜ"
+      lore:
+        - "&7Return to main manager menu."
+    prev-page:
+      material: "PAPER"
+      name: "&eᴘʀᴇᴠɪᴏᴜs ᴘᴀɢᴇ"
+      lore:
+        - "&7Return to previous page."
+    next-page:
+      material: "PAPER"
+      name: "&eɴᴇxᴛ ᴘᴀɢᴇ"
+      lore:
+        - "&7Go to next page."
+    settings:
+      material: "WRITABLE_BOOK"
+      name: "&dᴄᴀᴛᴇɢᴏʀʏ sᴇᴛᴛɪɴɢs"
+      lore:
+        - "&7Click to customize category properties:"
+        - "&7DisplayName, Title, Icon, Perm, Glow..."
+
+# ── 3. Category Settings Editor ──
+category-editor:
+  title: "ᴇᴅɪᴛ ᴄᴀᴛᴇɢᴏʀʏ {category}"
+  gui-disposition:
+    - "#########"
+    - "####d####"
+    - "#n#t#i#p#"
+    - "#g#l#s###"
+    - "b########"
+  buttons:
+    back:
+      material: "ARROW"
+      name: "&cʙᴀᴄᴋ ᴛᴏ ɪᴛᴇᴍs"
+    edit-name:
+      material: "ANVIL"
+      name: "&eᴇᴅɪᴛ ᴅɪsᴘʟᴀʏ ɴᴀᴍᴇ"
+      lore:
+        - "&7Current Name: &f{value}"
+        - ""
+        - "&aClick to enter new display name"
+    edit-title:
+      material: "WRITABLE_BOOK"
+      name: "&dᴇᴅɪᴛ ɢᴜɪ ᴛɪᴛʟᴇ"
+      lore:
+        - "&7Current Title: &f{value}"
+        - ""
+        - "&aClick to enter new GUI title"
+    edit-icon:
+      material: "ITEM_FRAME"
+      name: "&eᴄʜᴀɴɢᴇ ɪᴄᴏɴ"
+      lore:
+        - "&7Current Icon: &f{value}"
+        - ""
+        - "&aHold item in hand and click to set as Icon"
+    edit-permission:
+      material: "NAME_TAG"
+      name: "&9ʀᴇqᴜɪʀᴇᴅ ᴘᴇʀᴍɪssɪᴏɴ"
+      lore:
+        - "&7Current Permission: &f{value}"
+        - ""
+        - "&aClick to enter new permission"
+        - "&cType 'none' to remove permission requirement"
+    toggle-glow:
+      material: "GLOWSTONE_DUST"
+      name: "&eɢʟᴏᴡ ᴇғғᴇᴄᴛ"
+      lore:
+        - "&7Current Status: {value}"
+        - ""
+        - "&aClick to toggle glow effect"
+    edit-lore:
+      material: "BOOK"
+      name: "&dᴇᴅɪᴛ ʟᴏʀᴇ"
+      lore:
+        - "&7Current Lore lines:"
+        - "{value}"
+        - ""
+        - "&aClick to add a lore line or clear all"
+    edit-slot:
+      material: "CHEST"
+      name: "&eᴄʜᴀɴɢᴇ sʟᴏᴛ ᴘᴏsɪᴛɪᴏɴ"
+      lore:
+        - "&7Current Slot: &f{value}"
+        - ""
+        - "&aClick to select slot directly in GUI"
+
+# ── 4. Item Settings Editor ──
+item-editor:
+  title: "ᴇᴅɪᴛ ɪᴛᴇᴍ {item}"
+  gui-disposition:
+    - "#########"
+    - "####d####"
+    - "#n#y#l#p#"
+    - "#c#m#q#o#"
+    - "b#g#e#x##"
+  buttons:
+    back:
+      material: "ARROW"
+      name: "&cʙᴀᴄᴋ"
+    delete:
+      material: "BARRIER"
+      name: "&cᴅᴇʟᴇᴛᴇ ɪᴛᴇᴍ"
+      lore:
+        - "&7Delete this item from shop category."
+    edit-name:
+      material: "ANVIL"
+      name: "&eᴇᴅɪᴛ ɪᴛᴇᴍ ᴍᴀᴛᴇʀɪᴀʟ (ɴᴀᴍᴇ)"
+      lore:
+        - "&7Current Material: &f{value}"
+        - ""
+        - "&aClick to enter new item material"
+        - "&cRight-Click to reset to default (Vanilla)"
+    edit-disname:
+      material: "FEATHER"
+      name: "&eᴇᴅɪᴛ sʜᴏᴘ ᴅɪsᴘʟᴀʏ ɴᴀᴍᴇ"
+      lore:
+        - "&7Current Display Name: &f{value}"
+        - ""
+        - "&aClick to enter new display name"
+        - "&cRight-Click to clear (uses material name)"
+    edit-lore:
+      material: "BOOK"
+      name: "&dᴇᴅɪᴛ ʟᴏʀᴇ"
+      lore:
+        - "&7Current Lore lines:"
+        - "{value}"
+        - ""
+        - "&aClick to add a lore line or clear all"
+    edit-price:
+      material: "GOLD_INGOT"
+      name: "&eᴇᴅɪᴛ ᴘʀɪᴄᴇ"
+      lore:
+        - "&7Current Price: &e{value}"
+        - ""
+        - "&aClick to enter new price"
+    toggle-currency:
+      material: "PAPER"
+      name: "&bᴄᴜʀʀᴇɴᴄʏ ᴛʏᴘᴇ"
+      lore:
+        - "&7Current Currency: &f{value}"
+        - ""
+        - "&aClick to toggle currency type"
+    edit-max-amount:
+      material: "CHEST"
+      name: "&dᴍᴀx ᴀᴍᴏᴜɴᴛ"
+      lore:
+        - "&7Current Max: &f{value}"
+        - ""
+        - "&aClick to edit max purchase quantity"
+    edit-permission:
+      material: "NAME_TAG"
+      name: "&9ʀᴇqᴜɪʀᴇᴅ ʙᴜʏ ᴘᴇʀᴍɪssɪᴏɴ"
+      lore:
+        - "&7Current Permission: &f{value}"
+        - ""
+        - "&aClick to enter required buy permission"
+    edit-commands:
+      material: "COMMAND_BLOCK"
+      name: "&aᴇxᴇᴄᴜᴛᴇ ᴄᴏᴍᴍᴀɴᴅs"
+      lore:
+        - "&7Current commands list:"
+        - "{value}"
+        - ""
+        - "&aClick to add a console command or clear all"
+    toggle-glow:
+      material: "GLOWSTONE_DUST"
+      name: "&eɢʟᴏᴡ ᴇғғᴇᴄᴛ"
+      lore:
+        - "&7Current Status: {value}"
+        - ""
+        - "&aClick to toggle glow effect"
+    edit-enchantments:
+      material: "ENCHANTED_BOOK"
+      name: "&5ᴍᴀɴᴀɢᴇ ᴇɴᴄʜᴀɴᴛᴍᴇɴᴛs"
+      lore:
+        - "&7Click to open enchantment manager"
+
+# ── 5. Enchantment Selection Menu ──
+enchant-editor:
+  title: "ᴇɴᴄʜᴀɴᴛs {item}"
+  gui-disposition:
+    - "eeeeeeeee"
+    - "eeeeeeeee"
+    - "eeeeeeeee"
+    - "eeeeeeeee"
+    - "eeeeeeeee"
+    - "b########"
+  buttons:
+    back:
+      material: "ARROW"
+      name: "&cʙᴀᴄᴋ ᴛᴏ ɪᴛᴇᴍ ᴇᴅɪᴛᴏʀ"

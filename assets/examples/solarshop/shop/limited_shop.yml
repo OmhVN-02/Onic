@@ -1,0 +1,64 @@
+main:
+  name: '&#FFAA00Sʜᴏᴘ Giới Hạn'
+  lore:
+    - '&fCửa hàng vật phẩm giới hạn cá nhân & server'
+  material: NETHER_STAR
+  glow: true
+
+items:
+  dragon_egg:
+    material: DRAGON_EGG
+    name: '&#FF4444&lTrứng Rồng Huyền Thoại'
+    price: 50000
+    currency: vault
+    slots: 2
+    glow: true
+    limits:
+      personal:
+        max: 1
+        type: daily
+      global:
+        max: 5
+        type: weekly
+    lore:
+      - '&7Vật phẩm cực kỳ quý hiếm trên máy chủ.'
+      - ''
+      - '&e⚡ Giới hạn cá nhân: &f{personal_bought}/{personal_limit} &7(Còn: &a{personal_left}&7)'
+      - '&c🌐 Kho Server tuần: &f{global_bought}/{global_limit} &7(Còn: &a{global_left}&7)'
+
+  netherite_ingot:
+    material: NETHERITE_INGOT
+    name: '&#AA00FFThỏi Netherite Giới Hạn'
+    price: 15000
+    currency: vault
+    slots: 4
+    limits:
+      personal:
+        max: 5
+        type: daily
+      global:
+        max: 20
+        type: daily
+    lore:
+      - '&7Thỏi nguyên liệu chế tạo trang bị tối thượng.'
+      - ''
+      - '&e⚡ Giới hạn ngày: &f{personal_bought}/{personal_limit} &7(Còn: &a{personal_left}&7)'
+      - '&c🌐 Kho Server ngày: &f{global_bought}/{global_limit} &7(Còn: &a{global_left}&7)'
+
+  spawner_key:
+    material: TRIPWIRE_HOOK
+    name: '&#00FFAASpawner Key (Vĩnh viễn)'
+    price: 3000
+    currency: shards
+    slots: 6
+    glow: true
+    commands:
+      - 'crate give {player} spawner 1'
+    limits:
+      personal:
+        max: 2
+        type: permanent
+    lore:
+      - '&7Chìa khóa mở rương spawner cao cấp.'
+      - ''
+      - '&e⚡ Giới hạn cá nhân (Vĩnh viễn): &f{personal_bought}/{personal_limit} &7(Còn: &a{personal_left}&7)'

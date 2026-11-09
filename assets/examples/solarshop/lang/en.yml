@@ -1,0 +1,44 @@
+general:
+  prefix:            "&#ffaa00SᴏʟᴀʀSʜᴏᴘ &8» &f"
+  no-permission:     "&#FF4444No permission!"
+  player-only:       "&#FF4444In-game player only!"
+  invalid-command:   "&#FF4444Invalid command! Use &#FFFFFF/{command} help"
+  reload-success:    "&#54FC54Configuration reloaded!"
+  reload-failed:     "&#FF4444Reload failed!"
+
+purchase:
+  success:              "&#54FC54Purchased &#FFFFFF{amount}x {item} &#54FC54(-&f{price}&#54FC54)"
+  action-bar-success:   "&aPurchased &f{amount}x &a{item}"
+  failed:               "&#FF4444Transaction failed!"
+  insufficient-funds:   "&#FF4444No enough {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  insufficient-shards:  "&#FF4444No enough {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  insufficient-points:  "&#FF4444No enough {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  invalid-amount:       "&#FF4444Invalid amount!"
+  cancelled:            "&#AAAAAATransaction cancelled."
+
+
+
+errors:
+  shop-load-failed:     "&#FF4444Failed to load: &#FFFFFF{shop}"
+  no-permission:        "&#FF4444No permission to open this shop!"
+  shard-fetch-failed:   "&#FF4444Failed to sync Shards!"
+  inventory-full:       "&#FF4444Inventory is full!"
+  personal-limit-reached: "&#FF4444You have reached the maximum purchase limit for this item!"
+  global-limit-reached:   "&#FF4444This item is out of stock across the server!"
+
+gui:
+  adjust-hint: "&7Click to {action} {amount}"
+
+admin:
+  debug-on:  "&#FFD700Debug enabled!"
+  debug-off: "&#AAAAAADebug disabled."
+
+help:
+  header: "&#FFD700--- [ SolarShop — Command Help ] ---"
+  footer: "&#FFD700-----------------------------------"
+  lines:
+    - "&#FFFFFF/solarshop           #AAAAAA» Open the main shop GUI"
+    - "&#FFFFFF/solarshop reload    #AAAAAA» Reload system configuration"
+    - "&#FFFFFF/solarshop help      #AAAAAA» View this help menu"
+    - "&#FFFFFF/solarshop stats     #AAAAAA» View shop statistics"
+    - "&#FFFFFF/solarshop version   #AAAAAA» View current plugin version"

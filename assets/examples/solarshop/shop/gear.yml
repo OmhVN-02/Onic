@@ -1,0 +1,78 @@
+main:
+  name: '#00E5FFɢᴇᴀʀ'
+  lore:
+    - '&fɴʜấᴘ để xᴇᴍ ᴄửᴀ ʜàɴɢ ᴛʀᴀɴɢ ʙị'
+  material: TOTEM_OF_UNDYING
+ 
+items:
+    
+    netherite_helmet:
+      material: NETHERITE_HELMET
+      price: 1000
+      slots: 2
+
+    netherite_chestplate:
+      material: NETHERITE_CHESTPLATE
+      price: 1500
+      slots: 3
+
+    netherite_leggings:
+      material: NETHERITE_LEGGINGS
+      price: 1200
+      slots: 4
+
+    netherite_boots:
+      material: NETHERITE_BOOTS
+      price: 1000
+      slots: 5
+
+    netherite_sword:
+      material: NETHERITE_SWORD
+      price: 1000
+      slots: 6
+
+    tnt_minecart:
+      material: TNT_MINECART
+      price: 2000
+      slots: 9
+    
+    obsidian:
+      material: OBSIDIAN
+      price: 300
+      slots: 10
+
+    cobweb:
+      material: COBWEB
+      price: 200
+      slots: 11
+
+    wind_charge:
+      material: WIND_CHARGE
+      price: 150
+      slots: 12
+
+    totem_of_undying:
+      material: TOTEM_OF_UNDYING
+      price: 1250
+      slots: 13
+      max-amount: 1
+        
+    tnt:
+      material: TNT
+      price: 500
+      slots: 14
+
+    golden_apple:
+      material: GOLDEN_APPLE
+      price: 400
+      slots: 15
+
+    ender_pearl:
+      material: ENDER_PEARL
+      price: 75
+      slots: 16
+
+    exp_bottle:
+      material: EXPERIENCE_BOTTLE
+      price: 500
+      slots: 17

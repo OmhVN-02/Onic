@@ -1,0 +1,274 @@
+# ── Cửa hàng Chìa khóa Crate ───────────────────
+main:
+  name: '#FFEA00ᴄʀᴀᴛᴇ ᴋᴇʏs'
+  lore:
+    - '&fNhấp để mua chìa khóa mở rương'
+  material: TRIPWIRE_HOOK
+
+items:
+  # --- Row 1: Physical Keys ---
+  common_key_physical:
+    material: TRIPWIRE_HOOK
+    name: "&fᴄᴏᴍᴍᴏɴ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Common."
+    price: 5000
+    currency: vault
+    slots: 0
+    glow: true
+    commands:
+      - "solarcrate givekey {player} common_crate {amount} physical"
+
+  uncommon_key_physical:
+    material: FEATHER
+    name: "&aᴜɴᴄᴏᴍᴍᴏɴ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Uncommon."
+    price: 10000
+    currency: vault
+    slots: 1
+    glow: true
+    commands:
+      - "solarcrate givekey {player} uncommon_crate {amount} physical"
+
+  rare_key_physical:
+    material: PRISMARINE_SHARD
+    name: "&bʀᴀʀᴇ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Rare."
+    price: 25000
+    currency: vault
+    slots: 2
+    glow: true
+    commands:
+      - "solarcrate givekey {player} rare_crate {amount} physical"
+
+  material_key_physical:
+    material: COPPER_INGOT
+    name: "&6ᴍᴀᴛᴇʀɪᴀʟ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Material."
+    price: 15000
+    currency: vault
+    slots: 3
+    glow: true
+    commands:
+      - "solarcrate givekey {player} material_crate {amount} physical"
+
+  epic_key_physical:
+    material: AMETHYST_SHARD
+    name: "&5ᴇᴘɪᴄ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Epic."
+    price: 50
+    currency: points
+    slots: 4
+    glow: true
+    commands:
+      - "solarcrate givekey {player} epic_crate {amount} physical"
+
+  legendary_key_physical:
+    material: GOLD_INGOT
+    name: "&6ʟᴇɢᴇɴᴅᴀʀʏ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Legendary."
+    price: 100
+    currency: points
+    slots: 5
+    glow: true
+    commands:
+      - "solarcrate givekey {player} legendary_crate {amount} physical"
+
+  mythical_key_physical:
+    material: EMERALD
+    name: "&dᴍʏᴛʜɪᴄᴀʟ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Mythical."
+    price: 250
+    currency: points
+    slots: 6
+    glow: true
+    commands:
+      - "solarcrate givekey {player} mythical_crate {amount} physical"
+
+  super_deity_key_physical:
+    material: NETHER_STAR
+    name: "&cꜱᴜᴘᴇʀ ᴅᴇɪᴛʏ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Super Deity."
+    price: 500
+    currency: points
+    slots: 7
+    glow: true
+    commands:
+      - "solarcrate givekey {player} super_deity_crate {amount} physical"
+
+  cosmic_key_physical:
+    material: HEART_OF_THE_SEA
+    name: "&eᴄᴏsᴍɪᴄ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý dùng để mở rương Cosmic."
+    price: 1000
+    currency: points
+    slots: 8
+    glow: true
+    commands:
+      - "solarcrate givekey {player} cosmic_crate {amount} physical"
+
+  # --- Row 2: Virtual Keys ---
+  common_key_virtual:
+    material: TRIPWIRE_HOOK
+    name: "&fᴄᴏᴍᴍᴏɴ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 4500
+    currency: vault
+    slots: 9
+    glow: false
+    commands:
+      - "solarcrate givekey {player} common_crate {amount} virtual"
+
+  uncommon_key_virtual:
+    material: FEATHER
+    name: "&aᴜɴᴄᴏᴍᴍᴏɴ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 9000
+    currency: vault
+    slots: 10
+    glow: false
+    commands:
+      - "solarcrate givekey {player} uncommon_crate {amount} virtual"
+
+  rare_key_virtual:
+    material: PRISMARINE_SHARD
+    name: "&bʀᴀʀᴇ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 22500
+    currency: vault
+    slots: 11
+    glow: false
+    commands:
+      - "solarcrate givekey {player} rare_crate {amount} virtual"
+
+  material_key_virtual:
+    material: COPPER_INGOT
+    name: "&6ᴍᴀᴛᴇʀɪᴀʟ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 13500
+    currency: vault
+    slots: 12
+    glow: false
+    commands:
+      - "solarcrate givekey {player} material_crate {amount} virtual"
+
+  epic_key_virtual:
+    material: AMETHYST_SHARD
+    name: "&5ᴇᴘɪᴄ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 45
+    currency: points
+    slots: 13
+    glow: false
+    commands:
+      - "solarcrate givekey {player} epic_crate {amount} virtual"
+
+  legendary_key_virtual:
+    material: GOLD_INGOT
+    name: "&6ʟᴇɢᴇɴᴅᴀʀʏ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 90
+    currency: points
+    slots: 14
+    glow: false
+    commands:
+      - "solarcrate givekey {player} legendary_crate {amount} virtual"
+
+  mythical_key_virtual:
+    material: EMERALD
+    name: "&dᴍʏᴛʜɪᴄᴀʟ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 225
+    currency: points
+    slots: 15
+    glow: false
+    commands:
+      - "solarcrate givekey {player} mythical_crate {amount} virtual"
+
+  super_deity_key_virtual:
+    material: NETHER_STAR
+    name: "&cꜱᴜᴘᴇʀ ᴅᴇɪᴛʏ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 450
+    currency: points
+    slots: 16
+    glow: false
+    commands:
+      - "solarcrate givekey {player} super_deity_crate {amount} virtual"
+
+  cosmic_key_virtual:
+    material: HEART_OF_THE_SEA
+    name: "&eᴄᴏsᴍɪᴄ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo dùng trực tiếp trong giao diện quay."
+    price: 900
+    currency: points
+    slots: 17
+    glow: false
+    commands:
+      - "solarcrate givekey {player} cosmic_crate {amount} virtual"
+
+  # --- Row 3: Special Keys ---
+  all_in_one_key_physical:
+    material: ECHO_SHARD
+    name: "&dᴀʟʟ-ɪɴ-ᴏɴᴇ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý của rương All-in-One."
+    price: 300
+    currency: points
+    slots: 20
+    glow: true
+    commands:
+      - "solarcrate givekey {player} pet_tonghop {amount} physical"
+
+  all_in_one_key_virtual:
+    material: ECHO_SHARD
+    name: "&dᴀʟʟ-ɪɴ-ᴏɴᴇ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo của rương All-in-One."
+    price: 270
+    currency: points
+    slots: 21
+    glow: false
+    commands:
+      - "solarcrate givekey {player} pet_tonghop {amount} virtual"
+
+  premium_key_physical:
+    material: NETHERITE_INGOT
+    name: "&6ᴘʀᴇᴍɪᴜᴍ ᴋᴇʏ &7(ᴘʜʏsɪᴄᴀʟ)"
+    lore:
+      - "&7Chìa khóa vật lý của rương Premium."
+    price: 600
+    currency: points
+    slots: 23
+    glow: true
+    commands:
+      - "solarcrate givekey {player} pet_caocap {amount} physical"
+
+  premium_key_virtual:
+    material: NETHERITE_INGOT
+    name: "&6ᴘʀᴇᴍɪᴜᴍ ᴋᴇʏ &7(ᴠɪʀᴛᴜᴀʟ)"
+    lore:
+      - "&7Chìa khóa ảo của rương Premium."
+    price: 540
+    currency: points
+    slots: 24
+    glow: false
+    commands:
+      - "solarcrate givekey {player} pet_caocap {amount} virtual"

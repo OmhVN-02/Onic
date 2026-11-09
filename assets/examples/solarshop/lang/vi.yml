@@ -1,0 +1,44 @@
+general:
+  prefix:            "&#ffaa00SᴏʟᴀʀSʜᴏᴘ &8» &f"
+  no-permission:     "&#FF4444Không có quyền thực hiện!"
+  player-only:       "&#FF4444Lệnh này chỉ dùng trong game!"
+  invalid-command:   "&#FF4444Lệnh không đúng! Dùng &#FFFFFF/{command} help"
+  reload-success:    "&#54FC54Đã tải lại cấu hình!"
+  reload-failed:     "&#FF4444Tải lại cấu hình thất bại!"
+
+purchase:
+  success:              "&#54FC54Đã mua &#FFFFFF{amount}x {item} &#54FC54(-&f{price}&#54FC54)"
+  action-bar-success:   "&aĐã mua &f{amount}x &a{item}"
+  failed:               "&#FF4444Giao dịch thất bại!"
+  insufficient-funds:   "&#FF4444Không đủ {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  insufficient-shards:  "&#FF4444Không đủ {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  insufficient-points:  "&#FF4444Không đủ {currency}! (&f{current}&#FF4444/&f{required}&#FF4444)"
+  invalid-amount:       "&#FF4444Số lượng không hợp lệ!"
+  cancelled:            "&#AAAAAADã hủy giao dịch."
+
+
+
+errors:
+  shop-load-failed:     "&#FF4444Không tải được danh mục: &#FFFFFF{shop}"
+  no-permission:        "&#FF4444Không có quyền mở shop này!"
+  shard-fetch-failed:   "&#FF4444Lỗi đồng bộ số dư Shards!"
+  inventory-full:       "&#FF4444Túi đồ không đủ chỗ trống!"
+  personal-limit-reached: "&#FF4444Bạn đã đạt giới hạn mua tối đa cho vật phẩm này!"
+  global-limit-reached:   "&#FF4444Vật phẩm này đã hết hàng trên toàn máy chủ!"
+
+gui:
+  adjust-hint: "&7Nhấp để {action} {amount}"
+
+admin:
+  debug-on:  "&#FFD700Đã bật Debug!"
+  debug-off: "&#AAAAAADã tắt Debug."
+
+help:
+  header: "&#FFD700--- [ SolarShop — Danh sách câu lệnh ] ---"
+  footer: "&#FFD700--------------------------------------"
+  lines:
+    - "&#FFFFFF/solarshop           #AAAAAA» Mở cửa hàng chính"
+    - "&#FFFFFF/solarshop reload    #AAAAAA» Tải lại cấu hình hệ thống"
+    - "&#FFFFFF/solarshop help      #AAAAAA» Xem danh sách hỗ trợ"
+    - "&#FFFFFF/solarshop stats     #AAAAAA» Xem thông tin thống kê cửa hàng"
+    - "&#FFFFFF/solarshop version   #AAAAAA» Xem phiên bản plugin hiện tại"

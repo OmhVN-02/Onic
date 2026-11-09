@@ -1,0 +1,50 @@
+main:
+  name: '#FF5A1Fɴᴇᴛʜᴇʀ'
+  lore:
+    - '&fɴʜấᴘ để xᴇᴍ ᴄửᴀ ʜàɴɢ ɴᴇᴛʜᴇʀ'
+  material: NETHERRACK
+
+items:
+    crying_obsidian:
+      material: CRYING_OBSIDIAN
+      price: 150
+      slots: 9
+
+    blaze_rod:
+      material: BLAZE_ROD
+      price: 150
+      slots: 10
+
+    nether_wart:
+      material: NETHER_WART
+      price: 15
+      slots: 11
+
+    glowstone_dust:
+      material: GLOWSTONE_DUST
+      price: 15
+      slots: 12
+    magma_cream:
+      material: MAGMA_CREAM
+      price: 15
+      slots: 13
+
+    ghast_tear:
+      material: GHAST_TEAR
+      price: 350
+      slots: 14
+
+    quartz:
+      material: QUARTZ
+      price: 15
+      slots: 15
+
+    soul_sand:
+      material: SOUL_SAND
+      price: 50
+      slots: 16
+
+    magma_block:
+      material: MAGMA_BLOCK
+      price: 35
+      slots: 17

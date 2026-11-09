@@ -1,0 +1,154 @@
+# ── Farm ────────────────────────────────────────
+main:
+  name: '#00F986ғᴀʀᴍ'
+  lore:
+    - '&fNhấp để xem cửa hàng nông trại'
+  material: BAMBOO
+
+page1:
+  items:
+    wheat_seeds:
+      material: WHEAT_SEEDS
+      price: 5
+      
+    beetroot_seeds:
+      material: BEETROOT_SEEDS
+      price: 8
+
+    melon_seeds:
+      material: MELON_SEEDS
+      price: 8
+
+    pumpkin_seeds:
+      material: PUMPKIN_SEEDS
+      price: 8
+
+    torchflower_seeds:
+      material: TORCHFLOWER_SEEDS
+      price: 10
+
+    pitcher_pod:
+      material: PITCHER_POD
+      price: 10
+
+    bone_meal:
+      material: BONE_MEAL
+      price: 8
+
+    egg:
+      material: EGG
+      price: 10
+
+    feather:
+      material: FEATHER
+      price: 12
+
+    potato:
+      material: POTATO
+      price: 15
+
+    carrot:
+      material: CARROT
+      price: 15
+
+    beetroot:
+      material: BEETROOT
+      price: 15
+
+    wheat:
+      material: WHEAT
+      price: 15
+
+    poisonous_potato:
+      material: POISONOUS_POTATO
+      price: 15
+
+    vine:
+      material: VINE
+      price: 15
+
+    sugar_cane:
+      material: SUGAR_CANE
+      price: 20
+
+    brown_mushroom:
+      material: BROWN_MUSHROOM
+      price: 20
+
+    red_mushroom:
+      material: RED_MUSHROOM
+      price: 20
+
+page2:
+  items:
+    apple:
+      material: APPLE
+      price: 25
+
+    lily_pad:
+      material: LILY_PAD
+      price: 25
+
+    leather:
+      material: LEATHER
+      price: 30
+
+    kelp:
+      material: KELP
+      price: 30
+
+    cocoa_beans:
+      material: COCOA_BEANS
+      price: 40
+
+    sweet_berries:
+      material: SWEET_BERRIES
+      price: 50
+
+    nether_wart:
+      material: NETHER_WART
+      price: 60
+
+    glow_berries:
+      material: GLOW_BERRIES
+      price: 70
+
+    honey_bottle:
+      material: HONEY_BOTTLE
+      price: 80
+
+    bamboo:
+      material: BAMBOO
+      price: 100
+
+    chorus_fruit:
+      material: CHORUS_FRUIT
+      price: 100
+
+    cactus:
+      material: CACTUS
+      price: 200
+
+    sea_pickle:
+      material: SEA_PICKLE
+      price: 200
+
+    pumpkin:
+      material: PUMPKIN
+      price: 300
+
+    melon:
+      material: MELON
+      price: 300
+
+    spore_blossom:
+      material: SPORE_BLOSSOM
+      price: 350
+
+    moss_block:
+      material: MOSS_BLOCK
+      price: 400
+
+    flowering_azalea:
+      material: FLOWERING_AZALEA
+      price: 500

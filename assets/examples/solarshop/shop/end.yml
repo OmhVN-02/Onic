@@ -1,0 +1,57 @@
+main:
+   name: '#A020F0ᴇɴᴅ'
+   lore:
+      - '&fɴʜấᴘ để xᴇᴍ ᴄửᴀ ʜàɴɢ ᴇɴᴅ'
+   material: END_STONE
+   sound: BLOCK_END_PORTAL_FRAME_FILL
+
+items:
+    ender_chest:
+      material: ENDER_CHEST
+      price: 2500
+      slots: 9
+      max-amount: 64
+      
+    ender_pearl:
+      material: ENDER_PEARL
+      price: 75
+      slots: 10
+      max-amount: 16
+      
+    end_stone:
+      material: END_STONE
+      price: 8
+      slots: 11
+
+    end_rod:
+      material: END_ROD
+      price: 100
+      slots: 12
+
+    chorus_fruit:
+      material: CHORUS_FRUIT
+      price: 10
+      slots: 13
+
+    popped_chorus_fruit:
+      material: POPPED_CHORUS_FRUIT
+      price: 15
+      slots: 14
+
+    shulker_shell:
+      material: SHULKER_SHELL
+      price: 350
+      slots: 15
+      max-amount: 16
+
+    shulker_box:
+      material: SHULKER_BOX
+      price: 800
+      slots: 16
+      max-amount: 1
+
+    dragon_breath:
+      material: DRAGON_BREATH
+      price: 1000
+      slots: 17
+      max-amount: 16

@@ -1,0 +1,97 @@
+main:
+  name: '#FF3B30ʀᴇᴅsᴛᴏɴᴇ'
+  lore:
+    - '&fɴʜấᴘ để xᴇᴍ ᴄửᴀ ʜàɴɢ ʀᴇᴅsᴛᴏɴᴇ'
+  material: REDSTONE
+
+page1:
+  items:
+    redstone:
+      material: REDSTONE
+      price: 10
+
+    redstone_torch:
+      material: REDSTONE_TORCH
+      price: 15
+
+    redstone_lamp:
+      material: REDSTONE_LAMP
+      price: 120
+
+    lever:
+      material: LEVER
+      price: 8
+
+    stone_button:
+      material: STONE_BUTTON
+      price: 5
+
+    tripwire_hook:
+      material: TRIPWIRE_HOOK
+      price: 25
+
+    repeater:
+      material: REPEATER
+      price: 50
+
+    comparator:
+      material: COMPARATOR
+      price: 75
+
+    observer:
+      material: OBSERVER
+      price: 250
+
+    piston:
+      material: PISTON
+      price: 350
+
+    sticky_piston:
+      material: STICKY_PISTON
+      price: 400
+
+    dispenser:
+      material: DISPENSER
+      price: 400
+
+    dropper:
+      material: DROPPER
+      price: 350
+
+    rail:
+      material: RAIL
+      price: 10
+
+    slime_ball:
+      material: SLIME_BALL
+      price: 250
+
+    firework_rocket:
+      material: FIREWORK_ROCKET
+      price: 500
+
+    hopper:
+      material: HOPPER
+      price: 1000
+
+    tnt:
+      material: TNT
+      price: 600
+
+page2:
+  items:
+    paper:
+      material: PAPER
+      price: 15
+
+    gunpowder:
+      material: GUNPOWDER
+      price: 150
+
+    target:
+      material: TARGET
+      price: 50
+
+    sculk_sensor:
+      material: SCULK_SENSOR
+      price: 500
