@@ -105,7 +105,7 @@
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
-      '<div class="wiki-cta"><a class="primary-cta" href="#wiki/plugins">'+t('Chọn sản phẩm','Choose a product')+' <span aria-hidden="true">↓</span></a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
+      '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('beforeend',
       '<h2 id="contributors">Contributors</h2><p><strong>Onic Studio</strong> — '+t('phát triển sản phẩm.','product development.')+'<br><strong>ChatGPT</strong> — '+t('hỗ trợ xây dựng wiki và biên soạn tài liệu.','assisted with the wiki and documentation.')+'</p>');
     const headings = [...$('article').querySelectorAll('h2[id]')];
