@@ -87,7 +87,15 @@
   function render() {
     let route;
     try { route = decodeURIComponent(location.hash.slice(1)); } catch { route = ''; }
-    const [requested, section] = route.split('/');
+    let [requested, section] = route.split('/');
+    const movedGuides = window.ONIC_MOVED_GUIDES || {};
+    const movedTo = Object.hasOwn(movedGuides,requested) ? movedGuides[requested] : null;
+    if (movedTo) {
+      const movedSection = section ? requested + '-' + section : requested;
+      const parent = docs.find(d => d.id === movedTo);
+      section = parent?.html.includes('id="' + movedSection + '"') ? movedSection : requested;
+      requested = movedTo;
+    }
     const doc = docs.find(d => d.id === requested) || docs[0];
     const samePage = currentId === doc.id;
     currentId = doc.id;

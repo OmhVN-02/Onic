@@ -12,6 +12,7 @@ runInNewContext(read('assets/config-data.js'), sandbox);
 runInNewContext(read('assets/wiki.js'), sandbox);
 runInNewContext(read('assets/products.js'), sandbox);
 runInNewContext(read('assets/english.js'), sandbox);
+runInNewContext(read('assets/releases.js'), sandbox);
 const docs = sandbox.window.SOLAR_DOCS;
 const ids = new Set();
 function assert(condition, text) { if (!condition) throw Error(text); }
@@ -35,9 +36,14 @@ for (const doc of docs) {
   const sections = [...doc.html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
   assert(new Set(sections).size === sections.length, 'Duplicate section: ' + doc.id);
 }
-for (const doc of docs) for (const [,id] of doc.html.matchAll(/href="#([^"/]+)"/g)) assert(ids.has(id), 'Broken article link: ' + id);
+for (const doc of docs) for (const [,id] of doc.html.matchAll(/href="#([^"/]+)"/g)) assert(ids.has(id) || ids.has(sandbox.window.ONIC_MOVED_GUIDES[id]), 'Broken article link: ' + id);
 for (const doc of docs) for (const [,asset] of doc.html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) assert(existsSync(resolve(root, asset)), 'Missing asset: ' + asset);
-assert(docs.filter(d=>d.product==='solartpa').length === 4, 'Missing SolarTPA documentation');
+assert(docs.filter(d=>d.product==='solartpa').length === 5, 'Missing SolarTPA documentation or changelog');
+assert(docs.find(d=>d.id==='solarshop-changelog')?.html.includes('DevLog Plugins #156'), 'Missing SolarShop release notes');
+assert(docs.find(d=>d.id==='solartpa-changelog')?.html.includes('DevLog Plugins #157'), 'Missing SolarTPA release notes');
+for (const [oldId,parentId] of Object.entries(sandbox.window.ONIC_MOVED_GUIDES)) {
+  assert(!ids.has(oldId) && docs.find(d=>d.id===parentId)?.html.includes('id="'+oldId+'"'), 'Guide not merged: '+oldId);
+}
 assert(sandbox.window.ONIC_TPA_CONFIGS.length === 8, 'Missing SolarTPA YAML templates');
 assert((docs.find(d=>d.id==='bat-dau').html.match(/<img\b[^>]*src="assets\/images\/solarshop\//g)||[]).length === 7, 'Missing SolarShop hero or gallery screenshots');
 assert(runInNewContext('highlightYaml("key: true # note")',sandbox).includes('yaml-literal'), 'YAML highlighting missing');
