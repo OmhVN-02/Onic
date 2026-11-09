@@ -50,7 +50,7 @@
   function navigationGroup(doc) {
     if (doc.product !== 'solarshop') return doc.group;
     if (['bat-dau','cai-dat','thu-muc','shop-dau-tien'].includes(doc.id)) return t('Bắt đầu','Get started');
-    if (['solarshop-config','vat-pham','tien-te','solarshards','smartspawner','gioi-han','giao-dien','tin-nhan'].includes(doc.id)) return t('Cấu hình shop','Shop setup');
+    if (['solarshop-config','vat-pham','tien-te','gioi-han','giao-dien','tin-nhan','solarshop-papi'].includes(doc.id)) return t('Cấu hình shop','Shop setup');
     return t('Vận hành','Operations');
   }
   function navigation(query = '') {
@@ -66,15 +66,17 @@
       const text = normalized(`${doc.title} ${doc.lead} ${template.content.textContent}`);
       if (!keywords.every(word => text.includes(word))) continue;
       count++;
+      const standalone = doc.id.endsWith('-changelog');
       const name = navigationGroup(doc);
-      if (!groups.has(name)) {
+      if (!standalone && !groups.has(name)) {
         const group = document.createElement('details'); group.className = 'nav-section';
         const heading = document.createElement('summary'); heading.textContent = name;
         group.append(heading); groups.set(name,group); $('navigation').append(group);
       }
-      const group = groups.get(name);
-      if (keywords.length || currentId === doc.id) group.open = true;
+      const group = standalone ? $('navigation') : groups.get(name);
+      if (!standalone && (keywords.length || currentId === doc.id)) group.open = true;
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
+      if (standalone) link.classList.add('standalone-nav');
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span'); label.textContent = doc.title;
@@ -95,7 +97,7 @@
       section = parent?.html.includes('id="' + movedSection + '"') ? movedSection : requested;
       requested = movedTo;
     }
-    const doc = docs.find(d => d.id === requested) || docs[0];
+    const doc = docs.find(d => d.id === requested) || (requested === 'phat-hanh' ? docs.find(d=>d.id==='xu-ly-loi') : docs[0]);
     const samePage = currentId === doc.id;
     currentId = doc.id;
     $('crumb').textContent = doc.title;

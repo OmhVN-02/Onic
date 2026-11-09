@@ -94,3 +94,4 @@ html[data-theme=light] .yaml-key{color:#145b78}html[data-theme=light] .yaml-stri
 .top-actions #theme .theme-sun{display:none}
 html[data-theme=light] .top-actions #theme .theme-moon{display:none}
 html[data-theme=light] .top-actions #theme .theme-sun{display:block}
+.standalone-nav{margin-top:12px;border:1px solid var(--line);min-height:38px}

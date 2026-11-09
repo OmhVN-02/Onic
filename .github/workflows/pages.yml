@@ -60,6 +60,7 @@ jobs:
           runInNewContext(read('assets/english.js'), sandbox);
           runInNewContext(read('assets/releases.js'), sandbox);
           runInNewContext(read('assets/bounty.js'), sandbox);
+          runInNewContext(read('assets/placeholders.js'), sandbox);
           const docs = sandbox.window.SOLAR_DOCS;
           const ids = new Set();
           function assert(condition, text) { if (!condition) throw Error(text); }
