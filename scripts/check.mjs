@@ -6,7 +6,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => readFileSync(resolve(root, path), 'utf8');
 const sandbox = {window: {}};
 const source = read('assets/docs.js');
-new Script(source); new Script(read('assets/app.js'));
+new Script(source); new Script(read('assets/app.js')); new Script(read('assets/intro.js'));
 runInNewContext(source, sandbox);
 runInNewContext(read('assets/config-data.js'), sandbox);
 runInNewContext(read('assets/wiki.js'), sandbox);
