@@ -61,6 +61,7 @@ jobs:
           runInNewContext(read('assets/releases.js'), sandbox);
           runInNewContext(read('assets/bounty.js'), sandbox);
           runInNewContext(read('assets/placeholders.js'), sandbox);
+          runInNewContext(read('assets/quest.js'), sandbox);
           runInNewContext(read('assets/beginner.js'), sandbox);
           const docs = sandbox.window.SOLAR_DOCS;
           const ids = new Set();
