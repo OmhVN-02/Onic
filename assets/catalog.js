@@ -4,7 +4,13 @@
 const upcomingProducts = [
   {id:'solarworth', name:'SolarWorth', icon:'◇', image:'solarworth.png'},
   {id:'solarchat', name:'SolarChat', icon:'✉', image:'solarchat.png'},
-  {id:'solarduels', name:'SolarDuels', icon:'⚔', image:'solarduels.png'}
+  {id:'solarduels', name:'SolarDuels', icon:'⚔', image:'solarduels.png'},
+  {id:'solarrtpzone', name:'SolarRTPZone', icon:'◎', image:'solarrtpzone.png'},
+  {id:'solarcore', name:'SolarCore', icon:'✳', image:'solarcore.png'},
+  {id:'solarafk', name:'SolarAFK', icon:'☾', image:'solarafk.png'},
+  {id:'solarelo', name:'SolarElo', icon:'◆', image:'solarelo.png', width:1680, height:512},
+  {id:'solarcrate', name:'SolarCrate', icon:'▣', image:'solarcrate.png', width:1929, height:1085},
+  {id:'solartools', name:'SolarTools', icon:'⚒', image:'solartools.png'}
 ];
 for (const product of upcomingProducts) {
   window.ONIC_PLUGINS.push({...product, route:product.id+'-home', status:'planned'});
@@ -15,7 +21,7 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
   const home=docs.find(doc=>doc.id==='wiki');
   const cards=upcomingProducts.map(product=>{
     const path='assets/images/'+product.image;
-    const logo='<span class="product-logo-frame"><img src="'+path+'" alt="'+product.name+'" width="1920" height="1080" loading="lazy"></span>';
+    const logo='<span class="product-logo-frame"><img src="'+path+'" alt="'+product.name+'" width="'+(product.width||1920)+'" height="'+(product.height||1080)+'" loading="lazy"></span>';
     const status='<span class="product-status">'+t('Sắp cập nhật','Coming soon')+'</span>';
     return card(product.id+'-home',product.icon,product.name,t('Tài liệu sẽ được bổ sung.','Documentation will be added.'))
       .replace('<span class="card-icon">'+product.icon+'</span>',logo)
@@ -31,7 +37,7 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
       id:product.id+'-home', product:product.id, group:t('BẮT ĐẦU','GET STARTED'), icon:product.icon,
       title:t('Tổng quan','Overview'), lead:t('Tài liệu '+product.name+' sẽ được bổ sung tại đây.',product.name+' documentation will be added here.'),
       html:'<div class="pills"><span class="pill">'+t('Sắp cập nhật','Coming soon')+'</span></div>'+
-        '<div class="hero-art"><span class="product-logo-frame"><img src="assets/images/'+product.image+'" alt="'+product.name+'" width="1920" height="1080"></span></div>'+
+        '<div class="hero-art"><span class="product-logo-frame"><img src="assets/images/'+product.image+'" alt="'+product.name+'" width="'+(product.width||1920)+'" height="'+(product.height||1080)+'"></span></div>'+
         '<h2 id="cap-nhat">'+t('Đang cập nhật','Coming soon')+'</h2><p>'+t('Chuyên mục đã sẵn sàng. Hướng dẫn và hình ảnh sẽ được bổ sung khi có nội dung.','This product section is ready. Guides and screenshots will be added when available.')+'</p>'
     });
   }

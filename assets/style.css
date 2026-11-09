@@ -49,16 +49,11 @@ footer{align-items:center;padding-bottom:env(safe-area-inset-bottom)}.footer-bra
  .top-actions{gap:6px}.top-actions #menu{display:grid}.header-search{width:40px;justify-content:center;padding:0}.header-search span,.header-search kbd{display:none}
 }
 @media(max-width:360px){.top-actions{gap:5px}.top-actions .header-search{display:none}.locale-switch button{min-width:31px}}
-#studio-intro{position:fixed;inset:0;margin:0;padding:0;border:0;width:100%;height:100%;max-width:none;max-height:none;background:var(--bg);overflow:hidden;color:var(--text);opacity:1;transition:opacity 320ms ease}
-#studio-intro::backdrop{background:transparent}
-.intro-brand{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;animation:intro-appear 450ms ease-out both}
-.intro-brand img{width:min(36vw,156px);height:auto;border-radius:50%;box-shadow:0 12px 45px #0003}
-.intro-brand span{font:11px 'JetBrains Mono',monospace;letter-spacing:3px;color:var(--muted)}
-@keyframes intro-appear{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-#studio-intro.is-opening{opacity:0;pointer-events:none}
-.intro-skip{position:absolute;z-index:1;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));min-height:44px;padding:0 15px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);font-size:12px}
-.intro-skip:hover{border-color:var(--accent)}
-@media(prefers-reduced-motion:reduce),print{#studio-intro{display:none!important}}
+#page-loading{position:fixed;inset:0 0 auto;height:3px;z-index:100;pointer-events:none;overflow:hidden;background:var(--line)}
+#page-loading::after{content:'';position:absolute;inset:0;background:var(--accent);transform-origin:left;animation:page-loading 1.1s ease-in-out infinite}
+@keyframes page-loading{from{transform:translateX(-100%) scaleX(.3)}to{transform:translateX(100%) scaleX(.65)}}
+@media(prefers-reduced-motion:reduce){#page-loading::after{animation:none;transform:none}}
+@media print{#page-loading{display:none}}
 #plugin-picker{margin:0 0 14px;padding:0;background:var(--panel);border-radius:10px}
 #plugin-picker summary{display:flex;gap:10px;align-items:center;min-height:54px;padding:8px 10px;list-style:none}
 #plugin-picker summary::-webkit-details-marker{display:none}
