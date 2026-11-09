@@ -15,6 +15,8 @@ runInNewContext(read('assets/english.js'), sandbox);
 const docs = sandbox.window.SOLAR_DOCS;
 const ids = new Set();
 function assert(condition, text) { if (!condition) throw Error(text); }
+const visibleDocs = [...docs, ...sandbox.window.ONIC_ENGLISH];
+assert(!/\bno[\s-]?key\b/i.test(JSON.stringify([visibleDocs, sandbox.window.ONIC_PLUGINS, read('index.html')])), 'Internal edition label in public wiki');
 for (const doc of docs) {
   assert(!ids.has(doc.id), 'Duplicate article: ' + doc.id); ids.add(doc.id);
   assert(doc.title && doc.lead && doc.html, 'Incomplete article: ' + doc.id);
