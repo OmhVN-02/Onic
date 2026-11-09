@@ -65,12 +65,29 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
+          runInNewContext(read('assets/catalog.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
             if (!localized.find(d=>d.id==='solarrtp-home').html.includes('assets/images/solarrtp/demo.gif')) throw Error('SolarRTP demo missing');
             if (!localized.find(d=>d.id==='solarrtp-changelog').html.includes('DevLog Plugins #141')) throw Error('SolarRTP devlog missing');
           }
+          for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
+            const home = localized.find(doc=>doc.id==='wiki');
+            const api = localized.find(doc=>doc.id==='solarshards-api');
+            if (!api || !api.html.includes('SolarShardsProvider') || !api.html.includes('getShardsAsync')) throw Error('SolarShards API documentation missing');
+            if (!localized.find(doc=>doc.id==='solarshards-home').html.includes('href="#solarshards-api"')) throw Error('SolarShards API entry missing');
+            for (const product of ['solarworth','solarchat','solarduels']) {
+              if (!home.html.includes('href="#'+product+'-home"')) throw Error('Upcoming product card missing: '+product);
+              const page = localized.find(doc=>doc.id===product+'-home');
+              if (!page || !page.html.includes('assets/images/'+product+'.png')) throw Error('Upcoming product logo missing: '+product);
+            }
+            const rtp = localized.find(doc=>doc.id==='solarrtp-home');
+            const headings = [...rtp.html.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map(match=>match[1]);
+            if (headings.some(heading=>heading.length>24)) throw Error('SolarRTP section title too long');
+          }
+          const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
+          if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;
           const ids = new Set();
           function assert(condition, text) { if (!condition) throw Error(text); }
