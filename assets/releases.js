@@ -6,6 +6,54 @@ window.ONIC_MOVED_GUIDES = {
 
 const onicReleaseNotes = [
   {
+    product:'solarquest', number:179, version:'SolarQuest-1.1-C01', date:'2026-07-15',
+    subtitle:'Hotfix & Minecraft 26.x Registry Compatibility Update',
+    sections:[
+      ['Sửa hiển thị danh sách nhiệm vụ','Quest list initialization fix',[
+        ['Sửa lỗi không hiện nhiệm vụ khi nâng cấp lên Minecraft 26.1, 26.1.2 hoặc 26.2.','Fixes the missing quest list after upgrading to Minecraft 26.1, 26.1.2 or 26.2.'],
+        ['Lần khởi tạo nhiệm vụ đầu tiên được trì hoãn 40 ticks bằng Paper/Folia GlobalRegionScheduler, chờ registry động như enchant và potion hoàn tất đăng ký.','Delays the first quest initialization by 40 ticks through the Paper/Folia GlobalRegionScheduler so dynamic registries such as enchantments and potion types can finish registering.'],
+        ['Thêm kiểm tra null cho <code>Registry.ENCHANTMENT</code> khi liệt kê sách phù phép trong <code>Books.java</code>.','Adds null checks for <code>Registry.ENCHANTMENT</code> when listing enchanted books in <code>Books.java</code>.']
+      ]]
+    ],
+    link:'#solarquest-home'
+  },
+  {
+    product:'solarquest', number:226, version:'SolarQuest-1.1-C01', date:'2026-08-27',
+    subtitle:'Minecraft 26.2 Sulfur Items',
+    sections:[
+      ['Vật phẩm mới Minecraft 26.2','New Minecraft 26.2 items',[
+        ['Bổ sung Sulfur và Cinnabar vào nhiệm vụ Blocks & Ores, thuộc Tier 2.','Adds Sulfur and Cinnabar to Blocks & Ores quests in Tier 2.'],
+        ['Hỗ trợ Music Disc (Bounce) trong nhóm phần thưởng Tier 4 siêu hiếm.','Supports Music Disc (Bounce) in the very rare Tier 4 reward group.']
+      ]]
+    ],
+    link:'#solarquest-play'
+  },
+  {
+    product:'solarquest', number:227, version:'SolarQuest-1.1-C02', date:'2026-08-27',
+    sections:[
+      ['Tùy chỉnh tiền thưởng theo tier','Configure money rewards by tier',[
+        ['Hệ thống thưởng được điều chỉnh theo độ khó nhiệm vụ.','Reworks rewards according to quest difficulty.'],
+        ['Quản trị viên có thể đặt tiền thưởng thấp nhất và cao nhất cho từng tier ngay trong <code>settings.yml</code>.','Administrators can set the minimum and maximum money reward for each tier in <code>settings.yml</code>.']
+      ]]
+    ],
+    link:'#solarquest-config'
+  },
+  {
+    product:'solarquest', number:237, version:'SolarQuest-1.1-C02', date:'2026-10-03',
+    sections:[
+      ['Sửa lỗi giao diện và sao lưu','GUI and backup fixes',[
+        ['Sửa tên vật phẩm, lore và lựa chọn bộ lọc bị in nghiêng mặc định. Giữ màu và chữ đậm; kiểu nghiêng được cấu hình chủ động vẫn hoạt động.','Fixes unwanted default italics in item names, lore and filter options. Colors and bold formatting remain intact, and explicitly configured italics still work.'],
+        ['Không tạo bản sao toàn bộ database sau mỗi lần khởi động. Bản sao trước khi chuyển đổi dữ liệu chỉ được tạo một lần.','Stops copying the entire database on every startup. The pre-migration backup is created only once.']
+      ]],
+      ['Tương thích và tối ưu','Compatibility and optimization',[
+        ['Cập nhật tương thích Paper 26.3 và tra cứu enchant bằng Registry API mới. Server Paper 26.3 cần Java 25.','Updates Paper 26.3 compatibility and enchantment lookup through the new Registry API. Paper 26.3 servers require Java 25.'],
+        ['Chuyển mã chức năng plugin sang Kotlin.','Migrates the plugin’s functional code to Kotlin.'],
+        ['Tối ưu tìm nhiệm vụ theo người sở hữu, chỉ cập nhật actionbar cho người có nhiệm vụ và thêm index database để tra cứu chủ nhiệm vụ.','Optimizes owner-based quest lookup, updates action bars only for players with active quests and adds a database index for quest owners.']
+      ]]
+    ],
+    link:'#solarquest-setup'
+  },
+  {
     product:'solarshop', number:177, version:'SolarShop-2.0-C03', date:'2026-07-12',
     subtitle:'Direct Category Open Command',
     sections:[
