@@ -6,6 +6,42 @@ const beginnerProducts = [
   {id:'solarbounty',name:'SolarBounty',home:'solarbounty-home',setup:'solarbounty-setup',folder:'SolarBounty',java:25,config:'solarbounty-config',command:'/bounty'}
 ];
 const javaBadge = version => '<a class="pill platform-badge" href="https://adoptium.net/installation/" target="_blank" rel="noopener"><span><img src="assets/images/java.svg" alt="" width="18" height="18"></span>Java '+version+'+</a>';
+const productLogos={solarshop:'assets/images/solarshop-logo.png',solarshards:'assets/images/solarshards-logo.png'};
+const productLogo=p=>productLogos[p.id]?'<span class="product-logo-frame"><img src="'+productLogos[p.id]+'" alt="'+p.name+'" width="1920" height="1080"></span>':'<span class="product-symbol" aria-hidden="true">'+(window.ONIC_PLUGINS.find(item=>item.id===p.id)||{}).icon+'</span>';
+const productFeatures={
+  solarshop:[
+    ['▦','Shop theo danh mục','Category shops','Sắp xếp mặt hàng thành nhiều danh mục và trang, để người chơi tìm nhanh đồ cần mua.','Organize items into categories and pages so players can find what they need.'],
+    ['$','Nhiều loại tiền','Multiple currencies','Bán bằng Vault, PlayerPoints hoặc SolarShards; mỗi mặt hàng có thể chọn loại tiền riêng.','Sell with Vault, PlayerPoints or SolarShards. Choose a currency for each item.'],
+    ['✓','Xác nhận số lượng','Quantity confirmation','Người chơi chọn số lượng trong menu xác nhận và có thể mua tiếp sau khi giao dịch hoàn tất.','Players choose a quantity in the confirmation menu and can continue shopping after checkout.'],
+    ['◷','Giới hạn lượt mua','Purchase limits','Đặt hạn mức cho từng người hoặc toàn server, theo ngày, tuần, tháng hoặc vĩnh viễn.','Set per-player or server-wide limits that reset daily, weekly, monthly or never.'],
+    ['◇','Spawner và phần thưởng','Spawners and rewards','Phát spawner qua SmartSpawner bằng ss-id, hoặc dùng lệnh để trao phần thưởng khác.','Deliver spawners through SmartSpawner with ss-id, or use commands for other rewards.'],
+    ['⚙','Chỉnh menu theo ý bạn','Customize your menus','Chỉnh bố cục, tên, mô tả, âm thanh và thông báo; có trình chỉnh sửa danh mục trong game.','Customize layouts, names, lore, sounds and messages, with an in-game category editor.']
+  ],
+  solartpa:[
+    ['⇄','Xin đến hoặc mời đến','Visit or invite','Dùng /tpa để xin đến chỗ người khác; /tpahere để mời họ đến chỗ bạn.','Use /tpa to request a visit, or /tpahere to invite another player to you.'],
+    ['✓','Quản lý yêu cầu','Manage requests','Chấp nhận, từ chối hoặc hủy bằng lệnh, nút chat và menu danh sách yêu cầu.','Accept, deny or cancel requests using commands, chat buttons and the request-list menu.'],
+    ['◷','Đếm ngược và hạn mức','Countdowns and limits','Tùy chỉnh thời gian chờ, hạn yêu cầu, cooldown và hạn mức gửi hằng ngày.','Configure teleport countdowns, request expiry, cooldowns and daily request limits.'],
+    ['⚔','Chặn khi combat','Combat protection','Tích hợp PvPManager để chặn và hủy yêu cầu liên quan khi người chơi đang combat.','Integrate with PvPManager to block and cancel requests involving players in combat.'],
+    ['◎','Tự chấp nhận có kiểm soát','Control auto-accept','Bật /tpauto khi cần; chết hoặc bị tag combat sẽ tắt tự chấp nhận và hủy yêu cầu liên quan.','Enable /tpauto when needed. Death or a combat tag disables it and cancels related requests.'],
+    ['⚙','Tích hợp plugin khác','Plugin integrations','API cho phép plugin khác gửi, xử lý yêu cầu và kiểm tra trạng thái combat.','The API lets other plugins send and handle requests and check combat state.']
+  ],
+  solarshards:[
+    ['◇','Tiền tệ Shards riêng','A dedicated Shards currency','Quản lý số dư riêng cho server, tùy chỉnh tên tiền, ký hiệu và số dư khởi đầu.','Manage a separate server currency with configurable name, symbol and starting balance.'],
+    ['⇄','Chuyển tiền giữa người chơi','Player transfers','Người chơi chuyển Shards cho nhau; quản trị viên có thể cấu hình mức tối thiểu và thuế chuyển.','Players can transfer Shards, with configurable minimum amounts and transfer tax.'],
+    ['⚙','Quản lý số dư','Balance administration','Quản trị viên dùng lệnh để cộng, trừ hoặc đặt số dư cho người chơi.','Administrators can add, remove or set player balances with commands.'],
+    ['▦','Thanh toán SolarShop','SolarShop payments','SolarShop đọc số dư và trừ Shards trực tiếp qua API khi dùng currency: shards.','SolarShop reads and deducts balances through the API when using currency: shards.'],
+    ['%','Hiện số dư bằng PAPI','Display balances with PAPI','Đưa số dư vào TAB hoặc scoreboard bằng PlaceholderAPI, với dạng số hoặc rút gọn.','Use PlaceholderAPI to show raw or formatted balances in TAB and scoreboards.'],
+    ['◷','Lưu dữ liệu và thông báo','Storage and notifications','Tùy chỉnh lưu trữ, chu kỳ tự lưu, âm thanh và thông báo khi giao dịch.','Configure storage, automatic saving, sounds and transaction notifications.']
+  ],
+  solarbounty:[
+    ['◷','Bounty tăng tự động','Automatic bounty growth','Tăng tiền thưởng truy nã theo thời gian sống online và số lần hạ gục hợp lệ.','Grow bounties through online survival time and eligible player kills.'],
+    ['$','Nhận thưởng khi hạ mục tiêu','Earn rewards for kills','Killer hợp lệ nhận tiền qua Vault; bounty, thời gian sống và kills của nạn nhân được reset.','Eligible killers receive Vault payouts. The victim’s bounty, survival time and kills reset.'],
+    ['↗','Kế thừa bounty','Inherit bounty','Mặc định cộng thêm 40% bounty nạn nhân vào bounty killer, ngoài phần thưởng kill cố định.','By default, add 40% of the victim’s bounty to the killer’s bounty, on top of the fixed kill bonus.'],
+    ['▦','Bảng xếp hạng trong game','In-game leaderboard','Mở /bounty để xem bảng truy nã; tùy chỉnh bố cục menu bằng ma trận ký tự.','Open /bounty to view the leaderboard and customize its menu using a character matrix.'],
+    ['↓','Giảm bounty khi offline','Offline bounty decay','Mặc định chờ 15 ngày offline, sau đó mỗi 24 giờ giảm 10% bounty còn lại; có thể tùy chỉnh.','By default, wait 15 offline days, then reduce the remaining bounty by 10% each day. These settings are configurable.'],
+    ['✓','Giữ dữ liệu qua restart','Persist data across restarts','Lưu SQLite/MySQL, giữ khoản thưởng đang chờ; hỗ trợ nhập và hiển thị số tiền K/M/B/T.','Store data in SQLite/MySQL, retain pending payouts and use K/M/B/T money amounts.']
+  ]
+};
 for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) {
   const t=(vi,english)=>en?english:vi;
   const steps=items=>'<ol class="steps">'+items.map(([title,body])=>'<li><h3>'+title+'</h3><p>'+body+'</p></li>').join('')+'</ol>';
@@ -17,6 +53,10 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
     [t('Thử tính năng cơ bản','Try the basics'),t('Làm thử theo hướng dẫn trước khi thay nhiều tùy chọn. Mỗi plugin có một lệnh để kiểm tra.','Try the guide’s example before changing multiple settings. Each plugin has a command to check it works.')],
     [t('Chỉnh theo nhu cầu','Customize your setup'),t('Mở Cấu hình để tìm file cần sửa. PlaceholderAPI dành cho hiển thị; API dành cho người viết plugin.','Open Configuration to find the right file. PlaceholderAPI is for display text; API pages are for plugin developers.')]
   ]);
+  for(const p of beginnerProducts){
+    const icon=(window.ONIC_PLUGINS.find(item=>item.id===p.id)||{}).icon||'◇';
+    home.html=home.html.replace('<span class="card-icon">'+icon+'</span>',productLogo(p));
+  }
   for (const p of beginnerProducts) {
     const requirements=t('Java '+p.java+' trở lên là mức tối thiểu của plugin; server có thể yêu cầu bản cao hơn.','Java '+p.java+' or newer is the plugin minimum; your server may require a newer version.');
     const dependency={
@@ -59,12 +99,8 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
     if(existing){existing.html=html;existing.title=t('Cài đặt lần đầu','First installation');existing.lead=t('Làm lần lượt từ chuẩn bị Java đến lần chạy thử đầu tiên.','Go step by step from Java setup to your first working command.');}
     else docs.splice(docs.findIndex(doc=>doc.id===p.home)+1,0,{id:p.setup,product:p.id,group:t('BẮT ĐẦU','GET STARTED'),icon:'↓',title:t('Cài đặt lần đầu','First installation'),lead:t('Chuẩn bị, cài đặt và kiểm tra '+p.name+' theo từng bước.','Prepare, install and verify '+p.name+' step by step.'),html});
     const overview=docs.find(doc=>doc.id===p.home);
-    if(p.id==='solarshards'){
-      const logo='<img src="assets/images/solarshards-logo.png" alt="SolarShards — Shards System" width="1920" height="1080" loading="lazy">';
-      overview.html='<figure class="product-wordmark">'+logo+'</figure>'+overview.html;
-      home.html=home.html.replace('<span class="card-icon">✧</span>','<span class="card-icon product-card-logo">'+logo+'</span>');
-    }
-    overview.html='<div class="beginner-intro"><strong>'+t('Lần đầu dùng '+p.name+'?','New to '+p.name+'?')+'</strong><p>'+t('Bắt đầu từ cài đặt. Chỉ chỉnh cấu hình sau khi plugin đã chạy và lệnh thử hoạt động.','Start with installation. Change settings once the plugin starts and its test command works.')+'</p><a class="beginner-link" href="#'+p.setup+'">'+t('Cài đặt từng bước','Step-by-step installation')+' →</a></div><div class="pills">'+javaBadge(p.java)+'</div>'+overview.html;
+    const features='<h2 id="tinh-nang">'+t(p.name+' có thể làm gì?','What can '+p.name+' do?')+'</h2><div class="feature-grid">'+productFeatures[p.id].map(([icon,viTitle,enTitle,viBody,enBody])=>'<section class="feature-item"><span class="feature-icon" aria-hidden="true">'+icon+'</span><h3>'+t(viTitle,enTitle)+'</h3><p>'+t(viBody,enBody)+'</p></section>').join('')+'</div>';
+    overview.html='<div class="product-heading">'+productLogo(p)+'<div class="pills">'+javaBadge(p.java)+'</div></div>'+features+'<div class="beginner-intro"><strong>'+t('Lần đầu dùng '+p.name+'?','New to '+p.name+'?')+'</strong><p>'+t('Bắt đầu từ cài đặt. Chỉ chỉnh cấu hình sau khi plugin đã chạy và lệnh thử hoạt động.','Start with installation. Change settings once the plugin starts and its test command works.')+'</p><a class="beginner-link" href="#'+p.setup+'">'+t('Cài đặt từng bước','Step-by-step installation')+' →</a></div>'+overview.html;
     const config=docs.find(doc=>doc.id===p.config);
     config.html='<div class="beginner-intro"><strong>'+t('Chưa biết sửa file nào?','Not sure which file to edit?')+'</strong><p>'+t('Tìm tính năng muốn đổi trong bảng, mở đúng file trong plugins/'+p.folder+'/, rồi sửa một key mỗi lần. Các giá trị bên dưới là mẫu để tham khảo.','Find the feature in the table, open the matching file in plugins/'+p.folder+'/, then change one key at a time. Values below are examples.')+'</p><a href="#'+p.setup+'/sua-config">'+t('Xem cách sửa YAML lần đầu','How to edit your first YAML setting')+' →</a></div>'+config.html;
     const releaseIndex=docs.findIndex(doc=>doc.id===p.id+'-changelog');

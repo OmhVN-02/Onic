@@ -33,7 +33,7 @@ const card = (id, icon, title, text) => `<a class="card" href="#${id}"><span cla
 window.SOLAR_DOCS = [
 {id:'bat-dau',group:'BẮT ĐẦU',icon:'⌂',title:'Tổng quan',subtitle:'Một cửa hàng. Nhiều khả năng.',lead:'Từ chiếc shop đầu tiên đến hệ thống nhiều loại tiền. Hướng dẫn thực hành SolarShop cho quản trị viên Minecraft — bắt đầu nhỏ, cấu hình rõ, vận hành an toàn.',html:`
 <div class="pills"><span class="pill">2.0-C05</span>${platformBadges}</div>
-<div class="hero-art"><div class="hero-caption"><img class="solarshop-wordmark" src="assets/images/solarshop-logo.png" alt="SolarShop — Shop System" width="1920" height="1080">Vật phẩm · Shards · Spawner</div><img class="hero-shot" src="assets/images/solarshop/main-menu.png" alt="Menu chính SolarShop trong Minecraft" width="345" height="170"></div>
+<figure class="shop-overview-shot"><img src="assets/images/solarshop/main-menu.png" alt="Menu chính SolarShop trong Minecraft" width="345" height="170"><figcaption>Menu chính SolarShop trong game</figcaption></figure>
 ${note('Bạn đang đọc tài liệu cho bản nào?','SolarShop <b>2.0-C05</b>, gồm hook SolarShards và SmartSpawner. Tài liệu phản ánh mã nguồn đã build ngày 09/11/2026.')}
 ${shopDemo(false)}
 <h2 id="lo-trinh">Chọn điểm bắt đầu</h2><div class="cards">${card('cai-dat','01','Cài đặt lần đầu','Chuẩn bị server, plugin phụ thuộc và kiểm tra khởi động.')}${card('shop-dau-tien','02','Tạo shop đầu tiên','Một file YAML, một danh mục và một vật phẩm để thử.')}${card('solarshards','03','Thanh toán SolarShards','Dùng API trực tiếp, không cần lệnh trừ Shards.')}${card('smartspawner','04','Shop SmartSpawner','Bán spawner đúng dữ liệu API bằng ss-id.')}</div>
