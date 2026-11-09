@@ -115,6 +115,15 @@ jobs:
             for(const value of ['adjust-buttons','LIME_STAINED_GLASS_PANE','RED_STAINED_GLASS_PANE','1/4/8','1/12/24','1/16/32','1/10/64','1/0/0']) if(!shop.html.includes(value)) throw Error('Missing adjustment configuration: '+value);
           }
           if(read('assets/app.js').includes('Cấu hình SolarShop') || !read('assets/app.js').includes('Xem tài liệu')) throw Error('Homepage CTA selection incorrect');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            const license=localized.find(doc=>doc.id==='license');
+            for(const product of ['SolarRTP','SolarTPA','SolarBounty','SolarCrate','SolarAuctionHouse','AntiNTR','CrystalGuard','SolarTools','SolarElo']) if(!license.html.includes(product)) throw Error('License product missing: '+product);
+            if(!license.html.includes('id="license-free"') || !license.html.includes('SolarElo-GPL-3.0.txt')) throw Error('Free/Open Source license section missing');
+          }
+          for(const file of ['assets/licenses/LICENSE.md','assets/licenses/LICENSE_VI.md']) {
+            const list=read(file).split('SolarCore / SolarQuest')[1].split('\n')[0];
+            if(/\b(?:SolarCrate|SolarRTP|SolarTPA|SolarBounty|SolarTools|SolarElo)\b/.test(list)) throw Error('Free/Open Source product in commercial license scope');
+          }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

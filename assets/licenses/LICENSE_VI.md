@@ -2,8 +2,8 @@ GIẤY PHÉP PHẦN MỀM ĐỘC QUYỀN
 
 Bản quyền (C) 2026 Onic Studio. Bảo lưu mọi quyền.
 
-Giấy phép này áp dụng cho các sản phẩm sau của Onic Studio:
-SolarCore / SolarQuest / OnicSus / SolarAfk / SolarWorth / SolarShop / SolarCrate / SolarChat / SolarRTPZone / SolarShards / SolarDuels / SolarOrder
+Giấy phép thương mại này chỉ áp dụng cho các sản phẩm sau của Onic Studio:
+SolarCore / SolarQuest / OnicSus / SolarAfk / SolarWorth / SolarShop / SolarChat / SolarRTPZone / SolarShards / SolarDuels / SolarOrder
 
 PHẠM VI LICENSE: 1 KEY / 1 IP / 1 SERVER
 

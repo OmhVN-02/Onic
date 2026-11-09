@@ -2,8 +2,8 @@ PROPRIETARY SOFTWARE LICENSE
 
 Copyright (C) 2026 Onic Studio. All Rights Reserved.
 
-This license applies to the following Onic Studio products:
-SolarCore / SolarQuest / OnicSus / SolarAfk / SolarWorth / SolarShop / SolarCrate / SolarChat / SolarRTPZone / SolarShards / SolarDuels / SolarOrder / SolarRTP
+This commercial license applies only to the following Onic Studio products:
+SolarCore / SolarQuest / OnicSus / SolarAfk / SolarWorth / SolarShop / SolarChat / SolarRTPZone / SolarShards / SolarDuels / SolarOrder
 
 LICENSE SCOPE: ONE KEY / ONE IP / ONE SERVER
 
