@@ -112,7 +112,7 @@ article a.beginner-link:hover{color:var(--bg);text-decoration:none;outline:2px s
 .product-symbol{display:grid;place-items:center;width:64px;height:64px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);color:var(--accent);font:28px monospace;margin-bottom:14px}
 .product-features{padding-left:21px;color:var(--muted)}.product-features li{margin:12px 0}
 .hero-art{gap:20px}.hero-caption{position:relative}.quest-hero .hero-shot{width:min(42%,220px)}
-.product-hero .hero-caption{flex:1;min-width:0}.product-hero .hero-shot{width:min(44%,280px);max-height:270px;object-fit:contain}
+.product-hero .hero-caption{flex:1;min-width:0}.product-hero .hero-shot{width:min(44%,280px);max-height:270px;object-fit:contain;border:0}
 .currency-preview{position:relative;display:flex;flex-direction:column;gap:10px;width:46%;padding:18px;border:1px solid var(--line);border-radius:9px;background:var(--panel);min-width:0}
 .currency-preview small{font:9px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1px}.currency-preview strong{font-size:24px;line-height:1.4;color:var(--accent)}.currency-preview strong span{font-size:13px;color:var(--muted)}.currency-preview>span{font-size:11px;color:var(--muted)}.currency-preview code{align-self:flex-start;font-size:11px}
 @media(max-width:520px){.hero-art{flex-direction:column;align-items:stretch}.hero-shot,.quest-hero .hero-shot,.product-hero .hero-shot{width:min(100%,300px);align-self:center}.currency-preview{width:100%}}
