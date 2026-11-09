@@ -118,8 +118,10 @@ article a.beginner-link:hover{color:var(--bg);text-decoration:none;outline:2px s
 .contributors-list li{margin:0;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
 .ai-disclosure{display:flex;align-items:baseline;gap:9px;margin:0 0 24px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--muted);font-size:12px}.ai-disclosure span{color:var(--accent);flex:none}
 
-.new-badge{display:inline-block;flex:none;padding:2px 6px;border:1px solid var(--accent);border-radius:4px;color:var(--accent);background:var(--panel2);font:600 9px/1.5 "JetBrains Mono",monospace;letter-spacing:.5px;vertical-align:middle;white-space:nowrap}h1 .new-badge{margin-left:8px;letter-spacing:.5px}.card>.new-badge{margin-top:12px}.nav-link>.new-badge{margin-left:auto}
+.new-badge{display:inline-block;flex:none;padding:2px 6px;border:1px solid var(--accent);border-radius:4px;color:var(--accent);background:var(--panel2);font:600 9px/1.5 "JetBrains Mono",monospace;letter-spacing:.5px;vertical-align:middle;white-space:nowrap}h1 .new-badge{margin-left:8px;letter-spacing:.5px}.nav-link>.new-badge{margin-left:auto}
 
 .picker-group-title{padding:12px 12px 5px;font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.5px}.product-group{margin:25px 0 34px}.product-group>h3{font-size:17px;margin-bottom:14px}.product-group .cards{margin-top:0}
 
 #picker-options{max-height:min(48vh,380px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--accent) var(--panel)}
+
+.card-status-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px}.card-status-row>.product-status,.card-status-row>.new-badge{margin:0}

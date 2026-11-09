@@ -102,7 +102,14 @@
       const target = docs.find(item => item.id === targetId);
       const targetProduct = (window.ONIC_PLUGINS || []).find(item => item.route === targetId);
       const badge = newBadge(window.ONIC_IS_NEW(target) ? target : targetProduct);
-      if (badge) link.insertAdjacentHTML('beforeend', badge);
+      if (badge) {
+        const statusRow = document.createElement('div');
+        statusRow.className = 'card-status-row';
+        const status = link.querySelector(':scope > .product-status');
+        if (status) statusRow.append(status);
+        statusRow.insertAdjacentHTML('beforeend', badge);
+        link.append(statusRow);
+      }
     });
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
