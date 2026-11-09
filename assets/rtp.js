@@ -1,5 +1,4 @@
 'use strict';
-// Product pages are added after the shared beginner overview has been assembled.
 const rtpProduct={id:'solarrtp', name:'SolarRTP', version:'1.0', route:'solarrtp-home', icon:'⤨'};
 const rtpProductIndex=window.ONIC_PLUGINS.findIndex(product=>product.id==='solarrtp');
 if (rtpProductIndex===-1) window.ONIC_PLUGINS.push(rtpProduct);

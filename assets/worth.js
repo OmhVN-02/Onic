@@ -1,5 +1,4 @@
 'use strict';
-// NEW follows documentation updates, independently of the original release date.
 window.ONIC_IS_NEW = (item, now = Date.now()) => {
   const updated = Date.parse(item?.updatedAt || '');
   return Number.isFinite(updated) && now >= updated && now - updated < 7 * 86400000;

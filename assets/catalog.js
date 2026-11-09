@@ -1,6 +1,5 @@
 'use strict';
 
-// Placeholder products are kept separate so each can grow into its own guide later.
 const upcomingProducts = [
   {id:'solarworth', name:'SolarWorth', icon:'◇', image:'solarworth.png'},
   {id:'solarchat', name:'SolarChat', icon:'✉', image:'solarchat.png'},

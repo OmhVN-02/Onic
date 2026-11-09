@@ -124,6 +124,16 @@ jobs:
             const list=read(file).split('SolarCore / SolarQuest')[1].split('\n')[0];
             if(/\b(?:SolarCrate|SolarRTP|SolarTPA|SolarBounty|SolarTools|SolarElo)\b/.test(list)) throw Error('Free/Open Source product in commercial license scope');
           }
+          const javaSample='import example.API;\nif (api == null) return;\nString value = "<script>&";\napi.add(100L);';
+          const javaHtml=runInNewContext('highlightJava('+JSON.stringify(javaSample)+')',sandbox);
+          for(const kind of ['keyword','type','literal','string','number','function']) if(!javaHtml.includes('syntax-'+kind)) throw Error('Missing Java token color: '+kind);
+          if(javaHtml.includes('<script>')) throw Error('Java highlighting does not escape HTML');
+          const unmark=html=>html.replace(/<span class="syntax-[^"]+">|<\/span>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&amp;/g,'&');
+          if(unmark(javaHtml)!==javaSample) throw Error('Java highlighting changes copyable content');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(!localized.find(doc=>doc.id==='solarshards-api').html.includes('syntax-keyword')) throw Error('SolarShards API not highlighted');
+            if(!localized.find(doc=>doc.id==='solartpa-api').html.includes('syntax-type')) throw Error('SolarTPA API not highlighted');
+          }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

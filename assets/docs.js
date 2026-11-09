@@ -16,10 +16,32 @@ function highlightYaml(text) {
     return out + esc(rest.slice(cursor));
   }).join('\n');
 }
+function highlightJava(text) {
+  const keywords = new Set('abstract assert boolean break byte case catch char class const continue default do double else enum extends final finally float for goto if implements import instanceof int interface long native new package private protected public record return sealed short static strictfp super switch synchronized this throw throws transient try var void volatile while yield val fun object override open internal data when is as in out suspend inline reified typealias companion constructor init get set by'.split(' '));
+  const tokens = /\/\/[^\n]*|\/\*[\s\S]*?(?:\*\/|$)|"""[\s\S]*?(?:"""|$)|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b(?:0[xX][\da-fA-F_]+|0[bB][01_]+|\d[\d_]*(?:\.[\d_]+)?(?:[eE][+-]?[\d_]+)?)[fFdDlL]?\b|[A-Za-z_$][\w$]*|[{}()[\].,;:@<>+*/%=&|!?~^-]/g;
+  let html = '', cursor = 0;
+  for (const match of text.matchAll(tokens)) {
+    const token = match[0];
+    let kind = '';
+    if (token.startsWith('//') || token.startsWith('/*')) kind = 'comment';
+    else if (/^["']/.test(token)) kind = 'string';
+    else if (/^\d/.test(token)) kind = 'number';
+    else if (/^(true|false|null)$/.test(token)) kind = 'literal';
+    else if (keywords.has(token)) kind = 'keyword';
+    else if (/^[A-Z]/.test(token)) kind = 'type';
+    else if (/^[\w$]+$/.test(token) && /^\s*\(/.test(text.slice(match.index + token.length))) kind = 'function';
+    else if (/^[^\w$]$/.test(token)) kind = 'punct';
+    html += esc(text.slice(cursor,match.index)) + (kind ? '<span class="syntax-'+kind+'">'+esc(token)+'</span>' : esc(token));
+    cursor = match.index + token.length;
+  }
+  return html + esc(text.slice(cursor));
+}
+
 const code = (label, value) => {
   const text = value.replace(/\r\n/g,'\n').trim();
-  const yaml = /ya?ml/i.test(label) || /^(?:\s*)[\w.-]+:(?:\s|$)/m.test(text);
-  return `<div class="code-block"><div class="code-header"><span>${esc(label)}</span><button class="copy" type="button" aria-label="Sao chép ${esc(label)}">Sao chép ⧉</button></div><pre><code>${yaml ? highlightYaml(text) : esc(text)}</code></pre></div>`;
+  const java = /java|kotlin|gradle|^Solar\w*API$/i.test(label);
+  const yaml = !java && (/ya?ml/i.test(label) || /^(?:\s*)[\w.-]+:(?:\s|$)/m.test(text));
+  return `<div class="code-block"><div class="code-header"><span>${esc(label)}</span><button class="copy" type="button" aria-label="Sao chép ${esc(label)}">Sao chép ⧉</button></div><pre><code>${java ? highlightJava(text) : yaml ? highlightYaml(text) : esc(text)}</code></pre></div>`;
 };
 const platformBadges = '<a class="pill platform-badge" href="https://papermc.io/software/paper/" target="_blank" rel="noopener"><span><img src="assets/images/paper.svg" alt="" width="16" height="16"></span>Paper</a><a class="pill platform-badge" href="https://papermc.io/software/folia/" target="_blank" rel="noopener"><span class="folia-mark"><img src="assets/images/folia.svg" alt="" width="16" height="16"></span>Folia</a>';
 const shopDemo = en => {
