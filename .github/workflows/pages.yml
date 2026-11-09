@@ -142,7 +142,10 @@ jobs:
             const command=localized.find(doc=>doc.id==='onickits-commands');
             for(const value of ['/kitadmin savepremadekit','/kitadmin reload','kits.kit_command','kits.premium','kits.admin']) if(!command.html.includes(value)) throw Error('OnicKits command/permission missing: '+value);
             const config=localized.find(doc=>doc.id==='onickits-config');
-            if(!config.html.includes('plugins/EthanKit/') && !config.lead.includes('plugins/EthanKit/')) throw Error('OnicKits data folder incorrect');
+            if(!config.lead.includes('OnicKits')) throw Error('OnicKits branding missing');
+            const overview=localized.find(doc=>doc.id==='onickits-home');
+            for(const value of ['hero-art product-hero onickits-hero','id="lo-trinh"','id="tinh-nang"','id="anh-gui"']) if(!overview.html.includes(value)) throw Error('OnicKits overview section missing: '+value);
+            if(localized.filter(doc=>doc.product==='onickits').some(doc=>JSON.stringify(doc).includes('EthanKit'))) throw Error('Old OnicKits brand in documentation');
           }
           if(sandbox.window.ONIC_PLUGINS.find(product=>product.id==='onickits').status==='planned') throw Error('OnicKits still marked planned');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);

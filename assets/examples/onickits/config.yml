@@ -1,7 +1,7 @@
 # STORAGE OPTIONS
 # List of supported storage database types:
 # 1. yml, yaml, disk, file, legacy
-#    Stores everything inside `plugins/EthanKit/(kits | ender_chests)/uuid of any player here.yml`
+#    Stores everything inside `<plugin data folder>/(kits | ender_chests)/uuid of any player here.yml`
 #    Definitely slower, but the most viable for any minecraft server, due to the fact
 #    that MySQL is not available on every single Minecraft server host.
 # 2. mysql
@@ -10,7 +10,7 @@
 #    your EU and NA proxies kit storage.
 # 3. sqlite
 #    Basically a portable version of MySQL, however it is stored inside
-#    `plugins/EthanKit/(kits | ender_chests)/db name here (config.yml::storage.ANY_NAME.details.db/ender_chest_db).db`
+#    `<plugin data folder>/(kits | ender_chests)/db name here (config.yml::storage.ANY_NAME.details.db/ender_chest_db).db`
 # You can name your section whatever you want, so instead of having:
 # storage:
 #   yaml:
@@ -45,7 +45,7 @@ storage:
       # MySQL server port
       port: 3306
       # MySQL database name
-      db: ethankit
+      db: onickits
       # MySQL user to authenticate as
       user: root
       # MySQL password for auth user
