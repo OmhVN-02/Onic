@@ -94,7 +94,7 @@
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
       '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('beforeend',
-      '<h2 id="contributors">Contributors</h2><p><strong>Onic Studio</strong> — '+t('phát triển sản phẩm.','product development.')+'<br><strong>ChatGPT</strong> — '+t('hỗ trợ xây dựng wiki và biên soạn tài liệu.','assisted with the wiki and documentation.')+'</p>');
+      '<h2 id="contributors">Contributors</h2><ul class="contributors-list"><li><strong>Kan_Sus</strong></li><li><strong>OmhVN</strong></li><li><strong>Ethan (Huykun)</strong></li><li><strong>ChatGPT</strong> — '+t('hỗ trợ xây dựng wiki và biên soạn tài liệu.','assisted with the wiki and documentation.')+'</li></ul>');
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
     const siblings = docs.filter(d => d.product === doc.product);

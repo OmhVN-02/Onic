@@ -15,11 +15,11 @@
     intro.remove();
   }, { once: true });
   skip.addEventListener('click', close);
-  intro.querySelector('.intro-left').addEventListener('transitionend', event => {
-    if (event.propertyName === 'transform') close();
+  intro.addEventListener('transitionend', event => {
+    if (event.target === intro && event.propertyName === 'opacity') close();
   });
   intro.showModal();
   motion.addEventListener('change', onMotionChange);
-  hold = setTimeout(() => intro.classList.add('is-opening'), 540);
-  fallback = setTimeout(close, 1050);
+  hold = setTimeout(() => intro.classList.add('is-opening'), 650);
+  fallback = setTimeout(close, 1100);
 })();
