@@ -52,6 +52,42 @@ const productFeatures={
     ['✓','Giữ dữ liệu qua restart','Persist data across restarts','Lưu SQLite/MySQL, giữ khoản thưởng đang chờ; hỗ trợ nhập và hiển thị số tiền K/M/B/T.','Store data in SQLite/MySQL, retain pending payouts and use K/M/B/T money amounts.']
   ]
 };
+function classicProductOverview(p,overview,en,features){
+  const t=(vi,english)=>en?english:vi;
+  const section=id=>{
+    const start=overview.html.indexOf('<h2 id="'+id+'">');
+    if(start<0)return '';
+    const next=overview.html.indexOf('<h2 ',start+4);
+    return overview.html.slice(start,next<0?undefined:next);
+  };
+  const display={
+    solartpa:{version:'1.1',label:['YÊU CẦU DỊCH CHUYỂN MINECRAFT','MINECRAFT TELEPORT REQUESTS'],headline:['Gửi lời mời.<br>Kết nối người chơi.','Send a request.<br>Bring players together.'],summary:['TPA · TPAHere · Menu yêu cầu','TPA · TPAHere · Request menus'],lead:['Cho người chơi xin đến chỗ nhau hoặc mời bạn bè đến, với menu xác nhận, thời gian chờ và kiểm soát combat.','Let players request a visit or invite friends over, with confirmation menus, countdowns and combat controls.'],image:'assets/images/solartpa/tpa-confirm.png',gallery:'anh-gui'},
+    solarshards:{version:'',label:['TIỀN TỆ CHO SERVER MINECRAFT','CURRENCY FOR MINECRAFT SERVERS'],headline:['Quản lý Shards.<br>Kết nối cửa hàng.','Manage Shards.<br>Connect your shops.'],summary:['Số dư · Chuyển tiền · SolarShop','Balances · Transfers · SolarShop'],lead:['Một loại tiền riêng cho server: quản lý số dư, cho phép chuyển Shards và dùng trực tiếp để thanh toán trong SolarShop.','A dedicated server currency for managing balances, transferring Shards and paying directly in SolarShop.'],gallery:null},
+    solarbounty:{version:'1.0-dev',label:['HỆ THỐNG TRUY NÃ MINECRAFT','MINECRAFT BOUNTY SYSTEM'],headline:['Sống lâu hơn.<br>Tiền thưởng cao hơn.','Survive longer.<br>Build a bigger bounty.'],summary:['Thời gian sống · PvP · Xếp hạng','Survival · PvP · Leaderboards'],lead:['Bounty tăng theo thời gian sống và số lần hạ gục. Người hạ mục tiêu nhận thưởng, còn người chơi có thể theo dõi bảng truy nã trong game.','Bounties grow with survival time and player kills. Eligible killers earn rewards, while players follow the in-game bounty leaderboard.'],image:'assets/images/solarbounty/bounty-menu.png',gallery:'gui'},
+    solarquest:{version:'1.1-C02',label:['HỆ THỐNG NHIỆM VỤ MINECRAFT','MINECRAFT QUEST SYSTEM'],headline:['Nhận nhiệm vụ.<br>Chinh phục thử thách.','Choose a quest.<br>Take on the challenge.'],summary:['Nhiệm vụ · Phần thưởng · Xếp hạng','Quests · Rewards · Leaderboards'],lead:['Chọn nhiệm vụ thu thập hoặc hạ mob, hoàn thành trong thời hạn, nhận thưởng và tăng điểm trên bảng xếp hạng.','Choose a collection or mob quest, finish within the time limit, earn rewards and climb the points leaderboard.'],image:'assets/images/solarquest/quest-menu.png',gallery:'hinh-anh'}
+  }[p.id];
+  const guide=(route,vi,enTitle,viBody,enBody)=>[route,t(vi,enTitle),t(viBody,enBody)];
+  const guides=[guide(p.setup,'Cài đặt lần đầu','First installation','Chuẩn bị Java, cài JAR và kiểm tra plugin đã chạy.','Prepare Java, install the JAR and verify startup.')];
+  if(p.id==='solarquest')guides.push(guide('solarquest-play','Nhiệm vụ đầu tiên','Your first quest','Nhận việc, hoàn thành và kiểm tra phần thưởng.','Accept a task, complete it and check the rewards.'));
+  else if(p.id==='solarshards')guides.push(guide('tien-te/solarshards','Dùng với SolarShop','Use with SolarShop','Chọn Shards làm tiền thanh toán cho mặt hàng.','Choose Shards as an item’s payment currency.'));
+  else guides.push(guide(p.id+'-commands','Lệnh & quyền','Commands & permissions','Tra cứu lệnh người chơi và quản trị viên.','Find player and administrator commands.'));
+  guides.push(guide(p.config,'Tùy chỉnh cấu hình','Customize configuration','Chọn đúng file, tìm key và sửa theo nhu cầu.','Find the right file and setting to customize.'));
+  if(p.id==='solartpa')guides.push(guide('solartpa-api','API cho plugin','Plugin API','Tích hợp yêu cầu dịch chuyển vào plugin khác.','Integrate teleport requests into other plugins.'));
+  else guides.push(guide(p.id+'-papi','PlaceholderAPI','PlaceholderAPI','Hiển thị dữ liệu trên TAB hoặc scoreboard.','Display data in TAB or scoreboards.'));
+  const preview=display.image?'<img class="hero-shot" src="'+display.image+'" alt="'+t('Giao diện '+p.name+' trong game',p.name+' in-game interface')+'">':'<div class="currency-preview"><small>'+t('VÍ DỤ HIỂN THỊ','DISPLAY EXAMPLE')+'</small><strong>1,250 <span>Shards</span></strong><code>/shardsbal</code><span>'+t('Xem số dư của bạn','Check your balance')+'</span></div>';
+  const intro={
+    solartpa:t('Dùng /tpa để xin đến người khác, hoặc /tpahere để mời họ đến. Người nhận chấp nhận bằng /tpaccept hoặc thao tác trong menu. PvPManager là tích hợp tùy chọn để chặn yêu cầu khi combat.','Use /tpa to request a visit, or /tpahere to invite someone over. The recipient accepts with /tpaccept or through the menu. PvPManager is an optional integration for blocking combat requests.'),
+    solarshards:t('Bắt đầu bằng /shardsbal để xem số dư. Khi dùng với SolarShop, đặt currency: shards trên mặt hàng. Không cần bật vault.hook-as-primary-economy để thanh toán qua API SolarShards.','Start with /shardsbal to view your balance. For SolarShop, set currency: shards on an item. You do not need vault.hook-as-primary-economy for SolarShards API payments.'),
+    solarbounty:t('Mặc định, mỗi phút sống online hoàn chỉnh cộng 100 Coins; mỗi lần hạ gục hợp lệ cộng 5.000 và 40% bounty của nạn nhân vào bounty của killer. Tiền thưởng trả qua Vault là khoản riêng. Chết sẽ reset bounty, thời gian sống và kills.','By default, each full minute alive online adds 100 coins. An eligible kill adds 5,000 plus 40% of the victim’s bounty to the killer’s bounty. The Vault payout is separate. Death resets bounty, survival time and kills.'),
+    solarquest:t('Mở /quest, xem yêu cầu và thời hạn rồi xác nhận nhận nhiệm vụ. Với nhiệm vụ thu thập, nộp đúng vật phẩm vào menu; với nhiệm vụ mob, hạ đủ số lượng rồi nhận thưởng từ nhiệm vụ đang làm.','Open /quest, check the requirements and time limit, then accept. For collection tasks, submit the required items through the menu. For mob tasks, reach the target and claim through your active quest.')
+  }[p.id];
+  const gallery=display.gallery?section(display.gallery):'';
+  overview.lead=t(...display.lead);
+  return '<div class="pills">'+(display.version?'<span class="pill">'+display.version+'</span>':'')+javaBadge(p.java)+platformBadges+'</div><div class="hero-art product-hero '+p.id+'-hero"><div class="hero-caption">'+t(...display.label)+'<strong>'+t(...display.headline)+'</strong>'+t(...display.summary)+'</div>'+preview+'</div>'+
+    '<h2 id="lo-trinh">'+t('Chọn điểm bắt đầu','Choose where to start')+'</h2><div class="cards">'+guides.map(([route,title,body],i)=>card(route,'0'+(i+1),title,body)).join('')+'</div>'+features+
+    '<h2 id="su-dung">'+t('Cách hoạt động','How it works')+'</h2><p>'+intro+'</p>'+code(t('Lệnh thử trong game','Try in game'),p.command)+gallery+
+    '<h2 id="tim-hieu-them">'+t('Tìm hiểu thêm','Explore further')+'</h2><div class="file-index"><a href="#'+p.id+'-papi">'+(p.id==='solartpa'?t('Biến trong GUI','GUI placeholders'):'PlaceholderAPI')+'</a>'+(p.id==='solarshards'?'':'<a href="#'+p.id+'-changelog">Changelog</a>')+'</div>';
+}
 for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) {
   const t=(vi,english)=>en?english:vi;
   const steps=items=>'<ol class="steps">'+items.map(([title,body])=>'<li><h3>'+title+'</h3><p>'+body+'</p></li>').join('')+'</ol>';
@@ -112,9 +148,10 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
     else docs.splice(docs.findIndex(doc=>doc.id===p.home)+1,0,{id:p.setup,product:p.id,group:t('BẮT ĐẦU','GET STARTED'),icon:'↓',title:t('Cài đặt lần đầu','First installation'),lead:t('Chuẩn bị, cài đặt và kiểm tra '+p.name+' theo từng bước.','Prepare, install and verify '+p.name+' step by step.'),html});
     const overview=docs.find(doc=>doc.id===p.home);
     const features='<h2 id="tinh-nang">'+t('Tính năng chính','Main features')+'</h2><ul class="product-features">'+productFeatures[p.id].map(([,viTitle,enTitle,viBody,enBody])=>'<li><strong>'+t(viTitle,enTitle)+'.</strong> '+t(viBody,enBody)+'</li>').join('')+'</ul>';
-    overview.html=overview.html.includes('<div class="pills">')?overview.html.replace('<div class="pills">','<div class="pills">'+javaBadge(p.java)):'<div class="pills">'+javaBadge(p.java)+platformBadges+'</div>'+overview.html;
-    const galleryHeading=/<h2 id="(?:anh-gui|hinh-anh|gui)">/;
-    overview.html=galleryHeading.test(overview.html)?overview.html.replace(galleryHeading,heading=>features+heading):overview.html+features;
+    if(p.id==='solarshop'){
+      overview.html=overview.html.replace('<div class="pills">','<div class="pills">'+javaBadge(p.java));
+      overview.html=overview.html.replace('<h2 id="anh-gui">',features+'<h2 id="anh-gui">');
+    }else overview.html=classicProductOverview(p,overview,en,features);
     const config=docs.find(doc=>doc.id===p.config);
     config.html='<div class="beginner-intro"><strong>'+t('Chưa biết sửa file nào?','Not sure which file to edit?')+'</strong><p>'+t('Tìm tính năng muốn đổi trong bảng, mở đúng file trong plugins/'+p.folder+'/, rồi sửa một key mỗi lần. Các giá trị bên dưới là mẫu để tham khảo.','Find the feature in the table, open the matching file in plugins/'+p.folder+'/, then change one key at a time. Values below are examples.')+'</p><a href="#'+p.setup+'/sua-config">'+t('Xem cách sửa YAML lần đầu','How to edit your first YAML setting')+' →</a></div>'+config.html;
     const releaseIndex=docs.findIndex(doc=>doc.id===p.id+'-changelog');

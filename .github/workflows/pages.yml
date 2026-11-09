@@ -91,7 +91,7 @@ jobs:
           assert(docs.filter(d=>d.product==='solartpa').length === 7, 'Missing SolarTPA documentation');
           for (const localeDocs of [docs,sandbox.window.ONIC_ENGLISH]) {
             const html = localeDocs.find(d=>d.id==='solartpa-home')?.html || '';
-            assert((html.match(/<img\b[^>]*src="assets\/images\/solartpa\//g)||[]).length === 9, 'Missing SolarTPA screenshots');
+            assert((html.match(/<img\b[^>]*src="assets\/images\/solartpa\//g)||[]).length === 10, 'Missing SolarTPA screenshots');
           }
           assert(docs.find(d=>d.id==='solarshop-changelog')?.html.includes('DevLog Plugins #156'), 'Missing SolarShop release notes');
           assert(docs.find(d=>d.id==='solartpa-changelog')?.html.includes('DevLog Plugins #157'), 'Missing SolarTPA release notes');
