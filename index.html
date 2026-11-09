@@ -7,20 +7,26 @@
   <meta name="theme-color" content="#101311">
   <title>Onic Wiki — Tài liệu sản phẩm</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=20261109-ui2">
-  <script src="assets/docs.js?v=20261109-ui2" defer></script>
-  <script src="assets/config-data.js?v=20261109-ui2" defer></script>
-  <script src="assets/wiki.js?v=20261109-ui2" defer></script>
-  <script src="assets/products.js?v=20261109-ui2" defer></script>
-  <script src="assets/english.js?v=20261109-ui2" defer></script>
-  <script src="assets/app.js?v=20261109-ui2" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261109-ui3">
+  <script src="assets/docs.js?v=20261109-ui3" defer></script>
+  <script src="assets/config-data.js?v=20261109-ui3" defer></script>
+  <script src="assets/wiki.js?v=20261109-ui3" defer></script>
+  <script src="assets/products.js?v=20261109-ui3" defer></script>
+  <script src="assets/english.js?v=20261109-ui3" defer></script>
+  <script src="assets/app.js?v=20261109-ui3" defer></script>
 </head>
 <body>
-  <noscript><div style="padding:100px 24px 24px">Website hướng dẫn cần JavaScript để mở mục lục và nội dung. Bạn có thể đọc tài liệu nguồn tại <a href="https://github.com/OmhVN-02/Onic/blob/main/assets/docs.js?v=20261109-ui2">GitHub SolarShop Docs</a>.</div></noscript>
+  <noscript><div style="padding:100px 24px 24px">Website hướng dẫn cần JavaScript để mở mục lục và nội dung. Bạn có thể đọc tài liệu nguồn tại <a href="https://github.com/OmhVN-02/Onic/blob/main/assets/docs.js?v=20261109-ui3">GitHub SolarShop Docs</a>.</div></noscript>
   <a class="skip" href="#article">Đi đến nội dung</a>
   <header class="topbar">
     <a href="#wiki" class="brand" aria-label="Onic Wiki trang chủ"><span class="brand-icon" aria-hidden="true">✳</span> Onic <span class="docs-label">/ wiki</span></a>
-    <div class="top-actions"><span id="product-version" class="version">PLUGIN KNOWLEDGE BASE</span><a class="github" href="https://github.com/OmhVN-02/Onic" target="_blank" rel="noopener">GitHub ↗</a><select id="language" aria-label="Language / Ngôn ngữ"><option value="vi">VI</option><option value="en">EN</option></select><button id="theme" class="icon-button" aria-label="Đổi giao diện sáng tối">◐</button><button id="menu" class="icon-button mobile" aria-label="Mở mục lục" aria-expanded="false">☰</button></div>
+    <div class="top-actions">
+      <a class="header-search" href="#navigation" aria-label="Tìm trong tài liệu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 4 4"/></svg><span>Tìm tài liệu</span><kbd>/</kbd></a>
+      <a class="github" href="https://github.com/OmhVN-02/Onic" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="locale-switch" role="group" aria-label="Language / Ngôn ngữ"><button type="button" data-lang="vi" lang="vi" aria-label="Tiếng Việt" aria-pressed="true">VI</button><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button></div>
+      <button type="button" id="theme" class="icon-button" aria-label="Đổi giao diện sáng tối"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15a8 8 0 0 1-11-11 8.5 8.5 0 1 0 11 11Z"/></svg></button>
+      <button type="button" id="menu" class="icon-button mobile" aria-label="Mở mục lục" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg></button>
+    </div>
   </header>
   <aside id="sidebar" class="sidebar" aria-label="Điều hướng tài liệu">
     <a href="#wiki" class="wiki-home">← Chọn plugin</a>
@@ -32,7 +38,7 @@
     <div class="sidebar-note"><span class="status-dot"></span> Tài liệu sản phẩm<br><small>Cập nhật 09 / 11 / 2026</small></div>
   </aside>
   <div id="scrim" class="scrim" hidden></div>
-  <main id="main"><div class="breadcrumbs"><a href="#wiki">Onic Wiki</a><span>/</span><span id="crumb">Trang chủ</span></div><article id="article" tabindex="-1"></article><div id="page-navigation" class="page-navigation"></div><footer>Onic Studio</footer></main>
+  <main id="main"><div class="breadcrumbs"><a href="#wiki">Onic Wiki</a><span>/</span><span id="crumb">Trang chủ</span></div><article id="article" tabindex="-1"></article><div id="page-navigation" class="page-navigation"></div><footer><a href="#wiki" class="footer-brand">Onic Studio</a><button type="button" id="back-top">Về đầu trang ↑</button></footer></main>
   <aside class="toc"><div>TRONG TRANG NÀY</div><nav id="toc"></nav><a class="feedback" href="https://github.com/OmhVN-02/Onic/issues" target="_blank" rel="noopener">Góp ý tài liệu ↗</a></aside>
   <div id="toast" role="status" aria-live="polite"></div>
 </body>

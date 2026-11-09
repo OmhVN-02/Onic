@@ -29,3 +29,24 @@ html{scrollbar-color:#52664b var(--bg)}
  #plugin-select option,#language option{padding:7px 10px;border-radius:5px}
  #plugin-select option:is(:hover,:focus,:checked),#language option:is(:hover,:focus,:checked){background:var(--panel2);color:var(--accent)}
 }
+.topbar{padding-inline:max(24px,env(safe-area-inset-left)) max(24px,env(safe-area-inset-right))}
+.top-actions{gap:12px}.top-actions svg{width:19px;height:19px;display:block}
+.header-search,.locale-switch,.top-actions .icon-button{height:40px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.header-search{display:flex;align-items:center;gap:9px;padding:0 10px;color:var(--muted);font-size:12px}
+.header-search:hover,.top-actions .icon-button:hover{color:var(--accent);border-color:var(--accent)}
+.locale-switch{display:flex;align-items:stretch;gap:2px;padding:3px}
+.locale-switch button{min-width:35px;padding:0 6px;border:0;border-radius:5px;background:transparent;color:var(--muted);font-size:12px;font-weight:650}
+.locale-switch button:hover{color:var(--text)}.locale-switch button[aria-pressed=true]{color:var(--accent);background:var(--panel2)}
+.top-actions .icon-button{width:40px;padding:0;place-items:center}.top-actions #theme{display:grid}
+.wiki-cta{display:flex;align-items:center;flex-wrap:wrap;gap:10px 17px;margin:22px 0 27px;font-size:12px}
+article .wiki-cta .primary-cta{display:inline-flex;gap:9px;align-items:center;min-height:44px;padding:0 15px;border-radius:8px;background:var(--accent);color:var(--bg);font-weight:700}
+article .wiki-cta .primary-cta:hover{text-decoration:none;outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}.version,pre,td{font-variant-numeric:tabular-nums}
+footer{align-items:center;padding-bottom:env(safe-area-inset-bottom)}.footer-brand{font-size:12px;font-weight:700;color:var(--text)}
+#back-top{min-height:40px;padding:4px 10px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--muted);font-size:11px}
+#back-top:hover{color:var(--accent)}
+@media(max-width:760px){
+ .topbar{padding-inline:max(12px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-right))}
+ .top-actions{gap:6px}.top-actions #menu{display:grid}.header-search{width:40px;justify-content:center;padding:0}.header-search span,.header-search kbd{display:none}
+}
+@media(max-width:360px){.top-actions{gap:5px}.top-actions .header-search{display:none}.locale-switch button{min-width:31px}}

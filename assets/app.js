@@ -4,7 +4,8 @@
   const $ = id => document.getElementById(id);
   const search = $('search');
   const select = $('plugin-select');
-  const language = $('language');
+  const localeButtons = [...document.querySelectorAll('[data-lang]')];
+  const headerSearch = document.querySelector('.header-search');
   let lang = new URLSearchParams(location.search).get('lang');
   if (!['vi','en'].includes(lang)) {
     try { lang = localStorage.getItem('onic-language'); } catch { /* Optional preference. */ }
@@ -14,7 +15,10 @@
   function applyLanguage() {
     docs = lang === 'en' ? window.ONIC_ENGLISH : window.SOLAR_DOCS;
     document.documentElement.lang = lang;
-    language.value = lang;
+    localeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
+    headerSearch.querySelector('span').textContent = t('Tìm tài liệu','Search docs');
+    headerSearch.setAttribute('aria-label', t('Tìm tài liệu','Search docs'));
+    $('back-top').textContent = t('Về đầu trang ↑','Back to top ↑');
     search.placeholder = t('Tìm hướng dẫn…','Search guides…');
     search.setAttribute('aria-label',search.placeholder);
     document.querySelector('.plugin-label').textContent = t('CHUYÊN MỤC PLUGIN','PLUGIN');
@@ -72,9 +76,10 @@
     $('crumb').textContent = doc.title;
     select.value = doc.product === 'wiki' ? '' : doc.product;
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
-    $('product-version').textContent = product ? [product.name,product.version].filter(Boolean).join(' · ') : 'PLUGIN KNOWLEDGE BASE';
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
+    if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
+      '<div class="wiki-cta"><a class="primary-cta" href="#wiki/plugins">'+t('Chọn sản phẩm','Choose a product')+' <span aria-hidden="true">↓</span></a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
     const siblings = docs.filter(d => d.product === doc.product);
@@ -101,8 +106,9 @@
   $('menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('open')));
   $('scrim').addEventListener('click', () => menu(false));
   search.addEventListener('input', () => navigation(search.value));
-  language.addEventListener('change', () => {
-    lang = language.value;
+  localeButtons.forEach(button => button.addEventListener('click', () => {
+    if (lang === button.dataset.lang) return;
+    lang = button.dataset.lang;
     try { localStorage.setItem('onic-language',lang); } catch { /* Optional preference. */ }
     const url = new URL(location.href);
     url.searchParams.set('lang',lang);
@@ -110,7 +116,13 @@
     search.value = '';
     applyLanguage();
     render();
-  });
+  }));
+  function focusSearch() {
+    if (window.innerWidth <= 760) menu(true);
+    (select.value ? search : select).focus();
+  }
+  headerSearch.addEventListener('click', event => { event.preventDefault(); focusSearch(); });
+  $('back-top').addEventListener('click', () => { window.scrollTo({top:0}); $('article').focus({preventScroll:true}); });
   select.addEventListener('change', () => {
     search.value = '';
     const target = (window.ONIC_PLUGINS || []).find(p => p.id === select.value)?.route;
@@ -120,7 +132,7 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') { menu(false); search.blur(); }
     if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) && !event.ctrlKey && !event.metaKey && !event.altKey) {
-      event.preventDefault(); menu(window.innerWidth <= 760); search.focus();
+      event.preventDefault(); focusSearch();
     }
   });
   document.addEventListener('click', async event => {
