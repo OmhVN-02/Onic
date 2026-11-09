@@ -75,6 +75,7 @@
     let route;
     try { route = decodeURIComponent(location.hash.slice(1)); } catch { route = ''; }
     let [requested, section] = route.split('/');
+    if (requested === 'wiki' && section === 'contributors') { requested = 'contributors'; section = undefined; }
     const movedGuides = window.ONIC_MOVED_GUIDES || {};
     const movedTo = Object.hasOwn(movedGuides,requested) ? movedGuides[requested] : null;
     if (movedTo) {
@@ -90,14 +91,12 @@
     activeProduct = doc.product === 'wiki' ? '' : doc.product;
     renderPicker();
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
-    document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
+    document.title = product?.name || (doc.id === 'wiki' ? 'Onic Wiki' : doc.title);
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)} ${newBadge(doc)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('afterbegin',
       '<p class="ai-disclosure"><span aria-hidden="true">✦</span>'+t('Một số sản phẩm có sự hỗ trợ của AI trong quá trình phát triển.','Some products are developed with AI assistance.')+'</p>');
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
       '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
-    if (doc.id === 'wiki') $('article').insertAdjacentHTML('beforeend',
-      '<h2 id="contributors">Contributors</h2><ul class="contributors-list"><li><strong>OmhVN</strong> — '+t('phát triển sản phẩm.','product development.')+'</li><li><strong>Ethan (Huykun)</strong> — '+t('phát triển sản phẩm.','product development.')+'</li><li><strong>duckright</strong> — '+t('thiết kế logo cho các sản phẩm.','product logo design.')+'</li><li><strong>Kan_sus</strong> — '+t('cấu hình và thử nghiệm.','configuration and testing.')+'</li><li><strong>ChatGPT</strong> — '+t('hỗ trợ xây dựng wiki và biên soạn tài liệu.','assisted with the wiki and documentation.')+'</li></ul>');
     $('article').querySelectorAll('a.card[href^="#"]').forEach(link => {
       const targetId = link.getAttribute('href').slice(1).split('/')[0];
       const target = docs.find(item => item.id === targetId);
