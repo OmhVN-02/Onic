@@ -33,6 +33,7 @@
     $('theme').setAttribute('aria-label',t('Đổi giao diện sáng tối','Toggle light or dark theme'));
     $('menu').setAttribute('aria-label',t('Mở mục lục','Toggle navigation'));
   }
+  const newBadge = item => window.ONIC_IS_NEW(item) ? '<span class="new-badge" title="'+t('Tài liệu cập nhật trong 7 ngày qua','Documentation updated within the last 7 days')+'">NEW</span>' : '';
   let currentId = '', sectionObserver, toastTimer;
   function menu(open) {
     $('sidebar').classList.toggle('open', open);
@@ -45,7 +46,7 @@
     const selected = plugins.find(p => p.id === activeProduct);
     $('picker-name').textContent = selected?.name || t('Chọn sản phẩm','Choose a product');
     $('picker-icon').textContent = selected?.icon || '✳';
-    $('picker-options').innerHTML = plugins.map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('');
+    $('picker-options').innerHTML = plugins.map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)} ${newBadge(p)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('');
   }
   function navigation(query = '') {
     const normalized = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
@@ -65,7 +66,7 @@
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span'); label.textContent = doc.title;
-      link.append(icon, label); $('navigation').append(link);
+      link.append(icon, label); if (window.ONIC_IS_NEW(doc)) link.insertAdjacentHTML('beforeend', newBadge(doc)); $('navigation').append(link);
     }
     if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = activeProduct ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
     $('search-status').textContent = query ? count + t(' bài phù hợp',' matching guides') : '';
@@ -90,13 +91,20 @@
     renderPicker();
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
-    $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
+    $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)} ${newBadge(doc)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('afterbegin',
       '<p class="ai-disclosure"><span aria-hidden="true">✦</span>'+t('Một số sản phẩm có sự hỗ trợ của AI trong quá trình phát triển.','Some products are developed with AI assistance.')+'</p>');
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
       '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('beforeend',
       '<h2 id="contributors">Contributors</h2><ul class="contributors-list"><li><strong>OmhVN</strong> — '+t('phát triển sản phẩm.','product development.')+'</li><li><strong>Ethan (Huykun)</strong> — '+t('phát triển sản phẩm.','product development.')+'</li><li><strong>duckright</strong> — '+t('thiết kế logo cho các sản phẩm.','product logo design.')+'</li><li><strong>Kan_sus</strong> — '+t('cấu hình và thử nghiệm.','configuration and testing.')+'</li><li><strong>ChatGPT</strong> — '+t('hỗ trợ xây dựng wiki và biên soạn tài liệu.','assisted with the wiki and documentation.')+'</li></ul>');
+    $('article').querySelectorAll('a.card[href^="#"]').forEach(link => {
+      const targetId = link.getAttribute('href').slice(1).split('/')[0];
+      const target = docs.find(item => item.id === targetId);
+      const targetProduct = (window.ONIC_PLUGINS || []).find(item => item.route === targetId);
+      const badge = newBadge(window.ONIC_IS_NEW(target) ? target : targetProduct);
+      if (badge) link.insertAdjacentHTML('beforeend', badge);
+    });
     const headings = [...$('article').querySelectorAll('h2[id]')];
     $('toc').innerHTML = headings.map(h => `<a href="#${doc.id}/${h.id}">${esc(h.textContent)}</a>`).join('');
     const siblings = docs.filter(d => d.product === doc.product);

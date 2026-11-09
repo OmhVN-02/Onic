@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -77,7 +77,7 @@ jobs:
             const api = localized.find(doc=>doc.id==='solarshards-api');
             if (!api || !api.html.includes('SolarShardsProvider') || !api.html.includes('getShardsAsync')) throw Error('SolarShards API documentation missing');
             if (!localized.find(doc=>doc.id==='solarshards-home').html.includes('href="#solarshards-api"')) throw Error('SolarShards API entry missing');
-            for (const product of ['solarworth','solarchat','solarduels','solarrtpzone','solarcore','solarafk','solarelo','solarcrate','solartools']) {
+            for (const product of ['solarchat','solarduels','solarrtpzone','solarcore','solarafk','solarelo','solarcrate','solartools']) {
               if (!home.html.includes('href="#'+product+'-home"')) throw Error('Upcoming product card missing: '+product);
               const page = localized.find(doc=>doc.id===product+'-home');
               if (!page || !page.html.includes('assets/images/'+product+'.png')) throw Error('Upcoming product logo missing: '+product);
@@ -86,6 +86,18 @@ jobs:
             const headings = [...rtp.html.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map(match=>match[1]);
             if (headings.some(heading=>heading.length>24)) throw Error('SolarRTP section title too long');
           }
+          for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
+            const worth = localized.find(doc=>doc.id==='solarworth-changelog');
+            if (!worth || ![146,140,224].every(number=>worth.html.includes('DevLog Plugins #'+number))) throw Error('SolarWorth devlogs missing');
+            if (!(worth.html.indexOf('#146')<worth.html.indexOf('#140') && worth.html.indexOf('#140')<worth.html.indexOf('#224'))) throw Error('SolarWorth release date order incorrect');
+            for (const item of ['SULFUR','POTENT_SULFUR','SULFUR_SPIKE','SULFUR_CUBE_BUCKET']) if (!worth.html.includes(item)) throw Error('Sulfur price missing');
+            const home = localized.find(doc=>doc.id==='wiki');
+            if (/class="card planned" href="#solarworth-home"/.test(home.html)) throw Error('SolarWorth still marked planned');
+            if (!localized.find(doc=>doc.id==='solarshards-home').html.includes('<div class="cards"><a class="card" href="#solarshards-api"')) throw Error('API card grid missing');
+          }
+          const fresh = sandbox.window.ONIC_IS_NEW;
+          const stamp = Date.parse('2026-11-09');
+          if (!fresh({updatedAt:'2026-11-09'},stamp) || fresh({updatedAt:'2026-11-09'},stamp+7*86400000) || fresh({updatedAt:'2026-11-09'},stamp-1) || fresh({},stamp)) throw Error('NEW badge expiry incorrect');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

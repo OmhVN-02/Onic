@@ -78,5 +78,5 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
       '<h2 id="tham-chieu">'+t('Tham chiếu','Reference')+'</h2>'+code('SolarShardsAPI',signatures)
   });
   const shards=docs.find(doc=>doc.id==='solarshards-home');
-  shards.html+='<h2 id="api-plugin">API</h2><p>'+t('Tích hợp số dư, cộng/trừ Shards và lắng nghe sự kiện từ plugin khác.','Integrate balances, Shards mutations and events into other plugins.')+'</p>'+card('solarshards-api','◇','API',t('Service, provider, phương thức và ví dụ Java.','Service, provider, methods and Java examples.'));
+  shards.html+='<h2 id="api-plugin">API</h2><p>'+t('Tích hợp số dư, cộng/trừ Shards và lắng nghe sự kiện từ plugin khác.','Integrate balances, Shards mutations and events into other plugins.')+'</p><div class="cards">'+card('solarshards-api','◇','API',t('Service, provider, phương thức và ví dụ Java.','Service, provider, methods and Java examples.'))+'</div>';
 }
