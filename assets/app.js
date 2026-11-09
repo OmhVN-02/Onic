@@ -10,7 +10,7 @@
   const headerSearch = document.querySelector('.header-search');
   let lang = new URLSearchParams(location.search).get('lang');
   if (!['vi','en'].includes(lang)) {
-    try { lang = localStorage.getItem('onic-language'); } catch { /* Optional preference. */ }
+    try { lang = localStorage.getItem('onic-language'); } catch {  }
   }
   if (lang !== 'en') lang = 'vi';
   const t = (vi,en) => lang === 'en' ? en : vi;
@@ -61,7 +61,6 @@
     $('navigation').replaceChildren();
     for (const doc of docs) {
       if (!activeProduct || doc.product !== activeProduct) continue;
-      // Search decoded visible text, not HTML markup or entity codes.
       const template = document.createElement('template');
       template.innerHTML = doc.html;
       const text = normalized(`${doc.title} ${doc.lead} ${template.content.textContent}`);
@@ -133,7 +132,7 @@
   localeButtons.forEach(button => button.addEventListener('click', () => {
     if (lang === button.dataset.lang) return;
     lang = button.dataset.lang;
-    try { localStorage.setItem('onic-language',lang); } catch { /* Optional preference. */ }
+    try { localStorage.setItem('onic-language',lang); } catch {  }
     const url = new URL(location.href);
     url.searchParams.set('lang',lang);
     history.replaceState(null,'',url);

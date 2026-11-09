@@ -1,4 +1,3 @@
-/* Multi-product registry. Existing SolarShop hashes remain valid. */
 window.SOLAR_DOCS.forEach(doc => { doc.product = 'solarshop'; });
 const meaning = {
  'debug':'Bật log debug; false khi vận hành bình thường.',
@@ -126,7 +125,6 @@ const reference = {
  html:shopConfigGuide(false)
 };
 window.SOLAR_DOCS.splice(3,0,reference);
-// Keep each product together in global navigation; overview before configuration.
 const shardsReferenceIndex = window.SOLAR_DOCS.findIndex(d => d.id === 'solarshards-config');
 const shardsReference = window.SOLAR_DOCS.splice(shardsReferenceIndex, 1)[0];
 const registry = [

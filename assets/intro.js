@@ -21,6 +21,5 @@
   intro.showModal();
   motion.addEventListener('change', onMotionChange);
   hold = setTimeout(() => intro.classList.add('is-opening'), 540);
-  // Never leave the document covered if a transition event is skipped.
   fallback = setTimeout(close, 1050);
 })();

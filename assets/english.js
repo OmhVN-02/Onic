@@ -1,4 +1,3 @@
-// English guides share route IDs and the original configuration examples.
 const enText = {
   'bat-dau':['Overview','Run a Minecraft shop with multiple currencies, purchase limits and SmartSpawner.','Start with installation, create a test category, then verify a purchase as a non-operator. This guide covers SolarShop C05.'],
   'cai-dat':['Installation','Install SolarShop C05 on a compatible Paper or Folia server.','Stop the server, put one SolarShop JAR in plugins/, install the economy provider you need, then restart. Back up plugins/SolarShop/ before upgrading. Do not use PlugMan or Bukkit /reload to replace the JAR. Run /solarshop and try a small purchase.'],

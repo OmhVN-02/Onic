@@ -1,5 +1,4 @@
 'use strict';
-// Keep historic deep links working after moving these guides into their parent pages.
 window.ONIC_MOVED_GUIDES = {
   solarshards: 'tien-te',
   smartspawner: 'vat-pham'

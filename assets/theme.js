@@ -9,11 +9,11 @@
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#fafbf8' : '#101311');
   }
   let saved;
-  try { saved = localStorage.getItem(key); } catch { /* Theme still works without storage. */ }
+  try { saved = localStorage.getItem(key); } catch {  }
   apply(saved === 'light' ? 'light' : 'dark');
   button.addEventListener('click', () => {
     const theme = root.dataset.theme === 'light' ? 'dark' : 'light';
     apply(theme);
-    try { localStorage.setItem(key, theme); } catch { /* Optional preference. */ }
+    try { localStorage.setItem(key, theme); } catch {  }
   });
 })();

@@ -1,4 +1,3 @@
-/* Public documentation only. Examples are illustrative; no server credentials. */
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function highlightYaml(text) {
   const mark = (kind,value) => '<span class="yaml-'+kind+'">'+esc(value)+'</span>';
