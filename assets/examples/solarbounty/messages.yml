@@ -1,0 +1,43 @@
+# ── 1. Message Format ────────────────────────────────────────────────────────
+# Tất cả thông báo người dùng chỉnh tại đây; lưu bằng UTF-8.
+# Supports: HEX &#RRGGBB, MiniMessage <gold>, Unicode Small Caps.
+# Tên người chơi giữ nguyên. Prefix tự thêm trước mỗi thông báo.
+prefix: '&#FFAA00ѕᴏʟᴀʀʙᴏᴜɴᴛʏ &#777777» &#FFFFFF'
+
+# ── 2. Bounty Messages ───────────────────────────────────────────────────────
+# claim: %amount%, %victim%; lost/increased: %amount%.
+# info: %player%, %bounty%, %survival%, %kills%, %rank%.
+bounty:
+  claim: '&#55FF88ʏᴏᴜ ᴄʟᴀɪᴍᴇᴅ &#FFD166$%amount% &#55FF88ꜰʀᴏᴍ &#FFFFFF%victim%!'
+  lost: '&#FF5555ʏᴏᴜ ʟᴏѕᴛ &#FFD166$%amount% &#FF5555ʙᴏᴜɴᴛʏ!'
+  reset: '&#FFCC66ʏᴏᴜʀ ʙᴏᴜɴᴛʏ ʜᴀѕ ʙᴇᴇɴ ʀᴇѕᴇᴛ!'
+  increased: '&#55FF88ʙᴏᴜɴᴛʏ ɪɴᴄʀᴇᴀѕᴇᴅ ʙʏ &#FFD166$%amount%!'
+  info: '&#FFFFFF%player% &#777777| &#55FF88$%bounty% &#777777| &#FFFFFF%survival% &#777777| &#FFFFFF%kills% ᴋɪʟʟѕ'
+# ── 3. GUI Messages ──────────────────────────────────────────────────────────
+# Chỉ thông báo khi danh sách trống; refresh và chạm giới hạn trang không gửi chat.
+gui:
+  no-players: '&#FF5555ɴᴏ ʙᴏᴜɴᴛɪᴇѕ ᴀᴠᴀɪʟᴀʙʟᴇ!'
+# ── 4. Economy Messages ──────────────────────────────────────────────────────
+# Thưởng chờ vẫn nằm trong ledger; người nhận online để tiếp tục trả thưởng.
+economy:
+  unavailable: '&#FF5555ᴇᴄᴏɴᴏᴍʏ ɪѕ ᴜɴᴀᴠᴀɪʟᴀʙʟᴇ!'
+  pending: '&#FFCC66ʏᴏᴜʀ ʀᴇᴡᴀʀᴅ ɪѕ ᴘᴇɴᴅɪɴɢ!'
+# ── 5. Administration Messages ───────────────────────────────────────────────
+# changed: %player%, %amount%; reload-failed: %error%; payments: %payments%.
+# resolved: %id%, %status%. Dành cho các lệnh có quyền solarbounty.admin.
+admin:
+  reload: '&#55FF88ѕᴏʟᴀʀʙᴏᴜɴᴛʏ ʀᴇʟᴏᴀᴅᴇᴅ!'
+  no-permission: '&#FF5555ʏᴏᴜ ᴅᴏɴ''ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪѕѕɪᴏɴ!'
+  changed: '&#55FF88ᴜᴘᴅᴀᴛᴇᴅ &#FFFFFF%player% &#55FF88ᴛᴏ &#FFD166$%amount%'
+  reload-failed: '&#FF5555ʀᴇʟᴏᴀᴅ ꜰᴀɪʟᴇᴅ: %error%'
+  payments: '&#FFCC66ᴘᴀʏᴍᴇɴᴛѕ: %payments%'
+  resolved: '&#55FF88ᴘᴀʏᴍᴇɴᴛ %id%: %status%'
+# ── 6. Command Messages ──────────────────────────────────────────────────────
+# Hướng dẫn cú pháp, lỗi đầu vào và trạng thái plugin đang khởi động.
+command:
+  usage: '&#FFCC66/bounty [top|info <player>|reload|reset <player>|set <player> <amount>|payments|resolve <id> <paid|retry>]'
+  players-only: '&#FF5555ᴏɴʟʏ ᴘʟᴀʏᴇʀѕ ᴄᴀɴ ᴏᴘᴇɴ ᴛʜᴇ ɢᴜɪ.'
+  not-found: '&#FF5555ᴘʟᴀʏᴇʀ ᴅᴀᴛᴀ ɴᴏᴛ ꜰᴏᴜɴᴅ.'
+  invalid-amount: '&#FF5555ɪɴᴠᴀʟɪᴅ ᴀᴍᴏᴜɴᴛ. &#FFCC66ᴇx: 1.5K, 2M, 1B, 1T.'
+  error: '&#FF5555ᴏᴘᴇʀᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ. ᴄʜᴇᴄᴋ ᴛʜᴇ ѕᴇʀᴠᴇʀ ʟᴏɢ.'
+  starting: '&#FFCC66ᴅᴀᴛᴀʙᴀѕᴇ ɪѕ ѕᴛᴀʀᴛɪɴɢ. ᴘʟᴇᴀѕᴇ ᴡᴀɪᴛ.'

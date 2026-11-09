@@ -1,0 +1,71 @@
+# ── 1. GUI Title ─────────────────────────────────────────────────────────────
+# Tiêu đề menu bounty. Hỗ trợ HEX &#RRGGBB và MiniMessage như <gold>.
+# Placeholder tiêu đề: %page% = trang hiện tại, %pages% = tổng số trang.
+# Khoảng trắng đầu tiêu đề căn giữa tên với font mặc định; giữ trong dấu nháy.
+# Nếu dùng resource pack đổi font, có thể tăng/giảm khoảng trắng để căn lại.
+gui:
+  title: '              ʙᴏᴜɴᴛɪᴇѕ'
+
+  # ── 2. GUI Matrix ──────────────────────────────────────────────────────────
+  # Vẽ bố cục trực tiếp bằng ma trận, không cần nhập số slot.
+  # Mỗi dòng đúng 9 ký tự, từ 1 đến 6 dòng; luôn đặt dòng trong dấu nháy.
+  # P = đầu người chơi; . = ô trống, không đặt item trang trí.
+  # B = Back; R = Refresh; N = Next. Mỗi nút phải có đúng 1 ký tự.
+  # Di chuyển các ký tự để đổi vị trí các nút và đầu người chơi.
+  # Số người mỗi trang = tổng số chữ P; số hàng = số dòng ma trận.
+  # Mặc định: 6 hàng, 45 người mỗi trang. Ô P dư được để trống.
+  layout:
+    - 'PPPPPPPPP'
+    - 'PPPPPPPPP'
+    - 'PPPPPPPPP'
+    - 'PPPPPPPPP'
+    - 'PPPPPPPPP'
+    - '..B.R.N..'
+
+  # ── 3. Player Heads ────────────────────────────────────────────────────────
+  # Item tại các chữ P, điền từ trái sang phải, trên xuống dưới.
+  # sort: chỉ hỗ trợ BOUNTY_DESC (bounty cao nhất đứng đầu).
+  # offline: true để hiện offline; top.offline trong config.yml cũng phải bật.
+  # material: PLAYER_HEAD để hiện skin; hỗ trợ Material item hợp lệ.
+  # Placeholder: %player%, %rank%, %bounty%, %survival%, %kills%.
+  # %bounty%: rút gọn K/M/B/T; %bounty_formatted%: số đầy đủ theo locale.
+  # %bounty_raw%: số thuần, không phân cách và không ký hiệu đơn vị.
+  # Tên người chơi giữ nguyên, không tự chuyển sang Small Caps.
+  heads:
+    sort: BOUNTY_DESC
+    offline: true
+    material: PLAYER_HEAD
+    name: '&#FFD166#%rank% %player%'
+    lore:
+      - '&#AAAAAAʙᴏᴜɴᴛʏ: &#55FF88$%bounty%'
+
+  # ── 4. Navigation Buttons ──────────────────────────────────────────────────
+  # Vị trí nút lấy từ chữ B/R/N trong ma trận phía trên.
+  # Chỉ chỉnh Material, tên và lore tại đây; không có cấu hình slot.
+  # Supports: tên Material item hợp lệ, HEX, MiniMessage, %page%.
+  buttons:
+    # B: về trang trước.
+    back:
+      material: ARROW
+      name: '&#FFCC66ᴘʀᴇᴠɪᴏᴜѕ ᴘᴀɢᴇ'
+      lore: []
+    # R: lấy snapshot bounty mới và vẽ lại trang đang xem.
+    refresh:
+      material: CLOCK
+      name: '&#55FF88ʀᴇꜰʀᴇѕʜ'
+      lore: []
+    # N: sang trang tiếp theo.
+    next:
+      material: ARROW
+      name: '&#FFCC66ɴᴇxᴛ ᴘᴀɢᴇ'
+      lore: []
+
+  # ── 5. GUI Settings ────────────────────────────────────────────────────────
+  settings:
+    # true: lấy dữ liệu mới khi mở/chuyển trang. Nút R luôn cập nhật mới.
+    update-on-open: true
+    # true: phát tiếng click khi menu được mở hoặc vẽ lại.
+    sound: true
+    # true: khóa thao tác túi đồ khi mở menu.
+    # false: cho thao tác thông thường ở túi cá nhân, vẫn bảo vệ item GUI.
+    prevent-move: true

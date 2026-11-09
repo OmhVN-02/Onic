@@ -71,6 +71,22 @@ const onicReleaseNotes = [
       ]]
     ],
     link:'#gioi-han'
+  },
+  {
+    product:'solarshop', number:228, version:'SolarShop-2.0-C04', date:'2026-08-27',
+    subtitle:'Personal & Global Limits, Click Shop Importer',
+    sections:[
+      ['Giữ giao diện xác nhận khi mua liên tiếp','Stay in the confirmation menu',[
+        ['Sau khi mua thành công, người chơi vẫn ở Buy Confirm Menu để mua tiếp.','After a successful purchase, players stay in the Buy Confirm Menu for the next purchase.'],
+        ['Tính lại số lượng tối đa và chỗ trống túi đồ, rồi cập nhật lore ngay.','Recalculates the maximum quantity and inventory space, then updates the lore immediately.'],
+        ['Thêm <code>close-after-purchase: false</code> trong <code>gui/buy-confirm.yml</code> để tùy chỉnh hành vi sau khi mua.','Adds <code>close-after-purchase: false</code> in <code>gui/buy-confirm.yml</code> to configure post-purchase behavior.'],
+        ['Tự quay về danh mục nếu đã hết hạn mức cá nhân/toàn server hoặc túi đồ đầy.','Returns to the category when the personal or server-wide limit is exhausted or the inventory is full.']
+      ]],
+      ['Phản hồi khi nhấp nhanh','Rapid-click confirmation',[
+        ['Bản C04 bỏ debounce 200 ms trên nút xác nhận để phản hồi ngay khi người chơi nhấp liên tiếp trên luồng chính.','C04 removes the 200 ms confirmation debounce so repeated clicks respond immediately on the main thread.']
+      ]]
+    ],
+    link:'#giao-dien'
   }
 ];
 
@@ -85,12 +101,14 @@ for (const [docs, english] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,tr
   for (const product of new Set(onicReleaseNotes.map(release=>release.product))) {
     const locale = english ? 1 : 0;
     const id = product + '-changelog';
-    const releases = onicReleaseNotes.filter(release=>release.product===product).sort((a,b)=>b.number-a.number);
+    const releaseDate = release => release.date || '2026-11-09';
+    const releases = onicReleaseNotes.filter(release=>release.product===product).sort((a,b)=>releaseDate(b).localeCompare(releaseDate(a)) || b.number-a.number);
     docs.push({id, product,group:english?'OPERATIONS':'VẬN HÀNH',icon:'↻',title:'Changelog',
       lead:english?'Release notes for this product.':'Ghi chú cập nhật của sản phẩm.',
       html:releases.map(release=>{
-        const date=release.date||'2026-11-09';
+        const date=releaseDate(release);
         return `<h2 id="devlog-${release.number}">${release.version} · #${release.number}</h2><p>DevLog Plugins #${release.number} · <time datetime="${date}">${date.split('-').reverse().join(' / ')}</time></p>` +
+        (release.subtitle ? '<p>'+esc(release.subtitle)+'</p>' : '') +
         release.sections.map(([vi,en,items])=>'<h3>'+esc(english?en:vi)+'</h3><ul>'+items.map(pair=>'<li>'+pair[locale]+'</li>').join('')+'</ul>').join('') +
         `<p><a href="${release.link}">${english?'Read the guide':'Xem hướng dẫn'} ↗</a></p>`;
       }).join('')

@@ -37,8 +37,8 @@ jobs:
             }
             return walk(directory);
           }
-          const shop = collect('solarshop'), shards = collect('solarshards'), tpa = collect('solartpa');
-          const output = `window.ONIC_CONFIGS=${JSON.stringify(shop)};\nwindow.ONIC_SHARDS_CONFIG=${JSON.stringify(shards.find(f=>f.path==='config.yml').content)};\nwindow.ONIC_TPA_CONFIGS=${JSON.stringify(tpa)};\n`;
+          const shop = collect('solarshop'), shards = collect('solarshards'), tpa = collect('solartpa'), bounty = collect('solarbounty');
+          const output = `window.ONIC_CONFIGS=${JSON.stringify(shop)};\nwindow.ONIC_SHARDS_CONFIG=${JSON.stringify(shards.find(f=>f.path==='config.yml').content)};\nwindow.ONIC_TPA_CONFIGS=${JSON.stringify(tpa)};\nwindow.ONIC_BOUNTY_CONFIGS=${JSON.stringify(bounty)};\n`;
           writeFileSync(resolve(root,'assets/config-data.js'),output);
           console.log(`Generated config data: ${shop.length} SolarShop, ${shards.length} SolarShards, ${tpa.length} SolarTPA templates.`);
           NODE
@@ -59,6 +59,7 @@ jobs:
           runInNewContext(read('assets/products.js'), sandbox);
           runInNewContext(read('assets/english.js'), sandbox);
           runInNewContext(read('assets/releases.js'), sandbox);
+          runInNewContext(read('assets/bounty.js'), sandbox);
           const docs = sandbox.window.SOLAR_DOCS;
           const ids = new Set();
           function assert(condition, text) { if (!condition) throw Error(text); }

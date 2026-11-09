@@ -1,0 +1,146 @@
+# ── 1. General Settings ──────────────────────────────────────────────────────
+# SolarBounty - bounty tự tăng theo thời gian sống và player kills.
+# Dùng /bounty reload sau khi chỉnh. Cấu hình sai giữ nguyên bản đang chạy.
+# Đơn vị tiền: Coins từ economy provider; không trừ tiền tài khoản nạn nhân.
+
+# Locale định dạng số/tiền. Supports: en_US, vi_VN và locale Java hợp lệ.
+# Nội dung thông báo chỉnh trong messages.yml; đây không phải trình dịch tự động.
+lang: en_US
+# true để ghi thêm thông tin chẩn đoán khi reload cấu hình.
+debug: false
+
+# ── 2. Database Settings ─────────────────────────────────────────────────────
+# Supports: sqlite, mysql. SQL luôn chạy bất đồng bộ.
+# Thay đổi bất kỳ thiết lập database nào đều cần restart server.
+database:
+  type: sqlite
+  # File SQLite, tính từ plugins/SolarBounty/; không dùng đường dẫn ra ngoài.
+  sqlite: data/database.db
+
+  # Chỉ sử dụng khi type: mysql. Tạo database và cấp quyền cho user trước.
+  mysql:
+    host: localhost
+    port: 3306
+    name: solarbounty
+    user: root
+    # Đổi thành mật khẩu database; giữ dấu nháy nếu có ký tự đặc biệt.
+    pass: 'CHANGE_ME'
+    # true: bật TLS, xác minh chứng chỉ và hostname MySQL.
+    ssl: false
+
+  # Pool MySQL. SQLite tự giới hạn 1 connection để tránh xung đột ghi.
+  pool:
+    # Số connection tối đa: 1-64; min không được lớn hơn max.
+    max: 10
+    # Connection chờ tối thiểu: 0-max; SQLite giới hạn min tối đa 1.
+    min: 2
+    # Thời gian chờ connection, MILLISECONDS: 250-300000. 30000 = 30 giây.
+    timeout: 30000
+
+# ── 3. Automatic Bounty ──────────────────────────────────────────────────────
+# Bounty = số chu kỳ sống hoàn thành x time.money + kills x kill.money.
+# Phần phút lẻ được lưu để tiếp tục tính sau logout/login.
+# Tiền không âm, tối đa 2 chữ số thập phân; ví dụ money: 125.50.
+bounty:
+  time:
+    # Tiền cộng mỗi chu kỳ sống hoàn thành; mặc định 100 Coins/phút.
+    money: 100
+    # Độ dài chu kỳ, PHÚT: 1-525600.
+    minutes: 1
+    # Bắt buộc true: chỉ tính khi người chơi online và đang sống.
+    online-only: true
+
+  kill:
+    # Tiền cộng vào bounty của killer cho mỗi player kill hợp lệ.
+    money: 5000
+    # Cộng thêm vào bounty của killer theo bounty nạn nhân ngay trước khi chết.
+    # PHẦN TRĂM: 0-100; mặc định 40. 0 = tắt; làm tròn xuống 2 chữ số thập phân.
+    # Đây là bounty của killer, KHÔNG phải tiền Vault; vẫn nhận thưởng Vault riêng.
+    # Cộng cùng money phía trên, chịu bounty.max và kiểm tra anti-farm.
+    inherit-percent: 40
+    # Bắt buộc true: giết mob không cộng bounty hoặc kills.
+    players-only: true
+
+  # Bounty tối đa của một người chơi; phải lớn hơn 0.
+  # Hỗ trợ K/M/B/T: 1K = 1.000, 1M = 1 triệu, 1B = 1 tỷ, 1T = 1 nghìn tỷ.
+  # Config cũ giữ max đã đặt; tăng lên 1T nếu muốn cho phép bounty tới đơn vị T.
+  max: 1T
+
+  # Giảm bounty khi offline lâu; không trừ tiền Vault hay thay đổi kills/thời gian sống.
+  decay:
+    enabled: true
+    # Chờ đủ 15 ngày offline; giảm lần đầu sau thêm 24 giờ (ngày thứ 16).
+    after-days: 15
+    # Mỗi 24 giờ sau thời gian chờ, giảm 10% bounty CÒN LẠI.
+    # Ví dụ 10K -> 9K -> 8.1K. 0 = không giảm, tối đa 100.
+    # Tính bù sau restart; vào lại server sẽ bắt đầu thời gian chờ mới cho lần quit sau.
+    percent: 10
+
+  death:
+    # true: chết PvP reset bounty, thời gian sống và kills.
+    # Áp dụng cả khi anti-farm chặn phần thưởng của killer.
+    reset: true
+    # Bounty trả cho killer hợp lệ, PHẦN TRĂM: 0-100.
+    reward: 100
+    # true: chết do môi trường reset toàn bộ, không có người nhận thưởng.
+    environment-reset: true
+    # true: DamageSource phải ghi nhận đúng player killer, gồm projectile.
+    # false: dùng killer Minecraft ghi nhận (có thể còn credit sau combat).
+    require-player-damage: false
+
+# ── 4. Economy & Pending Payments ────────────────────────────────────────────
+# Supports: VAULT. Cần Vault và một economy provider để chuyển tiền.
+# Thiếu Vault/provider vẫn lưu thưởng chờ, không làm mất số tiền đó.
+economy:
+  type: VAULT
+  # true: tự thử lại khi provider xác nhận giao dịch thất bại.
+  # false: giữ ở HELD; admin đối soát bằng /bounty payments và resolve.
+  # UNCERTAIN luôn cần đối soát, không tự thử lại để tránh trả trùng.
+  queue-failed: true
+  # Chu kỳ trả thưởng chờ, GIÂY: 1-3600. Người nhận cần online.
+  retry: 30
+  # Chỉ bật sau khi xác minh provider an toàn trên entity scheduler Folia.
+  # Đây không phải cờ bật hỗ trợ Folia của plugin.
+  folia-provider-verified: false
+
+# ── 5. Anti-Farm & Game Modes ────────────────────────────────────────────────
+anti-farm:
+  # Bật cooldown theo cặp killer/victim và chặn cùng IP nếu được cấu hình.
+  enabled: true
+  # Chờ giết lại cùng nạn nhân, GIÂY: 0-2592000; 0 = không có khoảng chờ.
+  # Trong khoảng chờ: không trả thưởng và không cộng player kill cho killer.
+  cooldown: 300
+  # true để CHẶN cùng IP; false để cho phép người chơi chung mạng.
+  same-ip: false
+  # true để CHO PHÉP Creative tính thời gian và tham gia claim; mặc định chặn.
+  creative: false
+  # true để CHO PHÉP Spectator tính thời gian và tham gia claim; mặc định chặn.
+  spectator: false
+
+# ── 6. Leaderboard Settings ──────────────────────────────────────────────────
+top:
+  # Supports: BOUNTY_DESC. Cao đứng trước; hòa điểm sắp theo tên rồi UUID.
+  sort: BOUNTY_DESC
+  # Chu kỳ cache, GIÂY: 1-3600. Death/admin thay đổi cũng làm mới.
+  refresh: 30
+  # true để hiện offline; gui.heads.offline trong gui.yml cũng phải bật.
+  offline: true
+
+# ── 7. Save Settings ─────────────────────────────────────────────────────────
+save:
+  # Chu kỳ checkpoint thời gian sống, GIÂY: 1-3600.
+  # Khi process bị kill, phần thời gian chưa checkpoint có thể mất.
+  interval: 5
+  # Bắt buộc true: không cho database I/O trên main/entity thread.
+  async: true
+
+# ── 8. Backup Settings ───────────────────────────────────────────────────────
+# Backup lưu trong plugins/SolarBounty/backups/.
+# SQLite: .db; MySQL: .sql.zip. Dừng server trước khi phục hồi.
+# Đối soát economy trước khi dùng backup cũ để tránh trả lại khoản đã nhận.
+backup:
+  enabled: true
+  # Khoảng cách backup, GIỜ: 1-8760, tính từ lúc plugin khởi động.
+  hours: 12
+  # Số backup giữ lại: 1-1000; chỉ xóa backup do SolarBounty tạo.
+  keep: 10
