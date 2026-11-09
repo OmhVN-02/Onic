@@ -24,8 +24,7 @@
     document.querySelector('.toc > div').textContent = t('TRONG TRANG NÀY','ON THIS PAGE');
     document.querySelector('.feedback').textContent = t('Góp ý tài liệu ↗','Send feedback ↗');
     document.querySelector('.skip').textContent = t('Đi đến nội dung','Skip to content');
-    document.querySelector('.sidebar-note').textContent = t('Onic · Tài liệu nhiều plugin','Onic · Plugin documentation');
-    document.querySelector('footer span').textContent = t('Tài liệu & cấu hình mẫu công khai','Public documentation and example configs');
+    document.querySelector('.sidebar-note').textContent = t('Tài liệu sản phẩm','Product documentation');
     $('theme').setAttribute('aria-label',t('Đổi giao diện sáng tối','Toggle light or dark theme'));
     $('menu').setAttribute('aria-label',t('Mở mục lục','Toggle navigation'));
   }
