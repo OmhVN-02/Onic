@@ -91,6 +91,8 @@
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
     document.title = `${doc.title}${product ? ' · ' + product.name : ''} — Onic Wiki`;
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
+    if (doc.id === 'wiki') $('article').insertAdjacentHTML('afterbegin',
+      '<p class="ai-disclosure"><span aria-hidden="true">✦</span>'+t('Một số sản phẩm có sự hỗ trợ của AI trong quá trình phát triển.','Some products are developed with AI assistance.')+'</p>');
     if (doc.id === 'wiki') $('article').querySelector('.lead').insertAdjacentHTML('afterend',
       '<div class="wiki-cta"><a class="primary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' <span aria-hidden="true">↗</span></a><a href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a href="#solarshop-config">'+t('Cấu hình SolarShop','SolarShop configuration')+' ↗</a></div>');
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('beforeend',
