@@ -47,16 +47,9 @@
     $('picker-icon').textContent = selected?.icon || '✳';
     $('picker-options').innerHTML = plugins.map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('');
   }
-  function navigationGroup(doc) {
-    if (doc.product !== 'solarshop') return doc.group;
-    if (['bat-dau','cai-dat','thu-muc','shop-dau-tien'].includes(doc.id)) return t('Bắt đầu','Get started');
-    if (['solarshop-config','vat-pham','tien-te','gioi-han','giao-dien','tin-nhan','solarshop-papi'].includes(doc.id)) return t('Cấu hình shop','Shop setup');
-    return t('Vận hành','Operations');
-  }
   function navigation(query = '') {
     const normalized = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
     const keywords = normalized(query).split(/\s+/).filter(Boolean);
-    const groups = new Map();
     let count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
@@ -67,20 +60,12 @@
       if (!keywords.every(word => text.includes(word))) continue;
       count++;
       const standalone = doc.id.endsWith('-changelog');
-      const name = navigationGroup(doc);
-      if (!standalone && !groups.has(name)) {
-        const group = document.createElement('details'); group.className = 'nav-section';
-        const heading = document.createElement('summary'); heading.textContent = name;
-        group.append(heading); groups.set(name,group); $('navigation').append(group);
-      }
-      const group = standalone ? $('navigation') : groups.get(name);
-      if (!standalone && (keywords.length || currentId === doc.id)) group.open = true;
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
       if (standalone) link.classList.add('standalone-nav');
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span'); label.textContent = doc.title;
-      link.append(icon, label); group.append(link);
+      link.append(icon, label); $('navigation').append(link);
     }
     if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = activeProduct ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
     $('search-status').textContent = query ? count + t(' bài phù hợp',' matching guides') : '';
