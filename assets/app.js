@@ -153,14 +153,6 @@
     }
   });
   document.addEventListener('click', async event => {
-    const demo = event.target.closest('.demo-toggle');
-    if (demo) {
-      const playing = demo.getAttribute('aria-pressed') !== 'true';
-      demo.closest('.demo-frame').querySelector('img').src = playing ? demo.dataset.gif : demo.dataset.preview;
-      demo.setAttribute('aria-pressed', String(playing));
-      demo.textContent = playing ? demo.dataset.stop : demo.dataset.play;
-      return;
-    }
     const button = event.target.closest('.copy');
     if (!button) return;
     const value = button.closest('.code-block').querySelector('code').textContent;

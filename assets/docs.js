@@ -23,9 +23,8 @@ const code = (label, value) => {
 };
 const platformBadges = '<a class="pill platform-badge" href="https://papermc.io/software/paper/" target="_blank" rel="noopener"><span><img src="assets/images/paper.svg" alt="" width="16" height="16"></span>Paper</a><a class="pill platform-badge" href="https://papermc.io/software/folia/" target="_blank" rel="noopener"><span class="folia-mark"><img src="assets/images/folia.svg" alt="" width="16" height="16"></span>Folia</a>';
 const shopDemo = en => {
-  const preview='assets/images/solarshop/demo-preview.png', gif='assets/images/solarshop/demo.gif';
-  const play=en?'Play demo':'Phát demo', stop=en?'Stop demo':'Dừng demo';
-  return `<h2 id="demo">${en?'SolarShop in action':'Giới thiệu SolarShop'}</h2><figure class="demo-frame"><img src="${preview}" width="760" height="413" loading="lazy" alt="${en?'SolarShop purchase menu':'Giao diện mua hàng SolarShop'}"><figcaption><button type="button" class="demo-toggle" aria-pressed="false" data-preview="${preview}" data-gif="${gif}" data-play="${play}" data-stop="${stop}">${play}</button><span>${en?'22 seconds · No audio':'22 giây · Không âm thanh'}</span><a href="${gif}" target="_blank" rel="noopener">${en?'Open GIF':'Mở GIF'} ↗</a></figcaption></figure>`;
+  const gif='assets/images/solarshop/demo.gif';
+  return `<h2 id="demo">${en?'SolarShop in action':'Giới thiệu SolarShop'}</h2><figure class="demo-frame"><img src="${gif}" width="760" height="413" loading="lazy" alt="${en?'SolarShop purchase menu':'Giao diện mua hàng SolarShop'}"><figcaption><span>${en?'22 seconds · No audio':'22 giây · Không âm thanh'}</span></figcaption></figure>`;
 };
 const note = (title, text, warning = false) => `<div class="callout ${warning ? 'warning' : ''}"><strong>${title}</strong>${text}</div>`;
 const table = (headers, rows) => `<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
