@@ -1,0 +1,27 @@
+# Available databases:
+#  - sqlite
+#  - mysql
+type: "sqlite"
+
+sqlite:
+  file: data/solarorder.db
+
+mysql:
+  host: localhost
+  port: 3306
+  database: "solarorder"
+  user: root
+  password: ''
+  max-pool: 10
+  use-ssl: false
+
+# Redis distributed locking (for cross-server support)
+redis:
+  enabled: false
+  host: "localhost"
+  port: 6379
+  password: ""
+  useSSL: false
+  lockExpiry: 30
+
+

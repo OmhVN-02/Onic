@@ -1,0 +1,19 @@
+# ==================
+#       Sounds
+# ==================
+click:
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+xp:
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  volume: 1.0
+  pitch: 1.0
+
+error:
+  sound: ENTITY_VILLAGER_NO
+  volume: 1.0
+  pitch: 1.0
+
+

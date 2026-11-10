@@ -1,0 +1,22 @@
+title: "ᴀʀʀᴏᴡs"
+
+items:
+  back:
+    name: "#00BFFFʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để quay lại trang trước"
+    material: "ARROW"
+    slot: 45
+    customModelData: -1
+    sound: click
+
+  next:
+    name: "#00BFFFɴᴇxᴛ"
+    lore:
+      - "&fNhấp để đi đến trang kế"
+    material: "ARROW"
+    slot: 53
+    customModelData: -1
+    sound: click
+
+

@@ -1,0 +1,72 @@
+title: "ᴍʏ ᴏʀᴅᴇʀs ({currentPage}/{maxPages})"
+
+# Ma trận giao diện: I=Đơn hàng B=Trang trước N=Trang kế Y=Tạo đơn (Túi) khoảng trắng=Không có kính lót
+matrix:
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "B      NY"
+
+items:
+  prev_page:
+    name: "#00BFFF« ʙᴀᴄᴋ"
+    lore:
+      - "&7Nhấn để đi đến trang trước"
+    material: "ARROW"
+    symbol: "B"
+    sound: click
+
+  next_page:
+    name: "#00BFFFɴᴇxᴛ »"
+    lore:
+      - "&7Nhấn để đi đến trang kế"
+    material: "ARROW"
+    symbol: "N"
+    sound: click
+
+  your_order:
+    name: "#00BFFFᴄʀᴇᴀᴛᴇ ᴏʀᴅᴇʀ"
+    lore:
+      - "&7Nhấn để tạo một đơn hàng mới"
+      - ""
+      - "&eSlot: &f{activeOrders}&7/&f{maxOrders}"
+    material: "LIGHT_BLUE_BUNDLE"
+    symbol: "Y"
+    sound: click
+
+  max_orders:
+    name: "#ff3c3cʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ"
+    lore:
+      - "&7Bạn đã tạo số đơn hàng tối đa"
+      - "&7Hủy bớt đơn để tạo thêm"
+    material: "LIGHT_BLUE_BUNDLE"
+    symbol: "Y"
+    sound: error
+
+  actual_order:
+    name: "&f{itemType} &7x{itemAmount}"
+    lore:
+      - ""
+      - "&7Giá mỗi cái: &a{itemPrice}"
+      - "&7Tổng: &a{totalPrice}"
+      - ""
+      - "&7Đã giao: &e{currentlyDelivered}&7/&e{totalDelivery}"
+      - "&7Đã thanh toán: &a{totalPaid}&7/&a{totalPrice}"
+      - ""
+      - "&8⏳ Hết hạn: {formattedExpirationTime}"
+    material: "PAPER"
+    sound: click
+
+  expired_order:
+    name: "&8[Hết hạn] &7{itemType} x{itemAmount}"
+    lore:
+      - ""
+      - "&7Giá mỗi cái: &8{itemPrice}"
+      - "&7Tổng: &8{totalPrice}"
+      - ""
+      - "&7Đã giao: &7{currentlyDelivered}&8/&7{totalDelivery}"
+      - ""
+      - "&c🗑 Xóa sau: {formattedDeletionTime}"
+    material: "PAPER"
+    sound: click
+
+

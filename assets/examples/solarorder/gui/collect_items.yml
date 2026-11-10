@@ -1,0 +1,61 @@
+title: "ᴄᴏʟʟᴇᴄᴛ ({currentPage}/{maxPages})"
+
+# Ma trận giao diện: I=Vật phẩm B=Trước N=Kế D=Nhận hết C=Nhập SL R=Tải lại X=Ô trống
+matrix:
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "BXXCDRXXN"
+
+items:
+  drop_all:
+    name: "#00BFFFᴄᴏʟʟᴇᴄᴛ ᴀʟʟ"
+    lore:
+      - "&fNhấp để nhận tất cả vật phẩm"
+    material: "DISPENSER"
+    symbol: "D"
+    customModelData: -1
+    sound: click
+
+  custom_amount:
+    name: "#00BFFFɴʜậᴘ số ʟượɴɢ"
+    lore:
+      - "&fNhấp để nhập số lượng cần nhận"
+    material: "ANVIL"
+    symbol: "C"
+    customModelData: -1
+    sound: click
+
+  refresh:
+    name: "#00BFFFᴛảɪ ʟạɪ"
+    lore:
+      - "&fNhấp để làm mới danh sách vật phẩm"
+    material: "SUNFLOWER"
+    symbol: "R"
+    customModelData: -1
+    sound: click
+
+  back:
+    name: "#00BFFFʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để quay lại trang trước"
+    material: "ARROW"
+    symbol: "B"
+    sound: click
+
+  next:
+    name: "#00BFFFɴᴇxᴛ"
+    lore:
+      - "&fNhấp để đi đến trang kế"
+    material: "ARROW"
+    symbol: "N"
+    sound: click
+
+  filler:
+    material: "AIR"
+    name: " "
+    symbol: "X"
+
+

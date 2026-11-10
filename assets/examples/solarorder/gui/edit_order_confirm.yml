@@ -1,0 +1,25 @@
+title: "ᴄᴀɴᴄᴇʟ ᴏʀᴅᴇʀ"
+
+items:
+  cancel:
+    name: "#ff3c3cʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để quay lại"
+    material: "RED_STAINED_GLASS_PANE"
+    slot: 10
+    customModelData: -1
+    sound: click
+
+  confirm:
+    name: "#00ff3cᴄᴏɴꜰɪʀᴍ ᴄᴀɴᴄᴇʟ"
+    lore:
+      - "&fNhấp để hủy đơn hàng"
+    material: "LIME_STAINED_GLASS_PANE"
+    slot: 16
+    customModelData: -1
+    sound: click
+
+  order_item:
+    slot: 13
+
+

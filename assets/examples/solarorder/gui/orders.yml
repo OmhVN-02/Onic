@@ -1,0 +1,106 @@
+title: "ᴍᴀʀᴋᴇᴛ ({currentPage}/{maxPages})"
+
+# Ma trận giao diện: I=Đơn hàng B=Trước N=Kế S=Xếp F=Lọc O=Refresh Q=Tìm Y=Đơn tôi X=Kính
+matrix:
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "IIIIIIIII"
+  - "B SFOQY N"
+
+items:
+  actual_order:
+    name: "#00BFFFᴏʀᴅᴇʀ ʙʏ {playerName}"
+    lore:
+      - "#00BFFF{itemAmount} &f{itemType}"
+      - "#00BFFF{itemPrice} &fMỗi cái"
+      - ""
+      - "#00BFFF{currentlyDelivered}/#00BFFF{totalDelivery} &7Đã giao"
+      - "#00BFFF{totalPaid}/#00BFFF{totalPrice} &7Đã thanh toán"
+      - ""
+      - "&7{formattedExpirationTime} cho đến khi hết hạn"
+      - ""
+      - "{actionHint}"
+    material: "BARRIER"
+    sound: click
+
+  back:
+    name: "#00BFFFʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để đi đến trang trước"
+    material: "ARROW"
+    symbol: "B"
+    sound: click
+
+  next:
+    name: "#00BFFFɴᴇxᴛ"
+    lore:
+      - "&fNhấp để đi đến trang kế"
+    material: "ARROW"
+    symbol: "N"
+    sound: click
+
+  orders:
+    name: "#00BFFFʀᴇꜰʀᴇsʜ"
+    lore:
+      - "&fNhấp để làm mới"
+    material: "COMPASS"
+    symbol: "O"
+    sound: click
+
+  search:
+    name: "#00BFFFsᴇᴀʀᴄʜ"
+    lore:
+      - "&fNhấp để tìm kiếm"
+    material: "OAK_SIGN"
+    symbol: "Q"
+    sound: click
+
+  your_orders:
+    name: "#00BFFFᴍʏ ᴏʀᴅᴇʀs"
+    lore:
+      - "&fNhấp để xem đơn hàng của bạn"
+    material: "CHEST"
+    symbol: "Y"
+    customModelData: -1
+    sound: click
+
+  sort:
+    name: "#00BFFFsᴏʀᴛ"
+    material: "CAULDRON"
+    selected_color: "#00BFFF"
+    unselected_color: "&f"
+    bullet_icon: "▪ "
+    options: # DONT CHANGE ANYTHING IN HERE
+      - "SORT_MOST_PAID"
+      - "SORT_LEAST_PAID"
+      - "SORT_MOST_MONEY_PER_ITEM"
+      - "SORT_LEAST_MONEY_PER_ITEM"
+      - "SORT_MOST_DELIVERED"
+      - "SORT_RECENTLY_LISTED"
+    symbol: "S"
+    customModelData: -1
+    sound: click
+
+  filter:
+    name: "#00BFFFғɪʟᴛᴇʀ"
+    material: "HOPPER"
+    selected_color: "#00BFFF"
+    unselected_color: "&f"
+    bullet_icon: "▪ "
+    options: # DONT CHANGE ANYTHING IN HERE
+      - "FILTER_ALL"
+      - "FILTER_BLOCKS"
+      - "FILTER_TOOLS"
+      - "FILTER_FOOD"
+      - "FILTER_COMBAT"
+      - "FILTER_POTIONS"
+      - "FILTER_BOOKS"
+      - "FILTER_INGREDIENTS"
+      - "FILTER_UTILITIES"
+    symbol: "F"
+    customModelData: -1
+    sound: click
+
+

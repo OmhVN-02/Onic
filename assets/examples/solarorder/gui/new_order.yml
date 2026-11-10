@@ -1,0 +1,52 @@
+title: "ɴᴇᴡ ᴏʀᴅᴇʀ"
+
+items:
+  cancel:
+    name: "#ff3c3cᴄᴀɴᴄᴇʟ"
+    lore:
+      - "&fNhấp để quay lại"
+    material: "RED_STAINED_GLASS_PANE"
+    slot: 10
+    customModelData: -1
+    sound: click
+
+  current_item:
+    name: "#00BFFFɪᴛᴇᴍ"
+    lore:
+      - "&7({currentItem})"
+    material: STONE
+    slot: -999
+    customModelData: -1
+    sound: click
+
+  amount:
+    name: "#00BFFFǫᴜᴀɴᴛɪᴛʏ"
+    lore:
+      - "&fNhấp để nhập số lượng"
+      - "&7({currentAmount})"
+    material: "CHEST"
+    slot: 13
+    customModelData: -1
+    sound: click
+
+  price:
+    name: "#00BFFFᴘʀɪᴄᴇ"
+    lore:
+      - "&fNhấp để nhập giá mỗi cái"
+      - "&7({currentPrice})"
+    material: "EMERALD"
+    slot: 14
+    customModelData: -1
+    sound: click
+
+  confirm:
+    name: "#00ff3cᴄᴏɴꜰɪʀᴍ"
+    lore:
+      - "&fNhấp để xác nhận đơn hàng"
+      - "&7(Tổng: {totalPrice})"
+    material: "LIME_STAINED_GLASS_PANE"
+    slot: 16
+    customModelData: -1
+    sound: click
+
+

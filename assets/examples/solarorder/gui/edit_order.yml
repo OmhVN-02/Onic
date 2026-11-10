@@ -1,0 +1,51 @@
+title: "ᴇᴅɪᴛ ᴏʀᴅᴇʀ"
+
+items:
+  glass:
+    material: "GRAY_STAINED_GLASS_PANE"
+    name: " "
+    slots:
+      - 0-2
+      - 6-8
+      - 9
+      - 17
+      - 18-20
+      - 24-26
+
+  order_item:
+    slot: 10
+    lore:
+      - "&f{quantity} &7requested"
+      - ""
+      - "&a{priceEach} &7each"
+      - "&a{delivered}/{quantity} &7Delivered"
+      - ""
+      - "&7{timeUntilExpiry} Until Order expires"
+
+  cancel:
+    name: "#ff3c3cᴄᴀɴᴄᴇʟ ᴏʀᴅᴇʀ"
+    lore:
+      - "&fNhấp để hủy đơn hàng"
+    material: "RED_TERRACOTTA"
+    slot: 13
+    customModelData: -1
+    sound: click
+
+  collect:
+    name: "#00BFFFᴄᴏʟʟᴇᴄᴛ ɪᴛᴇᴍs"
+    lore:
+      - "&fNhấp để nhận vật phẩm"
+    material: "CHEST"
+    slot: 16
+    customModelData: -1
+    sound: click
+
+  collect_locked:
+    name: "#aaaaaaᴄᴏʟʟᴇᴄᴛ ɪᴛᴇᴍs"
+    lore:
+      - "&7Chưa có vật phẩm nào được giao."
+      - "&7Hãy đợi người giao hàng!"
+    material: "GRAY_STAINED_GLASS_PANE"
+    slot: 16
+
+

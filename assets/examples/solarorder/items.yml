@@ -1,0 +1,10 @@
+# Should the plugin list vanilla items automatically?
+vanilla-items:
+  listed: true
+  # Exempt non-solid blocks from the list
+  exempt-non-solids: true
+  exempt:
+    - BEDROCK
+    - BARRIER
+
+

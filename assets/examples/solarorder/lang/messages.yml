@@ -1,0 +1,112 @@
+prefix: "&#00BFFFᴏʀᴅᴇʀ &8» &7"
+
+on_order_placed: "Đã đặt mua &f{amount}x {itemType}&7."
+on_deliver: "Đã giao &f{amount}x {itemType}&7, nhận &a+{totalPrice}$&7."
+contribute_partial: "Đã giao &f{count}x &7vật phẩm, nhận &a+{earned}$&7. (&e{total}&7/&e{required})"
+order_cancelled: "&aĐã hủy đơn hàng thành công."
+not_enough_money: "&cBạn không đủ số dư để đặt đơn hàng này!"
+order_announcement: "&#00BFFF{player} &fđăng mua &e{amount}x {itemType} &fgiá &a{priceEach}$/cái&f. Dùng &e/order &fđể giao."
+deliver_announcement: "&#00BFFF{player} &7đã giao hàng cho &e{buyer}&7: &f{item}&7."
+sell_all: "&aBán thành công, nhận &a+{price}$&a."
+blacklisted_item: "&cVật phẩm này nằm trong danh sách cấm."
+order_limit: "&cBạn đã đạt giới hạn &e{limit} &cđơn hàng."
+plugin_reloaded: "&aĐã tải lại cấu hình plugin."
+no_permission: "&cBạn không có quyền thực hiện hành động này."
+player_only: "&cLệnh này chỉ dành cho người chơi."
+full_durability_required: "&cChỉ chấp nhận vật phẩm còn nguyên độ bền."
+
+notifications:
+  items_delivered: "Nhận được &f{amount}x {itemName} &7từ &e{senderName}&7."
+  items_partial: "&e{senderName} &7đã giao &f{count}x {itemName}&7. (&e{total}&7/&e{required})"
+  unclaimed_order: "Bạn có &e{amount} &7đơn hàng chưa nhận vật phẩm!"
+  toggle:
+    on: "&aĐã bật thông báo đơn hàng."
+    off: "&cĐã tắt thông báo đơn hàng."
+
+pricing:
+  min: "&cGiá tối thiểu cho đơn hàng là &e{minPrice}&c."
+  max: "&cGiá tối đa cho đơn hàng là &e{maxPrice}&c."
+
+signs:
+  amount:
+    - ""
+    - "^^^^^^^^^^^^^^"
+    - "Nhập số lượng"
+    - ""
+  price_per_item:
+    - ""
+    - "^^^^^^^^^^^^^^"
+    - "Nhập giá"
+    - "mỗi vật phẩm"
+  search:
+    - ""
+    - "^^^^^^^^^^^^^^"
+    - "Nhập từ khóa"
+    - "tìm kiếm"
+
+sorts:
+  MOST_PAID: "Trả nhiều nhất"
+  MOST_DELIVERED: "Giao nhiều nhất"
+  RECENTLY_LISTED: "Đăng gần đây"
+  MOST_MONEY_PER_ITEM: "Giá cao nhất"
+  LEAST_MONEY_PER_ITEM: "Giá thấp nhất"
+  LEAST_PAID: "Ít tiền nhất"
+  MOST_EXP: "Nhiều EXP nhất"
+  SELECT_A_Z: "A -> Z"
+  SELECT_Z_A: "Z -> A"
+  SELECT_HIGHEST_PRICE: "Giá cao nhất"
+  SELECT_LOWEST_PRICE: "Giá thấp nhất"
+
+filters:
+  ALL: "Tất cả"
+  BLOCKS: "Block"
+  TOOLS: "Công cụ"
+  FOOD: "Thức ăn"
+  COMBAT: "Chiến đấu"
+  POTIONS: "Thuốc"
+  BOOKS: "Sách"
+  INGREDIENTS: "Nguyên liệu"
+  UTILITIES: "Tiện ích"
+  ENCHANT_ALL: "Tất cả"
+  ENCHANT_COMBAT: "Chiến đấu"
+  ENCHANT_ARMOR: "Giáp"
+  ENCHANT_TOOLS: "Công cụ"
+  ENCHANT_OTHERS: "Khác"
+
+item_picker:
+  click_to_select: "&eClick để chọn vật phẩm"
+
+order_status:
+  OPEN: "&e● Đang mở"
+  FULFILLED: "&a● Đã xong (Click nhận)"
+  COMPLETED: "&7● Hoàn tất"
+  EXPIRED: "&8● Hết hạn"
+  CANCELLED: "&c● Đã hủy"
+
+order_action_hints:
+  OPEN: "&7» Click để xem/chỉnh sửa"
+  FULFILLED_1: "&a✔ Đã hoàn thành!"
+  FULFILLED_2: "&a» Click để nhận vật phẩm"
+
+new_order:
+  click_change_item: "&eClick để đổi vật phẩm"
+
+orders:
+  deliver_hint: "&aClick để giao hàng"
+  cancel_hint: "&cClick để hủy đơn"
+
+error:
+  invalid_quantity: "&cSố lượng không hợp lệ ({min} - {max})."
+  invalid_price: "&cGiá không hợp lệ ({min} - {max})."
+  invalid_value: "&cGiá trị nhập không hợp lệ."
+  order_not_found: "&cKhông tìm thấy đơn hàng."
+  order_expired: "&cĐơn hàng đã hết hạn."
+  own_order: "&cKhông thể tự giao đơn của chính mình."
+  buyer_no_money: "&cNgười mua không đủ tiền thanh toán."
+  no_money: "&cBạn không đủ số dư tài khoản."
+  cancel_failed: "&cKhông thể hủy đơn hàng này."
+  db_error: "&cLỗi cơ sở dữ liệu."
+  no_items_yet: "&cĐơn hàng chưa có vật phẩm nào được giao."
+partial_collect: "Đã lấy &f{amount}x {itemType} &7từ đơn hàng."
+
+

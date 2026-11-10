@@ -1,0 +1,92 @@
+# Thay vì cache các đơn hàng
+# Chúng được lấy trực tiếp từ database mỗi lần
+# Xem databases.yml để biết thêm về hệ thống redis distributed locking
+cross-server-support: false
+localization: true
+
+# Bật hỗ trợ placeholderapi cho toàn bộ lore trong GUI
+fullLorePAPISupport: false
+
+# Nếu vật phẩm có thể enchant
+# sẽ không mở GUI pick_enchantments
+skipEnchants: false
+
+# Mỗi lần khởi động server, pricesv2.yml
+# sẽ luôn được kiểm tra
+stopAutoMigrationOnStart: false
+
+# Nếu bật
+# Người chơi không có quyền 'order.use'
+# sẽ không thể dùng /order
+checkPermission: false
+
+# Khi người chơi đặt đơn
+# Một thông báo sẽ được gửi trong chat
+announce: true
+
+# Khi bật, người chơi chỉ có thể giao vật phẩm còn nguyên vẹn.
+# Ngăn giao công cụ/giáp đã hư hỏng.
+require-full-durability: false
+
+# Cooldown (milliseconds) giữa các lần click GUI (chống spam)
+click-cooldown-ms: 100
+
+# Các loại thông báo gửi cho người chơi:
+#   - unclaimed order
+#   - items delivered
+notifications:
+  enabled: true
+
+  # Cho phép người chơi dùng /order togglenotifications
+  toggle: true
+
+# Giá tối thiểu/tối đa khi tạo đơn hàng
+# Dùng -1 hoặc 0 để không giới hạn
+pricing:
+  # Giá tổng tối thiểu của một đơn hàng
+  min: 0.0
+
+  # Giá tổng tối đa của một đơn hàng
+  max: 999999999.0
+
+# Giới hạn số lượng
+quantity:
+  min: 1
+  max: 9999
+
+# Thời gian trước khi
+# - đơn hàng biến khỏi danh sách công khai
+# - đơn hàng bị xóa hoàn toàn
+duration:
+  public: 7 # tính bằng ngày
+  expiration: 7 # tính bằng ngày
+
+# Các alias có thể dùng để chạy lệnh
+aliases:
+  - orders
+  - dorder
+
+permissions:
+  # Quyền admin
+  order-admin: order.admin
+
+  # Giới hạn số đơn theo quyền (tối đa 26)
+  # Định dạng: (permission):(số đơn tối đa)
+  order-limits:
+    - "order.default:3"
+    - "order.vip:5"
+    - "order.mvp:8"
+    - "order.admin:26"
+
+# Định dạng thời gian
+timing:
+  days: "d"
+  day: "d"
+  hours: "h"
+  hour: "h"
+  minutes: "m"
+  minute: "m"
+  seconds: "s"
+  second: "s"
+
+

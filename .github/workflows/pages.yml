@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -175,13 +175,21 @@ jobs:
           }
           if(sandbox.window.ONIC_WORTH_CONFIGS.length!==20) throw Error('SolarWorth YAML samples missing');
           for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
-            if(localized.filter(doc=>doc.product==='solarworth').length!==8) throw Error('SolarWorth guides missing');
+            if(localized.filter(doc=>doc.product==='solarworth').length!==9) throw Error('SolarWorth guides missing');
             const menus=localized.find(doc=>doc.id==='solarworth-menus').html;
             if((menus.match(/<img /g)||[]).length!==13) throw Error('SolarWorth screenshots missing');
             if(!localized.find(doc=>doc.id==='solarworth-changelog').html.includes('DevLog Plugins #72')) throw Error('SolarWorth devlog 72 missing');
             if(!localized.find(doc=>doc.id==='solarrtpzone-changelog').html.includes('DevLog Plugins #75')) throw Error('SolarRTPZone devlog 75 missing');
             if(!localized.find(doc=>doc.id==='solarshards-home').html.includes('assets/images/solarshards/balance-example.png')) throw Error('Shards balance screenshot missing');
             if(!localized.find(doc=>doc.id==='solarworth-commands').html.includes('/selltool give')) throw Error('Current Sell Tool command missing');
+          }
+          if(sandbox.window.ONIC_ORDER_CONFIGS.length!==21) throw Error('SolarOrder YAML samples missing');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(doc=>doc.product==='solarorder').length!==7) throw Error('SolarOrder guides missing');
+            if((localized.find(doc=>doc.id==='solarorder-menus').html.match(/<img /g)||[]).length!==8) throw Error('SolarOrder screenshots missing');
+            if(!localized.find(doc=>doc.id==='wiki').html.includes('href="#solarorder-home"')) throw Error('SolarOrder product card missing');
+            const lore=localized.find(doc=>doc.id==='solarworth-lore').html;
+            for(const value of ['show_worth_lore','worth_lore_shulker','${price}','OCHRE_FROGLIGHT','3.0','item-value-lore.png']) if(!lore.includes(value)) throw Error('SolarWorth lore guide missing: '+value);
           }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');

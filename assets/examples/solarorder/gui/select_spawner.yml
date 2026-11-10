@@ -1,0 +1,62 @@
+title: "sᴘᴀᴡɴᴇʀs ({currentPage}/{maxPages})"
+
+items:
+  back:
+    name: "#00BFFFʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để đi đến trang trước"
+    material: "ARROW"
+    slot: 45
+    customModelData: -1
+    sound: click
+
+  next:
+    name: "#00BFFFɴᴇxᴛ"
+    lore:
+      - "&fNhấp để đi đến trang kế"
+    material: "ARROW"
+    slot: 53
+    customModelData: -1
+    sound: click
+
+  search:
+    name: "#00BFFFsᴇᴀʀᴄʜ"
+    lore:
+      - "&fNhấp để tìm kiếm"
+    material: "OAK_SIGN"
+    slot: 50
+    customModelData: -1
+    sound: click
+
+  sort:
+    name: "#00BFFFsᴏʀᴛ"
+    material: "CAULDRON"
+    selected_color: "#00BFFF"
+    unselected_color: "&f"
+    bullet_icon: "▪ "
+    options:
+      - "SORT_A_Z"
+      - "SORT_Z_A"
+      - "SORT_HIGHEST_PRICE"
+      - "SORT_LOWEST_PRICE"
+      - "SORT_MOST_EXP"
+    slot: 49
+    customModelData: -1
+    sound: click
+
+  filter:
+    name: "#00BFFFғɪʟᴛᴇʀ"
+    material: "HOPPER"
+    selected_color: "#00BFFF"
+    unselected_color: "&f"
+    bullet_icon: "▪ "
+    options:
+      - "FILTER_ALL"
+      - "FILTER_MONSTER"
+      - "FILTER_ANIMAL"
+      - "FILTER_OTHER"
+    slot: 48
+    customModelData: -1
+    sound: click
+
+

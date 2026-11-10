@@ -1,0 +1,88 @@
+title: "ᴇɴᴄʜᴀɴᴛs ({currentPage}/{maxPages})"
+
+items:
+  back:
+    name: "#00BFFFʙᴀᴄᴋ"
+    lore:
+      - "&fNhấp để đi đến trang trước"
+    material: "ARROW"
+    slot: 45
+    customModelData: -1
+    sound: click
+
+  next:
+    name: "#00BFFFɴᴇxᴛ"
+    lore:
+      - "&fNhấp để đi đến trang kế"
+    material: "ARROW"
+    slot: 53
+    customModelData: -1
+    sound: click
+
+  cancel:
+    name: "#ff3c3cᴄᴀɴᴄᴇʟ"
+    lore:
+      - "&fNhấp để quay lại"
+    material: "RED_STAINED_GLASS_PANE"
+    slot: 47
+    customModelData: -1
+    sound: click
+
+  confirm:
+    name: "#00ff3cᴄᴏɴꜰɪʀᴍ"
+    lore:
+      - "&fNhấp để xác nhận enchant"
+    material: "LIME_STAINED_GLASS_PANE"
+    slot: 51
+    customModelData: -1
+    sound: click
+
+  filter:
+    name: "#00BFFFғɪʟᴛᴇʀ"
+    material: "HOPPER"
+    selected_color: "#00BFFF"
+    unselected_color: "&f"
+    bullet_icon: "▪ "
+    options:
+      - "ENCHANT_FILTER_ALL"
+      - "ENCHANT_FILTER_COMBAT"
+      - "ENCHANT_FILTER_ARMOR"
+      - "ENCHANT_FILTER_TOOLS"
+      - "ENCHANT_FILTER_OTHERS"
+    slot: 48
+    customModelData: -1
+    sound: click
+
+  search:
+    name: "#00BFFFsᴇᴀʀᴄʜ"
+    lore:
+      - "&fNhấp để tìm kiếm enchant"
+    material: "OAK_SIGN"
+    slot: 49
+    customModelData: -1
+    sound: click
+
+  skip:
+    name: "#00BFFFsᴋɪᴘ"
+    lore:
+      - "&fNhấp để bỏ qua enchant"
+    material: "PAPER"
+    slot: 50
+    customModelData: -1
+    sound: click
+
+  enchant_entry:
+    lore_active:
+      - "&7Max: {maxLevel}"
+      - "&7Level hiện tại: &b{currentLevel}"
+      - " "
+      - "&eLeft click &7để tăng level"
+      - "&eRight click &7để giảm level"
+    lore_inactive:
+      - "&7Max: {maxLevel}"
+      - "&7Level hiện tại: &cnone"
+      - " "
+      - "&eLeft click &7để tăng level"
+      - "&eRight click &7để giảm level"
+
+

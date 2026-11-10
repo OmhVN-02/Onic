@@ -1,0 +1,9 @@
+# Spawner Integration
+# Options: None, Vanilla, SmartSpawner
+spawner: "None"
+
+# Currency Integration
+# Options: Vault, PlayerPoints, XP, CoinsEngine:<currency_id> (e.g. CoinsEngine:coins)
+currency: "Vault"
+
+
