@@ -1,0 +1,51 @@
+QUEUE-MENU:
+  TITLE: "&8ǫᴜᴇᴜᴇ ᴄᴏɴꜰɪʀᴍ"
+  LAYOUT:
+    - "#########"
+    - "#c#wsr#d#"
+    - "#########"
+  FILLER:
+    ENABLED: true
+    MATERIAL: GRAY_STAINED_GLASS_PANE
+    NAME: " "
+  BUTTONS:
+    CANCEL:
+      LAYOUT-CHAR: "c"
+      MATERIAL: RED_STAINED_GLASS_PANE
+      NAME: "&#FC0000ᴄᴀɴᴄᴇʟ"
+      LORE:
+        - "&fClick to leave queue"
+      ACTION: CANCEL
+    WAIT-TIME:
+      LAYOUT-CHAR: "w"
+      MATERIAL: COMPASS
+      NAME: "&#00FC00ᴡᴀɪᴛ ᴛɪᴍᴇ"
+      LORE:
+        - "&7Estimated Wait: %estimated_wait%"
+        - "&7Currently queued: %queue_size%"
+      ACTION: NONE
+    STATISTICS:
+      LAYOUT-CHAR: "s"
+      MATERIAL: GRAY_DYE
+      NAME: "&#00FC00ꜱᴛᴀᴛɪꜱᴛɪᴄꜱ"
+      LORE:
+        - "&7Wins: %wins%"
+        - "&7Losses: %losses%"
+        - "&7Streak: %win_streak%"
+        - "&8─────────────"
+        - "&7ELO: %elo_colored%"
+      ACTION: NONE
+    REGION:
+      LAYOUT-CHAR: "r"
+      MATERIAL: FEATHER
+      NAME: "&#00FC00ʀᴇɢɪᴏɴ"
+      LORE:
+        - "&7%region%: &7(&b%ping%ms&7)"
+      ACTION: REGION
+    SEARCH:
+      LAYOUT-CHAR: "d"
+      MATERIAL: LIME_STAINED_GLASS_PANE
+      NAME: "&aꜱᴇᴀʀᴄʜ"
+      LORE:
+        - "&7Click to start searching for a match"
+      ACTION: QUEUE

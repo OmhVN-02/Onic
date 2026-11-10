@@ -1,0 +1,315 @@
+# SolarDuels Configuration
+license-key: ""
+# Cấu hình plugin SolarDuels
+# Plugin: SolarDuels v1.0-R08
+# Máy chủ: Paper/Folia 1.21.4+
+
+#  CÀI ĐẶT KHÁN GIẢ (Spectator Settings)
+SPECTATOR:
+  # ─── Hành vi sau khi khán giả rời trận ───────────────────────────────────
+  # Sau khi trận kết thúc, khán giả được teleport về đâu?
+  # false: teleport về vị trí trước khi vào xem
+  # true:  ở lại thế giới duel (giữ nguyên vị trí)
+  ALWAYS_IN_DUEL_WORLD: false
+
+  # ─── Ai được phép spectate ───────────────────────────────────────────────
+  # Cho phép người chơi bình thường dùng /spec (không cần OP)
+  ALLOW-PUBLIC-SPECTATE: true
+  # Yêu cầu permission node "solarduels.spectate" để spectate
+  # Nếu false: mọi người đều spectate được (nếu ALLOW-PUBLIC-SPECTATE: true)
+  REQUIRE-PERMISSION: false
+
+  # ─── Loser spectate ──────────────────────────────────────────────────────
+  # Tự động chuyển người thua sang spectate winner trong loot phase
+  # Nếu false: người thua sẽ được teleport về spawn ngay sau khi thua
+  LOSER-AUTO-SPECTATE: true
+  # Thời gian delay trước khi chuyển loser sang spectator (ticks, 20 = 1s)
+  LOSER-SPECTATE-DELAY: 20
+
+#  CÀI ĐẶT TRẬN ĐẤU (Match Settings) 
+SETTINGS:
+  # Thời gian người chiến thắng có thể nhặt tài nguyên (giây)
+  # Time winner can loot items after match (seconds)
+  # Mặc định: 60 giây | Default: 60 seconds
+  LOOT-TIME: 60
+  
+  # Khoảng thời gian tối đa cho trận đấu (phút)
+  # Maximum match duration (minutes) - match ends after this
+  # Nếu hết thời gian, người chơi có nhiều HP hơn sẽ thắng
+  # If time expires, player with more HP wins
+  MATCH-TIME: 15
+
+  # Thời gian hết hạn yêu cầu thách đấu (giây)
+  # Time until a duel request expires (seconds)
+  # Mặc định: 30 giây | Default: 30 seconds
+  DUEL-REQUEST-EXPIRY: 30
+  
+  # Cấu hình xử phạt khi rời khỏi map duel (Punishment for leaving duel map)
+  LEAVE-MAP-PUNISHMENT:
+    ENABLED: true
+    # Người rời đi sẽ bị xử thua | Leaver will be marked as loser
+    MARK-AS-LOSE: true
+    # Thời gian cấm tham gia hàng chờ (phút) | Queue ban duration (minutes)
+    BAN-QUEUE-TIME: 15
+    # Tỉ lệ trừ tiền (%) | Money deduction percentage
+    MONEY-PENALTY-PERCENT: 10
+    # Lệnh xử phạt tùy chỉnh (Sử dụng %player% cho tên người chơi)
+    # Custom punishment commands (Use %player% for player name)
+    COMMANDS:
+      - "eco take %player% 50000"
+      - "msg %player% &cBạn đã bị phạt do rời khỏi trận đấu!"
+
+  # Danh sách các khu vực máy chủ | Server regions
+  # Người chơi chỉ có thể duel với người trong cùng khu vực
+  # Player can only duel with others in the same region
+  REGIONS:
+    - "NA East"
+    - "EU West"
+    - "Asia"
+    - "South America"
+    - "Oceania"
+    - "Africa"
+    - "Middle East"
+
+  # Cấu hình địa chỉ IP/Host để hệ thống đo Ping thực tế tới từng khu vực
+  # Host IP and Port configuration for measuring real region latency (Format: "IP:Port" or "Domain:Port")
+  REGION-HOSTS:
+    "Asia": "127.0.0.1:25565"
+    "NA East": "na.solarduels.net:25565"
+    "EU West": "eu.solarduels.net:25565"
+    "South America": "sa.solarduels.net:25565"
+    "Oceania": "oce.solarduels.net:25565"
+    "Africa": "af.solarduels.net:25565"
+    "Middle East": "me.solarduels.net:25565"
+  
+  # Khu vực mặc định khi bắt đầu | Default region
+  DEFAULT-REGION: "Asia"
+  
+  # Thời gian tối đa không thay đổi (phút) | Max unchanged time
+  # Ngăn chặn hòa kéo dài | Prevent infinite stalemate
+  MAX-MATCH-TIME: 15
+
+  # Giới hạn thách đấu tối đa (0 = không giới hạn)
+  # Maximum duel request limit (0 = unlimited)
+  DUEL_LIMIT: 5
+
+  # Tùy chỉnh giữ vật phẩm khi chết trong duel
+  # true: người chơi không mất đồ, false: người chơi rơi đồ (mặc định)
+  KEEP-ITEMS: true
+
+#  COUNTDOWN (Đếm ngược trước trận)
+COUNTDOWN:
+  # Số giây đếm ngược trước khi trận bắt đầu
+  SECONDS: 3
+  # Hiển thị ping của người chơi trong title đếm ngược
+  SHOW-PING: true
+  # Hiển thị tên đối thủ trong subtitle đếm ngược
+  SHOW-OPPONENT: true
+
+#  BOSSBAR (Thanh thời gian cả trận)
+BOSSBAR:
+  # Bật/tắt bossbar thời gian
+  ENABLED: true
+  # Tiêu đề hiển thị của BossBar (Hỗ trợ MiniMessage và biến {time})
+  TITLE: "<gray>⏱ <white>{time} <gray>còn lại"
+  # Kiểu dáng overlay của BossBar (PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20)
+  OVERLAY: "PROGRESS"
+  # Format thời gian: "mm:ss" hoặc "human" (5m 30s)
+  TIME-FORMAT: "human"
+  # Thiết lập màu sắc theo thời gian còn lại (giây), duyệt từ trên xuống dưới
+  COLORS:
+    - "GREEN:60"    # Màu xanh khi thời gian còn lại >= 60 giây
+    - "YELLOW:20"   # Màu vàng khi thời gian còn lại >= 20 giây
+    - "RED:0"       # Màu đỏ khi thời gian còn lại dưới 20 giây
+
+#  MATCHMAKING / QUEUE ELO
+MATCHMAKING:
+  # Bật/tắt ELO-based matching
+  ELO-ENABLED: true
+  # Bật/tắt sử dụng hệ thống ELO của plugin SolarElo nếu có (false để dùng ELO mặc định của plugin)
+  USE-SOLARELO: true
+  # ELO bắt đầu (người chơi mới)
+  ELO-BASE: 1000
+  # ELO thay đổi mỗi thắng/thua
+  ELO-WIN-DELTA: 10
+  ELO-LOSS-DELTA: 10
+  # ELO range ban đầu khi mới vào queue
+  INITIAL-TOLERANCE: 100
+  # Tăng tolerance mỗi bao nhiêu giây chờ
+  TOLERANCE-EXPAND-INTERVAL: 15   # giây
+  TOLERANCE-EXPAND-AMOUNT: 50     # ELO mỗi lần mở rộng
+  # Tolerance tối đa
+  MAX-TOLERANCE: 300
+  # Bắt buộc cùng region (false = ghép khác region nếu không có)
+  REQUIRE-SAME-REGION: true
+  # Tần suất matchmaking (giây)
+  TICK-INTERVAL: 2
+
+#  REMATCH SYSTEM
+REMATCH:
+  # Bật/tắt hệ thống rematch
+  ENABLED: true
+  # Thời gian offer rematch hết hạn (giây)
+  EXPIRE-SECONDS: 30
+  # Delay sau trận trước khi hiện nút rematch (ticks)
+  SHOW-DELAY-TICKS: 40
+
+#  POST-MATCH SUMMARY
+SUMMARY:
+  # Bật/tắt bảng tóm tắt sau trận
+  ENABLED: true
+  # Hiển thị từng dòng (true = hiện)
+  SHOW-DURATION: true
+  SHOW-DAMAGE-DEALT: true
+  SHOW-DAMAGE-TAKEN: true
+  SHOW-ARENA: true
+
+#  VỊ TRÍ (Locations) 
+LOCATIONS:
+  # Vị trí spawn mặc định cho người chơi
+  # Default spawn location for players
+  # Định dạng: world,x,y,z | Format: world,x,y,z
+  # Ví dụ: world,100,64,200
+  SPAWN-LOCATION: ""
+
+#  KHỐI BỊ CẤM ĐẶT (Protected Blocks)
+# Không thể đặt hoặc phá hủy khối này trong trận đấu
+# Cannot place or break these blocks during match
+# Thêm tên khối Minecraft | Add Minecraft block names
+PROTECTED-BLOCKS:
+  - "SHORT_GRASS"
+  - "TALL_GRASS"
+  - "SMOOTH_STONE"
+  - "POLISHED_BLACKSTONE"
+  - "BLUE_GLAZED_TERRACOTTA"
+  - "STONE_BRICKS"
+  - "ICE"
+  - "PACKED_ICE"
+  - "END_ROD"
+  - "LEVER"
+  - "LIGHT_BLUE_GLAZED_TERRACOTTA"
+  - "IRON_BLOCK"
+  - "IRON_TRAPDOOR"
+  - "NETHERITE_BLOCK"
+  - "WHITE_CONCRETE"
+  - "DEEPSLATE_TILES"
+
+#  KHỐI BỊ CẤM ĐẶT (Blocked Placement) 
+# Không thể đặt những khối này trong trận đấu
+# Cannot place these blocks during match (TNT, explosives, etc)
+DENY-PLACE-BLOCKS:
+  - "TNT"
+  - "REDSTONE"
+  - "END_CRYSTAL"
+  - "RESPAWN_ANCHOR"
+  - "TNT_MINECART"
+  - "FIRE_CHARGE"
+  - "BEDROCK"
+  - "OBSIDIAN"
+  - "CRYSTAL_BLOCK"
+
+#  VẬT PHẨM BỊ CẤM (Blocked Items) 
+# Không thể sử dụng những vật phẩm này trong trận đấu
+# Cannot use these items during match
+DENY-USE-ITEMS: []
+
+# CẤU HÌNH LỆNH TRONG TRẬN ĐẤU (Match Commands Configuration)
+# Chế độ: BLACKLIST (Chặn các lệnh trong danh sách) hoặc WHITELIST (Chỉ cho phép các lệnh trong danh sách)
+# Mode: BLACKLIST (Block listed commands) or WHITELIST (Only allow listed commands)
+MATCH-COMMAND-MODE: "BLACKLIST"
+
+# Danh sách các lệnh (List of commands)
+# Nếu là WHITELIST, nhớ thêm "/duel", "/leave", "/draw" để người chơi có thể điều khiển trận đấu
+MATCH-COMMAND-LIST:
+  - "/tpa"
+  - "/tpaaccept"
+  - "/spawn"
+  - "/afk"
+  - "/home"
+  - "/homes"
+  - "/warp"
+  - "/back"
+  - "/tp"
+  - "/rtpq"
+  - "/rtp"
+  - "/tpauto"
+  - "/tpahere"
+  - "/lobby"
+  - "/warps"
+  - "/world"
+  - "/duels"
+  - "/duel"
+
+#  LỆNH KẾT THÚC TRẬN (End Match Commands) 
+# Lệnh chạy khi trận đấu kết thúc
+# Commands executed when match ends
+END-MATCH-COMMANDS: []
+
+# ÂM THANH (Sounds) 
+SOUNDS:
+  # Âm thanh khi vào hàng chờ
+  # Music played in queue
+  # Chọn từ danh sách nhạc Minecraft | Select from Minecraft music discs
+  QUEUE:
+    - "MUSIC_DISC_CHIRP"
+    - "MUSIC_DISC_MELLOHI"
+    - "MUSIC_DISC_FAR"
+    - "MUSIC_DISC_CAT"
+    - "MUSIC_DISC_PIGSTEP"
+    - "MUSIC_DISC_OTHERSIDE"
+    - "MUSIC_DISC_5"
+    - "MUSIC_DISC_13"
+    - "MUSIC_DISC_STAL"
+    - "MUSIC_DISC_STRAD"
+    - "MUSIC_DISC_BLOCKS"
+    - "MUSIC_DISC_MALL"
+    - "MUSIC_DISC_WARD"
+    - "MUSIC_DISC_11"
+    - "MUSIC_DISC_WAIT"
+    - "MUSIC_DISC_CREATOR"
+    - "MUSIC_DISC_PRECIPICE"
+    - "MUSIC_DISC_CREATOR_MUSIC_BOX"
+  
+  # Âm thanh khi trận đấu bắt đầu
+  # Sound when match starts
+  DUEL-STARTED: "BLOCK_BEACON_POWER_SELECT"
+  
+  # Âm thanh khi người chơi thắng
+  # Sound when player wins
+  WINNER: "BLOCK_NOTE_BLOCK_PLING"
+  
+  # Âm thanh nhấp chuột GUI
+  # Button click sound in GUI
+  CLICK: "UI_BUTTON_CLICK"
+
+# TÍCH HỢP GEYSER/FLOODGATE (Geyser/Floodgate Integration)
+GEYSER_FLOODGATE:
+  # ─── Bật/tắt tích hợp ────────────────────────────────────────────────────
+  # Nhận diện người chơi Bedrock Edition qua Floodgate API
+  # Tắt nếu server không dùng Geyser/Floodgate
+  ENABLED: true
+
+  # ─── Phân tách hàng chờ ──────────────────────────────────────────────────
+  # true:  PE vs PE, Java vs Java (tự động tách)
+  # false: PE và Java có thể ghép cùng nhau
+  SEPARATE_QUEUES: false
+
+  # ─── Prefix Bedrock ──────────────────────────────────────────────────────
+  # Prefix mặc định của Floodgate cho tên người chơi Bedrock
+  # Dùng để nhận diện khi Floodgate API không khả dụng
+  BEDROCK-PREFIX: "."
+
+  # ─── Hiển thị trong menu ─────────────────────────────────────────────────
+  # Hiện tag [BE] hoặc [JE] bên cạnh tên người chơi trong queue menu
+  SHOW-PLATFORM-TAG: true
+  BEDROCK-TAG: "<gray>[BE]"
+  JAVA-TAG: "<aqua>[JE]"
+
+#  ARENA REGEN (Tốc độ khôi phục map)
+ARENA_REGEN:
+  # Số chunk xử lý mỗi tick khi restore (1 chunk = 16x16 blocks)
+  # Tăng = regen nhanh hơn nhưng có thể gây lag
+  # Mặc định: 4 chunks/tick (~1000-4000 blocks/tick tùy kích thước Y)
+  CHUNKS_PER_TICK: 4
+  # Số block lưu mỗi batch khi save async
+  SAVE_BATCH_SIZE: 4000

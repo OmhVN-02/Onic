@@ -1,0 +1,151 @@
+prefix: "<gradient:#FF8C00:#FFD700><bold>SolarDuels</bold></gradient> <dark_gray>»</dark_gray> "
+
+reload-success: "<color:#2ecc71>✔ <color:#e2e8f0>Cấu hình đã được tải lại thành công!"
+arena-created: "<color:#2ecc71>✔ <color:#e2e8f0>Đã tạo đấu trường <color:#ffd700>{arena}</color>! Kích thước: <color:#ffd700>{size}</color> blocks | Border: <color:#3498db>Tự động bật</color>"
+arena-deleted: "<color:#2ecc71>✔ <color:#e2e8f0>Đấu trường <color:#e74c3c>{arena}</color> đã bị xóa!"
+arena-not-found: "<color:#e74c3c>✘ <color:#f87171>Không tìm thấy đấu trường này!"
+spawn-set: "<color:#2ecc71>✔ <color:#e2e8f0>Đã đặt vị trí spawn sảnh chính!"
+position-set: "<color:#2ecc71>✔ <color:#e2e8f0>Đã đặt vị trí <color:#ffd700>{pos}</color>!"
+spawn-arena-set: "<color:#2ecc71>✔ <color:#e2e8f0>Đã đặt điểm spawn <color:#ffd700>{num}</color> cho <color:#ffd700>{arena}</color>!"
+no-permission: "<color:#e74c3c>✘ <color:#f87171>Bạn không có quyền thực hiện lệnh này!"
+player-only: "<color:#e74c3c>✘ <color:#f87171>Lệnh này chỉ dành cho người chơi!"
+corners-required: "<color:#e74c3c>✘ <color:#f87171>Bạn phải đặt đủ hai góc trước!"
+wand-received: "<color:#2ecc71>✔ <color:#e2e8f0>Đã nhận cây đũa chọn vùng đấu trường!"
+invalid-usage: "<color:#e74c3c>⚠ <color:#f87171>Sai cú pháp lệnh! Dùng <color:#ffd700>/dd help</color> để xem chi tiết."
+map-saved: "<color:#2ecc71>✔ <color:#e2e8f0>Đã lưu schematic đấu trường <color:#ffd700>{arena}</color>! Sẽ tự động khôi phục sau mỗi trận."
+map-regenerated: "<color:#2ecc71>✔ <color:#e2e8f0>Đã khôi phục bản đồ đấu trường <color:#ffd700>{arena}</color> thành công!"
+arena-exists: "<color:#e74c3c>✘ <color:#f87171>Đấu trường này đã tồn tại rồi!"
+
+left-map-punishment: "<color:#e74c3c>✘ <color:#f87171>Bạn đã tự ý rời khu vực thi đấu <color:#a3a3a3>» <color:#e74c3c>Bị xử thua cuộc!"
+opponent-left-map: "<color:#2ecc71>✔ <color:#e2e8f0>Đối thủ <color:#3498db>{player}</color> đã rời trận <color:#a3a3a3>» <color:#2ecc71>Bạn giành chiến thắng!"
+cant-place-block: "<color:#e74c3c>⛔ <color:#f87171>Không thể đặt khối block trong khi đang thi đấu."
+cant-break-block: "<color:#e74c3c>⛔ <color:#f87171>Không thể phá hủy khối block này."
+cant-use-item: "<color:#e74c3c>⛔ <color:#f87171>Không thể sử dụng vật phẩm này trong trận."
+
+joined-queue: "<color:#3498db>» <color:#e2e8f0>Bạn đã tham gia <color:#3498db>hàng chờ thách đấu <color:#a3a3a3>(Casual)."
+left-queue: "<color:#e74c3c>» <color:#f87171>Bạn đã rời khỏi <color:#a3a3a3>hàng chờ."
+not-in-queue: "<color:#e74c3c>✘ <color:#f87171>Bạn không ở trong hàng chờ!"
+
+blocked-command: "<color:#e74c3c>⛔ <color:#f87171>Lệnh này đã bị chặn trong khi đang thi đấu."
+match-creation-error: "<color:#e74c3c>⚠ <color:#f87171>Có lỗi xảy ra khi khởi tạo trận đấu!"
+match-cancelled: "<color:#e74c3c>✘ <color:#f87171>Trận đấu đã bị hủy bỏ."
+
+match-winner-message: "<color:#2ecc71>🏆 <color:#e2e8f0>Bạn đã chiến thắng trận đấu! <color:#a3a3a3>(Nhặt loot trong 1 phút)"
+match-winner-title: "<color:#2ecc71><bold>VICTORY</bold>"
+match-winner-subtitle: "<color:#e2e8f0>Chiến thắng hoàn toàn!"
+
+match-loser-title: "<color:#e74c3c><bold>DEFEAT</bold>"
+match-loser-subtitle: "<color:#a3a3a3>Chúc bạn may mắn lần sau."
+match-loser-message: "<color:#e74c3c>✘ <color:#f87171>Bạn đã thua cuộc trong trận đấu này."
+
+match-draw-title: "<color:#f1c40f><bold>DRAW</bold>"
+match-draw-subtitle: "<color:#a3a3a3>Trận đấu kết thúc với kết quả hòa."
+match-draw-message: "<color:#f1c40f>⚖ <color:#ffd700>Trận đấu kết thúc với kết quả hòa!"
+
+duel-target-in-queue: "<color:#e74c3c>⚔ <color:#f87171>Người chơi <color:#3498db>{target}</color> hiện đang trong trận hoặc hàng chờ!"
+duel-toggle-disabled: "<color:#e74c3c>✘ <color:#f87171>Người chơi này đã tắt tính năng nhận thách đấu."
+duel-cooldown: "<color:#e74c3c>⏱ <color:#f87171>Vui lòng đợi <color:#3498db>{seconds}</color> giây để gửi lại yêu cầu."
+duel-limit-reached: "<color:#e74c3c>⚠ <color:#f87171>Đã đạt giới hạn thách đấu (<color:#3498db>{limit}</color> yêu cầu)."
+player-offline: "<color:#e74c3c>✘ <color:#f87171>Đối thủ thách đấu hiện không trực tuyến."
+match-loot-time-ended: "<color:#e74c3c>⏱ <color:#f87171>Thời gian nhặt tài nguyên (loot) đã kết thúc."
+match-opponent-winrate: "<color:#3498db>ℹ <color:#e2e8f0>Đối thủ <color:#3498db>{opponent}</color> có tỉ lệ thắng: <color:#3498db>{winrate}</color>"
+
+match-title-main: "<gradient:#FF8C00:#FFD700><bold>CASUAL DUEL</bold></gradient>"
+match-title-subtitle: "<color:#e2e8f0>Chiến đấu sinh tồn <color:#a3a3a3>•</color> Thu thập tài nguyên!"
+
+duel-request-sent: "<color:#2ecc71>» <color:#e2e8f0>Đã gửi yêu cầu thách đấu đến người chơi <color:#3498db>{target}</color>"
+duel-request-received: "<color:#3498db>⚔ <color:#3498db>{sender}</color> <color:#e2e8f0>muốn thách đấu bạn tại sân <color:#ffd700>{map}</color>"
+duel-request-hover-accept: "<color:#2ecc71>Nhấn để đồng ý chấp nhận thách đấu"
+duel-request-hover-decline: "<color:#e74c3c>Nhấn để từ chối yêu cầu thách đấu"
+
+duel-accepted-success: "<color:#2ecc71>✔ <color:#e2e8f0>Chấp nhận thách đấu thành công! Chuẩn bị vào trận..."
+time-limit-reached: "<color:#f1c40f>⏱ <color:#e2e8f0>Trận đấu kết thúc do đã hết thời gian giới hạn."
+draw-no-match: "<color:#e74c3c>✘ <color:#f87171>Bạn hiện đang không ở trong trận đấu nào."
+draw-already-requested: "<color:#e74c3c>⚠ <color:#f87171>Bạn đã gửi yêu cầu hòa trước đó rồi."
+draw-request-sent: "<color:#3498db>» <color:#e2e8f0>Đã gửi yêu cầu kết thúc hòa trận đấu."
+duel-declined: "<color:#e74c3c>✘ <color:#f87171>Yêu cầu thách đấu đã bị đối phương từ chối."
+duel-no-request: "<color:#e74c3c>✘ <color:#f87171>Bạn không có yêu cầu thách đấu nào chưa giải quyết."
+duel-self: "<color:#e74c3c>✘ <color:#f87171>Bạn không thể tự thách đấu chính mình!"
+
+leave-success: "<color:#2ecc71>✔ <color:#e2e8f0>Bạn đã rời khỏi trận đấu và quay về spawn."
+leave-not-during-match: "<color:#e74c3c>✘ <color:#f87171>Không thể rời khỏi trận đấu vào lúc này."
+leave-no-match: "<color:#e74c3c>✘ <color:#f87171>Bạn hiện đang không tham gia trận đấu nào."
+
+draw-requested: "<color:#f1c40f>⚖ <color:#3498db>{player}</color> <color:#e2e8f0>đề nghị hòa trận <color:#a3a3a3>(Gõ <color:#f1c40f>/draw</color> để đồng ý)"
+draw-accepted: "<color:#2ecc71>✔ <color:#e2e8f0>Trận đấu đã kết thúc với kết quả hòa!"
+draw-declined: "<color:#e74c3c>✘ <color:#f87171>Yêu cầu hòa đã bị từ chối bởi đối phương."
+
+duel-toggle-on: "<color:#2ecc71>✔ <color:#e2e8f0>Bạn đã <color:#2ecc71>bật</color> nhận các yêu cầu thách đấu."
+duel-toggle-off: "<color:#e74c3c>✘ <color:#e2e8f0>Bạn đã <color:#e74c3c>tắt</color> nhận các yêu cầu thách đấu."
+player-not-found: "<color:#e74c3c>✘ <color:#f87171>Không tìm thấy người chơi này."
+queue-not-during-duel: "<color:#e74c3c>✘ <color:#f87171>Không thể tham gia hàng chờ khi đang trong trận đấu."
+
+duel-no-arena: "<color:#e74c3c>⚠ <color:#f87171>Không tìm thấy sân đấu <color:#ffd700>{map}</color> trống khả dụng lúc này."
+time-remaining-notification: "<color:#3498db>⏱ <color:#e2e8f0>Thời gian còn lại: <color:#3498db>{seconds}</color> giây"
+loot-time-actionbar: "<color:#f1c40f>⛏ <color:#e2e8f0>Nhặt tài nguyên: <color:#f1c40f>{time}</color> giây"
+
+duel-request-expired-sender: "<color:#e74c3c>⏱ <color:#f87171>Yêu cầu thách đấu gửi đến <color:#3498db>{target}</color> đã hết hạn."
+duel-request-expired-target: "<color:#e74c3c>⏱ <color:#f87171>Yêu cầu thách đấu từ <color:#3498db>{sender}</color> đã hết hạn."
+
+spectate-started: "<color:#2ecc71>✔ <color:#e2e8f0>Bạn hiện đang theo dõi <color:#3498db>{player}</color>"
+spectate-stopped: "<color:#2ecc71>✔ <color:#e2e8f0>Đã dừng theo dõi trận đấu thành công."
+spectate-not-spectating: "<color:#e74c3c>✘ <color:#f87171>Bạn hiện đang không theo dõi ai!"
+spectate-started-duel: "<color:#2ecc71>✔ <color:#e2e8f0>Bạn đang theo dõi trận đấu của <color:#3498db>{player}</color>!"
+spectate-use-leave: "<color:#a3a3a3>Nhập <color:#e74c3c>/spec leave</color> để thoát chế độ theo dõi."
+spectate-failed: "<color:#e74c3c>✘ <color:#f87171>Không thể bắt đầu theo dõi trận đấu này!"
+
+global-match-end: "<color:#3498db>⚔ <color:#e2e8f0>Trận đấu tại <color:#ffd700>{map}</color> đã kết thúc! <color:#2ecc71>{winner}</color> đã đánh bại <color:#e74c3c>{loser}</color>."
+global-map-ready: "<color:#2ecc71>✔ <color:#e2e8f0>Sân đấu <color:#ffd700>{map}</color> đã khôi phục xong và sẵn sàng để thách đấu!"
+
+admin-help-header: "<color:#a3a3a3><st>                </st> <gradient:#FF8C00:#FFD700><bold>SolarDuels Admin Commands</bold></gradient> <color:#a3a3a3><st>                </st>"
+admin-help-help: " <color:#ffd700>/dd help <color:#a3a3a3>- Hiển thị menu hướng dẫn này"
+admin-help-reload: " <color:#ffd700>/dd reload <color:#a3a3a3>- Tải lại toàn bộ cấu hình plugin"
+admin-help-wand: " <color:#ffd700>/dd wand <color:#a3a3a3>- Lấy công cụ chọn vùng góc đấu trường"
+admin-help-setspawn: " <color:#ffd700>/dd setspawn <color:#a3a3a3>- Đặt điểm hồi sinh tại sảnh chính"
+admin-help-create: " <color:#ffd700>/dd create <tên> <color:#a3a3a3>- Khởi tạo một đấu trường mới"
+admin-help-delete: " <color:#ffd700>/dd delete <tên> <color:#a3a3a3>- Xóa hoàn toàn một đấu trường"
+admin-help-setpos1: " <color:#ffd700>/dd setpos1 <color:#a3a3a3>- Đặt góc thứ nhất của đấu trường"
+admin-help-setpos2: " <color:#ffd700>/dd setpos2 <color:#a3a3a3>- Đặt góc thứ hai của đấu trường"
+admin-help-setspawn1: " <color:#ffd700>/dd setspawn1 <tên> <color:#a3a3a3>- Đặt điểm xuất phát 1 cho đấu trường"
+admin-help-setspawn2: " <color:#ffd700>/dd setspawn2 <tên> <color:#a3a3a3>- Đặt điểm xuất phát 2 cho đấu trường"
+admin-help-list: " <color:#ffd700>/dd list <color:#a3a3a3>- Xem danh sách các đấu trường"
+admin-help-info: " <color:#ffd700>/dd info <tên> <color:#a3a3a3>- Xem thông số chi tiết của đấu trường"
+admin-help-footer: "<color:#a3a3a3><st>                                                             </st>"
+admin-create-usage: "<color:#e74c3c>✘ <color:#f87171>Cú pháp lệnh: <color:#ffd700>/dd create <tên></color>"
+
+duel-help-header: "<color:#a3a3a3><st>                </st> <gradient:#FF8C00:#FFD700><bold>SolarDuels Player Commands</bold></gradient> <color:#a3a3a3><st>                </st>"
+duel-help-duel: " <color:#ffd700>/duel <người chơi> <color:#a3a3a3>- Gửi lời mời thách đấu"
+duel-help-accept: " <color:#ffd700>/duel accept <người chơi> <color:#a3a3a3>- Chấp nhận lời mời thách đấu"
+duel-help-decline: " <color:#ffd700>/duel decline <người chơi> <color:#a3a3a3>- Từ chối lời mời thách đấu"
+duel-help-draw: " <color:#ffd700>/duel draw <color:#a3a3a3>- Đề nghị hòa kết quả trận đấu"
+duel-help-queue: " <color:#ffd700>/duel queue <color:#a3a3a3>- Tham gia vào hàng chờ Casual"
+duel-help-stats: " <color:#ffd700>/duel stats [người chơi] <color:#a3a3a3>- Xem thông số thống kê cá nhân"
+duel-help-top: " <color:#ffd700>/duel top <color:#a3a3a3>- Xem bảng xếp hạng Top 10"
+duel-help-toggle: " <color:#ffd700>/duel toggle <color:#a3a3a3>- Bật/tắt chế độ nhận thách đấu"
+duel-help-footer: "<color:#a3a3a3><st>                                                             </st>"
+
+spectate-usage: "<color:#e74c3c>✘ <color:#f87171>Cú pháp lệnh: <color:#ffd700>/spec <tên></color> hoặc <color:#ffd700>/spec leave</color>"
+spectate-self: "<color:#e74c3c>✘ <color:#f87171>Bạn không thể tự theo dõi chính bản thân mình!"
+spectate-target-not-in-duel: "<color:#e74c3c>✘ <color:#f87171>Người chơi này hiện đang không trong trận đấu!"
+
+# Rematch
+rematch-offer: "  <click:run_command:'/duel rematch'><color:#ffd700><bold>[↩ Tái đấu]</bold></color></click> cùng đối thủ <white>{opponent}</white>"
+rematch-no-offer: "<color:#e74c3c>✘ <color:#f87171>Không tìm thấy lời mời tái đấu hoặc đối phương đã ngoại tuyến!"
+rematch-expired: "<color:#e74c3c>⏱ <color:#f87171>Yêu cầu mời tái đấu đã hết hạn sử dụng."
+rematch-opponent-offline: "<color:#e74c3c>✘ <color:#f87171>Đối thủ đã ngoại tuyến, không thể thực hiện tái đấu!"
+
+# Post-match summary
+summary-divider: "<color:#525252><st>                                            </st>"
+summary-header: "<gradient:#FF8C00:#FFD700><bold>  KẾT QUẢ TRẬN ĐẤU</bold></gradient>"
+summary-opponent: "  <color:#a3a3a3>Đối thủ: <white>{opponent}</white>"
+summary-duration: "  <color:#a3a3a3>Thời gian: <white>{duration}</white>"
+summary-damage-dealt: "  <color:#a3a3a3>Sát thương gây ra: <color:#e74c3c>{damage}</color>"
+summary-damage-taken: "  <color:#a3a3a3>Sát thương nhận vào: <color:#f1c40f>{taken}</color>"
+summary-arena: "  <color:#a3a3a3>Sân đấu: <color:#3498db>{arena}</color>"
+
+# Queue action bar
+queue-action-bar: "<color:#3498db>⌛ <color:#e2e8f0>Chờ: <color:#f1c40f>{time}</color> <color:#a3a3a3>| <color:#e2e8f0>{region_size} người ({region}) <color:#a3a3a3>| <color:#e74c3c>Gõ /queue leave để rời"
+
+# Hàng chờ / Queue wait times
+estimated-wait-less-than-minute: "<1 phút"
+estimated-wait-format: "{minutes} phút {seconds} giây"

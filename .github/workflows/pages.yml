@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -199,6 +199,15 @@ jobs:
             for(const value of ['duration.expiration','so_contributions','so_owner_collected','custom_amount','forceCloseGUISync','100k','1.5m']) if(!log.html.includes(value)) throw Error('SolarOrder release detail missing: '+value);
             if(!localized.find(doc=>doc.id==='solarorder-home').html.includes('href="#solarorder-changelog"')) throw Error('SolarOrder changelog link missing');
           }
+          if(sandbox.window.ONIC_DUELS_CONFIGS.length!==8) throw Error('SolarDuels YAML files missing');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(doc=>doc.product==='solarduels').length!==8) throw Error('SolarDuels guides missing');
+            if((localized.find(doc=>doc.id==='solarduels-menus').html.match(/<img /g)||[]).length!==3) throw Error('SolarDuels screenshots missing');
+            const api=localized.find(doc=>doc.id==='solarduels-api').html;
+            for(const value of ['org.OmhVN.api.SolarDuelsAPI','getInstance','getPlayerStats','savePlayerStats','isInDuel','getActiveDuel','isInQueue','getQueueWaitTime','isSpectating','getTopPlayers','DuelStartEvent','DuelEndEvent','PlayerJoinQueueEvent','PlayerLeaveQueueEvent','IllegalStateException']) if(!api.includes(value)) throw Error('SolarDuels API detail missing: '+value);
+            if(!api.includes('syntax-keyword')) throw Error('SolarDuels API coloring missing');
+          }
+          if(sandbox.window.ONIC_PLUGINS.find(p=>p.id==='solarduels').status==='planned') throw Error('SolarDuels still marked planned');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;
@@ -264,7 +273,7 @@ jobs:
           mkdir _site
           cp index.html .nojekyll _site/
           cp -R assets _site/
-          node tools/build-product-pages.mjs _site
+          node .github/scripts/build-product-pages.mjs _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

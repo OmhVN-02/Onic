@@ -1,0 +1,70 @@
+rank-up:
+  enable: true
+  message: "<gold>[!]</gold> <yellow><player></yellow> <gray>đã thăng hạng lên cấp</gray> <gold><rank></gold>"
+  title:
+    main: "<gradient:#FF8C00:#FFD700><bold>THĂNG HẠNG</bold></gradient>"
+    sub: "<gray>Bạn đã đạt cấp độ</gray> <gold><rank></gold>"
+  sound: "ENTITY_PLAYER_LEVELUP"
+
+# Cấu hình debug rank
+debug-rank: false # Bật/tắt debug log cho rank system
+
+highest-rank-placeholders:
+  next-rank: "<red>Đã đạt hạng tối đa</red>" # Sẽ Trả Về Chuỗi Này Nếu Người Chơi Đã Đạt Rank Tối Đa
+  next-needed: "0" # Sẽ Trả Về Chuỗi Này Nếu Người Chơi Đã Đạt Rank Tối Đa
+
+ranks:
+  - id: "notier"
+    name: "&7ɴᴏ ᴛɪᴇʀ"  # Small Caps + màu xám
+    min: 0
+    max: 249
+  
+  - id: "lt5"
+    name: "&aLT5"  # Small Caps + màu xanh lá
+    min: 250
+    max: 599
+
+  - id: "ht5"
+    name: "&aHT5"  # Small Caps + màu xanh lá
+    min: 600
+    max: 699
+
+  - id: "lt4"
+    name: "&bLT4"  # Small Caps + màu xanh ngọc
+    min: 700
+    max: 799
+
+  - id: "ht4"
+    name: "&bHT4"  # Small Caps + màu xanh ngọc
+    min: 800
+    max: 899
+
+  - id: "lt3"
+    name: "&5LT3"  # Small Caps + màu tím
+    min: 900
+    max: 999
+
+  - id: "ht3"
+    name: "&5HT3"  # Small Caps + màu tím
+    min: 1000
+    max: 1199
+
+  - id: "lt2"
+    name: "&eLT2"  # Small Caps + màu vàng
+    min: 1200
+    max: 1399
+    
+  - id: "ht2"
+    name: "&eHT2"  # Small Caps + màu vàng
+    min: 1400
+    max: 1599
+    
+  - id: "lt1"
+    name: "&6LT1"  # Small Caps + màu cam
+    min: 1600
+    max: 1899
+   
+  - id: "ht1"
+    name: "&6HT1"  # Small Caps + màu cam
+    min: 1900
+    max: 99999

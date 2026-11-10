@@ -1,0 +1,46 @@
+DUEL-ACCEPT-MENU:
+  TITLE: "&8ᴀᴄᴄᴇᴘᴛ ᴅᴜᴇʟ - {sender}"
+  LAYOUT:
+    - "#########"
+    - "#d#atr#y#"
+    - "#########"
+  FILLER:
+    ENABLED: true
+    MATERIAL: GRAY_STAINED_GLASS_PANE
+    NAME: " "
+  BUTTONS:
+    CANCEL:
+      LAYOUT-CHAR: "d"
+      MATERIAL: RED_STAINED_GLASS_PANE
+      NAME: "&#FC0000ᴅᴇᴄʟɪɴᴇ"
+      LORE:
+        - "&fClick to decline"
+      ACTION: DECLINE
+    ARENA:
+      LAYOUT-CHAR: "a"
+      MATERIAL: GRASS_BLOCK
+      NAME: "&#00FC00ᴀʀᴇɴᴀ"
+      LORE:
+        - "&7Arena: %arena%"
+    TIME:
+      LAYOUT-CHAR: "t"
+      MATERIAL: CLOCK
+      NAME: "&#00FC00ᴛɪᴍᴇ"
+      LORE:
+        - "&7Time: %time%"
+    REGION:
+      LAYOUT-CHAR: "r"
+      MATERIAL: GLOBE_BANNER_PATTERN
+      NAME: "&#00FC00ʀᴇɢɪᴏɴ"
+      LORE:
+        - "&7%region% (&b%ping%ms&7)"
+        - ""
+        - "&eClick to select region"
+      ACTION: OPEN_REGION_SELECT
+    ACCEPT:
+      LAYOUT-CHAR: "y"
+      MATERIAL: LIME_STAINED_GLASS_PANE
+      NAME: "&aᴀᴄᴄᴇᴘᴛ"
+      LORE:
+        - "&7Click to accept duel"
+      ACTION: ACCEPT

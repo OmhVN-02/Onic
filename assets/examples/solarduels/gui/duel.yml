@@ -1,0 +1,50 @@
+DUEL-MENU:
+  TITLE: "&8ᴄʀᴇᴀᴛᴇ ᴅᴜᴇʟ - {target}"
+  LAYOUT:
+    - "#########"
+    - "#c#atr#s#"
+    - "#########"
+  FILLER:
+    ENABLED: true
+    MATERIAL: GRAY_STAINED_GLASS_PANE
+    NAME: " "
+  BUTTONS:
+    CANCEL:
+      LAYOUT-CHAR: "c"
+      MATERIAL: RED_STAINED_GLASS_PANE
+      NAME: "&#FC0000ᴄᴀɴᴄᴇʟ"
+      LORE:
+        - "&fClick to cancel"
+      ACTION: CLOSE
+    ARENA:
+      LAYOUT-CHAR: "a"
+      MATERIAL: GRASS_BLOCK
+      NAME: "&#00FC00ᴀʀᴇɴᴀ"
+      LORE:
+        - "&fClick to cycle arena"
+        - "&7(%arena%)"
+      ACTION: ARENA
+    TIME:
+      LAYOUT-CHAR: "t"
+      MATERIAL: CLOCK
+      NAME: "&#00FC00ᴛɪᴍᴇ"
+      LORE:
+        - "&fClick to cycle time"
+        - "&7(%time%)"
+      ACTION: TIME
+    REGION:
+      LAYOUT-CHAR: "r"
+      MATERIAL: GLOBE_BANNER_PATTERN
+      NAME: "&#00FC00ʀᴇɢɪᴏɴ"
+      LORE:
+        - "&7%region% (&b%ping%ms&7)"
+        - ""
+        - "&eClick to select region"
+      ACTION: OPEN_REGION_SELECT
+    SEND:
+      LAYOUT-CHAR: "s"
+      MATERIAL: LIME_STAINED_GLASS_PANE
+      NAME: "&aꜱᴇɴᴅ"
+      LORE:
+        - "&7Click to send request"
+      ACTION: SEND

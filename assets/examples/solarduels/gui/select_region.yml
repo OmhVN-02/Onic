@@ -1,0 +1,28 @@
+SELECT-REGION-MENU:
+  TITLE: "&8ꜱᴇʟᴇᴄᴛ ʀᴇɢɪᴏɴ"
+  LAYOUT:
+    - "#########"
+    - "#rrrrrrr#"
+    - "####b####"
+  FILLER:
+    ENABLED: true
+    MATERIAL: GRAY_STAINED_GLASS_PANE
+    NAME: " "
+  BUTTONS:
+    BACK:
+      LAYOUT-CHAR: "b"
+      MATERIAL: ARROW
+      NAME: "&cBack"
+      LORE:
+        - "&7Return to previous menu"
+      ACTION: BACK
+    REGION_ITEM:
+      LAYOUT-CHAR: "r"
+      MATERIAL: FEATHER
+      NAME: "%color%ʀᴇɢɪᴏɴ"
+      SELECTED_TEXT: "&a(Selected)"
+      UNSELECTED_TEXT: "&7(Unselected)"
+      LORE:
+        - "&7%region_name% (%ping_color%%ping%ms&7)"
+        - "%selected_text%"
+      ACTION: SELECT_REGION_%region_id%
