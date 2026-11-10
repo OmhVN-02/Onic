@@ -186,7 +186,7 @@ jobs:
           if(sandbox.window.ONIC_ORDER_CONFIGS.length!==21) throw Error('SolarOrder YAML samples missing');
           for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
             if(localized.filter(doc=>doc.product==='solarorder').length!==8) throw Error('SolarOrder guides missing');
-            if((localized.find(doc=>doc.id==='solarorder-menus').html.match(/<img /g)||[]).length!==8) throw Error('SolarOrder screenshots missing');
+            if((localized.find(doc=>doc.id==='solarorder-menus').html.match(/<img /g)||[]).length!==12) throw Error('SolarOrder screenshots missing');
             if(!localized.find(doc=>doc.id==='wiki').html.includes('href="#solarorder-home"')) throw Error('SolarOrder product card missing');
             const lore=localized.find(doc=>doc.id==='solarworth-lore').html;
             for(const value of ['show_worth_lore','worth_lore_shulker','${price}','OCHRE_FROGLIGHT','3.0','item-value-lore.png']) if(!lore.includes(value)) throw Error('SolarWorth lore guide missing: '+value);
