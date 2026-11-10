@@ -50,7 +50,7 @@ jobs:
           import { runInNewContext, Script } from 'node:vm';
           const root = process.cwd();
           const read = path => readFileSync(resolve(root, path), 'utf8');
-          const sandbox = {window: {}};
+          const sandbox = {window: {},URL};
           const source = read('assets/docs.js');
           new Script(source); new Script(read('assets/app.js')); new Script(read('assets/loading.js'));
           runInNewContext(source, sandbox);
@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -77,7 +77,7 @@ jobs:
             const api = localized.find(doc=>doc.id==='solarshards-api');
             if (!api || !api.html.includes('SolarShardsProvider') || !api.html.includes('getShardsAsync')) throw Error('SolarShards API documentation missing');
             if (!localized.find(doc=>doc.id==='solarshards-home').html.includes('href="#solarshards-api"')) throw Error('SolarShards API entry missing');
-            for (const product of ['solarchat','solarduels','solarrtpzone','solarcore','solarafk','solarelo','solarcrate','solartools']) {
+            for (const product of sandbox.window.ONIC_PLUGINS.filter(item=>item.status==='planned' && item.image).map(item=>item.id)) {
               if (!home.html.includes('href="#'+product+'-home"')) throw Error('Upcoming product card missing: '+product);
               const page = localized.find(doc=>doc.id===product+'-home');
               if (!page || !page.html.includes('assets/images/'+product+'.png')) throw Error('Upcoming product logo missing: '+product);
@@ -166,6 +166,13 @@ jobs:
             for(const stamp of ['2026-08-03','2026-07-30','2026-07-19']) if(!log.html.includes(stamp)) throw Error('SolarRTPZone release date missing');
             if(!log.html.includes('&lt;zoneName&gt;') || !log.html.includes('&amp;#DDFF00&amp;l')) throw Error('Devlog code/color escaping incorrect');
           }
+          const shared=sandbox.window.ONIC_PRODUCT_LINK('https://omhvn-02.github.io/Onic/?lang=vi#solarrtpzone-home','solarrtpzone','solarrtpzone-home');
+          if(shared!=='https://omhvn-02.github.io/Onic/solarrtpzone.html?lang=vi#solarrtpzone-home') throw Error('Product share URL incorrect');
+          if(sandbox.window.ONIC_PRODUCT_LINK(shared,undefined,'wiki')!=='https://omhvn-02.github.io/Onic/?lang=vi#wiki') throw Error('Home navigation from product URL incorrect');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            const home=localized.find(doc=>doc.id==='solarrtpzone-home').html;
+            if(!home.includes('class="hero-shot"') || !home.includes('id="lo-trinh"') || home.indexOf('id="tinh-nang"')>home.indexOf('id="su-dung"')) throw Error('SolarRTPZone overview layout incorrect');
+          }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;
@@ -231,6 +238,7 @@ jobs:
           mkdir _site
           cp index.html .nojekyll _site/
           cp -R assets _site/
+          node tools/build-product-pages.mjs _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

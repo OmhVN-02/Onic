@@ -73,7 +73,7 @@
   }
   function render() {
     let route;
-    try { route = decodeURIComponent(location.hash.slice(1)); } catch { route = ''; }
+    try { route = decodeURIComponent(location.hash.slice(1) || window.ONIC_ENTRY_ROUTE || ''); } catch { route = ''; }
     let [requested, section] = route.split('/');
     if (requested === 'wiki' && section === 'contributors') { requested = 'contributors'; section = undefined; }
     const movedGuides = window.ONIC_MOVED_GUIDES || {};
@@ -91,6 +91,10 @@
     activeProduct = doc.product === 'wiki' ? '' : doc.product;
     renderPicker();
     const product = (window.ONIC_PLUGINS || []).find(p => p.id === doc.product);
+    if (/^https?:$/.test(location.protocol)) {
+      const link=window.ONIC_PRODUCT_LINK(location.href,product?.id,doc.id+(section?'/'+section:''));
+      if(link!==location.href) history.replaceState(null,'',link);
+    }
     document.title = product?.name || (doc.id === 'wiki' ? 'Onic Wiki' : doc.title);
     $('article').innerHTML = `<div class="eyebrow">${esc(doc.group)}</div><h1>${esc(doc.subtitle || doc.title)} ${newBadge(doc)}</h1><p class="lead">${esc(doc.lead)}</p>${doc.html}`;
     if (doc.id === 'wiki') $('article').insertAdjacentHTML('afterbegin',
