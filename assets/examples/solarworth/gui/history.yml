@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: GUI Lịch sử bán hàng
+# ─────────────────────────────────────────────
+# Placeholder title:
+#   {currentPage}   → trang hiện tại
+#   {maxPages}      → tổng số trang
+
+# Ma trận: i = giao dịch, - = trống, b/n = trước/sau, s = sắp xếp.
+# 9 ô/hàng, 1–6 hàng. layout ưu tiên hơn items.*.slot.
+layout:
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "b---s---n"
+
+title: "sᴇʟʟ ʜɪsᴛᴏʀʏ (Page {currentPage}/{maxPages})"
+
+# ─────────────────────────────────────────────
+#   Lore template cho từng item lịch sử
+# ─────────────────────────────────────────────
+# Placeholder:
+#   {date}        → ngày giờ bán  (dd/MM/yyyy HH:mm)
+#   {count}       → số lượng đã bán
+#   {price_each}  → giá 1 vật phẩm
+#   {total}       → tổng tiền nhận được
+item_lore:
+  - "&8{date}"
+  - ""
+  - "&7Số lượng: &f{count}"
+  - "&7Giá / item: &f${price_each}"
+  - "&8-------------------"
+  - "&7Tổng: &a+${total}"
+
+items:
+  back:
+    name: "#00F986ʙᴀᴄᴋ"
+    lore:
+      - "&fClick to go to the previous page"
+    material: "ARROW"
+    disabled_material: "GRAY_STAINED_GLASS_PANE"
+    disabled_name: " "
+    customModelData: -1
+
+  next:
+    name: "#00F986ɴᴇxᴛ"
+    lore:
+      - "&fClick to go to the next page"
+    material: "ARROW"
+    disabled_material: "GRAY_STAINED_GLASS_PANE"
+    disabled_name: " "
+    customModelData: -1
+
+  # Placeholder sorting lore:
+  #   {currentSort}   → chế độ sắp xếp hiện tại
+  #   {totalSells}    → tổng số giao dịch
+  #   {totalEarnings} → tổng tiền đã bán
+  #   {currentPage}   → trang hiện tại
+  #   {maxPages}      → tổng số trang
+  sorting:
+    name: "#00F986sᴇʟʟ ʜɪsᴛᴏʀʏ"
+    lore:
+      - "&fNhấn để đổi sắp xếp"
+      - ""
+      - "&7Tổng giao dịch: &f{totalSells}"
+      - "&7Tổng thu nhập: &a${totalEarnings}"
+      - ""
+      - "&8Sắp xếp: &7({currentSort})"
+    material: "HOPPER"
+    customModelData: -1
+    sound: click

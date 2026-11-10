@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Cấu hình âm thanh (Sounds)
+# ─────────────────────────────────────────────
+# Định nghĩa các bộ âm thanh dùng trong GUI.
+# Define named sound profiles used across GUIs.
+#
+# Cách dùng: thêm "sound: <tên>" vào bất kỳ
+# item nào trong GUI (ví dụ: sound: click).
+# Usage: add "sound: <name>" under any GUI item
+# (e.g. sound: click).
+#
+# Các tham số / Parameters:
+#   sound  → tên âm thanh Minecraft (SOUND_NAME)
+#   volume → âm lượng (0.0 – 1.0+)
+#   pitch  → cao độ (0.5 – 2.0, mặc định 1.0)
+# ─────────────────────────────────────────────
+
+# Âm thanh khi click vào nút GUI
+# Played when a GUI button is clicked
+click:
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+# Âm thanh khi nhặt kinh nghiệm / bán thành công
+# Played when items are sold successfully
+xp:
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  volume: 1.0
+  pitch: 1.0
+
+# Âm thanh khi có lỗi (vật phẩm không thể bán, v.v.)
+# Played on error (e.g. unsellable items)
+error:
+  sound: ENTITY_VILLAGER_NO
+  volume: 1.0
+  pitch: 1.0

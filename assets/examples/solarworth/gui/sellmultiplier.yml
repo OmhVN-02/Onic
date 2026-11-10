@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: GUI Hệ số nhân bán hàng
+#   (Sell Multiplier GUI)
+# ─────────────────────────────────────────────
+# Giao diện xem hệ số nhân (multiplier) hiện tại
+# của người chơi theo từng danh mục vật phẩm.
+# Shows the player's current sell multiplier
+# for each item category.
+# Mở bằng lệnh /sellmuti.
+# Opened with /sellmuti command.
+# ─────────────────────────────────────────────
+
+# Tiêu đề GUI (hỗ trợ color code & hex #RRGGBB)
+# GUI title (supports color codes & hex #RRGGBB)
+# Ma trận: (id) = danh mục sell/<id>.yml, - = filler.
+# 9 ô/hàng, 1–6 hàng. Vị trí độc lập với GUI sell.
+layout:
+  - "(armorandtools)(blocks)(crops)(enchantedbooks)(fish)(mobdrops)(naturalitems)(ores)(potions)"
+
+title: "ꜱᴇʟʟ ᴍᴜʟᴛɪᴘʟɪᴇʀ"
+
+# Item lấp đầy slot trống trong GUI
+# Filler item for empty slots
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: " "
+
+# Âm thanh khi click vào icon danh mục
+# Sound when clicking a category icon
+category_click_sound: click
+
+# Thông báo khi tính năng multiplier bị tắt
+# Shown when disable_multipliers: true in config.yml
+disabled_message: "&cʜệ ᴛʜốɴɢ ᴍᴜʟᴛɪᴘʟɪᴇʀ ʜɪệɴ đᴀɴɢ ʙị ᴛắᴛ."

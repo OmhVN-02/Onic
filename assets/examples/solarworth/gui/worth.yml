@@ -1,0 +1,122 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: GUI Bảng giá vật phẩm
+#   (Item Worth/Prices GUI)
+# ─────────────────────────────────────────────
+# Giao diện duyệt bảng giá toàn bộ vật phẩm.
+# Mở bằng lệnh /worth (không có tham số).
+# Browse the full item price list.
+# Opened with /worth (no arguments).
+#
+# Placeholder:
+#   {currentPage} → trang hiện tại / current page
+#   {maxPages}    → tổng số trang / total pages
+# ─────────────────────────────────────────────
+
+# Ma trận: i = item, - = kính, b/n = trước/sau,
+# s = sắp xếp, r = làm mới, f = lọc. 9 ô/hàng, 1–6 hàng.
+# layout ưu tiên hơn items.*.slot.
+layout:
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "b--srf--n"
+# Ma trận của danh sách item trong một danh mục.
+catalog_layout:
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "b---s---n"
+
+title: "ɪᴛᴇᴍ ᴘʀɪᴄᴇs (Page {currentPage}/{maxPages})"
+
+items:
+  # Kính hiển thị khi không có trang trước/sau / Glass shown when no prev/next page
+  glass:
+    name: "&7 "
+    lore: []
+    material: "GRAY_STAINED_GLASS_PANE"
+
+  # Nút quay về trang trước / Previous page button
+  back:
+    name: "#00F986ʙᴀᴄᴋ"
+    lore:
+      - "&fClick to go to the previous page"
+    material: "ARROW"
+    customModelData: -1
+    sound: click
+
+  # Nút sang trang tiếp theo / Next page button
+  next:
+    name: "#00F986ɴᴇxᴛ"
+    lore:
+      - "&fClick to go to the next page"
+    material: "ARROW"
+    customModelData: -1
+    sound: click
+
+  # Nút làm mới danh sách giá / Refresh price list button
+  refresh:
+    name: "#00F986ɪᴛᴇᴍ ᴘʀɪᴄᴇs"
+    lore:
+      - "&fClick to refresh"
+    material: "ANVIL"
+    customModelData: -1
+    sound: click
+
+  # ─────────────────────────────────────────
+  #   Nút sắp xếp / Sort button
+  #   Slot 48 — chu kỳ qua các tùy chọn bên dưới
+  #   Cycles through sort options listed below
+  # ─────────────────────────────────────────
+  sort_worth:
+    name: "#00F986sᴏʀᴛ"
+    material: "CAULDRON"
+    # Màu lựa chọn đang active / Color for the selected option
+    selected_color: "#00F986"
+    # Màu lựa chọn chưa active / Color for unselected options
+    unselected_color: "&f"
+    # Ký tự đầu dòng mỗi lựa chọn / Bullet prefix per option
+    bullet_icon: "▪ "
+    # ĐỪNG THAY ĐỔI các key bên dưới
+    # DO NOT change these option keys
+    options:
+      - "SORT_SELECT_HIGHEST_PRICE"  # Giá cao → thấp / High to low
+      - "SORT_SELECT_LOWEST_PRICE"   # Giá thấp → cao / Low to high
+      - "SORT_SELECT_NAME"           # Theo tên A–Z / Alphabetical
+    customModelData: -1
+    sound: click
+
+  # ─────────────────────────────────────────
+  #   Nút lọc danh mục / Category filter button
+  #   Slot 50 — chu kỳ qua các danh mục
+  #   Cycles through item categories
+  # ─────────────────────────────────────────
+  filter:
+    name: "#00F986ғɪʟᴛᴇʀ"
+    material: "HOPPER"
+    # Màu danh mục đang chọn / Selected category color
+    selected_color: "#00F986"
+    # Màu danh mục chưa chọn / Unselected category color
+    unselected_color: "&f"
+    # Ký tự đầu dòng / Bullet prefix
+    bullet_icon: "▪ "
+    # ĐỪNG THAY ĐỔI các key bên dưới
+    # DO NOT change these option keys
+    options:
+      - "FILTER_ALL"          # Tất cả / All items
+      - "FILTER_BLOCKS"       # Khối / Blocks
+      - "FILTER_ORES"         # Quặng / Ores
+      - "FILTER_TOOLS"        # Công cụ / Tools
+      - "FILTER_COMBAT"       # Chiến đấu / Combat
+      - "FILTER_FOOD"         # Thức ăn / Food
+      - "FILTER_POTIONS"      # Thuốc / Potions
+      - "FILTER_BOOKS"        # Sách / Books
+      - "FILTER_INGREDIENTS"  # Nguyên liệu / Ingredients
+      - "FILTER_NATURE"       # Tự nhiên / Nature
+      - "FILTER_REDSTONE"     # Redstone
+    customModelData: -1
+    sound: click

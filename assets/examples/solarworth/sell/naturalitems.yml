@@ -1,0 +1,351 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Danh mục Vật phẩm tự nhiên
+#   (Natural Items Category)
+# ─────────────────────────────────────────────
+# Định nghĩa icon, yêu cầu tiến trình và danh
+# sách vật phẩm cho danh mục Natural Items.
+# Defines the category icon, progress milestones,
+# and sellable item list for Natural Items.
+#
+# Cấu trúc chính / Top-level structure:
+#   Vị trí nút được quyết định bởi token (id) trong ma trận GUI.
+#   Button positions are controlled by (id) tokens in the GUI matrix.
+#   material    → loại block/item làm icon
+#                 Icon material
+#   title       → tên hiển thị trên nút
+#                 Display name on the button
+#   lore        → mô tả hiển thị khi hover
+#                 Lore shown on hover
+# ─────────────────────────────────────────────
+
+# Trang chính
+material: OAK_LEAVES
+title: '#00F986ᴠậᴛ ᴘʜẩᴍ ᴛự ɴʜɪêɴ'
+lore:
+- '&7Bán vật liệu tự nhiên và gỗ để'
+- '&7nâng cấp hệ số bán hàng!'
+- ''
+- '&7Tiến trình đến &f{nextProgress}'
+- '&f{progressBar}{progressBarCompletedPercentage}'
+
+# ─────────────────────────────────────────────
+#   Màn hình tiến trình nâng cấp multiplier
+#   Multiplier upgrade progress screen
+# ─────────────────────────────────────────────
+#   layout    → bố cục GUI dùng ký tự đặc biệt:
+#               GUI layout using special chars:
+#                 -  = slot filler (kính xám)
+#                 c  = icon danh mục / category icon
+#                 b  = nút quay lại / back button
+#                 (N)= slot cấp độ N / level-N slot
+#   requirements → danh sách mốc cấp độ:
+#                  Upgrade milestones:
+#                    multiplier → hệ số nhân mới / new multiplier
+#                    price      → tiền tích lũy cần đạt / required sell total
+#   items     → giao diện các ô tiến trình:
+#               Progress slot appearances:
+#                 filler   → slot trống / empty slot
+#                 c        → icon danh mục / category icon
+#                 p.current  → cấp đang làm / in-progress level
+#                 p.complete → cấp đã xong / completed level
+#                 p.incomplete→ cấp chưa tới / locked level
+#                 back     → nút quay lại / back button
+# ─────────────────────────────────────────────
+progress:
+  title: ᴛɪếɴ ᴛʀɪ̀ɴʜ ᴠậᴛ ᴘʜẩᴍ ᴛự ɴʜɪêɴ
+  layout:
+  - -c-----(20)-
+  - -(1)-(9)(10)(11)-(19)-
+  - -(2)-(8)-(12)-(18)-
+  - -(3)-(7)-(13)-(17)-
+  - -(4)(5)(6)-(14)(15)(16)-
+  - b--------
+  requirements:
+    '1':
+      multiplier: 1.1
+      price: 25000
+    '2':
+      multiplier: 1.2
+      price: 150000
+    '3':
+      multiplier: 1.3
+      price: 500000
+    '4':
+      multiplier: 1.4
+      price: 1000000
+    '5':
+      multiplier: 1.5
+      price: 5000000
+    '6':
+      multiplier: 1.6
+      price: 25000000
+    '7':
+      multiplier: 1.7
+      price: 250000000
+    '8':
+      multiplier: 1.8
+      price: 550000000
+    '9':
+      multiplier: 1.9
+      price: 850000000
+    '10':
+      multiplier: 2.0
+      price: 1000000000
+    '11':
+      multiplier: 2.1
+      price: 2000000000
+    '12':
+      multiplier: 2.2
+      price: 4000000000
+    '13':
+      multiplier: 2.3
+      price: 8000000000
+    '14':
+      multiplier: 2.4
+      price: 10000000000
+    '15':
+      multiplier: 2.5
+      price: 20000000000
+    '16':
+      multiplier: 2.6
+      price: 40000000000
+    '17':
+      multiplier: 2.7
+      price: 80000000000
+    '18':
+      multiplier: 2.8
+      price: 160000000000
+    '19':
+      multiplier: 2.9
+      price: 320000000000
+    '20':
+      multiplier: 3.0
+      price: 640000000000
+  
+  items:
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      title: ''
+      lore:
+      - ''
+    c:
+      material: OAK_LEAVES
+      title: '#00F986ᴠậᴛ ᴘʜẩᴍ ᴛự ɴʜɪêɴ'
+      lore:
+      - '&7Bán vật liệu tự nhiên và gỗ để'
+      - '&7nâng cấp hệ số bán hàng!'
+      - ''
+      - '&fXem tiến trình bên dưới'
+    p:
+      current:
+        material: YELLOW_STAINED_GLASS_PANE
+        title: '#FCE300Đᴀɴɢ ᴛʜựᴄ ʜɪệɴ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      complete:
+        material: LIME_STAINED_GLASS_PANE
+        title: '#00F986ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      incomplete:
+        material: WHITE_STAINED_GLASS_PANE
+        title: '&fᴄʜưᴀ ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+    back:
+      material: RED_STAINED_GLASS_PANE
+      title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+      lore:
+      - '&fNhấn để quay lại'
+
+# ─────────────────────────────────────────────
+#   Catalogue — danh sách item bán được
+#   Catalogue — list of sellable items
+# ─────────────────────────────────────────────
+#   back       → nút quay lại màn hình trước
+#                Back button to previous screen
+#   navigation → phân trang (next/back)
+#                Pagination buttons (next/back)
+#   items.lore → lore hiển thị trên mỗi item
+#                Lore shown on each item in catalog
+#   items.list → danh sách Material ID Minecraft
+#                List of Minecraft Material IDs
+#                Dùng '*potion' hoặc '*enchanted_book'
+#                cho wildcard / Use wildcards like
+#                '*potion' or '*enchanted_book'
+# ─────────────────────────────────────────────
+catalog:
+  title: ᴠậᴛ ᴘʜẩᴍ ᴛự ɴʜɪêɴ
+  back:
+    material: RED_STAINED_GLASS_PANE
+    title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+    lore:
+    - '&fNhấn để quay lại'
+  navigation:
+    next:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ sᴀᴜ'
+      lore:
+      - '&fNhấn để đi đến trang sau'
+    back:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ ᴛʀướᴄ'
+      lore:
+      - '&fNhấn để về trang trước'
+  items:
+    lore:
+    - '&fGiá: #00F986${price}'
+    list:
+    - OAK_LOG
+    - SPRUCE_LOG
+    - BIRCH_LOG
+    - JUNGLE_LOG
+    - ACACIA_LOG
+    - DARK_OAK_LOG
+    - CRIMSON_STEM
+    - WARPED_STEM
+    - STRIPPED_OAK_LOG
+    - STRIPPED_SPRUCE_LOG
+    - STRIPPED_BIRCH_LOG
+    - STRIPPED_JUNGLE_LOG
+    - STRIPPED_ACACIA_LOG
+    - STRIPPED_DARK_OAK_LOG
+    - STRIPPED_CRIMSON_STEM
+    - STRIPPED_WARPED_STEM
+    - OAK_WOOD
+    - SPRUCE_WOOD
+    - BIRCH_WOOD
+    - JUNGLE_WOOD
+    - ACACIA_WOOD
+    - DARK_OAK_WOOD
+    - CRIMSON_HYPHAE
+    - WARPED_HYPHAE
+    - STRIPPED_OAK_WOOD
+    - STRIPPED_SPRUCE_WOOD
+    - STRIPPED_BIRCH_WOOD
+    - STRIPPED_JUNGLE_WOOD
+    - STRIPPED_ACACIA_WOOD
+    - STRIPPED_DARK_OAK_WOOD
+    - STRIPPED_CRIMSON_HYPHAE
+    - OAK_LEAVES
+    - SPRUCE_LEAVES
+    - BIRCH_LEAVES
+    - JUNGLE_LEAVES
+    - ACACIA_LEAVES
+    - DARK_OAK_LEAVES
+    - NETHER_WART_BLOCK
+    - WARPED_WART_BLOCK
+    - GRASS_BLOCK
+    - FERN
+    - DEAD_BUSH
+    - SEAGRASS
+    - DANDELION
+    - POPPY
+    - BLUE_ORCHID
+    - PINK_PETALS
+    - ALLIUM
+    - RED_TULIP
+    - ORANGE_TULIP
+    - WHITE_TULIP
+    - PINK_TULIP
+    - OXEYE_DAISY
+    - CORNFLOWER
+    - AZALEA_LEAVES
+    - FLOWERING_AZALEA_LEAVES
+    - CHERRY_LEAVES
+    - MANGROVE_LEAVES
+    - LILY_OF_THE_VALLEY
+    - WITHER_ROSE
+    - SUNFLOWER
+    - LILAC
+    - ROSE_BUSH
+    - PEONY
+    - MANGROVE_PROPAGULE
+    - GOAT_HORN
+    - FROGSPAWN
+    - OCHRE_FROGLIGHT
+    - PEARLESCENT_FROGLIGHT
+    - VERDANT_FROGLIGHT
+    - BLACK_DYE
+    - BLUE_DYE
+    - BROWN_DYE
+    - LIGHT_BLUE_DYE
+    - GRAY_DYE
+    - CYAN_DYE
+    - GREEN_DYE
+    - WHITE_DYE
+    - YELLOW_DYE
+    - RED_DYE
+    - PURPLE_DYE
+    - PINK_DYE
+    - ORANGE_DYE
+    - MAGENTA_DYE
+    - LIME_DYE
+    - SPORE_BLOSSOM
+    - BRAIN_CORAL
+    - BUBBLE_CORAL
+    - FIRE_CORAL
+    - HORN_CORAL
+    - TUBE_CORAL
+    - BRAIN_CORAL_FAN
+    - BUBBLE_CORAL_FAN
+    - FIRE_CORAL_FAN
+    - HORN_CORAL_FAN
+    - TUBE_CORAL_FAN
+    - DEAD_BRAIN_CORAL
+    - DEAD_BUBBLE_CORAL
+    - DEAD_FIRE_CORAL
+    - DEAD_HORN_CORAL
+    - DEAD_TUBE_CORAL
+    - DEAD_BRAIN_CORAL_FAN
+    - DEAD_BUBBLE_CORAL_FAN
+    - DEAD_FIRE_CORAL_FAN
+    - DEAD_HORN_CORAL_FAN
+    - DEAD_TUBE_CORAL_FAN
+    - SHROOMLIGHT
+    - HONEYCOMB_BLOCK
+    - NETHER_WART
+    - CHORUS_FRUIT
+    - CHORUS_FLOWER
+    - CHORUS_PLANT
+    # Pale Oak nature items
+    - PALE_OAK_SAPLING
+    - PALE_OAK_LEAVES
+    # New flora (1.21.4+)
+    - BUSH
+    - FIREFLY_BUSH
+    - CACTUS_FLOWER
+    - WILDFLOWERS
+    - SHORT_DRY_GRASS
+    - TALL_DRY_GRASS
+    - TALL_GRASS
+    - AZURE_BLUET
+    - OPEN_EYEBLOSSOM
+    - CLOSED_EYEBLOSSOM
+    - GOLDEN_DANDELION
+    # Paper 26.3 / Wilderness Bound
+    - POPLAR_SAPLING
+    - RED_POPLAR_LEAVES
+    - ORANGE_POPLAR_LEAVES
+    - YELLOW_POPLAR_LEAVES
+    - SHELF_MUSHROOM
+    - RED_SHRUB
+    - ABANDONED_CAMP_MAP
+    - BURIED_ANCIENT_CITY_MAP
+    - BURIED_MINESHAFT_MAP
+    - BURIED_TREASURE_MAP
+    - BURIED_TRIAL_CHAMBERS_MAP
+    - DESERT_PYRAMID_MAP
+    - DESERT_VILLAGE_MAP
+    - JUNGLE_PYRAMID_MAP
+    - OCEAN_MONUMENT_MAP
+    - PLAINS_VILLAGE_MAP
+    - SAVANNA_VILLAGE_MAP
+    - SNOWY_VILLAGE_MAP
+    - SWAMP_HUT_MAP
+    - TAIGA_VILLAGE_MAP
+    - WARM_OCEAN_RUINS_MAP
+    - WOODLAND_MANSION_MAP

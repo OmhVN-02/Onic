@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Cấu hình cơ sở dữ liệu
+#   (Database Configuration)
+# ─────────────────────────────────────────────
+
+# Loại database được sử dụng.
+# Các giá trị hợp lệ:
+#  - sqlite    → lưu file local, không cần cài đặt thêm (mặc định)
+#  - mysql     → dùng server MySQL bên ngoài
+#  - mariadb   → dùng server MariaDB bên ngoài
+#  - mongodb   → dùng server MongoDB bên ngoài
+# Nếu để trống (null) → tự động dùng sqlite.
+# Database type. Valid values: sqlite, mysql, mariadb, mongodb.
+# If null → defaults to sqlite.
+type: "sqlite"
+
+# ─────────────────────────────────────────────
+#   MySQL — chỉ dùng khi type: "mysql"
+# ─────────────────────────────────────────────
+mysql:
+  # Địa chỉ host MySQL / MySQL host address
+  host: localhost
+  # Cổng MySQL (mặc định 3306) / MySQL port (default 3306)
+  port: 3306
+  # Tên database / Database name
+  database: "solarworth"
+  # Tên người dùng / Username
+  user: root
+  # Mật khẩu / Password
+  password: ''
+  # Số kết nối tối đa trong pool / Max pool connections
+  max-pool: 15
+  # Bật/tắt SSL / Enable SSL
+  use-ssl: false
+
+# ─────────────────────────────────────────────
+#   MariaDB — chỉ dùng khi type: "mariadb"
+# ─────────────────────────────────────────────
+mariadb:
+  # Địa chỉ host MariaDB / MariaDB host address
+  host: localhost
+  # Cổng MariaDB (mặc định 3306) / MariaDB port (default 3306)
+  port: 3306
+  # Tên database / Database name
+  database: "solarworth"
+  # Tên người dùng / Username
+  user: root
+  # Mật khẩu / Password
+  password: ''
+  # Số kết nối tối đa trong pool / Max pool connections
+  max-pool: 15
+  # Bật/tắt SSL / Enable SSL
+  use-ssl: false
+
+# ─────────────────────────────────────────────
+#   MongoDB — chỉ dùng khi type: "mongodb"
+#   MongoDB — only used when type: "mongodb"
+# ─────────────────────────────────────────────
+mongodb:
+  # URI kết nối trực tiếp (nếu cấu hình URI thì các trường host, port, user, password bên dưới sẽ bị bỏ qua)
+  # Ví dụ: "mongodb://localhost:27017" hoặc "mongodb+srv://user:pass@cluster.mongodb.net"
+  # Connection URI (if defined, host/port/user/password below are ignored)
+  uri: ""
+  # Địa chỉ host / Host
+  host: localhost
+  # Cổng kết nối / Port
+  port: 27017
+  # Tên database / Database name
+  database: "solarworth"
+  # Tên người dùng / Username
+  user: ""
+  # Mật khẩu / Password
+  password: ""

@@ -1,0 +1,109 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Cấu hình Discord Webhook
+# ─────────────────────────────────────────────
+# Gửi thông báo tự động lên Discord khi bảng
+# giá thay đổi (thêm, sửa, hoặc xóa item).
+# Sends automatic Discord notifications when
+# the price list changes (add, update, remove).
+# ─────────────────────────────────────────────
+
+# Bật/tắt toàn bộ tính năng webhook
+# Enable or disable the webhook feature entirely
+enabled: false
+
+# URL webhook Discord của bạn
+# Your Discord webhook URL
+url: "https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+
+# Gộp nhiều thay đổi giá lại và gửi sau X giây
+# Batch multiple price changes and send after X seconds
+batch-delay: 15
+
+# true  → gửi dạng Embed (đẹp hơn, có màu)
+# false → gửi dạng plain text
+# true  → send as Discord Embed (styled)
+# false → send as plain text message
+use-embed: true
+
+# ─────────────────────────────────────────────
+#   Cấu hình Embed / Embed Settings
+#   Chỉ dùng khi use-embed: true
+#   Only used when use-embed: true
+# ─────────────────────────────────────────────
+embed:
+  # Tên hiển thị của bot webhook / Webhook bot display name
+  username: "SolarWorth"
+  # URL ảnh đại diện bot (để trống = dùng ảnh mặc định)
+  # Bot avatar URL (empty = default avatar)
+  avatar-url: ""
+  # Màu thanh bên trái embed (decimal RGB)
+  # Left border color of the embed (decimal RGB)
+  color: 5814783
+  # Tiêu đề embed / Embed title
+  title: "📊 Cập nhật bảng giá"
+  # Footer embed / Embed footer text
+  footer: "SolarWorth Price Update"
+
+# ─────────────────────────────────────────────
+#   Định dạng plain text / Plain text format
+#   Chỉ dùng khi use-embed: false
+#   Only used when use-embed: false
+# ─────────────────────────────────────────────
+plain:
+  # Dòng tiêu đề. {time} = thời gian gửi.
+  # Header line. {time} = send timestamp.
+  header: "📊 **Cập nhật bảng giá** • `{time}`"
+  # Dòng khi giá item thay đổi
+  # Line format when an item price changes
+  # {icon} {name} {currency} {old} {new} {percent}
+  line-change:   "{icon} **{name}**: `{currency}{old}` → `{currency}{new}` ({percent}%)"
+  # Dòng khi item mới được thêm vào
+  # Line format when a new item is added
+  line-new:      "{icon} **{name}**: Mới — `{currency}{new}`"
+  # Dòng khi item bị xóa khỏi bảng giá
+  # Line format when an item is removed
+  line-removed:  "{icon} **{name}**: Đã xóa (cũ: `{currency}{old}`)"
+  # Dòng cuối tin nhắn (có thể để trống)
+  # Footer line (can be empty)
+  footer: ""
+  # Bọc toàn bộ tin nhắn trong code block Discord
+  # Wrap the entire message in a Discord code block
+  code-block: true
+  # Ngôn ngữ highlight của code block (diff cho màu +/-)
+  # Code block highlight language (diff for colored +/-)
+  code-block-lang: "diff"
+
+# ─────────────────────────────────────────────
+#   Ping vai trò Discord / Discord role pings
+# ─────────────────────────────────────────────
+ping:
+  # Danh sách role ID sẽ được ping khi có thông báo.
+  # Uncomment và thêm ID vai trò cần ping.
+  # List of role IDs to ping. Uncomment to enable.
+  roles:
+    # - "123456789012345678"  # ID vai trò cụ thể
+    # - "@everyone"          # ping toàn bộ server
+    # - "@here"              # ping người đang online
+  # Ping khi giá item thay đổi / Ping on price change
+  on-price-change: false
+  # Ping khi item mới được thêm / Ping on new item added
+  on-new-item: true
+  # Ping khi item bị xóa / Ping on item removed
+  on-remove: false
+
+# ─────────────────────────────────────────────
+#   Icon cho từng loại sự kiện / Event icons
+# ─────────────────────────────────────────────
+icons:
+  increase: "⬆️"   # Giá tăng / Price increased
+  decrease: "⬇️"   # Giá giảm / Price decreased
+  new-item: "✨"   # Item mới / New item added
+  removed:  "🗑️"   # Item bị xóa / Item removed
+
+# Ký hiệu tiền tệ hiển thị trước giá
+# Currency symbol prepended to prices
+currency: "$"
+
+# Số chữ số thập phân khi hiển thị giá
+# Number of decimal places when displaying prices
+decimal-places: 2

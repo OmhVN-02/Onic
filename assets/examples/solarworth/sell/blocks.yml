@@ -1,0 +1,1222 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Danh mục Khối
+#   (Blocks Category)
+# ─────────────────────────────────────────────
+# Định nghĩa icon, yêu cầu tiến trình và danh
+# sách vật phẩm cho danh mục Blocks.
+# Defines the category icon, progress milestones,
+# and sellable item list for Blocks.
+#
+# Cấu trúc chính / Top-level structure:
+#   Vị trí nút được quyết định bởi token (id) trong ma trận GUI.
+#   Button positions are controlled by (id) tokens in the GUI matrix.
+#   material    → loại block/item làm icon
+#                 Icon material
+#   title       → tên hiển thị trên nút
+#                 Display name on the button
+#   lore        → mô tả hiển thị khi hover
+#                 Lore shown on hover
+# ─────────────────────────────────────────────
+
+# Trang chính
+material: BRICK
+title: '#00F986ᴋʜốɪ'
+lore:
+- '&7Bán các khối để'
+- '&7nâng cấp hệ số bán hàng!'
+- ''
+- '&7Tiến trình đến &f{nextProgress}'
+- '&f{progressBar}{progressBarCompletedPercentage}'
+
+# ─────────────────────────────────────────────
+#   Màn hình tiến trình nâng cấp multiplier
+#   Multiplier upgrade progress screen
+# ─────────────────────────────────────────────
+#   layout    → bố cục GUI dùng ký tự đặc biệt:
+#               GUI layout using special chars:
+#                 -  = slot filler (kính xám)
+#                 c  = icon danh mục / category icon
+#                 b  = nút quay lại / back button
+#                 (N)= slot cấp độ N / level-N slot
+#   requirements → danh sách mốc cấp độ:
+#                  Upgrade milestones:
+#                    multiplier → hệ số nhân mới / new multiplier
+#                    price      → tiền tích lũy cần đạt / required sell total
+#   items     → giao diện các ô tiến trình:
+#               Progress slot appearances:
+#                 filler   → slot trống / empty slot
+#                 c        → icon danh mục / category icon
+#                 p.current  → cấp đang làm / in-progress level
+#                 p.complete → cấp đã xong / completed level
+#                 p.incomplete→ cấp chưa tới / locked level
+#                 back     → nút quay lại / back button
+# ─────────────────────────────────────────────
+progress:
+  title: ᴛɪếɴ ᴛʀɪ̀ɴʜ ᴋʜốɪ
+  layout:
+  - -c-----(20)-
+  - -(1)-(9)(10)(11)-(19)-
+  - -(2)-(8)-(12)-(18)-
+  - -(3)-(7)-(13)-(17)-
+  - -(4)(5)(6)-(14)(15)(16)-
+  - b--------
+  requirements:
+    '1':
+      multiplier: 1.1
+      price: 25000
+    '2':
+      multiplier: 1.2
+      price: 150000
+    '3':
+      multiplier: 1.3
+      price: 500000
+    '4':
+      multiplier: 1.4
+      price: 1000000
+    '5':
+      multiplier: 1.5
+      price: 5000000
+    '6':
+      multiplier: 1.6
+      price: 25000000
+    '7':
+      multiplier: 1.7
+      price: 250000000
+    '8':
+      multiplier: 1.8
+      price: 550000000
+    '9':
+      multiplier: 1.9
+      price: 850000000
+    '10':
+      multiplier: 2.0
+      price: 1000000000
+    '11':
+      multiplier: 2.1
+      price: 2000000000
+    '12':
+      multiplier: 2.2
+      price: 4000000000
+    '13':
+      multiplier: 2.3
+      price: 8000000000
+    '14':
+      multiplier: 2.4
+      price: 10000000000
+    '15':
+      multiplier: 2.5
+      price: 20000000000
+    '16':
+      multiplier: 2.6
+      price: 40000000000
+    '17':
+      multiplier: 2.7
+      price: 80000000000
+    '18':
+      multiplier: 2.8
+      price: 160000000000
+    '19':
+      multiplier: 2.9
+      price: 320000000000
+    '20':
+      multiplier: 3.0
+      price: 640000000000
+  
+  items:
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      title: ''
+      lore:
+      - ''
+    c:
+      material: BRICK
+      title: '#00F986ᴋʜốɪ'
+      lore:
+      - '&7Bán các khối để'
+      - '&7nâng cấp hệ số bán hàng!'
+      - ''
+      - '&fXem tiến trình bên dưới'
+    p:
+      current:
+        material: YELLOW_STAINED_GLASS_PANE
+        title: '#FCE300Đᴀɴɢ ᴛʜựᴄ ʜɪệɴ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      complete:
+        material: LIME_STAINED_GLASS_PANE
+        title: '#00F986ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      incomplete:
+        material: WHITE_STAINED_GLASS_PANE
+        title: '&fᴄʜưᴀ ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+    back:
+      material: RED_STAINED_GLASS_PANE
+      title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+      lore:
+      - '&fNhấn để quay lại'
+
+# ─────────────────────────────────────────────
+#   Catalogue — danh sách item bán được
+#   Catalogue — list of sellable items
+# ─────────────────────────────────────────────
+#   back       → nút quay lại màn hình trước
+#                Back button to previous screen
+#   navigation → phân trang (next/back)
+#                Pagination buttons (next/back)
+#   items.lore → lore hiển thị trên mỗi item
+#                Lore shown on each item in catalog
+#   items.list → danh sách Material ID Minecraft
+#                List of Minecraft Material IDs
+#                Dùng '*potion' hoặc '*enchanted_book'
+#                cho wildcard / Use wildcards like
+#                '*potion' or '*enchanted_book'
+# ─────────────────────────────────────────────
+catalog:
+  title: ᴋʜốɪ
+  back:
+    material: RED_STAINED_GLASS_PANE
+    title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+    lore:
+    - '&fNhấn để quay lại'
+  navigation:
+    next:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ sᴀᴜ'
+      lore:
+      - '&fNhấn để đi đến trang sau'
+    back:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ ᴛʀướᴄ'
+      lore:
+      - '&fNhấn để về trang trước'
+  items:
+    lore:
+    - '&fGiá: #00F986${price}'
+    list:
+    - STONE
+    - GRANITE
+    - POLISHED_GRANITE
+    - DIORITE
+    - POLISHED_DIORITE
+    - ANDESITE
+    - POLISHED_ANDESITE
+    - DEEPSLATE
+    - COBBLED_DEEPSLATE
+    - POLISHED_DEEPSLATE
+    - CALCITE
+    - TUFF
+    - DRIPSTONE_BLOCK
+    - DIRT
+    - COARSE_DIRT
+    - PODZOL
+    - ROOTED_DIRT
+    - MUD
+    - CRIMSON_NYLIUM
+    - WARPED_NYLIUM
+    - COBBLESTONE
+    - OAK_PLANKS
+    - SPRUCE_PLANKS
+    - BIRCH_PLANKS
+    - JUNGLE_PLANKS
+    - ACACIA_PLANKS
+    - CHERRY_PLANKS
+    - DARK_OAK_PLANKS
+    - CRIMSON_PLANKS
+    - WARPED_PLANKS
+    - BAMBOO_PLANKS
+    - MANGROVE_PLANKS
+    - BAMBOO_MOSAIC
+    - SAND
+    - SUSPICIOUS_SAND
+    - SUSPICIOUS_GRAVEL
+    - RED_SAND
+    - GRAVEL
+    - COAL_BLOCK
+    - RAW_IRON_BLOCK
+    - RAW_COPPER_BLOCK
+    - RAW_GOLD_BLOCK
+    - AMETHYST_BLOCK
+    - BUDDING_AMETHYST
+    - EXPOSED_COPPER
+    - WEATHERED_COPPER
+    - OXIDIZED_COPPER
+    - CUT_COPPER
+    - EXPOSED_CUT_COPPER
+    - WEATHERED_CUT_COPPER
+    - OXIDIZED_CUT_COPPER
+    - CUT_COPPER_STAIRS
+    - EXPOSED_CUT_COPPER_STAIRS
+    - WEATHERED_CUT_COPPER_STAIRS
+    - OXIDIZED_CUT_COPPER_STAIRS
+    - CUT_COPPER_SLAB
+    - EXPOSED_CUT_COPPER_SLAB
+    - WEATHERED_CUT_COPPER_SLAB
+    - OXIDIZED_CUT_COPPER_SLAB
+    - WAXED_COPPER_BLOCK
+    - WAXED_EXPOSED_COPPER
+    - WAXED_WEATHERED_COPPER
+    - WAXED_OXIDIZED_COPPER
+    - WAXED_CUT_COPPER
+    - WAXED_EXPOSED_CUT_COPPER
+    - WAXED_WEATHERED_CUT_COPPER
+    - WAXED_OXIDIZED_CUT_COPPER
+    - WAXED_CUT_COPPER_STAIRS
+    - WAXED_EXPOSED_CUT_COPPER_STAIRS
+    - WAXED_WEATHERED_CUT_COPPER_STAIRS
+    - WAXED_OXIDIZED_CUT_COPPER_STAIRS
+    - WAXED_CUT_COPPER_SLAB
+    - WAXED_EXPOSED_CUT_COPPER_SLAB
+    - WAXED_WEATHERED_CUT_COPPER_SLAB
+    - WAXED_OXIDIZED_CUT_COPPER_SLAB
+    - CHERRY_LOG
+    - MANGROVE_LOG
+    - MANGROVE_ROOTS
+    - MUDDY_MANGROVE_ROOTS
+    - STRIPPED_CHERRY_LOG
+    - STRIPPED_MANGROVE_LOG
+    - STRIPPED_CHERRY_WOOD
+    - STRIPPED_MANGROVE_WOOD
+    - STRIPPED_BAMBOO_BLOCK
+    - CHERRY_WOOD
+    - MANGROVE_WOOD
+    - SPONGE
+    - GLASS
+    - TINTED_GLASS
+    - SANDSTONE
+    - CHISELED_SANDSTONE
+    - CUT_SANDSTONE
+    - COBWEB
+    - WHITE_WOOL
+    - ORANGE_WOOL
+    - MAGENTA_WOOL
+    - LIGHT_BLUE_WOOL
+    - YELLOW_WOOL
+    - LIME_WOOL
+    - PINK_WOOL
+    - LIGHT_GRAY_WOOL
+    - GRAY_WOOL
+    - CYAN_WOOL
+    - PURPLE_WOOL
+    - BLUE_WOOL
+    - BROWN_WOOL
+    - GREEN_WOOL
+    - RED_WOOL
+    - BLACK_WOOL
+    - MOSS_CARPET
+    - MOSS_BLOCK
+    - PALE_MOSS_BLOCK
+    - PALE_MOSS_CARPET
+    - PALE_HANGING_MOSS
+    - OAK_SLAB
+    - SPRUCE_SLAB
+    - BIRCH_SLAB
+    - JUNGLE_SLAB
+    - ACACIA_SLAB
+    - CHERRY_SLAB
+    - DARK_OAK_SLAB
+    - MANGROVE_SLAB
+    - BAMBOO_SLAB
+    - BAMBOO_MOSAIC_SLAB
+    - CRIMSON_SLAB
+    - WARPED_SLAB
+    - STONE_SLAB
+    - SMOOTH_STONE_SLAB
+    - SANDSTONE_SLAB
+    - SMOOTH_SANDSTONE_SLAB
+    - COBBLESTONE_SLAB
+    - BRICK_SLAB
+    - STONE_BRICK_SLAB
+    - MUD_BRICK_SLAB
+    - NETHER_BRICK_SLAB
+    - QUARTZ_SLAB
+    - RED_SANDSTONE_SLAB
+    - CUT_RED_SANDSTONE_SLAB
+    - PURPUR_SLAB
+    - PRISMARINE_SLAB
+    - PRISMARINE_BRICK_SLAB
+    - DARK_PRISMARINE_SLAB
+    - SMOOTH_QUARTZ
+    - SMOOTH_RED_SANDSTONE
+    - SMOOTH_SANDSTONE
+    - SMOOTH_STONE
+    - BRICKS
+    - BOOKSHELF
+    - CHISELED_BOOKSHELF
+    - MOSSY_COBBLESTONE
+    - OBSIDIAN
+    - TORCH
+    - END_ROD
+    - PURPUR_BLOCK
+    - PURPUR_PILLAR
+    - PURPUR_STAIRS
+    - CHEST
+    - CRAFTING_TABLE
+    - FURNACE
+    - LADDER
+    - COBBLESTONE_STAIRS
+    - SNOW
+    - ICE
+    - SNOW_BLOCK
+    - CLAY
+    - JUKEBOX
+    - OAK_FENCE
+    - SPRUCE_FENCE
+    - BIRCH_FENCE
+    - JUNGLE_FENCE
+    - ACACIA_FENCE
+    - CHERRY_FENCE
+    - DARK_OAK_FENCE
+    - MANGROVE_FENCE
+    - BAMBOO_FENCE
+    - CRIMSON_FENCE
+    - WARPED_FENCE
+    - CARVED_PUMPKIN
+    - JACK_O_LANTERN
+    - NETHERRACK
+    - SOUL_SAND
+    - SOUL_SOIL
+    - BASALT
+    - POLISHED_BASALT
+    - SMOOTH_BASALT
+    - SOUL_TORCH
+    - GLOWSTONE
+    - INFESTED_STONE
+    - INFESTED_COBBLESTONE
+    - INFESTED_STONE_BRICKS
+    - INFESTED_MOSSY_STONE_BRICKS
+    - INFESTED_CRACKED_STONE_BRICKS
+    - INFESTED_CHISELED_STONE_BRICKS
+    - INFESTED_DEEPSLATE
+    - STONE_BRICKS
+    - MOSSY_STONE_BRICKS
+    - CRACKED_STONE_BRICKS
+    - CHISELED_STONE_BRICKS
+    - PACKED_MUD
+    - MUD_BRICKS
+    - DEEPSLATE_BRICKS
+    - CRACKED_DEEPSLATE_BRICKS
+    - DEEPSLATE_TILES
+    - CRACKED_DEEPSLATE_TILES
+    - CHISELED_DEEPSLATE
+    - REINFORCED_DEEPSLATE
+    - BROWN_MUSHROOM_BLOCK
+    - RED_MUSHROOM_BLOCK
+    - MUSHROOM_STEM
+    - IRON_BARS
+    - CHAIN
+    - GLASS_PANE
+    - VINE
+    - GLOW_LICHEN
+    - BRICK_STAIRS
+    - STONE_BRICK_STAIRS
+    - MUD_BRICK_STAIRS
+    - MYCELIUM
+    - NETHER_BRICKS
+    - CRACKED_NETHER_BRICKS
+    - CHISELED_NETHER_BRICKS
+    - NETHER_BRICK_FENCE
+    - NETHER_BRICK_STAIRS
+    - SCULK
+    - SCULK_VEIN
+    - SCULK_CATALYST
+    - SCULK_SHRIEKER
+    - ENCHANTING_TABLE
+    - END_STONE
+    - END_STONE_BRICKS
+    - DRAGON_EGG
+    - SANDSTONE_STAIRS
+    - ENDER_CHEST
+    - OAK_STAIRS
+    - SPRUCE_STAIRS
+    - BIRCH_STAIRS
+    - JUNGLE_STAIRS
+    - ACACIA_STAIRS
+    - CHERRY_STAIRS
+    - DARK_OAK_STAIRS
+    - MANGROVE_STAIRS
+    - BAMBOO_STAIRS
+    - BAMBOO_MOSAIC_STAIRS
+    - CRIMSON_STAIRS
+    - WARPED_STAIRS
+    - BEACON
+    - ANVIL
+    - CHIPPED_ANVIL
+    - DAMAGED_ANVIL
+    - CHISELED_QUARTZ_BLOCK
+    - QUARTZ_BLOCK
+    - QUARTZ_BRICKS
+    - QUARTZ_PILLAR
+    - QUARTZ_STAIRS
+    - WHITE_TERRACOTTA
+    - ORANGE_TERRACOTTA
+    - MAGENTA_TERRACOTTA
+    - LIGHT_BLUE_TERRACOTTA
+    - YELLOW_TERRACOTTA
+    - LIME_TERRACOTTA
+    - PINK_TERRACOTTA
+    - GRAY_TERRACOTTA
+    - LIGHT_GRAY_TERRACOTTA
+    - CYAN_TERRACOTTA
+    - PURPLE_TERRACOTTA
+    - BLUE_TERRACOTTA
+    - BROWN_TERRACOTTA
+    - GREEN_TERRACOTTA
+    - RED_TERRACOTTA
+    - BLACK_TERRACOTTA
+    - HAY_BLOCK
+    - WHITE_CARPET
+    - ORANGE_CARPET
+    - MAGENTA_CARPET
+    - LIGHT_BLUE_CARPET
+    - YELLOW_CARPET
+    - LIME_CARPET
+    - PINK_CARPET
+    - GRAY_CARPET
+    - LIGHT_GRAY_CARPET
+    - CYAN_CARPET
+    - PURPLE_CARPET
+    - BLUE_CARPET
+    - BROWN_CARPET
+    - GREEN_CARPET
+    - RED_CARPET
+    - BLACK_CARPET
+    - TERRACOTTA
+    - PACKED_ICE
+    - WHITE_STAINED_GLASS
+    - ORANGE_STAINED_GLASS
+    - MAGENTA_STAINED_GLASS
+    - LIGHT_BLUE_STAINED_GLASS
+    - YELLOW_STAINED_GLASS
+    - LIME_STAINED_GLASS
+    - PINK_STAINED_GLASS
+    - GRAY_STAINED_GLASS
+    - LIGHT_GRAY_STAINED_GLASS
+    - CYAN_STAINED_GLASS
+    - PURPLE_STAINED_GLASS
+    - BLUE_STAINED_GLASS
+    - BROWN_STAINED_GLASS
+    - GREEN_STAINED_GLASS
+    - RED_STAINED_GLASS
+    - BLACK_STAINED_GLASS
+    - WHITE_STAINED_GLASS_PANE
+    - ORANGE_STAINED_GLASS_PANE
+    - MAGENTA_STAINED_GLASS_PANE
+    - LIGHT_BLUE_STAINED_GLASS_PANE
+    - YELLOW_STAINED_GLASS_PANE
+    - LIME_STAINED_GLASS_PANE
+    - PINK_STAINED_GLASS_PANE
+    - GRAY_STAINED_GLASS_PANE
+    - LIGHT_GRAY_STAINED_GLASS_PANE
+    - CYAN_STAINED_GLASS_PANE
+    - PURPLE_STAINED_GLASS_PANE
+    - BLUE_STAINED_GLASS_PANE
+    - BROWN_STAINED_GLASS_PANE
+    - GREEN_STAINED_GLASS_PANE
+    - RED_STAINED_GLASS_PANE
+    - BLACK_STAINED_GLASS_PANE
+    - PRISMARINE
+    - PRISMARINE_BRICKS
+    - DARK_PRISMARINE
+    - PRISMARINE_STAIRS
+    - PRISMARINE_BRICK_STAIRS
+    - DARK_PRISMARINE_STAIRS
+    - RED_SANDSTONE
+    - CHISELED_RED_SANDSTONE
+    - CUT_RED_SANDSTONE
+    - RED_SANDSTONE_STAIRS
+    - MAGMA_BLOCK
+    - RED_NETHER_BRICKS
+    - BONE_BLOCK
+    - SHULKER_BOX
+    - WHITE_SHULKER_BOX
+    - ORANGE_SHULKER_BOX
+    - MAGENTA_SHULKER_BOX
+    - LIGHT_BLUE_SHULKER_BOX
+    - YELLOW_SHULKER_BOX
+    - LIME_SHULKER_BOX
+    - PINK_SHULKER_BOX
+    - GRAY_SHULKER_BOX
+    - LIGHT_GRAY_SHULKER_BOX
+    - CYAN_SHULKER_BOX
+    - PURPLE_SHULKER_BOX
+    - BLUE_SHULKER_BOX
+    - BROWN_SHULKER_BOX
+    - GREEN_SHULKER_BOX
+    - RED_SHULKER_BOX
+    - BLACK_SHULKER_BOX
+    - WHITE_GLAZED_TERRACOTTA
+    - ORANGE_GLAZED_TERRACOTTA
+    - MAGENTA_GLAZED_TERRACOTTA
+    - LIGHT_BLUE_GLAZED_TERRACOTTA
+    - YELLOW_GLAZED_TERRACOTTA
+    - LIME_GLAZED_TERRACOTTA
+    - PINK_GLAZED_TERRACOTTA
+    - GRAY_GLAZED_TERRACOTTA
+    - LIGHT_GRAY_GLAZED_TERRACOTTA
+    - CYAN_GLAZED_TERRACOTTA
+    - PURPLE_GLAZED_TERRACOTTA
+    - BLUE_GLAZED_TERRACOTTA
+    - BROWN_GLAZED_TERRACOTTA
+    - GREEN_GLAZED_TERRACOTTA
+    - RED_GLAZED_TERRACOTTA
+    - BLACK_GLAZED_TERRACOTTA
+    - WHITE_CONCRETE
+    - ORANGE_CONCRETE
+    - MAGENTA_CONCRETE
+    - LIGHT_BLUE_CONCRETE
+    - YELLOW_CONCRETE
+    - LIME_CONCRETE
+    - PINK_CONCRETE
+    - GRAY_CONCRETE
+    - LIGHT_GRAY_CONCRETE
+    - CYAN_CONCRETE
+    - PURPLE_CONCRETE
+    - BLUE_CONCRETE
+    - BROWN_CONCRETE
+    - GREEN_CONCRETE
+    - RED_CONCRETE
+    - BLACK_CONCRETE
+    - WHITE_CONCRETE_POWDER
+    - ORANGE_CONCRETE_POWDER
+    - MAGENTA_CONCRETE_POWDER
+    - LIGHT_BLUE_CONCRETE_POWDER
+    - YELLOW_CONCRETE_POWDER
+    - LIME_CONCRETE_POWDER
+    - PINK_CONCRETE_POWDER
+    - GRAY_CONCRETE_POWDER
+    - LIGHT_GRAY_CONCRETE_POWDER
+    - CYAN_CONCRETE_POWDER
+    - PURPLE_CONCRETE_POWDER
+    - BLUE_CONCRETE_POWDER
+    - BROWN_CONCRETE_POWDER
+    - GREEN_CONCRETE_POWDER
+    - RED_CONCRETE_POWDER
+    - BLACK_CONCRETE_POWDER
+    - TURTLE_EGG
+    - SNIFFER_EGG
+    - DEAD_TUBE_CORAL_BLOCK
+    - DEAD_BRAIN_CORAL_BLOCK
+    - DEAD_BUBBLE_CORAL_BLOCK
+    - DEAD_FIRE_CORAL_BLOCK
+    - DEAD_HORN_CORAL_BLOCK
+    - TUBE_CORAL_BLOCK
+    - BRAIN_CORAL_BLOCK
+    - BUBBLE_CORAL_BLOCK
+    - FIRE_CORAL_BLOCK
+    - HORN_CORAL_BLOCK
+    - BLUE_ICE
+    - CONDUIT
+    - POLISHED_GRANITE_STAIRS
+    - SMOOTH_RED_SANDSTONE_STAIRS
+    - MOSSY_STONE_BRICK_STAIRS
+    - POLISHED_DIORITE_STAIRS
+    - MOSSY_COBBLESTONE_STAIRS
+    - END_STONE_BRICK_STAIRS
+    - STONE_STAIRS
+    - SMOOTH_SANDSTONE_STAIRS
+    - SMOOTH_QUARTZ_STAIRS
+    - GRANITE_STAIRS
+    - ANDESITE_STAIRS
+    - RED_NETHER_BRICK_STAIRS
+    - POLISHED_ANDESITE_STAIRS
+    - DIORITE_STAIRS
+    - COBBLED_DEEPSLATE_STAIRS
+    - POLISHED_DEEPSLATE_STAIRS
+    - DEEPSLATE_BRICK_STAIRS
+    - DEEPSLATE_TILE_STAIRS
+    - POLISHED_GRANITE_SLAB
+    - SMOOTH_RED_SANDSTONE_SLAB
+    - MOSSY_STONE_BRICK_SLAB
+    - POLISHED_DIORITE_SLAB
+    - MOSSY_COBBLESTONE_SLAB
+    - END_STONE_BRICK_SLAB
+    - SMOOTH_QUARTZ_SLAB
+    - GRANITE_SLAB
+    - ANDESITE_SLAB
+    - RED_NETHER_BRICK_SLAB
+    - POLISHED_ANDESITE_SLAB
+    - DIORITE_SLAB
+    - COBBLED_DEEPSLATE_SLAB
+    - POLISHED_DEEPSLATE_SLAB
+    - DEEPSLATE_BRICK_SLAB
+    - DEEPSLATE_TILE_SLAB
+    - SCAFFOLDING
+    - REDSTONE_TORCH
+    - REPEATER
+    - COMPARATOR
+    - PISTON
+    - STICKY_PISTON
+    - SLIME_BLOCK
+    - HONEY_BLOCK
+    - OBSERVER
+    - HOPPER
+    - DISPENSER
+    - DROPPER
+    - LECTERN
+    - TARGET
+    - LEVER
+    - LIGHTNING_ROD
+    - DAYLIGHT_DETECTOR
+    - SCULK_SENSOR
+    - CALIBRATED_SCULK_SENSOR
+    - TRIPWIRE_HOOK
+    - TRAPPED_CHEST
+    - TNT
+    - REDSTONE_LAMP
+    - NOTE_BLOCK
+    - STONE_BUTTON
+    - POLISHED_BLACKSTONE_BUTTON
+    - OAK_BUTTON
+    - SPRUCE_BUTTON
+    - BIRCH_BUTTON
+    - JUNGLE_BUTTON
+    - MANGROVE_BUTTON
+    - CHERRY_BUTTON
+    - DARK_OAK_BUTTON
+    - BAMBOO_BUTTON
+    - CRIMSON_BUTTON
+    - WARPED_BUTTON
+    - STONE_PRESSURE_PLATE
+    - POLISHED_BLACKSTONE_PRESSURE_PLATE
+    - LIGHT_WEIGHTED_PRESSURE_PLATE
+    - HEAVY_WEIGHTED_PRESSURE_PLATE
+    - OAK_PRESSURE_PLATE
+    - SPRUCE_PRESSURE_PLATE
+    - BIRCH_PRESSURE_PLATE
+    - JUNGLE_PRESSURE_PLATE
+    - ACACIA_PRESSURE_PLATE
+    - CHERRY_PRESSURE_PLATE
+    - DARK_OAK_PRESSURE_PLATE
+    - MANGROVE_PRESSURE_PLATE
+    - BAMBOO_PRESSURE_PLATE
+    - CRIMSON_PRESSURE_PLATE
+    - WARPED_PRESSURE_PLATE
+    - IRON_DOOR
+    - OAK_DOOR
+    - SPRUCE_DOOR
+    - BIRCH_DOOR
+    - JUNGLE_DOOR
+    - ACACIA_DOOR
+    - CHERRY_DOOR
+    - DARK_OAK_DOOR
+    - MANGROVE_DOOR
+    - BAMBOO_DOOR
+    - CRIMSON_DOOR
+    - WARPED_DOOR
+    - IRON_TRAPDOOR
+    - OAK_TRAPDOOR
+    - SPRUCE_TRAPDOOR
+    - BIRCH_TRAPDOOR
+    - JUNGLE_TRAPDOOR
+    - ACACIA_TRAPDOOR
+    - CHERRY_TRAPDOOR
+    - DARK_OAK_TRAPDOOR
+    - MANGROVE_TRAPDOOR
+    - BAMBOO_TRAPDOOR
+    - CRIMSON_TRAPDOOR
+    - WARPED_TRAPDOOR
+    - OAK_FENCE_GATE
+    - SPRUCE_FENCE_GATE
+    - BIRCH_FENCE_GATE
+    - JUNGLE_FENCE_GATE
+    - ACACIA_FENCE_GATE
+    - CHERRY_FENCE_GATE
+    - DARK_OAK_FENCE_GATE
+    - MANGROVE_FENCE_GATE
+    - BAMBOO_FENCE_GATE
+    - CRIMSON_FENCE_GATE
+    - WARPED_FENCE_GATE
+    - POWERED_RAIL
+    - DETECTOR_RAIL
+    - RAIL
+    - ACTIVATOR_RAIL
+    - MINECART
+    - CHEST_MINECART
+    - TNT_MINECART
+    - HOPPER_MINECART
+    - CARROT_ON_A_STICK
+    - WARPED_FUNGUS_ON_A_STICK
+    - OAK_BOAT
+    - OAK_CHEST_BOAT
+    - SPRUCE_BOAT
+    - SPRUCE_CHEST_BOAT
+    - BIRCH_BOAT
+    - BIRCH_CHEST_BOAT
+    - JUNGLE_BOAT
+    - JUNGLE_CHEST_BOAT
+    - ACACIA_BOAT
+    - ACACIA_CHEST_BOAT
+    - CHERRY_BOAT
+    - CHERRY_CHEST_BOAT
+    - DARK_OAK_BOAT
+    - DARK_OAK_CHEST_BOAT
+    - MANGROVE_BOAT
+    - MANGROVE_CHEST_BOAT
+    - BAMBOO_RAFT
+    - BAMBOO_CHEST_RAFT
+    - APPLE
+    - STICK
+    - MUSHROOM_STEW
+    - BREAD
+    - FLINT
+    - PAINTING
+    - GOLDEN_APPLE
+    - ENCHANTED_GOLDEN_APPLE
+    - OAK_SIGN
+    - SPRUCE_SIGN
+    - BIRCH_SIGN
+    - JUNGLE_SIGN
+    - ACACIA_SIGN
+    - CHERRY_SIGN
+    - DARK_OAK_SIGN
+    - MANGROVE_SIGN
+    - BAMBOO_SIGN
+    - CRIMSON_SIGN
+    - WARPED_SIGN
+    - OAK_HANGING_SIGN
+    - SPRUCE_HANGING_SIGN
+    - BIRCH_HANGING_SIGN
+    - JUNGLE_HANGING_SIGN
+    - ACACIA_HANGING_SIGN
+    - CHERRY_HANGING_SIGN
+    - DARK_OAK_HANGING_SIGN
+    - MANGROVE_HANGING_SIGN
+    - BAMBOO_HANGING_SIGN
+    - CRIMSON_HANGING_SIGN
+    - WARPED_HANGING_SIGN
+    - DRIED_KELP_BLOCK
+    - PAPER
+    - BOOK
+    - EGG
+    - BONE
+    - SUGAR
+    - CAKE
+    - WHITE_BED
+    - ORANGE_BED
+    - MAGENTA_BED
+    - LIGHT_BLUE_BED
+    - YELLOW_BED
+    - LIME_BED
+    - PINK_BED
+    - GRAY_BED
+    - LIGHT_GRAY_BED
+    - CYAN_BED
+    - PURPLE_BED
+    - BLUE_BED
+    - BROWN_BED
+    - GREEN_BED
+    - RED_BED
+    - BLACK_BED
+    - COOKIE
+    - MAP
+    - MELON_SLICE
+    - DRIED_KELP
+    - GLASS_BOTTLE
+    - FERMENTED_SPIDER_EYE
+    - BLAZE_POWDER
+    - BREWING_STAND
+    - CAULDRON
+    - ENDER_EYE
+    - GLISTERING_MELON_SLICE
+    - CAMEL_SPAWN_EGG
+    - ENDER_DRAGON_SPAWN_EGG
+    - IRON_GOLEM_SPAWN_EGG
+    - SNIFFER_SPAWN_EGG
+    - SNOW_GOLEM_SPAWN_EGG
+    - WITHER_SPAWN_EGG
+    - EXPERIENCE_BOTTLE
+    - FIRE_CHARGE
+    - WRITABLE_BOOK
+    - WRITTEN_BOOK
+    - ITEM_FRAME
+    - FLOWER_POT
+    - GOLDEN_CARROT
+    - SKELETON_SKULL
+    - WITHER_SKELETON_SKULL
+    - ZOMBIE_HEAD
+    - CREEPER_HEAD
+    - DRAGON_HEAD
+    - PIGLIN_HEAD
+    - NETHER_STAR
+    - PUMPKIN_PIE
+    - FIREWORK_STAR
+    - NETHER_BRICK
+    - RABBIT_STEW
+    - RABBIT_FOOT
+    - WHITE_BANNER
+    - ORANGE_BANNER
+    - MAGENTA_BANNER
+    - LIGHT_BLUE_BANNER
+    - YELLOW_BANNER
+    - LIME_BANNER
+    - PINK_BANNER
+    - GRAY_BANNER
+    - LIGHT_GRAY_BANNER
+    - CYAN_BANNER
+    - PURPLE_BANNER
+    - BLUE_BANNER
+    - BROWN_BANNER
+    - GREEN_BANNER
+    - RED_BANNER
+    - BLACK_BANNER
+    - END_CRYSTAL
+    - POPPED_CHORUS_FRUIT
+    - PITCHER_POD
+    - BEETROOT_SOUP
+    - DRAGON_BREATH
+    - SPLASH_POTION
+    - SPECTRAL_ARROW
+    - TIPPED_ARROW
+    - LINGERING_POTION
+    - SHIELD
+    - KNOWLEDGE_BOOK
+    - MUSIC_DISC_13
+    - MUSIC_DISC_CAT
+    - MUSIC_DISC_BLOCKS
+    - MUSIC_DISC_CHIRP
+    - MUSIC_DISC_FAR
+    - MUSIC_DISC_MALL
+    - MUSIC_DISC_MELLOHI
+    - MUSIC_DISC_STAL
+    - MUSIC_DISC_STRAD
+    - MUSIC_DISC_WARD
+    - MUSIC_DISC_11
+    - MUSIC_DISC_WAIT
+    - MUSIC_DISC_OTHERSIDE
+    - MUSIC_DISC_RELIC
+    - MUSIC_DISC_5
+    - MUSIC_DISC_PIGSTEP
+    - MUSIC_DISC_CREATOR
+    - MUSIC_DISC_CREATOR_MUSIC_BOX
+    - MUSIC_DISC_PRECIPICE
+    - DISC_FRAGMENT_5
+    - SUSPICIOUS_STEW
+    - LOOM
+    - FLOWER_BANNER_PATTERN
+    - CREEPER_BANNER_PATTERN
+    - SKULL_BANNER_PATTERN
+    - MOJANG_BANNER_PATTERN
+    - GLOBE_BANNER_PATTERN
+    - PIGLIN_BANNER_PATTERN
+    - FLOW_BANNER_PATTERN
+    - GUST_BANNER_PATTERN
+    - COMPOSTER
+    - BARREL
+    - SMOKER
+    - BLAST_FURNACE
+    - CARTOGRAPHY_TABLE
+    - FLETCHING_TABLE
+    - GRINDSTONE
+    - SMITHING_TABLE
+    - STONECUTTER
+    - BELL
+    - LANTERN
+    - SOUL_LANTERN
+    - CAMPFIRE
+    - SOUL_CAMPFIRE
+    - HONEYCOMB
+    - BEE_NEST
+    - BEEHIVE
+    - HONEY_BOTTLE
+    - LODESTONE
+    - CRYING_OBSIDIAN
+    - BLACKSTONE
+    - BLACKSTONE_SLAB
+    - BLACKSTONE_STAIRS
+    - GILDED_BLACKSTONE
+    - POLISHED_BLACKSTONE
+    - POLISHED_BLACKSTONE_SLAB
+    - POLISHED_BLACKSTONE_STAIRS
+    - CHISELED_POLISHED_BLACKSTONE
+    - POLISHED_BLACKSTONE_BRICKS
+    - POLISHED_BLACKSTONE_BRICK_SLAB
+    - POLISHED_BLACKSTONE_BRICK_STAIRS
+    - RESPAWN_ANCHOR
+    - CANDLE
+    - WHITE_CANDLE
+    - ORANGE_CANDLE
+    - MAGENTA_CANDLE
+    - LIGHT_BLUE_CANDLE
+    - YELLOW_CANDLE
+    - LIME_CANDLE
+    - PINK_CANDLE
+    - GRAY_CANDLE
+    - LIGHT_GRAY_CANDLE
+    - CYAN_CANDLE
+    - PURPLE_CANDLE
+    - BLUE_CANDLE
+    - BROWN_CANDLE
+    - GREEN_CANDLE
+    - RED_CANDLE
+    - BLACK_CANDLE
+    - POINTED_DRIPSTONE
+    - ANGLER_POTTERY_SHERD
+    - ARCHER_POTTERY_SHERD
+    - ARMS_UP_POTTERY_SHERD
+    - BLADE_POTTERY_SHERD
+    - BREWER_POTTERY_SHERD
+    - BURN_POTTERY_SHERD
+    - DANGER_POTTERY_SHERD
+    - EXPLORER_POTTERY_SHERD
+    - FRIEND_POTTERY_SHERD
+    - HEART_POTTERY_SHERD
+    - HEARTBREAK_POTTERY_SHERD
+    - HOWL_POTTERY_SHERD
+    - MINER_POTTERY_SHERD
+    - MOURNER_POTTERY_SHERD
+    - PLENTY_POTTERY_SHERD
+    - PRIZE_POTTERY_SHERD
+    - SHEAF_POTTERY_SHERD
+    - SHELTER_POTTERY_SHERD
+    - SKULL_POTTERY_SHERD
+    - SNORT_POTTERY_SHERD
+    # Tuff variants (1.21+)
+    - TUFF_SLAB
+    - TUFF_STAIRS
+    - TUFF_WALL
+    - TUFF_BRICKS
+    - TUFF_BRICK_SLAB
+    - TUFF_BRICK_STAIRS
+    - TUFF_BRICK_WALL
+    - CHISELED_TUFF
+    - CHISELED_TUFF_BRICKS
+    - POLISHED_TUFF
+    - POLISHED_TUFF_SLAB
+    - POLISHED_TUFF_STAIRS
+    - POLISHED_TUFF_WALL
+    # Resin blocks (1.21.4+)
+    - RESIN_BRICK
+    - RESIN_BRICKS
+    - RESIN_BRICK_SLAB
+    - RESIN_BRICK_STAIRS
+    - RESIN_BRICK_WALL
+    - CHISELED_RESIN_BRICKS
+    # Pale Oak wood (1.21.3+)
+    - PALE_OAK_LOG
+    - PALE_OAK_WOOD
+    - STRIPPED_PALE_OAK_LOG
+    - STRIPPED_PALE_OAK_WOOD
+    - PALE_OAK_PLANKS
+    - PALE_OAK_SLAB
+    - PALE_OAK_STAIRS
+    - PALE_OAK_FENCE
+    - PALE_OAK_FENCE_GATE
+    - PALE_OAK_DOOR
+    - PALE_OAK_TRAPDOOR
+    - PALE_OAK_PRESSURE_PLATE
+    - PALE_OAK_BUTTON
+    - PALE_OAK_SIGN
+    - PALE_OAK_HANGING_SIGN
+    - PALE_OAK_BOAT
+    - PALE_OAK_CHEST_BOAT
+    # Shelves (1.21.5+)
+    - OAK_SHELF
+    - SPRUCE_SHELF
+    - BIRCH_SHELF
+    - JUNGLE_SHELF
+    - ACACIA_SHELF
+    - DARK_OAK_SHELF
+    - MANGROVE_SHELF
+    - CHERRY_SHELF
+    - BAMBOO_SHELF
+    - CRIMSON_SHELF
+    - WARPED_SHELF
+    - PALE_OAK_SHELF
+    # Cut sandstone
+    - CUT_SANDSTONE_SLAB
+    # Copper decorative blocks (all oxidation stages + waxed)
+    - COPPER_BARS
+    - COPPER_BULB
+    - COPPER_GRATE
+    - COPPER_CHAIN
+    - COPPER_LANTERN
+    - COPPER_DOOR
+    - COPPER_TRAPDOOR
+    - COPPER_CHEST
+    - COPPER_GOLEM_STATUE
+    - CHISELED_COPPER
+    - EXPOSED_CHISELED_COPPER
+    - EXPOSED_COPPER_BARS
+    - EXPOSED_COPPER_BULB
+    - EXPOSED_COPPER_GRATE
+    - EXPOSED_COPPER_CHAIN
+    - EXPOSED_COPPER_LANTERN
+    - EXPOSED_COPPER_DOOR
+    - EXPOSED_COPPER_TRAPDOOR
+    - EXPOSED_COPPER_CHEST
+    - EXPOSED_COPPER_GOLEM_STATUE
+    - WEATHERED_CHISELED_COPPER
+    - WEATHERED_COPPER_BARS
+    - WEATHERED_COPPER_BULB
+    - WEATHERED_COPPER_GRATE
+    - WEATHERED_COPPER_CHAIN
+    - WEATHERED_COPPER_LANTERN
+    - WEATHERED_COPPER_DOOR
+    - WEATHERED_COPPER_TRAPDOOR
+    - WEATHERED_COPPER_CHEST
+    - WEATHERED_COPPER_GOLEM_STATUE
+    - OXIDIZED_CHISELED_COPPER
+    - OXIDIZED_COPPER_BARS
+    - OXIDIZED_COPPER_BULB
+    - OXIDIZED_COPPER_GRATE
+    - OXIDIZED_COPPER_CHAIN
+    - OXIDIZED_COPPER_LANTERN
+    - OXIDIZED_COPPER_DOOR
+    - OXIDIZED_COPPER_TRAPDOOR
+    - OXIDIZED_COPPER_CHEST
+    - OXIDIZED_COPPER_GOLEM_STATUE
+    - WAXED_CHISELED_COPPER
+    - WAXED_COPPER_BARS
+    - WAXED_COPPER_BULB
+    - WAXED_COPPER_GRATE
+    - WAXED_COPPER_CHAIN
+    - WAXED_COPPER_LANTERN
+    - WAXED_COPPER_DOOR
+    - WAXED_COPPER_TRAPDOOR
+    - WAXED_COPPER_CHEST
+    - WAXED_COPPER_GOLEM_STATUE
+    - WAXED_LIGHTNING_ROD
+    - WAXED_EXPOSED_CHISELED_COPPER
+    - WAXED_EXPOSED_COPPER_BARS
+    - WAXED_EXPOSED_COPPER_BULB
+    - WAXED_EXPOSED_COPPER_GRATE
+    - WAXED_EXPOSED_COPPER_CHAIN
+    - WAXED_EXPOSED_COPPER_LANTERN
+    - WAXED_EXPOSED_COPPER_DOOR
+    - WAXED_EXPOSED_COPPER_TRAPDOOR
+    - WAXED_EXPOSED_COPPER_CHEST
+    - WAXED_EXPOSED_COPPER_GOLEM_STATUE
+    - WAXED_WEATHERED_CHISELED_COPPER
+    - WAXED_WEATHERED_COPPER_BARS
+    - WAXED_WEATHERED_COPPER_BULB
+    - WAXED_WEATHERED_COPPER_GRATE
+    - WAXED_WEATHERED_COPPER_CHAIN
+    - WAXED_WEATHERED_COPPER_LANTERN
+    - WAXED_WEATHERED_COPPER_DOOR
+    - WAXED_WEATHERED_COPPER_TRAPDOOR
+    - WAXED_WEATHERED_COPPER_CHEST
+    - WAXED_WEATHERED_COPPER_GOLEM_STATUE
+    - WAXED_OXIDIZED_CHISELED_COPPER
+    - WAXED_OXIDIZED_COPPER_BARS
+    - WAXED_OXIDIZED_COPPER_BULB
+    - WAXED_OXIDIZED_COPPER_GRATE
+    - WAXED_OXIDIZED_COPPER_CHAIN
+    - WAXED_OXIDIZED_COPPER_LANTERN
+    - WAXED_OXIDIZED_COPPER_DOOR
+    - WAXED_OXIDIZED_COPPER_TRAPDOOR
+    - WAXED_OXIDIZED_COPPER_CHEST
+    - WAXED_OXIDIZED_COPPER_GOLEM_STATUE
+    # Misc decorative
+    - DECORATED_POT
+    - CRAFTER
+    - SEA_LANTERN
+    - STRIPPED_WARPED_HYPHAE
+    - ACACIA_BUTTON
+    # Resin blocks (1.21.2+)
+    - RESIN_BLOCK
+    # Paper 26.3 / Wilderness Bound
+    - WHITE_WOOL_SLAB
+    - WHITE_WOOL_STAIRS
+    - WHITE_CONCRETE_SLAB
+    - WHITE_CONCRETE_STAIRS
+    - WHITE_CUSHION
+    - ORANGE_WOOL_SLAB
+    - ORANGE_WOOL_STAIRS
+    - ORANGE_CONCRETE_SLAB
+    - ORANGE_CONCRETE_STAIRS
+    - ORANGE_CUSHION
+    - MAGENTA_WOOL_SLAB
+    - MAGENTA_WOOL_STAIRS
+    - MAGENTA_CONCRETE_SLAB
+    - MAGENTA_CONCRETE_STAIRS
+    - MAGENTA_CUSHION
+    - LIGHT_BLUE_WOOL_SLAB
+    - LIGHT_BLUE_WOOL_STAIRS
+    - LIGHT_BLUE_CONCRETE_SLAB
+    - LIGHT_BLUE_CONCRETE_STAIRS
+    - LIGHT_BLUE_CUSHION
+    - YELLOW_WOOL_SLAB
+    - YELLOW_WOOL_STAIRS
+    - YELLOW_CONCRETE_SLAB
+    - YELLOW_CONCRETE_STAIRS
+    - YELLOW_CUSHION
+    - LIME_WOOL_SLAB
+    - LIME_WOOL_STAIRS
+    - LIME_CONCRETE_SLAB
+    - LIME_CONCRETE_STAIRS
+    - LIME_CUSHION
+    - PINK_WOOL_SLAB
+    - PINK_WOOL_STAIRS
+    - PINK_CONCRETE_SLAB
+    - PINK_CONCRETE_STAIRS
+    - PINK_CUSHION
+    - GRAY_WOOL_SLAB
+    - GRAY_WOOL_STAIRS
+    - GRAY_CONCRETE_SLAB
+    - GRAY_CONCRETE_STAIRS
+    - GRAY_CUSHION
+    - LIGHT_GRAY_WOOL_SLAB
+    - LIGHT_GRAY_WOOL_STAIRS
+    - LIGHT_GRAY_CONCRETE_SLAB
+    - LIGHT_GRAY_CONCRETE_STAIRS
+    - LIGHT_GRAY_CUSHION
+    - CYAN_WOOL_SLAB
+    - CYAN_WOOL_STAIRS
+    - CYAN_CONCRETE_SLAB
+    - CYAN_CONCRETE_STAIRS
+    - CYAN_CUSHION
+    - PURPLE_WOOL_SLAB
+    - PURPLE_WOOL_STAIRS
+    - PURPLE_CONCRETE_SLAB
+    - PURPLE_CONCRETE_STAIRS
+    - PURPLE_CUSHION
+    - BLUE_WOOL_SLAB
+    - BLUE_WOOL_STAIRS
+    - BLUE_CONCRETE_SLAB
+    - BLUE_CONCRETE_STAIRS
+    - BLUE_CUSHION
+    - BROWN_WOOL_SLAB
+    - BROWN_WOOL_STAIRS
+    - BROWN_CONCRETE_SLAB
+    - BROWN_CONCRETE_STAIRS
+    - BROWN_CUSHION
+    - GREEN_WOOL_SLAB
+    - GREEN_WOOL_STAIRS
+    - GREEN_CONCRETE_SLAB
+    - GREEN_CONCRETE_STAIRS
+    - GREEN_CUSHION
+    - RED_WOOL_SLAB
+    - RED_WOOL_STAIRS
+    - RED_CONCRETE_SLAB
+    - RED_CONCRETE_STAIRS
+    - RED_CUSHION
+    - BLACK_WOOL_SLAB
+    - BLACK_WOOL_STAIRS
+    - BLACK_CONCRETE_SLAB
+    - BLACK_CONCRETE_STAIRS
+    - BLACK_CUSHION
+    - POPLAR_LOG
+    - POPLAR_WOOD
+    - POPLAR_PLANKS
+    - POPLAR_SLAB
+    - POPLAR_STAIRS
+    - POPLAR_FENCE
+    - POPLAR_FENCE_GATE
+    - POPLAR_DOOR
+    - POPLAR_TRAPDOOR
+    - POPLAR_BUTTON
+    - POPLAR_PRESSURE_PLATE
+    - POPLAR_SIGN
+    - POPLAR_HANGING_SIGN
+    - POPLAR_BOAT
+    - POPLAR_CHEST_BOAT
+    - POPLAR_SHELF
+    - STRIPPED_POPLAR_LOG
+    - STRIPPED_POPLAR_WOOD
+    - STRAW_BED

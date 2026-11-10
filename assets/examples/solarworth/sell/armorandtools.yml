@@ -1,0 +1,324 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Danh mục Giáp & Công cụ
+#   (Armor & Tools Category)
+# ─────────────────────────────────────────────
+# Định nghĩa icon, yêu cầu tiến trình và danh
+# sách vật phẩm cho danh mục Armor & Tools.
+# Defines the category icon, progress milestones,
+# and sellable item list for Armor & Tools.
+#
+# Cấu trúc chính / Top-level structure:
+#   Vị trí nút được quyết định bởi token (id) trong ma trận GUI.
+#   Button positions are controlled by (id) tokens in the GUI matrix.
+#   material    → loại block/item làm icon
+#                 Icon material
+#   title       → tên hiển thị trên nút
+#                 Display name on the button
+#   lore        → mô tả hiển thị khi hover
+#                 Lore shown on hover
+# ─────────────────────────────────────────────
+
+# Trang chính
+material: NETHERITE_HELMET
+title: '#00F986ɢɪáᴘ & ᴄôɴɢ ᴄụ'
+lore:
+- '&7Bán giáp và công cụ để'
+- '&7nâng cấp hệ số bán hàng!'
+- ''
+- '&7Tiến trình đến &f{nextProgress}'
+- '&f{progressBar}{progressBarCompletedPercentage}'
+progress:
+  title: ᴛɪếɴ ᴛʀɪ̀ɴʜ ɢɪáᴘ & ᴄôɴɢ ᴄụ
+  layout:
+  - -c-----(20)-
+  - -(1)-(9)(10)(11)-(19)-
+  - -(2)-(8)-(12)-(18)-
+  - -(3)-(7)-(13)-(17)-
+  - -(4)(5)(6)-(14)(15)(16)-
+  - b--------
+  requirements:
+    '1':
+      multiplier: 1.1
+      price: 25000
+    '2':
+      multiplier: 1.2
+      price: 150000
+    '3':
+      multiplier: 1.3
+      price: 500000
+    '4':
+      multiplier: 1.4
+      price: 1000000
+    '5':
+      multiplier: 1.5
+      price: 5000000
+    '6':
+      multiplier: 1.6
+      price: 25000000
+    '7':
+      multiplier: 1.7
+      price: 250000000
+    '8':
+      multiplier: 1.8
+      price: 550000000
+    '9':
+      multiplier: 1.9
+      price: 850000000
+    '10':
+      multiplier: 2.0
+      price: 1000000000
+    '11':
+      multiplier: 2.1
+      price: 2000000000
+    '12':
+      multiplier: 2.2
+      price: 4000000000
+    '13':
+      multiplier: 2.3
+      price: 8000000000
+    '14':
+      multiplier: 2.4
+      price: 10000000000
+    '15':
+      multiplier: 2.5
+      price: 20000000000
+    '16':
+      multiplier: 2.6
+      price: 40000000000
+    '17':
+      multiplier: 2.7
+      price: 80000000000
+    '18':
+      multiplier: 2.8
+      price: 160000000000
+    '19':
+      multiplier: 2.9
+      price: 320000000000
+    '20':
+      multiplier: 3.0
+      price: 640000000000
+  
+  items:
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      title: ''
+      lore:
+      - ''
+    c:
+      material: NETHERITE_HELMET
+      title: '#00F986ɢɪáᴘ & ᴄôɴɢ ᴄụ'
+      lore:
+      - '&7Bán giáp và công cụ để'
+      - '&7nâng cấp hệ số bán hàng!'
+      - ''
+      - '&fXem tiến trình bên dưới'
+    p:
+      current:
+        material: YELLOW_STAINED_GLASS_PANE
+        title: '#FCE300Đᴀɴɢ ᴛʜựᴄ ʜɪệɴ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      complete:
+        material: LIME_STAINED_GLASS_PANE
+        title: '#00F986ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+      incomplete:
+        material: WHITE_STAINED_GLASS_PANE
+        title: '&fᴄʜưᴀ ʜᴏàɴ ᴛʜàɴʜ'
+        lore:
+        - '&f{progressBar} &f{multiplier} {progressBarCompletedPercentage}'
+        - '&7{currentProgressMoney}/{targetProgressMoney}'
+    back:
+      material: RED_STAINED_GLASS_PANE
+      title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+      lore:
+      - '&fNhấn để quay lại'
+
+catalog:
+  title: ɢɪáᴘ & ᴄôɴɢ ᴄụ
+  back:
+    material: RED_STAINED_GLASS_PANE
+    title: '#FC0000ǫᴜᴀʏ ʟạɪ'
+    lore:
+    - '&fNhấn để quay lại'
+  navigation:
+    next:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ sᴀᴜ'
+      lore:
+      - '&fNhấn để đi đến trang sau'
+    back:
+      material: ARROW
+      title: '#00F986ᴛʀᴀɴɢ ᴛʀướᴄ'
+      lore:
+      - '&fNhấn để về trang trước'
+  items:
+    lore:
+    - '&fGiá: #00F986${price}'
+    list:
+    - DIAMOND_SHOVEL
+    - DIAMOND_PICKAXE
+    - DIAMOND_AXE
+    - DIAMOND_HOE
+    - DIAMOND_SWORD
+    - DIAMOND_HELMET
+    - DIAMOND_CHESTPLATE
+    - DIAMOND_LEGGINGS
+    - DIAMOND_BOOTS
+    - CHAINMAIL_HELMET
+    - CHAINMAIL_CHESTPLATE
+    - CHAINMAIL_LEGGINGS
+    - CHAINMAIL_BOOTS
+    - LEATHER_HORSE_ARMOR
+    - IRON_HORSE_ARMOR
+    - GOLDEN_HORSE_ARMOR
+    - DIAMOND_HORSE_ARMOR
+    - IRON_SHOVEL
+    - IRON_PICKAXE
+    - IRON_AXE
+    - IRON_HOE
+    - IRON_SWORD
+    - IRON_HELMET
+    - IRON_CHESTPLATE
+    - IRON_LEGGINGS
+    - IRON_BOOTS
+    - NETHERITE_SHOVEL
+    - NETHERITE_PICKAXE
+    - NETHERITE_AXE
+    - NETHERITE_HOE
+    - NETHERITE_SWORD
+    - NETHERITE_HELMET
+    - NETHERITE_CHESTPLATE
+    - NETHERITE_LEGGINGS
+    - NETHERITE_BOOTS
+    - GOLDEN_SHOVEL
+    - GOLDEN_PICKAXE
+    - GOLDEN_AXE
+    - GOLDEN_HOE
+    - GOLDEN_SWORD
+    - GOLDEN_HELMET
+    - GOLDEN_CHESTPLATE
+    - GOLDEN_LEGGINGS
+    - GOLDEN_BOOTS
+    - BOW
+    - CROSSBOW
+    - FISHING_ROD
+    - LEAD
+    - COMPASS
+    - RECOVERY_COMPASS
+    - SHEARS
+    - BRUSH
+    - FLINT_AND_STEEL
+    - ELYTRA
+    - CLOCK
+    - SPYGLASS
+    - WOODEN_SHOVEL
+    - WOODEN_PICKAXE
+    - WOODEN_AXE
+    - WOODEN_HOE
+    - WOODEN_SWORD
+    - STONE_SHOVEL
+    - STONE_PICKAXE
+    - STONE_AXE
+    - STONE_HOE
+    - STONE_SWORD
+    - LEATHER_HELMET
+    - LEATHER_CHESTPLATE
+    - LEATHER_LEGGINGS
+    - LEATHER_BOOTS
+    - TURTLE_HELMET
+    - TRIDENT
+    - ARMOR_STAND
+    - BUCKET
+    - MILK_BUCKET
+    - POWDER_SNOW_BUCKET
+    - LAVA_BUCKET
+    - WATER_BUCKET
+    - SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE
+    - VEX_ARMOR_TRIM_SMITHING_TEMPLATE
+    - WILD_ARMOR_TRIM_SMITHING_TEMPLATE
+    - COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+    - DUNE_ARMOR_TRIM_SMITHING_TEMPLATE
+    - WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE
+    - RAISER_ARMOR_TRIM_SMITHING_TEMPLATE
+    - SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE
+    - HOST_ARMOR_TRIM_SMITHING_TEMPLATE
+    - WARD_ARMOR_TRIM_SMITHING_TEMPLATE
+    - SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE
+    - TIDE_ARMOR_TRIM_SMITHING_TEMPLATE
+    - SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+    - RIB_ARMOR_TRIM_SMITHING_TEMPLATE
+    - EYE_ARMOR_TRIM_SMITHING_TEMPLATE
+    - SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE
+    # Copper tools & armor (1.21+)
+    - COPPER_HELMET
+    - COPPER_CHESTPLATE
+    - COPPER_LEGGINGS
+    - COPPER_BOOTS
+    - COPPER_PICKAXE
+    - COPPER_AXE
+    - COPPER_SHOVEL
+    - COPPER_HOE
+    # Spears (1.21.5+)
+    - WOODEN_SPEAR
+    - STONE_SPEAR
+    - IRON_SPEAR
+    - GOLDEN_SPEAR
+    - DIAMOND_SPEAR
+    - NETHERITE_SPEAR
+    - COPPER_SPEAR
+    # Nautilus armor
+    - IRON_NAUTILUS_ARMOR
+    - COPPER_NAUTILUS_ARMOR
+    - GOLDEN_NAUTILUS_ARMOR
+    - DIAMOND_NAUTILUS_ARMOR
+    - NETHERITE_NAUTILUS_ARMOR
+    # Horse armor
+    - COPPER_HORSE_ARMOR
+    # Harness (wolf armor dyes)
+    - WHITE_HARNESS
+    - ORANGE_HARNESS
+    - MAGENTA_HARNESS
+    - LIGHT_BLUE_HARNESS
+    - YELLOW_HARNESS
+    - LIME_HARNESS
+    - PINK_HARNESS
+    - GRAY_HARNESS
+    - LIGHT_GRAY_HARNESS
+    - CYAN_HARNESS
+    - PURPLE_HARNESS
+    - BLUE_HARNESS
+    - BROWN_HARNESS
+    - GREEN_HARNESS
+    - RED_HARNESS
+    - BLACK_HARNESS
+    - GHAST_HARNESS
+    # Bundle
+    - BUNDLE
+    - WHITE_BUNDLE
+    - ORANGE_BUNDLE
+    - MAGENTA_BUNDLE
+    - LIGHT_BLUE_BUNDLE
+    - YELLOW_BUNDLE
+    - LIME_BUNDLE
+    - PINK_BUNDLE
+    - GRAY_BUNDLE
+    - LIGHT_GRAY_BUNDLE
+    - CYAN_BUNDLE
+    - PURPLE_BUNDLE
+    - BLUE_BUNDLE
+    - BROWN_BUNDLE
+    - GREEN_BUNDLE
+    - RED_BUNDLE
+    - BLACK_BUNDLE
+    # Trial / Ominous keys
+    - TRIAL_KEY
+    - OMINOUS_TRIAL_KEY
+    - FLOW_ARMOR_TRIM_SMITHING_TEMPLATE
+    - BOLT_ARMOR_TRIM_SMITHING_TEMPLATE
+    - MACE
+    - WOLF_ARMOR
+    - FIREWORK_ROCKET

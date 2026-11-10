@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: Configuration / Cấu hình SolarWorth
+# ─────────────────────────────────────────────
+
+# Khóa kích hoạt SolarWorth (không chia sẻ giá trị này)
+# SolarWorth activation key (do not share this value)
+license-key: ""
+
+# Bật/tắt hiển thị giá trị trong lore item
+# Enable/disable showing item worth in lore
+show_worth_lore: true
+
+# Nếu lore giá trị bị mất, có thể do bản cập nhật của Paper
+# thử đặt thành true để fix
+# If worth lore disappears, it may be due to Paper updates
+# try setting this to true as a fix
+worth_lore_dirty_fix: false
+
+# Tự động xóa lore "Giá trị" được chèn bởi plugin worth khác (ví dụ: EssentialsX, CMI, v.v.)
+# Dùng khi server cài nhiều plugin worth cùng lúc để tránh hiển thị lore trùng lặp
+# Thêm prefix/pattern lore cần xóa vào danh sách bên dưới (hỗ trợ regex)
+# Automatically strip "worth" lore injected by other worth plugins (e.g. EssentialsX, CMI, etc.)
+# Useful when multiple worth plugins are installed to avoid duplicate lore lines
+# Add lore prefix/patterns to strip below (supports regex)
+strip_foreign_worth_lore: false
+strip_foreign_worth_lore_patterns:
+  - "(?i)^(§[0-9a-fk-orx])*\\s*worth[:\\s]"
+  - "(?i)^(§[0-9a-fk-orx])*\\s*value[:\\s]"
+  - "(?i)^(§[0-9a-fk-orx])*\\s*price[:\\s]"
+  - "(?i)^(§[0-9a-fk-orx])*\\s*giá[:\\s]"
+
+# Cho phép dùng /toggleworth (bật/tắt theo từng người chơi)
+# Allow /toggleworth command (per-player toggle)
+toggle_worth: true
+
+# Bật tính năng /sellaxe
+# Enable /sellaxe feature
+sellaxe: true
+
+# Hiển thị số dạng rút gọn: 1K, 1M, 1B, 1T
+# true = bật, false = tắt
+# Show shortened number format: 1K, 1M, 1B, 1T
+# true = enabled, false = disabled
+short_number_format: true
+
+# Tắt toàn bộ multiplier (nhân giá)
+# Disable all multipliers
+disable_multipliers: false
+
+# Ghi đè các lệnh để SolarWorth ưu tiên xử lý
+# (ví dụ: Essentials /sell)
+# Không cần dấu /
+# Override commands so SolarWorth takes priority
+# (e.g., Essentials /sell)
+# Use command names without "/"
+override-commands:
+  - "sell"
+  - "worth"
+
+# Các key NBT của item custom được hỗ trợ
+# Supported NBT keys for custom items
+custom_item_nbt_keys:
+  - "ecoitems:id"
+  - "oraxen_id"
+  - "itemsadder_id"
+  - "mmoitems_type"
+  - "nexo_id"
+
+# Danh sách world bị chặn không cho bán
+# Worlds where selling is disabled
+blacklisted-worlds:
+  - "example_world"
+
+# Cấu hình hình thức hiển thị tin nhắn khi bán hàng (sold message)
+# Mode hiển thị: CHAT, ACTION_BAR, hoặc BOTH
+# Mode for displaying sold messages: CHAT, ACTION_BAR, or BOTH
+sold_message_mode: BOTH
+
+# Loại tiền tệ mặc định khi người chơi bán hàng (qua lệnh /sell, GUI, v.v.)
+# Các loại hỗ trợ: VAULT, XP, PLAYERPOINTS (hoặc POINTS), CUSTOM:<Tên loại tiền tệ>
+# Default currency type for general sales (via /sell, GUI, etc.)
+# Supported types: VAULT, XP, PLAYERPOINTS / POINTS, CUSTOM:<CurrencyName>
+default_currency: VAULT
+
+# Cấu hình đồng bộ giá vật phẩm sang SmartSpawner
+# SmartSpawner Price Synchronization config
+smartspawner-sync:
+  enabled: false
+  file-path: "plugins/SmartSpawner/item_prices.yml"
+  # Tự động thực thi lệnh để reload SmartSpawner sau khi đồng bộ
+  # Automatically execute command to reload SmartSpawner after sync
+  auto-reload: true
+  reload-command: "smartspawner reload"
+  # Tin nhắn thông báo khi auto-reload bị tắt
+  # Message shown to player when auto-reload is disabled
+  notify-message: "&e[SolarWorth] Hãy reload SmartSpawner để áp dụng thay đổi liên quan!"

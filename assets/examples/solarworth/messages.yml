@@ -1,0 +1,49 @@
+world_blacklist: '&cʙạɴ ᴋʜôɴɢ ᴛʜể sử ᴅụɴɢ ʟệɴʜ ɴàʏ ᴛạɪ ᴛʜế ɢɪớɪ ɴàʏ!'
+worth_lore: '&7ɢɪá ᴛʀị: #85FF64${price}$'
+# Lore hiển thị trên shulker box item (tổng giá nội dung bên trong)
+# Dùng ${price} làm placeholder. Để trống = dùng chung format với worth_lore.
+worth_lore_shulker: '&7ɢɪá ᴛʀị: #85FF64${price}$'
+worth_toggle: '&#FF6A6Ađã ᴛʜᴀʏ đổɪ ᴛʀạɴɢ ᴛʜáɪ ʜɪểɴ ᴛʜị ɢɪá ᴛʀị!'
+
+notifications:
+  multiplier:
+    rank_up:
+    - '#00F986ʜệ số ʙáɴ ʜàɴɢ ᴄủᴀ ʙạɴ đã ᴛăɴɢ ᴄấᴘ'
+    - '&fđã ᴍở ᴋʜóᴀ ʜệ số ʙáɴ #00F986{playerMultiplier} &fᴄʜᴏ ᴅᴀɴʜ ᴍụᴄ {category}!'
+
+items:
+  sold: '#7AFB00+${price}'
+  unsellable: '&cᴠậᴛ ᴘʜẩᴍ ɴàʏ ᴋʜôɴɢ ᴛʜể ʙáɴ.'
+  worth: '#00A3FB1 {item} #A7A7A7ᴄó ɢɪá ᴛʀị ʟà #00FB00${price}'
+  self_worth: '#00A3FB{itemAmount} {item} #A7A7A7ᴄó ɢɪá ᴛʀị ʟà #00FB00${price}'
+  gui_worth_lore: '&fɢɪá: #00F986${price}'
+
+filters:
+  ALL: ᴛấᴛ ᴄả
+  BLOCKS: ᴋʜốɪ
+  TOOLS: ᴄôɴɢ ᴄụ
+  FOOD: ᴛʜứᴄ ăɴ
+  COMBAT: ᴄʜɪếɴ đấᴜ
+  POTIONS: ᴛʜᴜốᴄ
+  BOOKS: sáᴄʜ
+  INGREDIENTS: ɴɢᴜʏêɴ ʟɪệᴜ
+  UTILITIES: ᴛɪệɴ íᴄʜ
+  NATURE: ᴛự ɴʜɪêɴ
+  REDSTONE: ʀᴇᴅsᴛᴏɴᴇ
+
+sort_worth:
+  HIGHEST_PRICE: ɢɪá ᴄᴀᴏ ɴʜấᴛ
+  LOWEST_PRICE: ɢɪá ᴛʜấᴘ ɴʜấᴛ
+  NAME: ᴛʜᴇᴏ ᴛêɴ
+
+sort_history:
+  NEWEST: ᴍớɪ ɴʜấᴛ
+  OLDEST: ᴄũ ɴʜấᴛ
+  HIGHEST_PRICE: ɢɪá ᴄᴀᴏ ɴʜấᴛ
+  LOWEST_PRICE: ɢɪá ᴛʜấᴘ ɴʜấᴛ
+
+sell_stick:
+  received: '&aʙạɴ đã ɴʜậɴ đượᴄ &fSell Stick&a!'
+  no_containers: '&cᴋʜôɴɢ ᴛìᴍ ᴛʜấʏ ʀươɴɢ ɴàᴏ ᴛʀᴏɴɢ ʙáɴ ᴋíɴʜ &f{radius} &cʙʟᴏᴄᴋs.'
+  nothing_sold: '&cᴋʜôɴɢ ᴄó ᴠậᴛ ᴘʜẩᴍ ɴàᴏ ᴄó ᴛʜể ʙáɴ.'
+  found_containers: '&7đã ʙáɴ ᴛừ &f{count} &7ʀươɴɢ ɢầɴ đó.'

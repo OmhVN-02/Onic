@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────
+# Sell Axe — click chuột phải vào rương để bán
+# toàn bộ nội dung trong rương đó.
+# ─────────────────────────────────────────────
+sell-axe:
+  display-name: "#A303F9ᴀᴍᴇᴛʜʏsᴛ sᴇʟʟ ᴀxᴇ"
+  lore:
+    - "&7ʙáɴ ɴɢᴀʏ ʟậᴘ ᴛứᴄ ᴛấᴛ ᴄả ᴠậᴛ ᴘʜẩᴍ ᴛʀᴏɴɢ ʀươɴɢ"
+  material: NETHERITE_AXE
+  model: -1
+
+  # Chế độ hết hạn: "duration" (theo thời gian) hoặc "uses" (theo số lần dùng)
+  mode: duration
+  duration: 3600
+  uses: 50
+  allow-enchanted-books: true
+  enchants:
+    - "EFFICIENCY:5"
+    - "UNBREAKING:3"
+    - "MENDING"
+  container-filter:
+    mode: blacklist
+    list:
+      - ENDER_CHEST
+
+# ─────────────────────────────────────────────
+# Sell Stick — click chuột phải để bán tất cả
+# rương/shulker trong bán kính gần player.
+# ─────────────────────────────────────────────
+sell-stick:
+  display-name: "#A303F9ᴀᴍᴇᴛʜʏsᴛ sᴇʟʟ sᴛɪᴄᴋ"
+  lore:
+    - "&7ᴛự độɴɢ ʙáɴ ᴛᴏàɴ ʙộ ʀươɴɢ ɢầɴ đó"
+    - "&7ʙáɴ ᴋíɴʜ: &f{radius} &7ʙʟᴏᴄᴋs"
+  material: STICK
+  model: -1
+  radius: 20
+  mode: uses
+  duration: 3600
+  uses: 10
+  allow-enchanted-books: true
+  enchants:
+    - "UNBREAKING:3"
+    - "MENDING"
+  container-filter:
+    mode: blacklist
+    list:
+      - ENDER_CHEST
+
+# Lore hiển thị trên item (dùng chung cho Sell Axe và Sell Stick)
+lore:
+  self-destruct-prefix: "&8Tự hủy sau: "
+  timer-prefix: "&8"
+  uses-prefix: "&8Lần dùng còn lại: "
+  unbound-text: "&7Chưa liên kết"
+
+# Định dạng hiển thị thời gian
+time-format:
+  days-format: "%dd "
+  hours-format: "%dh "
+  minutes-format: "%dm"
+  seconds-format: "%ds"
+  empty-format: "Đã hỏng"

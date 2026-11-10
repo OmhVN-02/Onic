@@ -1,0 +1,83 @@
+# ─────────────────────────────────────────────
+#   SolarWorth: GUI Bán hàng chính
+#   (Main Sell GUI)
+# ─────────────────────────────────────────────
+# Giao diện kéo thả item vào để bán.
+# Mở bằng lệnh /sell (không có tham số).
+# Drag-and-drop sell interface.
+# Opened with /sell (no arguments).
+# ─────────────────────────────────────────────
+
+# Ma trận: i = ô nhận item, - = filler, c = bán, h = lịch sử.
+# (id) = danh mục sell/<id>.yml. 9 ô/hàng, 1–6 hàng.
+# Ma trận quyết định vị trí và nút hiển thị, không cần enabled hay slot.
+# Không dùng filler/nút/danh mục: thay ô tương ứng bằng i để nhận item.
+# Bỏ hết c: đóng GUI sẽ tự bán; có c: cần bấm nút để bán.
+layout:
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "iiiiiiiii"
+  - "----c---h"
+  - "(armorandtools)(blocks)(crops)(enchantedbooks)(fish)(mobdrops)(naturalitems)(ores)(potions)"
+
+title: "ᴘʟᴀᴄᴇ ɪᴛᴇᴍs ɪɴ ʜᴇʀᴇ ᴛᴏ sᴇʟʟ"
+
+# ─────────────────────────────────────────────
+#   Vật phẩm trang trí cho các ô - trong ma trận
+#   Filler item for - cells in the matrix
+# ─────────────────────────────────────────────
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: " "
+
+# Âm thanh khi đóng GUI thành công (bán được)
+# Sound played on GUI close when items were sold
+inventory_close_success_sound: xp
+# Âm thanh khi đóng GUI thất bại (không bán được)
+# Sound played on GUI close when nothing was sold
+inventory_close_error_sound: error
+
+# ─────────────────────────────────────────────
+#   Nút xác nhận bán / Confirm sell button
+#   Hiển thị ở các ô c; không có c thì đóng GUI = tự bán
+#   Rendered in c cells; no c means auto-sell on close
+# ─────────────────────────────────────────────
+confirm_button:
+  # Material khi chưa có item nào trong ô bán
+  # Material when no sellable items are present
+  material_empty: GRAY_STAINED_GLASS_PANE
+  # Material khi đã có item sẵn sàng bán
+  # Material when sellable items are present
+  material_ready: LIME_STAINED_GLASS_PANE
+  # Tiêu đề khi chưa có item / Title when empty
+  title_empty: "&7ɴᴏ ɪᴛᴇᴍs ᴛᴏ sᴇʟʟ"
+  # Tiêu đề khi sẵn sàng / Title when ready
+  title_ready: "#00F986sᴇʟʟ ᴀʟʟ"
+  lore:
+    # {sellable}       → số item có thể bán
+    # {unsellable}     → số item không có giá
+    # {total}          → tổng giá trị
+    # {multiplier_list}→ danh sách hệ số nhân
+    - "&fItems to sell: &a{sellable}"
+    - "&fNo price: &c{unsellable}"
+    - "&fTotal value: #00F986${total}"
+    - ""
+    - "&fMultiplier: {multiplier_list}"
+    - ""
+    - "&fClick to sell all items"
+
+# ─────────────────────────────────────────────
+#   Nút lịch sử bán / Sell history button
+#   Hiển thị ở các ô h; thay h bằng i để bỏ nút
+#   Rendered in h cells; replace h with i to remove
+# ─────────────────────────────────────────────
+history_button:
+  material: BOOK
+  title: "#00F986sᴇʟʟ ʜɪsᴛᴏʀʏ"
+  lore:
+    - "&fClick to view your sell history"
+
+# Âm thanh khi xác nhận bán thành công
+# Sound played when confirm sell is clicked
+confirm_sound: xp
