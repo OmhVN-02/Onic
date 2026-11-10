@@ -1,0 +1,78 @@
+prefix: "&8[&x&a&5&0&3&f&cSolarTool&8] &r"
+
+no-permission: "&cBạn không có quyền thực hiện lệnh này!"
+
+command:
+  player-only: "&#F87171Chỉ người chơi mới có thể mở giao diện lấy công cụ."
+  help:
+    - "&8&m----------------------------------------"
+    - "&#A503FC&lSolarTools &7— Quản trị"
+    - ""
+    - "&#FBBF24Lấy và cấp công cụ"
+    - "&#A78BFA/tool &7— Mở giao diện lấy công cụ"
+    - "&#A78BFA/st menu &7— Chọn tool, số lượng và thời hạn"
+    - "&#A78BFA/st give <tool> <player> [amount] [time|uses] &7— Cấp tool"
+    - "&#A78BFA/st giveall <tool> [amount] [time|uses] &7— Cấp cho người chơi online"
+    - ""
+    - "&#FBBF24Hệ thống"
+    - "&#A78BFA/st reload &7— Tải lại cấu hình, nội dung dialog và thông báo"
+    - "&#A78BFA/st info &7— Xem phiên bản và tính năng đang hỗ trợ"
+    - "&#A78BFA/st help &7— Xem danh sách lệnh"
+    - "&7Alias: /solartool, /solartools. Lệnh /givetools vẫn hoạt động."
+    - "&8&m----------------------------------------"
+  info:
+    header: "&#A503FC&lSolarTools &7— Thông tin"
+    version: "&7Phiên bản: &f{version}"
+    tools: "&7Công cụ: &f{tools}"
+    worldguard: "&7WorldGuard: &f{status}"
+    dialog: "&7Dialog API: &f{status}"
+    folia: "&7Folia scheduler: &f{status}"
+  give:
+    usage: "&eUsage: /givetools <tool> <player> [amount] [duration|uses]"
+    available-tools: "&eAvailable tools: &f{tools}"
+    invalid-tool: "&cCông cụ không hợp lệ! Các công cụ có sẵn: &f{tools}"
+    player-not-found: "&cKhông tìm thấy người chơi: &f{player}"
+    invalid-amount: "&cSố lượng không hợp lệ: &f{amount}&c. Vui lòng nhập số nguyên từ 1 đến 64."
+    failed: "&cKhông thể cấp tool cho {player}: người chơi đã thoát hoặc túi đồ không đủ chỗ."
+    invalid-duration: "&cThời gian không hợp lệ! Ví dụ: 7d, 12h, 30m, 60s"
+    invalid-uses: "&cSố lượt sử dụng không hợp lệ! Ví dụ: 500u, uses:100"
+    success-sender: "&aĐã trao &f{amount}x {tool} &acho &f{player}&a!"
+    success-receiver: "&aBạn đã nhận được &f{amount}x {tool}&a!"
+  giveall:
+    usage: "&eUsage: /st giveall <tool> [amount] [duration|uses]"
+    success: "&aĐã trao &f{amount}x {tool} &acho tất cả &f{count} &angười chơi online!"
+    no-players: "&cKhông có người chơi nào online để trao công cụ!"
+  reload:
+    usage: "&eUsage: /st reload"
+    success: "&aPlugin đã được tải lại thành công!"
+    error: "&cTải lại thất bại! &7({error})"
+
+menu:
+  invalid-mode: "&cChế độ không hợp lệ. Chọn mặc định, thời gian hoặc số lượt."
+  inventory-full: "&cTúi đồ không đủ chỗ. Hãy dọn chỗ rồi nhận lại công cụ."
+  error: "&cKhông thể xử lý dialog. Vui lòng mở lại bằng /tool."
+
+time:
+  days: "d"
+  hours: "h"
+  minutes: "m"
+  seconds: "s"
+  broken: "Broken"
+
+lore:
+  self-destruct-text: "§8Tự Hủy:"
+  self-destruct-prefix: "&f"
+  uses-remaining-text: "§8Còn lại:"
+
+tool:
+  expired: "&cCông cụ này đã hết hạn và bị xóa!"
+  received: "&aBạn đã nhận được công cụ từ GUI!"
+  uses-depleted: "&cCông cụ đã hết lượt sử dụng và bị xóa!"
+
+blacklist:
+  world-blocked: "&cCông cụ này không thể sử dụng trong thế giới hiện tại!"
+
+worldguard:
+  no-build: "&cBạn không có quyền sử dụng công cụ trong khu vực được bảo vệ này!"
+
+

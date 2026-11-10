@@ -1,0 +1,28 @@
+# Giao diện dialog dùng tự động khi cả server và client hỗ trợ.
+# Các bản cũ dùng GUI rương. /st reload để tải lại nội dung.
+menu:
+  title: "&#A503FCѕᴏʟᴀʀ ᴛᴏᴏʟѕ"
+  description: "Chọn công cụ để cấu hình và nhận vào túi đồ."
+configure:
+  title: "&#A503FCThiết lập {tool}"
+  description: "Để trống giá trị để dùng cấu hình tool. Thời gian: 3d, 12h, 30m, 60s. Số lượt: 500 hoặc 500u. Chế độ 'Theo cấu hình tool' bỏ qua giá trị nhập."
+  mode: "Chế độ hết hạn"
+  amount: "Số lượng (1–64)"
+  value: "Thời gian / số lượt (tùy chọn)"
+mode:
+  default: "Theo cấu hình tool"
+  time: "Theo thời gian"
+  uses: "Theo số lượt"
+confirm:
+  title: "&#A503FCXác nhận nhận công cụ"
+  description: "Bạn sẽ nhận {amount} × {tool}. Di chuột lên item để xem thuộc tính và thời hạn."
+  timer-note: "Thời gian chỉ giảm khi tool ở trong túi đồ của người chơi online."
+success:
+  title: "&#55FF55Đã nhận công cụ"
+  description: "Đã thêm {amount} × {tool} vào túi đồ."
+common:
+  continue: "&#55FF55Tiếp tục"
+  receive: "&#55FF55Nhận công cụ"
+  another: "Lấy thêm công cụ"
+  back: "Quay lại"
+  close: "Đóng"
