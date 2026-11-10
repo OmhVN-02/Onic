@@ -1,0 +1,21 @@
+close: "ᴄʟᴏsᴇ"
+back: "ʙᴀᴄᴋ"
+previous-page: "ᴘʀᴇᴠɪᴏᴜs ᴘᴀɢᴇ"
+next-page: "ɴᴇxᴛ ᴘᴀɢᴇ"
+no-data: "Chưa có dữ liệu."
+# Mỗi Dialog có thể ghi đè label/description/width tại buttons.<id>.
+# description là phần mô tả hiện khi rê chuột lên nút; width là độ rộng (1-1024).
+buttons:
+  back:
+    label: "ʙᴀᴄᴋ"
+    description: "Trở về màn hình trước."
+    width: 150
+  previous-page:
+    label: "ᴘʀᴇᴠɪᴏᴜs ᴘᴀɢᴇ"
+    description: "Xem trang trước."
+    width: 150
+  next-page:
+    label: "ɴᴇxᴛ ᴘᴀɢᴇ"
+    description: "Xem trang tiếp theo."
+    width: 150
+config-version: "1.10"

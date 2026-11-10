@@ -1,0 +1,17 @@
+list-title: "#ffaa00ᴇʟᴏ ᴀᴅᴍɪɴ"
+list-body: "Chọn người chơi để quản lý."
+list-entry: "{player} — {elo} ELO"
+detail-title: "ᴍᴀɴᴀɢᴇ: {player}"
+detail-body: |-
+  #aaaaaaNgười chơi: #ffffff{player}
+  #aaaaaaELO: #ffaa00{elo}
+  #aaaaaaKills: #55ff55{kills} #aaaaaa• Deaths: #ff5555{deaths}
+  #aaaaaaStreak: #ffaa00{streak} #aaaaaa• Cao nhất: #ffffff{best_streak}
+not-found: "Không tìm thấy dữ liệu người chơi."
+add: "ᴀᴅᴅ ᴇʟᴏ"
+set: "sᴇᴛ ᴇʟᴏ"
+remove: "ʀᴇᴍᴏᴠᴇ ᴇʟᴏ"
+elo-history: "ᴇʟᴏ ʜɪsᴛᴏʀʏ"
+pvp-history: "ᴘᴠᴘ ʜɪsᴛᴏʀʏ"
+page-size: 6
+config-version: "1.10"

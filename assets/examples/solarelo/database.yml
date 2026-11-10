@@ -1,0 +1,13 @@
+# Database Configuration (Cấu hình Cơ sở dữ liệu)
+database:
+  # Database type (Loại CSDL): SQLITE, MYSQL, or MARIADB
+  type: SQLITE
+  mysql:
+    host: localhost
+    port: 3306
+    database: solarelo
+    username: root
+    password: ""
+    pool-size: 10
+
+config-version: "1.10"

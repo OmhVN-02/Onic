@@ -1,0 +1,201 @@
+# SolarElo Main Configuration (Cấu hình chính SolarElo)
+
+# System Language (Ngôn ngữ hệ thống): 'vi' (Vietnamese) or 'en' (English)
+# System will load language file from lang/messages_<language>.yml
+language: "vi"
+
+# Dialog is used on Minecraft 1.21.7+ when enabled. Set false to always use inventory GUI.
+dialog:
+  enabled: true
+
+# Starting ELO for new players (Điểm Elo khởi đầu cho người chơi mới)
+default-elo: 1000
+
+# ELO Scoring Mode (Chế độ tính điểm Elo)
+# Available modes (Các chế độ hỗ trợ):
+#   FORMULA  - Standard Elo formula with K-factor (Công thức Elo chuẩn với K-factor)
+#   RANDOM   - Random gain/loss within specified min-max range (Ngẫu nhiên trong khoảng min-max)
+#   KD       - Based on K/D ratio of killer & victim (Dựa vào tỉ lệ K/D của killer & victim)
+#   CUSTOM   - Custom mathematical formula configured below (Công thức tùy chỉnh thiết lập bên dưới)
+scoring-mode: FORMULA
+
+elo:
+  # ── FORMULA mode (Chế độ FORMULA) ──────────────────────
+  # Higher K-factor = larger ELO changes (K-factor càng cao = thay đổi elo càng lớn)
+  k-factor: 32
+
+  # ── RANDOM mode (Chế độ RANDOM) ───────────────────────
+  random:
+    min-gain: 5
+    max-gain: 25
+    min-loss: 5
+    max-loss: 25
+
+  # ── KD mode (Chế độ KD) ───────────────────────────
+  # Formula: base * (victim_kd / killer_kd) -> capped
+  kd:
+    base: 20
+    min-gain: 3
+    max-gain: 50
+    min-loss: 3
+    max-loss: 50
+
+  # ── CUSTOM mode (Chế độ CUSTOM) ───────────────────────
+  # Supports +, -, *, /, ^, ( ) and variables: {killer_elo}, {victim_elo}, {killer_kd}, {victim_kd}, {killer_streak}, {victim_streak}, {k_factor}
+  custom:
+    formula-gain: "32 * (1 - 1 / (1 + 10^((victim_elo - killer_elo) / 400)))"
+    formula-loss: "32 * (1 - (1 - 1 / (1 + 10^((victim_elo - killer_elo) / 400))))"
+
+  # Minimum ELO limit (Elo tối thiểu, có thể âm nếu < 0)
+  minimum-elo: -500
+  # Maximum ELO limit (Elo tối đa)
+  maximum-elo: 50000
+
+# Rank Difference Scaling (Cơ chế thưởng/phạt theo chênh lệch Cấp Bậc/Rank)
+# - Low rank kills high rank -> Receives MORE Elo (Thưởng khi rank thấp thắng rank cao)
+# - High rank kills low rank -> Receives LESS Elo (Giảm thưởng khi rank cao đánh rank thấp)
+rank-difference-scaling:
+  enabled: true
+  # Multiplier per rank tier difference (Hệ số nhân cho mỗi cấp chênh lệch Rank, 0.15 = +15%/cấp)
+  multiplier-per-tier: 0.15
+  # Minimum & maximum multiplier limits (Giới hạn hệ số nhân tối thiểu & tối đa)
+  min-multiplier: 0.2
+  max-multiplier: 3.0
+
+# Auto ELO Lock Configuration (Cấu hình khóa Elo khi đạt mức tối thiểu)
+elo-lock:
+  # Duration to lock ELO when reaching minimum limit (Thời gian tự động khóa Elo khi chạm mốc tối thiểu)
+  # Supported units: s (seconds), m (minutes), h (hours), d (days). Default: "1d"
+  auto-lock-duration: "1d"
+
+# Kill Streak System (Hệ thống chuỗi hạ gục)
+kill-streak:
+  enabled: true
+  # Reset streak on death (Streak bị reset khi chết)
+  reset-on-death: true
+  # ELO bonus percentage per streak level (Bonus Elo % cho mỗi cấp streak)
+  bonus-per-kill-percent: 10
+  # Maximum streak level for bonus calculation (Số streak tối đa tính bonus)
+  max-bonus-streak: 10
+  # Additional ELO penalty on death per streak level (Elo trừ thêm khi chết có streak)
+  death-streak-penalty: 5
+  # Streak milestone broadcast levels (Các cột mốc thông báo streak)
+  announce-streaks:
+    - 3
+    - 5
+    - 10
+    - 15
+    - 20
+
+# Special bonus for defeating the #1 TOP server player (Thưởng đặc biệt khi hạ gục TOP 1 Server)
+top-1-bonus:
+  enabled: true
+  # Extra bonus percentage (Tỉ lệ % Elo nhận thêm)
+  extra-percent: 20
+  # Extra flat ELO amount (Số Elo cộng thẳng thêm)
+  extra-flat: 10
+
+# Server-wide kill broadcast (Thông báo toàn máy chủ khi có mạng hạ gục)
+broadcast:
+  enabled: true
+  # Message format with hover & click support (Định dạng tin nhắn)
+  format: "#ffaa00{killer} #ffffffđã hạ gục #ff3c3c{victim}#ffffff!"
+
+# Visual display overlays (Hiển thị Elo trên màn hình)
+display:
+  # Actionbar display (Thanh ActionBar dưới tâm ngắm)
+  actionbar:
+    enabled: true
+    # Display duration in ticks (20 ticks = 1 second)
+    duration-ticks: 60
+    kill-format: "#00ff3c+{gained} Elo #555555| #ffffffElo: #ffaa00{elo} #555555| #ffffffStreak: #ff3c3c{streak}"
+    death-format: "#ff3c3c-{lost} Elo #555555| #ffffffElo: #ffaa00{elo}"
+
+  # On-screen Titles (Tiêu đề giữa màn hình)
+  title:
+    enabled: true
+    # Streak milestone titles (Tiêu đề chuỗi hạ gục)
+    streak-title: "#ff3c3c{streak} KILL STREAK!"
+    streak-subtitle: "#55ff55+{gained} ELO #aaaaaa• #ffaa00+{bonus}% Bonus"
+    
+    # ELO change titles after a PvP kill. Use {gained}, {lost}, {victim}, {killer}, and {elo}.
+    kill-title: "#55ff55⚔"
+    kill-subtitle: "#55ff55+{gained} ELO"
+    death-title: "#ff5555⚔"
+    death-subtitle: "#ff5555-{lost} ELO"
+
+    # Rank change titles (Tiêu đề thăng / hạ hạng)
+    rank-up-title: "#ffaa00★ RANK UP ★"
+    rank-up-subtitle: "#e0e0e0Bạn đã thăng hạng lên #ffaa00{rank}"
+    rank-down-title: "#ff3c3c▼ RANK DOWN ▼"
+    rank-down-subtitle: "#aaaaaaBạn đã xuống hạng #ff3c3c{rank}"
+
+    # Admin action titles (Tiêu đề khi Admin can thiệp)
+    admin-set-title: "#00ffcc⚙ ELO SET ⚙"
+    admin-set-subtitle: "#e0e0e0Elo của bạn được đặt thành #00ffcc{elo}"
+    admin-add-title: "#00ff3c▲ ELO ADDED ▲"
+    admin-add-subtitle: "#e0e0e0Bạn được cộng #00ff3c+{amount} ELO"
+    admin-remove-title: "#ff3c3c▼ ELO REMOVED ▼"
+    admin-remove-subtitle: "#e0e0e0Bạn bị trừ #ff3c3c-{amount} ELO"
+    admin-reset-title: "#e0e0e0↺ ELO RESET ↺"
+    admin-reset-subtitle: "#e0e0e0Elo của bạn đã được reset về mặc định"
+    
+    # Timing in ticks (Thời gian hiển thị)
+    fade-in: 5
+    stay: 40
+    fade-out: 10
+
+# Anti-farm protection settings (Cài đặt chống farm Elo)
+anti-farm:
+  enabled: true
+  same-player-cooldown: 300
+  repeat-kill-threshold: 3
+  diminished-return-percent: 50
+
+  # Block ELO gain on large rank gap (Ngăn nhận Elo khi chênh lệch Elo quá cao)
+  elo-difference:
+    enabled: true
+    max-difference: 200
+
+  # IP / Subnet check against alt accounts (Chống clone/alt accounts cùng IP)
+  ip-check:
+    enabled: true
+    prevent-same-ip: true
+    prevent-same-subnet: true
+
+  # AFK & Spawn camping checks (Kiểm tra trạng thái AFK & bảo vệ điểm hồi sinh)
+  activity-check:
+    enabled: true
+    no-move-seconds: 15
+    no-attack-seconds: 15
+    spawn-camping:
+      enabled: true
+      protection-seconds: 10
+      protection-radius: 15
+      action: BLOCK
+
+# Inactivity ELO decay settings (Hao hụt Elo cho người chơi TOP 10 không hoạt động)
+elo-decay:
+  enabled: true
+  # Check interval (Khoảng thời gian kiểm tra, hỗ trợ m, h, d)
+  check-interval: "12h"
+  # Maximum inactivity period before decay (Thời gian tối đa không đấu trước khi bị trừ)
+  inactive-threshold: "24h"
+  # ELO penalty amount per interval (Số Elo bị trừ mỗi đợt)
+  decay-amount: 20
+
+# Leaderboard pagination settings (Cài đặt trang Bảng xếp hạng)
+leaderboard:
+  per-page: 10
+  cache-refresh: 60
+
+# Test the public leaderboard and bounty/quest menus with 100 in-memory players.
+# Debug bounty targets always have a bounty. Creating a bounty on one never spends real ELO or Vault balance.
+debug:
+  enabled: false
+
+# IP duplicate check for GUI access (Kiểm tra trùng IP khi mở GUI)
+ip-check:
+  enabled: true
+
+config-version: "1.10"

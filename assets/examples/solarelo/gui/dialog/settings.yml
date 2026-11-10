@@ -1,0 +1,32 @@
+title: "#ffaa00sᴇᴛᴛɪɴɢs"
+body: "#aaaaaaᴘʟᴀʏᴇʀ: #ffffff{player}"
+no-settings: "#aaaaaaɴᴏ sᴇᴛᴛɪɴɢs ᴀᴠᴀɪʟᴀʙʟᴇ"
+status:
+  enabled: "#55ff55ᴏɴ"
+  disabled: "#ff5555ᴏꜰꜰ"
+# Set enabled: false to hide a toggle without changing the player's saved choice.
+inputs:
+  chat:
+    enabled: true
+  title:
+    enabled: true
+  bounty:
+    enabled: true
+buttons:
+  chat-toggle:
+    label: "#00BFFFᴄʜᴀᴛ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ #aaaaaa• {status}"
+    description: "Toggle ELO notifications in chat."
+    width: 240
+  title-toggle:
+    label: "#ff3c3cᴛɪᴛʟᴇ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ #aaaaaa• {status}"
+    description: "Toggle ELO change titles on screen."
+    width: 240
+  bounty-toggle:
+    label: "#ffaa00ʙᴏᴜɴᴛʏ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ #aaaaaa• {status}"
+    description: "Toggle bounty notifications."
+    width: 240
+  back:
+    label: "ʙᴀᴄᴋ"
+    description: "Return to the main menu."
+    width: 240
+config-version: "1.10"

@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -220,6 +220,18 @@ jobs:
           }
           if(sandbox.window.ONIC_TOOLS_CONFIGS.length!==11) throw Error('SolarTools YAML samples missing');
           if(sandbox.window.ONIC_PLUGINS.find(p=>p.id==='solarduels').status==='planned') throw Error('SolarDuels still marked planned');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(doc=>doc.product==='solarelo').length!==8) throw Error('SolarElo pages missing');
+            const menus=localized.find(doc=>doc.id==='solarelo-menus').html;
+            if((menus.match(/<img /g)||[]).length!==7) throw Error('SolarElo gallery missing');
+            if(!menus.includes('https://modrinth.com/plugin/solarelo')) throw Error('SolarElo image attribution missing');
+            const api=localized.find(doc=>doc.id==='solarelo-api').html;
+            for(const value of ['SolarEloProvider','SolarBountyPlaceEvent','getEloSync','getPlayerData','CompletableFuture','syntax-keyword']) if(!api.includes(value)) throw Error('SolarElo API missing: '+value);
+            const papi=localized.find(doc=>doc.id==='solarelo-papi').html;
+            if((papi.match(/%solarelo_/g)||[]).length<17) throw Error('SolarElo placeholders missing');
+          }
+          if(sandbox.window.ONIC_ELO_CONFIGS.length!==29) throw Error('SolarElo samples missing');
+          if(sandbox.window.ONIC_PLUGINS.find(p=>p.id==='solarelo').status==='planned') throw Error('SolarElo still planned');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

@@ -1,0 +1,28 @@
+title: "#00ff3cʀᴀɴᴋ ʀᴇᴡᴀʀᴅs"
+body: |-
+  #aaaaaaELO của bạn: #ffaa00{elo}
+  #aaaaaaChọn rank để xem chi tiết.
+unlocked: "Đã mở"
+missing: "Cần thêm {amount} ELO"
+detail-title: "#00ff3cʀᴀɴᴋ ᴅᴇᴛᴀɪʟs: {rank}"
+detail-rank: "#aaaaaaRank: {rank}"
+detail-elo: "#aaaaaaELO yêu cầu: #ffaa00{elo}"
+detail-prefix: "#aaaaaaPrefix: {prefix}"
+detail-status: "#aaaaaaTrạng thái: {status}"
+rewards-header: "#00ff3cPhần thưởng:"
+reward-entry: "#ffffff• {reward}"
+no-rewards: "#aaaaaaKhông có phần thưởng tự động."
+buttons:
+  rank:
+    label: "{rank}"
+    description: "ELO yêu cầu: {elo} • {status}"
+    width: 150
+  back:
+    label: "ʙᴀᴄᴋ"
+    description: "Trở về PvP Menu."
+    width: 150
+  detail-back:
+    label: "ʙᴀᴄᴋ"
+    description: "Trở về danh sách rank."
+    width: 150
+config-version: "1.10"

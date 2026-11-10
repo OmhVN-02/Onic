@@ -1,0 +1,9 @@
+elo-title: "ᴇʟᴏ ʜɪsᴛᴏʀʏ"
+pvp-title: "ᴘᴠᴘ ʜɪsᴛᴏʀʏ"
+elo-header: "Lịch sử ELO của {player} • trang {page}"
+pvp-header: "Lịch sử PvP của {player} • trang {page}"
+elo-entry: "{change} ELO — {reason} ({time})"
+kill-entry: "Hạ gục {player} ({time})"
+death-entry: "Bị hạ bởi {player} ({time})"
+page-size: 6
+config-version: "1.10"

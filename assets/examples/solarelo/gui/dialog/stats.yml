@@ -1,0 +1,9 @@
+title: "#00BFFFsᴛᴀᴛs"
+body: |-
+  #aaaaaaNgười chơi: #ffffff{player}
+  #aaaaaaELO: #ffaa00{elo}
+  #aaaaaaKills: #55ff55{kills} #aaaaaa• Deaths: #ff5555{deaths}
+  #aaaaaaK/D: #55ffff{kd}
+  #aaaaaaStreak: #ffaa00{streak} #aaaaaa• Cao nhất: #ffffff{best_streak}
+not-found: "Không tìm thấy dữ liệu người chơi."
+config-version: "1.10"

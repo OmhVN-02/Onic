@@ -1,0 +1,25 @@
+title: "#ffaa00ᴘᴠᴘ ᴍᴇɴᴜ"
+body: |-
+  #aaaaaaChọn một tính năng.
+  #aaaaaaNgười chơi: #ffffff{player}
+  #aaaaaaELO: #ffaa00{elo} #aaaaaa• Rank: {rank}
+  #aaaaaaKills: #55ff55{kills} #aaaaaa• Deaths: #ff5555{deaths} #aaaaaa• K/D: #55ffff{kd}
+  #aaaaaaStreak hiện tại: #ffaa00{streak}
+buttons:
+  bounty:
+    label: "ʙᴏᴜɴᴛʏ"
+    description: "Xem bounty đang có và đặt bounty mới."
+    width: 150
+  leaderboard:
+    label: "ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ"
+    description: "Xem thứ hạng ELO của máy chủ."
+    width: 150
+  rewards:
+    label: "ʀᴀɴᴋ ʀᴇᴡᴀʀᴅs"
+    description: "Xem mốc ELO và phần thưởng rank."
+    width: 150
+  settings:
+    label: "sᴇᴛᴛɪɴɢs"
+    description: "Tùy chỉnh thông báo cá nhân."
+    width: 150
+config-version: "1.10"

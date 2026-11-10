@@ -1,0 +1,26 @@
+title: "#00BFFFʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ"
+full-title: "#00BFFFꜰᴜʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ"
+# The first dialog shows Top 10; the full dialog scrolls through up to 200 ranks.
+# {pos_color} uses rank-colors from gui/Gui/leaderboard.yml.
+body-width: 300
+preview-entries: 10
+full-max-entries: 200
+entry: "{pos_color}#{position} #ffffff{player} #aaaaaa— #ffaa00{elo}"
+player-position: "#aaaaaaʏᴏᴜʀ ᴘᴏsɪᴛɪᴏɴ: {pos_color}#{position} #ffffff{player} #aaaaaa— #ffaa00{elo}"
+unranked: "--"
+empty-entry: "#aaaaaa#{position} #555555.... #aaaaaa— #555555..."
+no-data: "#aaaaaaɴᴏ ᴅᴀᴛᴀ"
+buttons:
+  view-full:
+    label: "ᴠɪᴇᴡ ꜰᴜʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ"
+    description: "Show up to 200 ranks."
+    width: 200
+  back:
+    label: "ʙᴀᴄᴋ"
+    description: "Return to the main menu."
+    width: 150
+  full-back:
+    label: "ʙᴀᴄᴋ"
+    description: "Return to Top 10."
+    width: 150
+config-version: "1.10"

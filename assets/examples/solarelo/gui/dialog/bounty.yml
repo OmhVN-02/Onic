@@ -1,0 +1,87 @@
+title: "#ff3c3cʙᴏᴜɴᴛʏ"
+body: "Chọn một tính năng."
+accept-page-title: "#00BFFFᴀᴄᴄᴇᴘᴛ ǫᴜᴇsᴛ #ffffff• {page}"
+select-page-title: "#00BFFFsᴇʟᴇᴄᴛ ᴛᴀʀɢᴇᴛ #ffffff• {page}"
+search-label: "sᴇᴀʀᴄʜ ᴘʟᴀʏᴇʀ (ɴᴇxᴛ ᴛᴏ ᴀᴘᴘʟʏ)"
+locked: "#ff5555Cần #ffaa00{required} ELO #ff5555để dùng Bounty. ELO hiện tại: #ffffff{elo}"
+no-targets: "Chưa có người chơi có bounty hợp lệ."
+offer-title: "#00BFFFʙᴏᴜɴᴛʏ ɪɴꜰᴏ"
+offer-body: |-
+  #aaaaaaTarget: #ffffff{target}
+  #aaaaaaCreated by: #ffffff{creator}
+  #aaaaaaReward: #00ff3c{bounty}
+  #aaaaaaELO: #ffaa00{elo} #aaaaaa• {rank}
+unknown-creator: "Unknown"
+quest-title: "#00BFFFᴀᴄᴛɪᴠᴇ ǫᴜᴇsᴛ"
+quest-empty-description: |-
+  #aaaaaaHiện chưa có nhiệm vụ truy nã đang hoạt động.
+  #aaaaaaChọn một bounty để nhận nhiệm vụ.
+quest-active-description: |-
+  #aaaaaaTarget: #ffffff{target}
+  #aaaaaaCreated by: #ffffff{creator}
+  #aaaaaaReward: #00ff3c{bounty}
+  #aaaaaaTime remaining: #ffaa00{time}
+quest-accepted: "#00ff3cQuest accepted: #ffffff{target}"
+quest-accept-failed: "#ff5555You already have an active quest."
+quest-cancelled: "#ff5555Quest cancelled."
+no-select-targets: "Không có mục tiêu hợp lệ."
+amount-title: "ʙᴏᴜɴᴛʏ sᴇᴛᴜᴘ: {player}"
+money-amount-body: "Nhập số tiền muốn treo lên mục tiêu."
+money-amount-label: "Số tiền muốn treo"
+invalid-amount: "&cSố bounty phải là số nguyên dương."
+selection-columns: 5
+selection-button-width: 85
+buttons:
+  target:
+    label: "{player}"
+    description: ""
+    width: 150
+  view-bounty-creator:
+    label: "{player}"
+    description: "ʙʏ {creator} • {bounty}"
+    width: 85
+  selection-next:
+    label: "ɴᴇxᴛ"
+    description: "Apply search or show the next 50."
+    width: 150
+  selection-back:
+    label: "ʙᴀᴄᴋ"
+    description: "Previous page, or bounty menu on page one."
+    width: 150
+  accept-bounty:
+    label: "ᴀᴄᴄᴇᴘᴛ ǫᴜᴇsᴛ"
+    description: ""
+    width: 150
+  accept-quest-list:
+    label: "ᴀᴄᴄᴇᴘᴛ ǫᴜᴇsᴛ"
+    description: "Choose a bounty target and accept its quest."
+    width: 150
+  create-quest:
+    label: "ᴄʀᴇᴀᴛᴇ ǫᴜᴇsᴛ"
+    description: "Create a quest, then select its target."
+    width: 150
+  view-quest:
+    label: "ᴠɪᴇᴡ ǫᴜᴇsᴛ"
+    description: "Xem mô tả nhiệm vụ truy nã hiện tại."
+    width: 150
+  back:
+    label: "ʙᴀᴄᴋ"
+    description: "Trở về PvP Menu."
+    width: 150
+  confirm-money:
+    label: "ᴄᴏɴꜰɪʀᴍ"
+    description: "Đặt bounty với số tiền đã nhập."
+    width: 150
+  cancel:
+    label: "ᴄᴀɴᴄᴇʟ"
+    description: "Hủy và trở về danh sách bounty."
+    width: 150
+  quest-back:
+    label: "ʙᴀᴄᴋ"
+    description: "Trở về danh sách bounty."
+    width: 150
+  cancel-quest:
+    label: "ᴄᴀɴᴄᴇʟ"
+    description: "Đóng phần nhiệm vụ hiện tại."
+    width: 150
+config-version: "1.10"
