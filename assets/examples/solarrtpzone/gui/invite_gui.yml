@@ -1,0 +1,11 @@
+# -------------------------------------------------------
+# SolarRtpZone - Giao Diện Gửi Lời Mời (Invite GUI)
+# -------------------------------------------------------
+title: "&8ɪɴᴠɪᴛᴇ ᴘʟᴀʏᴇʀ"
+size: 27
+items:
+  head:
+    slot: 13
+    name: "&#DDFF00%player%"
+    lore:
+      - "&7Click to send invite"

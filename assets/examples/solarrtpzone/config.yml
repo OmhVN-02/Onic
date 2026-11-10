@@ -1,0 +1,93 @@
+# -------------------------------------------------------
+# SolarRtpZone - Cấu Hình Chính (Main Configuration)
+# Tác giả: OmhVN
+# -------------------------------------------------------
+
+# Ngôn ngữ sử dụng trong plugin ("Eng" hoặc "Vie")
+# Các tệp ngôn ngữ tương ứng nằm trong thư mục Language/
+language: "Eng"
+
+# Bán kính dịch chuyển ngẫu nhiên mặc định (tính theo block)
+rtp-radius: 2000
+
+# Thế giới mặc định khi người chơi chưa chọn world trong GUI
+# Để trống "" để tự động lấy thế giới đầu tiên trong region.yml
+default-world: ""
+
+# Thông báo cho toàn máy chủ khi có người tham gia hàng chờ (mặc định: true)
+broadcast-queue-join: true
+
+# -------------------------------------------------------
+# Cấu hình Hộp thoại Dialog Paper (Paper 1.21.6+)
+# Bật/tắt riêng từng giao diện Dialog (Nếu false sẽ tự chuyển dùng GUI/Sign)
+# -------------------------------------------------------
+dialog:
+  enabled: true
+  settings: true
+  search: true
+
+# -------------------------------------------------------
+# Cấu hình thông báo Broadcast toàn server (Broadcast Options)
+# -------------------------------------------------------
+broadcast:
+  queue-join:
+    enabled: true
+    # Chế độ hiển thị: CHAT, ACTIONBAR, TITLE, ALL
+    type: "CHAT"
+    respect-player-notify: false
+  success:
+    enabled: true
+    # Chế độ hiển thị: CHAT, ACTIONBAR, TITLE, ALL
+    type: "CHAT"
+    respect-player-notify: false
+
+# -------------------------------------------------------
+# Cấu hình đếm ngược (Thời gian tính bằng Giây)
+# -------------------------------------------------------
+countdown:
+  # Thời gian đếm ngược ghép trận qua GUI & lệnh /rtpq
+  rtpq-match: 8
+  # Thời gian đếm ngược ghép trận mặc định khi đứng trong Vùng RTP Zone
+  zone-match: 5
+  # Hiển thị Title & âm thanh đếm ngược trong N giây cuối cùng
+  title-display-seconds: 5
+
+# -------------------------------------------------------
+# Hiệu ứng Potion áp dụng sau khi dịch chuyển thành công
+# -------------------------------------------------------
+teleport-effects:
+  # Hiệu ứng tạm thời khi tiếp đất (Landing Effects)
+  landing:
+    - type: "SLOWNESS"
+      duration: 60
+      amplifier: 9
+    - type: "SLOW_FALLING"
+      duration: 60
+      amplifier: 0
+    - type: "BLINDNESS"
+      duration: 60
+      amplifier: 0
+  # Hiệu ứng thưởng thêm sau khi dịch chuyển (Bonus Effects)
+  bonus:
+    - type: "STRENGTH"
+      duration: 1800
+      amplifier: 1
+    - type: "SPEED"
+      duration: 1800
+      amplifier: 1
+
+# -------------------------------------------------------
+# Tích hợp nâng cao SolarCore (SolarCore Hooks)
+# (Yêu cầu plugin SolarCore có mặt trên máy chủ)
+# -------------------------------------------------------
+solarcore-hooks:
+  # Chặn tham gia hàng chờ nếu người chơi đang bật tự động chấp nhận TPA
+  block-if-tpa-auto: true
+  # Chặn tham gia hàng chờ nếu người chơi đang có lời mời TPA đang chờ
+  block-if-pending-tpa: true
+
+# -------------------------------------------------------
+# Chế độ gỡ lỗi (Debug Mode)
+# Bật để hiển thị thông tin chi tiết trong console
+# -------------------------------------------------------
+debug: false

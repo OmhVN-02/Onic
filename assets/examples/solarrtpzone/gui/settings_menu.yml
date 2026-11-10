@@ -1,0 +1,36 @@
+# -------------------------------------------------------
+# SolarRtpZone - Giao Diện Cài Đặt (Settings Menu GUI)
+# -------------------------------------------------------
+title: "&8sᴇᴛᴛɪɴɢs"
+size: 27
+format:
+  lore:
+    - "&fCurrently: %status%"
+  status-on: "&#DDFF00&lOn"
+  status-off: "&#FF020B&lOff"
+items:
+  autojoin:
+    slot: 10
+    material: "COMPARATOR"
+    name: "&#DDFF00ᴀᴜᴛᴏ ᴊᴏɪɴ"
+    lore:
+      - "&7Auto join queue when"
+      - "&7standing in RTP Zone"
+  notify:
+    slot: 12
+    material: "BELL"
+    name: "&#DDFF00ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ"
+    lore:
+      - "&7Receive notifications"
+  actionbar:
+    slot: 14
+    material: "PAPER"
+    name: "&#DDFF00ᴀᴄᴛɪᴏɴʙᴀʀ"
+    lore:
+      - "&7Show countdown in actionbar"
+  potion:
+    slot: 16
+    material: "POTION"
+    name: "&#DDFF00ᴘᴏᴛɪᴏɴ ᴇғғᴇᴄᴛs"
+    lore:
+      - "&7Apply potion effects after teleport"

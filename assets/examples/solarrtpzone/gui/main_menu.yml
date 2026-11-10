@@ -1,0 +1,44 @@
+# -------------------------------------------------------
+# SolarRtpZone - Giao Diện Menu Chính (Main Menu GUI)
+# -------------------------------------------------------
+title: "&8ʀᴛᴘǫᴜᴇᴜᴇ"
+size: 27
+items:
+  leave:
+    slot: 10
+    material: "RED_STAINED_GLASS_PANE"
+    name: "&#FF020Bʟᴇᴀᴠᴇ"
+    lore:
+      - "&fClick to leave queue"
+  stats:
+    slot: 12
+    material: "OAK_SIGN"
+    name: "&#DDFF00ɪɴᴠɪᴛᴇ ʀᴇǫᴜᴇsᴛ"
+    lore:
+      - "&fWaiting: &#DDFF00%time%s"
+      - "&fCurrently queued: &#DDFF00%queued%"
+      - "&7Click to send more request"
+  world_select:
+    slot: 13
+    locked-lore:
+      - "&fSelected by: &#FF020B%player%"
+      - "&#FF020BCannot be changed"
+    no-world-material: "BARRIER"
+    no-world-name: "&#FF020B&lɴᴏ ᴡᴏʀʟᴅ sᴇʟᴇᴄᴛᴇᴅ"
+    no-world-lore:
+      - "&#FF020BYou have not selected any world!"
+      - "&fClick to select world"
+    unlocked-lore-append:
+      - "&fClick to select world"
+  settings:
+    slot: 14
+    material: "WRITABLE_BOOK"
+    name: "&#DDFF00sᴇᴛᴛɪɴɢs"
+    lore:
+      - "&fClick to open settings"
+  join:
+    slot: 16
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&#DDFF00sᴇᴀʀᴄʜɪɴɢ"
+    lore:
+      - "&fClick to join queue"

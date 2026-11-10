@@ -1,0 +1,37 @@
+# -------------------------------------------------------
+# SolarRtpZone - Menu Danh Sách Người Chơi (Select Player List Menu GUI)
+# -------------------------------------------------------
+title: "&8ʀᴛᴘǫᴜᴇᴜᴇ ɪɴᴠɪᴛᴇ"
+size: 54
+items:
+  search:
+    slot: 48
+    material: "OAK_SIGN"
+    name: "&#DDFF00sᴇᴀʀᴄʜ ᴘʟᴀʏᴇʀ"
+    lore:
+      - "&7Click to search player by name"
+  invitation:
+    slot: 49
+    material: "CHEST"
+    name: "&#DDFF00ɪɴᴠɪᴛᴀᴛɪᴏɴs"
+    lore:
+      - "&7Click to view received invites"
+  refresh:
+    slot: 50
+    material: "ANVIL"
+    name: "&#DDFF00ʀᴇғʀᴇsʜ"
+    lore:
+      - "&7Click to refresh player list"
+  head-format:
+    name: "&#BBFF00%player%"
+    lore:
+      - "&7Ping: &#DDFF00%ping%ms"
+      - "&7Click to send invite"
+  prev-page:
+    slot: 18
+    material: "ARROW"
+    name: "&c&lPrevious Page"
+  next-page:
+    slot: 26
+    material: "ARROW"
+    name: "&a&lNext Page"

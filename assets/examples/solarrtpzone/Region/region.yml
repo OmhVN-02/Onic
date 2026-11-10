@@ -1,0 +1,10 @@
+# -------------------------------------------------------
+# SolarRtpZone - Cấu Hình Thế Giới & Vật Phẩm GUI (Region Worlds)
+# -------------------------------------------------------
+worlds:
+  world_1:
+    world-name: "world"
+    gui-item: "GRASS_BLOCK"
+    gui-name: "&#00FF00sᴜʀᴠɪᴠᴀʟ ᴡᴏʀʟᴅ"
+    gui-lore:
+      - "&7Click to select this world"

@@ -1,0 +1,53 @@
+# -------------------------------------------------------
+# SolarRtpZone - Cấu Hình Hộp Thoại Dialog Cài Đặt (Paper 1.21.6+)
+# -------------------------------------------------------
+Eng:
+  title: "Settings Menu"
+  body:
+    - "&7Hello &e%player%&7, select the settings you want to customize:"
+    - "&8----------------------------------"
+    - "&7Tip: Your preferences are saved automatically."
+  buttons:
+    autojoin:
+      name: "Auto Join: %status%"
+      on: "&#DDFF00&lON"
+      off: "&#FF020B&lOFF"
+    notify:
+      name: "Notify: %status%"
+      on: "&#DDFF00&lON"
+      off: "&#FF020B&lOFF"
+    actionbar:
+      name: "Actionbar: %status%"
+      on: "&#DDFF00&lON"
+      off: "&#FF020B&lOFF"
+    potion:
+      name: "Potion: %status%"
+      on: "&#DDFF00&lON"
+      off: "&#FF020B&lOFF"
+    back:
+      name: "&cBack"
+Vie:
+  title: "Settings Menu"
+  body:
+    - "&7Xin chào &e%player%&7, chọn cài đặt bạn muốn chỉnh:"
+    - "&8----------------------------------"
+    - "&7Tip: Lựa chọn của bạn được lưu tự động."
+  buttons:
+    autojoin:
+      name: "Auto Join: %status%"
+      on: "&#DDFF00&lBẬT"
+      off: "&#FF020B&lTẮT"
+    notify:
+      name: "Thông Báo: %status%"
+      on: "&#DDFF00&lBẬT"
+      off: "&#FF020B&lTẮT"
+    actionbar:
+      name: "Actionbar: %status%"
+      on: "&#DDFF00&lBẬT"
+      off: "&#FF020B&lTẮT"
+    potion:
+      name: "Hiệu Ứng: %status%"
+      on: "&#DDFF00&lBẬT"
+      off: "&#FF020B&lTẮT"
+    back:
+      name: "&cQuay Lại"

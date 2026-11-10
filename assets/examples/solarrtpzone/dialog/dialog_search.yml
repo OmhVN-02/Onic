@@ -1,0 +1,17 @@
+# -------------------------------------------------------
+# SolarRtpZone - Cấu Hình Hộp Thoại Dialog Tìm Kiếm (Paper 1.21.6+)
+# -------------------------------------------------------
+Eng:
+  search-player:
+    title: "&8Search Player"
+    prompt: "&7Enter the player name to search:"
+    label: "Player Name"
+    search-button: "Search"
+    cancel-button: "Cancel"
+Vie:
+  search-player:
+    title: "&8Tìm kiếm người chơi"
+    prompt: "&7Nhập tên người chơi cần tìm kiếm:"
+    label: "Tên người chơi"
+    search-button: "Tìm kiếm"
+    cancel-button: "Hủy"

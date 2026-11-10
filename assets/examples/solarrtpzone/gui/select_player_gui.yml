@@ -1,0 +1,25 @@
+# -------------------------------------------------------
+# SolarRtpZone - Giao Diện Xác Nhận Mời (Select Player Confirm GUI)
+# -------------------------------------------------------
+title: "&8ɪɴᴠɪᴛᴇ ʀᴇǫᴜᴇsᴛ"
+size: 27
+items:
+  return:
+    slot: 10
+    material: "RED_STAINED_GLASS_PANE"
+    name: "&c&lʀᴇᴛᴜʀɴ"
+    lore:
+      - "&7Click to cancel"
+  head-format:
+    slot: 13
+    name: "&#BBFF00%player%"
+    lore:
+      - "&7Ping: &#DDFF00%ping%ms"
+  confirm:
+    slot: 16
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&a&lᴄᴏɴғɪʀᴍ"
+    lore-invite:
+      - "&7Click to send invite"
+    lore-accept:
+      - "&7Click to accept invite"
