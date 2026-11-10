@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -150,12 +150,21 @@ jobs:
           if(sandbox.window.ONIC_PLUGINS.find(product=>product.id==='onickits').status==='planned') throw Error('OnicKits still marked planned');
           if(sandbox.window.ONIC_ZONE_CONFIGS.length!==13) throw Error('SolarRTPZone sample files missing');
           for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
-            if(localized.filter(doc=>doc.product==='solarrtpzone').length!==6) throw Error('SolarRTPZone guides missing');
+            if(localized.filter(doc=>doc.product==='solarrtpzone').length!==8) throw Error('SolarRTPZone guides missing');
             const commands=localized.find(doc=>doc.id==='solarrtpzone-commands').html;
             for(const value of ['/rtpq join','/rtpq leave','/rtpq zone set','/rtpq zone countdown','solarrtpzone.use','solarrtpzone.admin']) if(!commands.includes(value)) throw Error('SolarRTPZone command missing: '+value);
             const papi=localized.find(doc=>doc.id==='solarrtpzone-papi').html;
             for(const value of ['%solarrtpzone_currently%','%solarrtpzone_zone_name%','%solarrtpzone_zone_queue_spawn%']) if(!papi.includes(value)) throw Error('SolarRTPZone placeholder missing: '+value);
             if(localized.find(doc=>doc.id==='solarrtpzone-home').html.includes('Coming soon')) throw Error('SolarRTPZone still placeholder');
+          }
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            const log=localized.find(doc=>doc.id==='solarrtpzone-changelog');
+            const numbers=[208,207,206,202,184];
+            for(const number of numbers) if(!log.html.includes('DevLog Plugins #'+number)) throw Error('SolarRTPZone devlog missing: '+number);
+            for(let i=1;i<numbers.length;i++) if(log.html.indexOf('id="devlog-'+numbers[i-1]+'"')>=log.html.indexOf('id="devlog-'+numbers[i]+'"')) throw Error('SolarRTPZone release ordering incorrect');
+            if((localized.find(doc=>doc.id==='solarrtpzone-menus').html.match(/<img /g)||[]).length!==15) throw Error('SolarRTPZone screenshots missing');
+            for(const stamp of ['2026-08-03','2026-07-30','2026-07-19']) if(!log.html.includes(stamp)) throw Error('SolarRTPZone release date missing');
+            if(!log.html.includes('&lt;zoneName&gt;') || !log.html.includes('&amp;#DDFF00&amp;l')) throw Error('Devlog code/color escaping incorrect');
           }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
