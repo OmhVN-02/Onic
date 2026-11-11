@@ -1,0 +1,24 @@
+# Cấu hình danh sách các món đồ Vanilla (Chỉ check loại vật liệu, bỏ qua mọi name/lore)
+tracked-items:
+  - ENCHANTED_GOLDEN_APPLE
+  - GOLDEN_APPLE
+  - END_CRYSTAL
+  - TOTEM_OF_UNDYING
+  - SPAWNER
+
+# Cấu hình các món đồ Custom (Check chính xác Name, Lore, Enchants)
+customitems:
+  "Amethyst drill":
+    material: NETHERITE_PICKAXE
+    name: "#A303F9ᴀᴍᴇᴛʜʏsᴛ ᴅʀɪʟʟ"
+    lore:
+      - "&7Đào ô 3x3 blocks"
+    enchants:
+      - "MENDING:1"
+      - "UNBREAKING:3"
+      - "EFFICIENCY:5"
+      
+  # Bạn có thể add thêm các item khác tương tự ở dưới đây
+  # "Cúp cày block":
+  #   material: DIAMOND_PICKAXE
+  #   name: "&cTên cúp"
