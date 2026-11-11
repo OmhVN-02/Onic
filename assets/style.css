@@ -130,3 +130,5 @@ pre code{color:var(--text)}.syntax-keyword{color:#d6a7ff}.syntax-type{color:#91d
 html[data-theme=light] .syntax-keyword{color:#773ca6}html[data-theme=light] .syntax-type{color:#145b78}html[data-theme=light] .syntax-function{color:#795708}html[data-theme=light] .syntax-string{color:#386124}html[data-theme=light] .syntax-number{color:#85410a}html[data-theme=light] .syntax-literal{color:#80315e}html[data-theme=light] .syntax-comment{color:#59695e}html[data-theme=light] .syntax-punct{color:#4c5b4f}
 
 .natural-screenshots img,.natural-screenshot img{width:auto;max-width:100%;height:auto;margin-inline:auto;image-rendering:pixelated}.natural-screenshot{margin:20px 0}.natural-screenshot figcaption{margin-top:12px;color:var(--muted);font-size:11px}
+
+.product-heading-logo{max-width:380px;margin:0 0 22px}.product-heading-logo .product-logo-frame{display:block;width:100%}.product-heading-logo img{display:block;width:100%;height:auto;object-fit:contain}

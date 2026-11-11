@@ -1,0 +1,23 @@
+# ── CrystalGuard Messages Configuration ───────────────────────────────────────
+
+# Tiền tố tin nhắn chung (đặt trống "" nếu muốn tắt prefix)
+# Shared message prefix (leave blank "" to disable prefix)
+prefix: "&#FF0055&lCrystalGuard &8» "
+
+chat:
+  prevent-end-crystal-place: "&cBạn không được phép đặt Tinh Thể End ở đây!"
+  prevent-end-crystal-break: "&cBạn không được phép phá Tinh Thể End ở đây!"
+  prevent-respawn-anchor-place: "&cBạn không được phép đặt Neo Hồi Sinh ở đây!"
+  prevent-respawn-anchor-break: "&cBạn không được phép phá/kích nổ Neo Hồi Sinh ở đây!"
+  spear-cooldown: "&cVui lòng chờ &e%seconds% giây &cđể tiếp tục dùng kỹ năng Spear!"
+  no-permission: "&cBạn không có quyền thực hiện lệnh này!"
+  config-reloaded: "&aĐã tải lại cấu hình và tin nhắn thành công!"
+
+actionbar:
+  prevent-end-crystal-place: "&cKhông được đặt Tinh Thể End!"
+  prevent-end-crystal-break: "&cKhông được phá Tinh Thể End!"
+  prevent-respawn-anchor-place: "&cKhông được đặt Neo Hồi Sinh!"
+  prevent-respawn-anchor-break: "&cKhông được kích nổ Neo Hồi Sinh!"
+  spear-cooldown: "&cSpear Cooldown: &e%seconds%s"
+  no-permission: "&cKhông có quyền!"
+  config-reloaded: "&aĐã reload cấu hình!"

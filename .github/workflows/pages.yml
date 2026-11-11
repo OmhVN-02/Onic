@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/crystal-config-data.js') + '\n' + read('assets/crystal-guide.js') + '\n' + read('assets/product-images.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -80,7 +80,7 @@ jobs:
             for (const product of sandbox.window.ONIC_PLUGINS.filter(item=>item.status==='planned' && item.image).map(item=>item.id)) {
               if (!home.html.includes('href="#'+product+'-home"')) throw Error('Upcoming product card missing: '+product);
               const page = localized.find(doc=>doc.id===product+'-home');
-              if (!page || !page.html.includes('assets/images/'+product+'.png')) throw Error('Upcoming product logo missing: '+product);
+              if (!page || !page.html.includes('assets/images/'+sandbox.window.ONIC_PLUGINS.find(p=>p.id===product).image)) throw Error('Upcoming product logo missing: '+product);
             }
             const rtp = localized.find(doc=>doc.id==='solarrtp-home');
             const headings = [...rtp.html.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map(match=>match[1]);
@@ -232,6 +232,19 @@ jobs:
           }
           if(sandbox.window.ONIC_ELO_CONFIGS.length!==29) throw Error('SolarElo samples missing');
           if(sandbox.window.ONIC_PLUGINS.find(p=>p.id==='solarelo').status==='planned') throw Error('SolarElo still planned');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(doc=>doc.product==='crystalguard').length!==5) throw Error('CrystalGuard guides missing');
+            const crystal=localized.find(doc=>doc.id==='crystalguard-config').html;
+            for(const value of ['config.yml','messages.yml','messages-display','%seconds%']) if(!crystal.includes(value)) throw Error('CrystalGuard setting missing: '+value);
+            for(const id of ['solartpa','solarbounty','scombat','solarrtp','solarquest','solarorder','oniccraft','oniccore','crystalguard','antintr','onicsus','onickits']) {
+              const product=sandbox.window.ONIC_PLUGINS.find(p=>p.id===id);
+              const home=localized.find(doc=>doc.id===product.route);
+              if(!home.html.includes('assets/images/'+product.image)) throw Error('Missing overview logo: '+id);
+              const wiki=localized.find(doc=>doc.id==='wiki').html;
+              const card=wiki.match(new RegExp('<a class="card[^\"]*" href="#'+product.route+'"[\\s\\S]*?<\\/a>'));
+              if(!card || !card[0].includes('assets/images/'+product.image)) throw Error('Missing product card logo: '+id);
+            }
+          }
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

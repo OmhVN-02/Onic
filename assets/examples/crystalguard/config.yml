@@ -1,0 +1,86 @@
+# ── 1. GENERAL SETTINGS ───────────────────────────────────────────────────────
+general:
+  # Chế độ kiểm lỗi (Debug). 
+  # Khi kích hoạt, plugin sẽ in nhật ký chi tiết ra bảng điều khiển (console) máy chủ.
+  debug: false
+
+  # Danh sách world cho phép sử dụng Tinh Thể End & Neo Hồi Sinh làm vũ khí PvP.
+  # Plugin sẽ KHÔNG kích hoạt bất kỳ tính năng bảo vệ nào trong các thế giới này.
+  # Tên world không phân biệt chữ hoa/thường.
+  whitelist-worlds: []
+
+# ── 2. EXPLOSION PROTECTION ───────────────────────────────────────────────────
+# Bảo vệ thực thể và địa hình khỏi sát thương và sự phá hủy của các vụ nổ.
+explosion-protection:
+  # Cấu hình bảo vệ cho vụ nổ Tinh Thể End (End Crystal)
+  end-crystal:
+    # Bật/tắt bảo vệ khỏi vụ nổ tinh thể.
+    enable: true
+    # Lượng sát thương gây ra từ vụ nổ (0.0 = không gây sát thương).
+    damage: 0.0
+
+  # Cấu hình bảo vệ cho vụ nổ Neo Hồi Sinh (Respawn Anchor)
+  respawn-anchor:
+    # Bật/tắt bảo vệ khỏi vụ nổ neo hồi sinh (chỉ áp dụng ngoài địa ngục Nether).
+    enable: true
+    # Lượng sát thương gây ra từ vụ nổ (0.0 = không gây sát thương).
+    damage: 0.0
+
+  # Bật/tắt bảo vệ block (địa hình) khỏi các vụ nổ trên.
+  # Ngăn chặn phá hủy rương, redstone, quặng, nhà cửa...
+  prevent-terrain-damage: true
+
+  # Cho phép cơ chế triệu hồi và chiến đấu với Rồng Ender ở thế giới The End.
+  # Bảo vệ tinh thể sẽ tạm thời tự động vô hiệu hóa để phục vụ triệu hồi/chiến đấu rồng vanilla.
+  allow-dragon-respawn: true
+
+# ── 3. PLACE & BREAK PROTECTION ───────────────────────────────────────────────
+# Chặn hoàn toàn hành vi đặt hoặc phá hủy/bắn nổ các vật phẩm.
+interaction-protection:
+  end-crystal:
+    # Chặn người chơi đặt Tinh Thể End.
+    prevent-place: false
+    # Chặn người chơi phá/bắn nổ Tinh Thể End.
+    prevent-break: false
+
+  respawn-anchor:
+    # Chặn người chơi đặt Neo Hồi Sinh.
+    prevent-place: false
+    # Chặn người chơi phá/kích nổ Neo Hồi Sinh.
+    prevent-break: false
+
+# ── 4. RECIPE & INVENTORY PREVENTION ──────────────────────────────────────────
+# Ngăn chặn người chơi sở hữu hoặc chế tạo các vật phẩm đặc thù.
+craft-and-inventory:
+  # Chặn công thức chế tạo vật phẩm (áp dụng cho Bàn chế tạo và khối Crafter 1.21+)
+  prevent-craft:
+    # Vô hiệu hóa chế tạo Tinh Thể End.
+    end-crystal: false
+    # Vô hiệu hóa chế tạo Neo Hồi Sinh.
+    respawn-anchor: false
+
+  # Cấm giữ/sở hữu vật phẩm trong túi đồ (inventory) của người chơi.
+  # Khi bật, vật phẩm tương ứng sẽ tự động bị xóa khi người chơi nhặt, kéo click trong rương hoặc khi vào game.
+  prevent-possession:
+    # Cấm sở hữu Tinh Thể End.
+    end-crystal: false
+    # Cấm sở hữu Neo Hồi Sinh.
+    respawn-anchor: false
+
+# ── 5. SPEAR DASH COOLDOWN ────────────────────────────────────────────────────
+# Thời gian chờ (ticks) khi sử dụng đòn lướt của Spear (Paper 1.21.11+).
+spear-lunge:
+  # Kích hoạt cooldown cho lunge/dash bằng Spear.
+  enable-cooldown: true
+  # Thời gian chờ (20 ticks = 1 giây).
+  cooldown-ticks: 60
+
+# ── 6. MESSAGES DISPLAY SETTINGS ──────────────────────────────────────────────
+# Hình thức hiển thị thông báo gửi tới người chơi khi hành động bị chặn.
+messages-display:
+  # Gửi tin nhắn trên thanh Action Bar (ở phía trên thanh máu/giáp).
+  enable-actionbar: true
+  # Gửi tin nhắn trong khung Chat.
+  enable-chat: true
+  # Chỉ sử dụng Action Bar để gửi thông báo (vô hiệu hóa Chat).
+  use-actionbar-only: false
