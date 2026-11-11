@@ -1,0 +1,53 @@
+#  ____        _            ____ _           _   
+# / ___|  ___ | | __ _ _ __|  _ \ |__   __ _| |_ 
+# \___ \ / _ \| |/ _` | '__| |   | '_ \ / _` | __|
+#  ___) | (_) | | (_| | |  | |___| | | | (_| | |_ 
+# |____/ \___/|_|\__,_|_|   \____|_| |_|\__,_|\__|
+#
+# SolarChat - Cấu hình hệ thống tin nhắn riêng (Private Message)
+
+# Trạng thái bật/tắt module
+enabled: true
+
+# Quyền hạn liên quan đến hệ thống
+bypass-permission: "solarchat.msg.bypass"
+socialspy-permission: "solarchat.socialspy"
+admin-permission: "solarchat.msg.admin"
+
+# Cấu hình âm thanh khi nhận tin nhắn riêng
+sound:
+  enabled: true
+  name: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 1.0
+  pitch: 1.5
+
+# Tin nhắn phản hồi hệ thống (Hỗ trợ mã màu HEX và Legacy)
+messages-config:
+  # Định dạng tin nhắn gửi và nhận
+  format-send: "&#d870ffTôi &#8b8b8b» &#d870ff{player}&8: &#ffffff{message}"
+  format-receive: "&#ff70a6{player} &#8b8b8b» &#ff70a6Tôi&8: &#ffffff{message}"
+  
+  # Định dạng giám sát tin nhắn (Social Spy dành cho Ban quản trị)
+  format-socialspy: "&#8b8b8b[&dSpy&#8b8b8b] &#b8b8b8{sender} &#8b8b8b» &#b8b8b8{receiver}&8: &#f0f0f0{message}"
+  
+  # Thông báo lỗi cú pháp và kiểm tra
+  syntax-msg: "&#ff4d4d&lᴍsɢ &8» &#ff7575Sử dụng: /msg <người chơi> <tin nhắn>"
+  syntax-reply: "&#ff4d4d&lᴍsɢ &8» &#ff7575Sử dụng: /reply <tin nhắn>"
+  self-msg: "&#ff4d4d&lᴍsɢ &8» &#ff7575Bạn không thể tự gửi tin nhắn cho chính mình!"
+  target-toggled-off: "&#ff4d4d&lᴍsɢ &8» &#ff7575Người chơi này hiện đã tắt nhận tin nhắn riêng."
+  no-reply: "&#ff4d4d&lᴍsɢ &8» &#ff7575Không có người nào vừa nhắn tin với bạn để trả lời."
+  
+  # Trạng thái bật/tắt tính năng chat
+  toggled-on: "&#a8ff60&lᴍsɢ &8| &#ffffffĐã &#56ff56bật &#ffffffnhận tin nhắn riêng."
+  toggled-off: "&#ff6060&lᴍsɢ &8| &#ffffffĐã &#ff3333tắt &#ffffffnhận tin nhắn riêng."
+  
+  # Tính năng chặn người chơi (Ignore)
+  ignore-success: "&#a8ff60&lɪɢɴᴏʀᴇ &8| &#ffffffĐã thêm &#ff5e5e{player} &#ffffffvào danh sách chặn."
+  unignore-success: "&#a8ff60&lɪɢɴᴏʀᴇ &8| &#ffffffĐã bỏ chặn đối với &#56ff56{player}&#ffffff."
+  cannot-ignore-self: "&#ff4d4d&lɪɢɴᴏʀᴇ &8| &#ff7575Bạn không thể tự chặn chính bản thân mình!"
+  player-ignored-you: "&#ff4d4d&lᴍsɢ &8| &#ff7575Người chơi này đã chặn nhận tin nhắn từ bạn."
+  syntax-ignore: "&#ff4d4d&lɪɢɴᴏʀᴇ &8| &#ff7575Sử dụng: /ignore <người chơi>"
+  
+  # Trạng thái Social Spy
+  socialspy-enabled: "&#a8ff60&lꜱᴘʏ &8| &#ffffffChế độ giám sát Social Spy đã &#56ff56kích hoạt&#ffffff."
+  socialspy-disabled: "&#ff6060&lꜱᴘʏ &8| &#ffffffChế độ giám sát Social Spy đã &#ff3333tắt bỏ&#ffffff."

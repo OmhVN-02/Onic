@@ -1,0 +1,26 @@
+# SolarChat - Vietnamese language file
+core:
+  prefix: "<gradient:#00e5ff:#0084ff>sᴏʟᴀʀᴄʜᴀᴛ</gradient> &8» &f"
+  no-permission: "{prefix}&cBạn không có quyền sử dụng lệnh này!"
+  player-only: "{prefix}&cLệnh này chỉ dành cho người chơi!"
+  player-not-found: "{prefix}&cNgười chơi không online hoặc không tồn tại!"
+  reload-success: "{prefix}&a✔ SolarChat đã được reload thành công!"
+  reload-details: "{prefix}&7Đã reload: config · chat-ping · msg · announcements · killreward"
+  reload-failed: "{prefix}&cLỗi khi reload: {error}"
+  invalid-command: "{prefix}&cLệnh không hợp lệ!"
+  chat-toggled-off-warning: "{prefix}&cChat của bạn đang tắt! Dùng &e/chattoggle &cđể bật lại."
+  chat-toggled-on-self: "{prefix}&aBạn đã bật chat! Bây giờ bạn có thể gửi tin nhắn."
+  chat-toggled-off-self: "{prefix}&cBạn đã tắt chat! Dùng lệnh &e/chattoggle &cđể bật lại."
+  click-to-view-stats: "&#00BFFF&lClick để xem thống kê"
+  stats-gui-disabled: "{prefix}&cTính năng giao diện thống kê đã bị vô hiệu hóa!"
+  chat-disabled-by-player: "{prefix}&cChat của bạn đang tắt! Dùng &e/chattoggle &cđể bật lại."
+  help-header: "#00FC00sᴏʟᴀʀᴄʜᴀᴛ #C8CFDCv{version}"
+  help-author: "#C8CFDCTác giả: #00FC00{author}"
+  help-divider: "#C8CFDC────────────────────────────────"
+  help-reload: "#FCE300/solarchat reload #C8CFDC- Reload toàn bộ plugin"
+
+anti-spam:
+  rate-limit: "{prefix}&cBạn đang gửi tin nhắn quá nhanh! Vui lòng chờ một chút."
+  cooldown: "{prefix}&cVui lòng đợi {time} giây trước khi chat tiếp!"
+  duplicate: "{prefix}&cKhông được gửi tin nhắn giống nhau liên tiếp!"
+  filtered-words: "{prefix}&cTin nhắn của bạn chứa từ ngữ không phù hợp!"

@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/crystal-config-data.js') + '\n' + read('assets/crystal-guide.js') + '\n' + read('assets/afk-crate-config-data.js') + '\n' + read('assets/afk-crate-guide.js') + '\n' + read('assets/product-images.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/crystal-config-data.js') + '\n' + read('assets/crystal-guide.js') + '\n' + read('assets/afk-crate-config-data.js') + '\n' + read('assets/afk-crate-guide.js') + '\n' + read('assets/chat-config-data.js') + '\n' + read('assets/chat-guide.js') + '\n' + read('assets/product-images.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -260,6 +260,18 @@ jobs:
             for(const value of ['SolarCrateAPI','getCrateItems','getCrateFromKey','syntax-keyword','Optional&lt;Crate&gt;']) if(!crateApi.includes(value)) throw Error('Crate API missing: '+value);
           }
           if(sandbox.window.ONIC_AFK_CONFIGS.length!==4 || sandbox.window.ONIC_CRATE_CONFIGS.length!==17) throw Error('AFK/Crate YAML samples missing');
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            if(localized.filter(d=>d.product==='solarchat').length!==8) throw Error('SolarChat pages missing');
+            const commands=localized.find(d=>d.id==='solarchat-commands').html;
+            for(const value of ['/solarchat reload','/msg','/socialspy','/tbmsg','solarchat.rgbcodes','admin.announcements']) if(!commands.includes(value)) throw Error('SolarChat command missing: '+value);
+            if(/\/(discord|report|nightvision)\b/.test(commands)) throw Error('Removed SolarChat command documented');
+            const config=localized.find(d=>d.id==='solarchat-config').html;
+            for(const value of ['words.txt','modules/killreward.yml','gui/gui.yml','lang/vi.yml']) if(!config.includes(value)) throw Error('SolarChat configuration missing: '+value);
+            const papi=localized.find(d=>d.id==='solarchat-papi').html;
+            for(const value of ['%solarchat_chat_status%','%solarchat_msg_status%','%solarchat_head%']) if(!papi.includes(value)) throw Error('SolarChat PAPI missing: '+value);
+          }
+          if(sandbox.window.ONIC_CHAT_CONFIGS.length!==8) throw Error('SolarChat YAML samples missing');
+          if(sandbox.window.ONIC_PLUGINS.find(p=>p.id==='solarchat').status==='planned') throw Error('SolarChat still planned');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;

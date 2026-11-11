@@ -1,0 +1,95 @@
+# ── Language ───────────────────────────────────────────────────────────────────
+# Active language file: lang/en.yml or lang/vi.yml
+language: "vi"
+
+
+
+# ── Chat ───────────────────────────────────────────────────────────────────────
+chat:
+  enabled: true
+  format: "{head}{prefix}{username-color}{name}#C8CFDC: {message-color}{message}"
+
+# ── Player Head Avatar ────────────────────────────────────────────────────────
+head:
+  enabled: true
+
+# ── Hiển thị Item Sprite trong Chat ([item], [hand], [i]) ─────────────────────
+item-show:
+  enabled: true
+  keywords:
+    - "[item]"
+    - "[hand]"
+    - "[i]"
+  # Định dạng hiển thị trên 1.21.9+ (có hỗ trợ icon Sprite ảnh thật)
+  format: "{sprite} &7x{amount}"
+  # Định dạng hiển thị trên phiên bản dưới 1.21.9 (chỉ hiện tên và số lượng)
+  legacy-format: "&f[{name} &7x{amount}&f]"
+  empty-hand-message: "#FC0000Bạn không cầm vật phẩm nào trên tay để hiển thị!"
+
+# Format riêng theo nhóm LuckPerms (bỏ comment để kích hoạt)
+group-formats:
+  # admin:   "{head}&c[Admin] {prefix}{name}&f: {message}"
+  # vip:     "{head}&6[VIP]   {prefix}{name}&f: {message}"
+  # default: "{head}{prefix}{name}&7: &f{message}"
+
+# ── Lưu log chat ───────────────────────────────────────────────────────────────
+chat-logs:
+  enabled: true
+  # Tự động dọn dẹp các tệp log cũ hơn bao nhiêu ngày (Đặt 0 để tắt tự động xóa)
+  retention-days: 30
+
+# ── Anti-Spam ──────────────────────────────────────────────────────────────────
+anti-spam:
+  enabled: true
+
+  rate-limit:
+    enabled: true
+    max-messages: 5
+    time-window: 10
+    message: "#FC0000Bạn đang gửi tin nhắn quá nhanh! Vui lòng chờ một chút."
+
+  cooldown:
+    enabled: true
+    seconds: 3
+    message: "#FC0000Vui lòng đợi {time} giây trước khi chat tiếp!"
+
+  duplicate:
+    enabled: true
+    message: "#FC0000Không được gửi tin nhắn giống nhau liên tiếp!"
+
+# ── Lọc từ cấm ────────────────────────────────────────────────────────────────
+filtered-words:
+  enabled: true
+  # block = không cho gửi | censor = thay bằng censor-char
+  mode: "block"
+  message: "#FC0000Tin nhắn của bạn chứa từ ngữ không phù hợp!"
+  censor-char: "*"
+  # Danh sách biểu thức Regex tùy chỉnh nâng cao (bổ sung ngoài file words.txt)
+  regex-patterns:
+    # - "(?i)https?://\\S+"
+    # - "(?i)\\b(a+d+m+i+n)\\b"
+
+# ── Hover stats (rê chuột vào tên trong chat) ──────────────────────────────────
+stats:
+  enabled: true
+  hover-enabled: true
+  
+  # Cho phép bật/tắt giao diện UI Thống kê (/viewstats)
+  gui-enabled: true
+  
+  # Lệnh thực thi khi người chơi click vào tên trong khung chat
+  # Placeholders: {player} - tên của người gửi tin nhắn
+  # Bạn có thể đổi thành "/tpa {player}" hoặc lệnh khác
+  # Để trống "" nếu muốn tắt sự kiện click
+  click-command: "/viewstats {player}"
+
+  display:
+    - "&7%luckperms_prefix%{player}"
+    - "&7&m                 "
+    - "#00FC00&l$ &fTiền #00FC00%nf_###E0X_vault_eco_balance%"
+    - "#FC0000🗡 &fGiết người #FC0000%nf_###E0X_statistic_player_kills%"
+    - "#FCE300⌚ &fThời gian chơi #FCE300%statistic_time_played%"
+    - "#F97603☠ &fLần chết #F97603%nf_###E0X_statistic_deaths%"
+    - "#A303F9★ &fMảnh #A303F9%solar_shards%"
+    - "&7&m                 "
+    - "&7Nhấn để xem thống kê"

@@ -1,0 +1,51 @@
+#  ____        _            ____ _           _   
+# / ___|  ___ | | __ _ _ __|  _ \ |__   __ _| |_ 
+# \___ \ / _ \| |/ _` | '__| |   | '_ \ / _` | __|
+#  ___) | (_) | | (_| | |  | |___| | | | (_| | |_ 
+# |____/ \___/|_|\__,_|_|   \____|_| |_|\__,_|\__|
+#
+# SolarChat - Cấu hình hệ thống nhắc tên (ChatPing/Mentions)
+
+# Trạng thái bật/tắt module
+enabled: true
+
+# Ký tự tiền tố trước tên người chơi để kích hoạt nhắc tên
+ping-prefix: "@"
+
+# Định dạng màu sắc của tên được nhắc trong khung chat
+ping-style: "&#ff9f43&l"
+
+# Quyền hạn để ping tất cả mọi người (@everyone và @here)
+admin-permission: "solarchat.ping.admin"
+
+# Cấu hình âm thanh thông báo cho người được nhắc
+sound:
+  enable-sound: true
+  name: "BLOCK_NOTE_BLOCK_PLING"
+  volume: 1.0
+  pitch: 1.0
+
+# Các hình thức thông báo được hiển thị khi bị nhắc tên
+notifications:
+  enable-chat: true
+  enable-title: true
+  enable-actionbar: true
+
+# Cơ chế chống spam ping (Anti-Ping Spam)
+anti-ping:
+  enabled: true
+  # Số lần ping tối đa trong chu kỳ thời gian
+  max-pings: 3
+  # Chu kỳ thời gian giới hạn (giây)
+  window-seconds: 10
+
+# Tin nhắn phản hồi hệ thống (Hỗ trợ mã màu HEX và Legacy)
+messages-config:
+  prefix: "&#ff9f43&lᴍᴇɴᴛɪᴏɴ"
+  chat: "&#ffffffBạn đã được nhắc bởi &#ff9f43%player_name%"
+  title: "&#ff9f43Nhắc tên!"
+  subtitle: "&#ffffffTừ người chơi &#ff9f43%player_name%"
+  actionbar: "&#ffffffNgười chơi &#ff9f43%player_name% &#ffffffvừa nhắc tên bạn!"
+  toggle-on: "&#ff9f43&lᴍᴇɴᴛɪᴏɴ &8» &#ffffffĐã &#56ff56bật &#ffffffnhận thông báo khi bị nhắc tên."
+  toggle-off: "&#ff6060&lᴍᴇɴᴛɪᴏɴ &8» &#ffffffĐã &#ff3333tắt &#ffffffnhận thông báo khi bị nhắc tên."
+  anti-ping-limit: "&#ff3e4c&lᴍᴇɴᴛɪᴏɴ &8» &#ff7575Bạn đang nhắc tên quá nhanh! Vui lòng chờ một chút."

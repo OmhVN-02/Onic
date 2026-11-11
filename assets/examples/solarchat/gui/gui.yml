@@ -1,0 +1,110 @@
+# ── GUI Thống kê (/viewstats) ──────────────────────────────────────────────────
+# Hỗ trợ cấu hình dạng ma trận (layout) hoặc theo số slot cũ (position)
+title: "&#00BFFFThống kê - {player}"
+size: 27
+
+# Bố cục dạng ma trận (layout) cho phiên bản cũ hoặc máy chủ không hỗ trợ Dialog
+layout:
+  - "####P####"
+  - "#$SKDTLM#"
+  - "#ZOE#####"
+
+# Cấu hình Hộp thoại (Paper Dialog) cho phiên bản 1.21.6+
+dialog:
+  enabled: true
+  title: "&#00BFFFThống kê - {player}"
+  lines:
+    - " &7%luckperms_prefix%&l{player}"
+    - " &7&m                       &r"
+    - " #00FC00&l$ &fSố dư: #00FC00%vault_eco_balance_formatted%"
+    - " #A303F9★ &fMảnh: #A303F9%solar_shards%"
+    - " #FC0000🗡 &fGiết người: #FC0000%statistic_player_kills%"
+    - " #F97603☠ &fLần chết: #F97603%statistic_deaths%"
+    - " #FCE300⌚ &fThời gian chơi: #FCE300%statistic_time_played%"
+    - " #00BFFF✔ &fBlock đặt: &#9C9C9C{PLACED_BLOCK}"
+    - " #00BFFF⛏ &fBlock đào: &#9C9C9C{MINE_BLOCK}"
+    - " #00BFFFMob đã giết: &#9C9C9C{KILL_ENTITY}"
+    - " &7&m                       &r"
+
+items:
+  border:
+    char: "#"
+    material: "GRAY_STAINED_GLASS_PANE"
+    name: " "
+
+  player_head:
+    char: "P"
+    material: "PLAYER_HEAD"
+    name: "&#00BFFF{player}"
+    lore:
+      - "&7Thông tin chi tiết"
+
+  balance:
+    char: "$"
+    material: "EMERALD"
+    name: "&#00BFFFTiền"
+    lore:
+      - "&fSố dư: &#9C9C9C%vault_eco_balance_formatted%"
+
+  shards:
+    char: "S"
+    material: "AMETHYST_SHARD"
+    name: "&#00BFFFMảnh"
+    lore:
+      - "&fMảnh: &#9C9C9C%solar_shards%"
+
+  player_kills:
+    char: "K"
+    material: "DIAMOND_SWORD"
+    name: "&#00BFFFGiết người"
+    lore:
+      - "&fGiết: &#9C9C9C%statistic_player_kills%"
+
+  deaths:
+    char: "D"
+    material: "SKELETON_SKULL"
+    name: "&#00BFFFLần chết"
+    lore:
+      - "&fChết: &#9C9C9C%statistic_deaths%"
+
+  playtime:
+    char: "T"
+    material: "CLOCK"
+    name: "&#00BFFFThời gian chơi"
+    lore:
+      - "&fThời gian: &#9C9C9C%statistic_time_played%"
+
+  blocks_placed:
+    char: "L"
+    material: "STONE"
+    name: "&#00BFFFBlock đặt"
+    lore:
+      - "&fĐặt: &#9C9C9C{PLACED_BLOCK}"
+
+  blocks_broken:
+    char: "M"
+    material: "COBBLESTONE"
+    name: "&#00BFFFBlock đào"
+    lore:
+      - "&fĐào: &#9C9C9C{MINE_BLOCK}"
+
+  mobs_killed:
+    char: "Z"
+    material: "ZOMBIE_HEAD"
+    name: "&#00BFFFMob đã giết"
+    lore:
+      - "&fMob: &#9C9C9C{KILL_ENTITY}"
+
+  money_spent_shop:
+    char: "O"
+    material: "GOLD_NUGGET"
+    name: "&#00BFFFChi tiêu Shop"
+    lore:
+      - "&fĐã chi: &#9C9C9C%solarshop_total_spent_formatted%"
+
+  money_from_sell:
+    char: "E"
+    material: "IRON_NUGGET"
+    name: "&#00BFFFThu từ /sell"
+    lore:
+      - "&fĐã bán: &#9C9C9C%solarworth_total_money_sold_formatted%"

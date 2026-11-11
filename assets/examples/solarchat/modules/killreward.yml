@@ -1,0 +1,68 @@
+#  _  ___ _ _ ____                             _ 
+# | |/ (_) | |  _ \  _____      ____ _ _ __ __| |
+# | ' /| | | | |_) |/ _ \ \ /\ / / _` | '__/ _` |
+# | . \| | | |  _ <|  __/\ V  V / (_| | | | (_| |
+# |_|\_\_|_|_|_| \_\\___| \_/\_/ \__,_|_|  \__,_|
+#
+
+# Bật/tắt tính năng thưởng khi giết người chơi khác và nhắn từ khóa chúc mừng
+enabled: true
+
+# Thời gian giới hạn (giây) sau khi giết người chơi khác để nhắn từ khóa nhận thưởng
+window-seconds: 15
+
+# Giới hạn số lần nhận thưởng tối đa trong mỗi 2 giờ
+limit-enabled: true
+limit-amount: 5
+# Tin nhắn cảnh báo khi đạt giới hạn ({limit} sẽ được thay thế bằng giới hạn tối đa)
+limit-reached-message: "&8[&cKillReward&8] &cBạn đã đạt giới hạn nhận thưởng tối đa ({limit} lần mỗi 2 giờ)!"
+
+# Ngăn chặn người chơi farm mạng bằng tài khoản clone (cùng địa chỉ IP)
+prevent-same-ip: true
+# Tin nhắn cảnh báo khi hạ gục tài khoản có cùng địa chỉ IP
+same-ip-message: "&8[&cKillReward&8] &cKhông thể nhận phần thưởng khi hạ gục tài khoản có cùng địa chỉ IP với bạn!"
+
+# Danh sách từ khóa kích hoạt phần thưởng (không phân biệt chữ hoa/thường)
+trigger-words:
+  - "gg"
+  - "gigi"
+  - "good game"
+  - "ez"
+
+# Định dạng thay thế hiển thị trong chat cho từng từ khóa (tô màu và in đậm)
+# Định dạng được cấu hình theo từ khóa viết thường
+word-formats:
+  gg: "&#FFD700&lGG&r"
+  gigi: "&#FFD700&lGiGi&r"
+  "good game": "&#FFD700&lGood Game&r"
+  ez: "&#FF5555&lEZ&r"
+
+# Các phần thưởng người chơi nhận được
+rewards:
+  # Thưởng tiền trực tiếp qua Vault Economy (nếu có)
+  money:
+    enabled: true
+    amount: 100.0
+
+  # Các lệnh thực thi từ Console hệ thống ({player} tự động thay thế bằng tên người chơi)
+  commands:
+    enabled: true
+    list:
+      - "give {player} iron_ingot 3"
+
+  # Âm thanh phát khi nhận thưởng
+  sound:
+    enabled: true
+    value: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.2
+
+  # Hiển thị chữ trên thanh hành động (ActionBar) của người chơi
+  actionbar:
+    enabled: true
+    text: "&aBạn nhận được phần thưởng vì đã cư xử đẹp!"
+
+  # Gửi tin nhắn thông báo trong khung chat của người chơi
+  message:
+    enabled: true
+    text: "&8[&aKillReward&8] &7Bạn nhận được &e100 coins &7và &e3 Sắt &7vì đã chat &e{word}&7!"

@@ -1,0 +1,53 @@
+#  ____        _            ____ _           _   
+# / ___|  ___ | | __ _ _ __|  _ \ |__   __ _| |_ 
+# \___ \ / _ \| |/ _` | '__| |   | '_ \ / _` | __|
+#  ___) | (_) | | (_| | |  | |___| | | | (_| | |_ 
+# |____/ \___/|_|\__,_|_|   \____|_| |_|\__,_|\__|
+#
+# SolarChat - Cấu hình hệ thống thông báo tự động (Announcements)
+
+# Trạng thái bật/tắt module
+enabled: true
+
+# Khoảng thời gian giữa các thông báo (giây)
+interval: 50
+
+# Thứ tự hiển thị thông báo: sequential (tuần tự) hoặc random (ngẫu nhiên)
+order: "sequential"
+
+# Âm thanh mặc định khi gửi thông báo (có thể tắt/bật)
+default-sound:
+  enabled: true
+  type: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 1.0
+  pitch: 1.0
+
+# Danh sách nội dung các thông báo
+# Hỗ trợ mã màu HEX, mã màu Legacy, chèn âm thanh riêng biệt, và các thẻ tương tác:
+#   - <link>Tên hiển thị|url</link> hoặc <link>url</link>  (Bấm vào để mở liên kết)
+#   - <cmd>Tên hiển thị|lệnh</cmd> hoặc <cmd>lệnh</cmd>      (Bấm vào để thực thi lệnh)
+messages:
+  - message: "&#00d2ff&lᴛʜÔɴɢ ʙÁᴏ &fChào mừng bạn tham gia máy chủ! Hãy tuân thủ nội quy và chơi game vui vẻ."
+    sound:
+      enabled: true
+      type: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      volume: 1.0
+      pitch: 1.0
+  - message: "&#ffb700&lɴʜẮᴄ ɴʜỞ &fHãy giữ thái độ lịch sự, văn minh và tôn trọng lẫn nhau khi chat!"
+  - message: "&#ff758f&lỦɴɢ ʜộ &fỦng hộ máy chủ tại cửa hàng để nhận nhiều phần quà VIP hấp dẫn: <link>&#ff758f&nshop.solarmc.vn|https://shop.solarmc.vn</link>"
+
+# Tin nhắn phản hồi hệ thống (Hỗ trợ mã màu HEX và Legacy)
+messages-config:
+  hover-link: "&aNhấp để mở liên kết: &7{url}"
+  hover-cmd: "&aNhấp để thực thi lệnh: &e{command}"
+  toggle-on: "&#00ffaa&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffĐã &#56ff56bật &#ffffffnhận thông báo tự động."
+  toggle-off: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffĐã &#ff3333tắt &#ffffffnhận thông báo tự động."
+  system-on: "&#00ffaa&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffĐã &#56ff56bật &#ffffffhệ thống thông báo tự động trên toàn máy chủ."
+  system-off: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffĐã &#ff3333tắt &#ffffffhệ thống thông báo tự động trên toàn máy chủ."
+  list-header: "&#ffb700&l=== danh sách thông báo ==="
+  current-msg: "&#00ffaa&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffThông báo hiện tại (#"
+  no-msg: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ff7575Không tìm thấy thông báo nào trong cấu hình!"
+  syntax: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ff7575Sử dụng: /tbmsg <số thứ tự> <nội dung>"
+  invalid-index: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ff7575Số thứ tự không hợp lệ! Vui lòng chọn từ 1 đến {max}."
+  invalid-number: "&#ff6060&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ff7575Vui lòng nhập một số thứ tự hợp lệ."
+  updated: "&#00ffaa&lᴀɴɴᴏᴜɴᴄᴇ &8| &#ffffffĐã cập nhật thành công nội dung thông báo #"

@@ -1,0 +1,26 @@
+# SolarChat - English language file
+core:
+  prefix: "<gradient:#00e5ff:#0084ff>sᴏʟᴀʀᴄʜᴀᴛ</gradient> &8» &f"
+  no-permission: "{prefix}&cYou do not have permission to use this command!"
+  player-only: "{prefix}&cThis command can only be used by players!"
+  player-not-found: "{prefix}&cPlayer is not online or does not exist!"
+  reload-success: "{prefix}&a✔ SolarChat has been successfully reloaded!"
+  reload-details: "{prefix}&7Reloaded: config · chat-ping · msg · announcements · killreward"
+  reload-failed: "{prefix}&cError when reloading: {error}"
+  invalid-command: "{prefix}&cInvalid command!"
+  chat-toggled-off-warning: "{prefix}&cYour chat is disabled! Use &e/chattoggle &cto enable it again."
+  chat-toggled-on-self: "{prefix}&aYou have enabled chat! Now you can send messages."
+  chat-toggled-off-self: "{prefix}&cYou have disabled chat! Use &e/chattoggle &cto enable it again."
+  click-to-view-stats: "&#00BFFF&lClick to view stats"
+  stats-gui-disabled: "{prefix}&cThe stats GUI feature is disabled!"
+  chat-disabled-by-player: "{prefix}&cYour chat is disabled! Use &e/chattoggle &cto enable it again."
+  help-header: "#00FC00sᴏʟᴀʀᴄʜᴀᴛ #C8CFDCv{version}"
+  help-author: "#C8CFDCAuthor: #00FC00{author}"
+  help-divider: "#C8CFDC────────────────────────────────"
+  help-reload: "#FCE300/solarchat reload #C8CFDC- Reload entire plugin"
+
+anti-spam:
+  rate-limit: "{prefix}&cYou are sending messages too fast! Please wait a moment."
+  cooldown: "{prefix}&cPlease wait {time} seconds before chatting again!"
+  duplicate: "{prefix}&cYou cannot send the same message consecutively!"
+  filtered-words: "{prefix}&cYour message contains inappropriate words!"
