@@ -1,6 +1,11 @@
 'use strict';
 const toolDuelReleases={
   solartools:[
+    {n:158,date:'2026-11-11',version:'1.0-C03',label:'SolarTool',title:'Kích thước vùng đào và âm thanh công cụ',titleEn:'Mining dimensions and tool sounds',items:[
+      ['Drill, Shovel, Hoe và Multitool hỗ trợ kích thước 1x1, 1x3, 2x2, 2x3, 3x3… Mỗi chiều từ 1 đến 64.','Drill, Shovel, Hoe and Multitool support sizes such as 1x1, 1x3, 2x2, 2x3 and 3x3. Each dimension ranges from 1 to 64.'],
+      ['Bỏ giới hạn tối thiểu 3 và cơ chế ép kích thước thành số lẻ. Cấu hình cũ size: 3 vẫn tương đương 3x3.','Removes the minimum size of 3 and odd-number rounding. Existing size: 3 still means 3x3.'],
+      ['Drill, Treechopper, Shovel, Hoe, Waterbucket, Rocket và Multitool có âm thanh riêng trong tool/*.yml. Có thể bật/tắt, chọn âm thanh, chỉnh âm lượng và cao độ.','Drill, Treechopper, Shovel, Hoe, Waterbucket, Rocket and Multitool have individual sound settings in tool/*.yml. Toggle playback or set the sound, volume and pitch.'],
+      ['Hỗ trợ tên âm thanh Bukkit và khóa âm thanh từ resource pack. Drill mặc định phát tiếng Amethyst khi đào hợp lệ, kể cả 1x1.','Supports Bukkit sound names and resource-pack sound keys. Drill plays an amethyst sound by default on valid mining actions, including 1x1.']]},
     {n:180,date:'2026-07-16',version:'1.0-R09',title:'Config Refactor, GUI & Directional Mining',items:[
       ['Thêm /tool với quyền solartools.admin: GUI 27 ô, 3 hàng, click nhận bản sao mới kèm âm thanh. Bản R09 có 6 tool: Drill, TreeChopper, Shovel, Hoe, WaterBucket, MultiTool.','Adds /tool with solartools.admin: a 27-slot, three-row GUI gives a new copy with sound. R09 includes six tools: Drill, TreeChopper, Shovel, Hoe, WaterBucket and MultiTool.'],
       ['Tách từng tool sang tool/drill.yml, treechopper.yml, shovel.yml, hoe.yml, waterbucket.yml, multitool.yml; chứa display-name, enchantment-text, duration, size, enchantments và breakable-blocks. config.yml giữ UnBreakable, SoilBlocks và blacklist.','Splits tools into tool/drill.yml, treechopper.yml, shovel.yml, hoe.yml, waterbucket.yml and multitool.yml with display-name, enchantment-text, duration, size, enchantments and breakable-blocks. config.yml retains UnBreakable, SoilBlocks and blacklist.'],
@@ -48,9 +53,9 @@ for(const [product,releases] of Object.entries(toolDuelReleases)) {
   releases.sort((a,b)=>b.date.localeCompare(a.date)||b.n-a.n);
   for(const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) {
     const name=product==='solartools'?'SolarTools':'SolarDuels';
-    docs.push({id:product+'-changelog',product,group:en?'UPDATES':'CẬP NHẬT',title:'Changelog',icon:'↻',updatedAt:'2026-11-10',lead:en?'Release history, newest first.':'Lịch sử cập nhật, bản mới nhất ở trên.',html:
+    docs.push({id:product+'-changelog',product,group:en?'UPDATES':'CẬP NHẬT',title:'Changelog',icon:'↻',updatedAt:product==='solartools'?releases[0].date:'2026-11-10',lead:en?'Release history, newest first.':'Lịch sử cập nhật, bản mới nhất ở trên.',html:
       '<nav class="release-index" aria-label="DevLog">'+releases.map(r=>'<a href="#'+product+'-changelog/devlog-'+r.n+'">#'+r.n+' · '+r.date.split('-').reverse().join('/')+'</a>').join('')+'</nav>'+
-      releases.map(r=>'<section class="release-card"><h2 id="devlog-'+r.n+'">'+name+'-'+r.version+'</h2><p class="release-meta">DevLog Plugins #'+r.n+' · <time datetime="'+r.date+'">'+r.date.split('-').reverse().join(' / ')+'</time></p><p>'+esc(r.title)+'</p><ul>'+r.items.map(pair=>'<li>'+esc(pair[en?1:0])+'</li>').join('')+'</ul>'+(r.url?'<p><a href="'+r.url+'" target="_blank" rel="noopener">Commit 6ffc95a ↗</a></p>':'')+'</section>').join('')});
+      releases.map(r=>'<section class="release-card"><h2 id="devlog-'+r.n+'">'+(r.label||name)+'-'+r.version+'</h2><p class="release-meta">DevLog Plugins #'+r.n+' · <time datetime="'+r.date+'">'+r.date.split('-').reverse().join(' / ')+'</time></p><p>'+esc(en && r.titleEn ? r.titleEn : r.title)+'</p><ul>'+r.items.map(pair=>'<li>'+esc(pair[en?1:0])+'</li>').join('')+'</ul>'+(r.url?'<p><a href="'+r.url+'" target="_blank" rel="noopener">Commit 6ffc95a ↗</a></p>':'')+'</section>').join('')});
     docs.find(d=>d.id===product+'-home').html+='<div class="file-index"><a href="#'+product+'-changelog">Changelog →</a></div>';
   }
 }

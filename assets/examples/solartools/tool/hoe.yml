@@ -3,7 +3,7 @@ material: NETHERITE_HOE # Loại item Minecraft dùng làm Hoe
 display-name: "&x&a&5&0&3&f&cᴀᴍᴇᴛʜʏѕᴛ ʜᴏᴇ"
 enchantment-text: "§7Cuốc vùng khối mỗi lần sử dụng"
 duration: 4320
-size: 3
+size: 3 # Có thể dùng 1x3, 2x3, 3x3
 
 # Chế độ hết hạn: "time" (theo thời gian) hoặc "uses" (theo số lần sử dụng)
 expiration-mode: time
@@ -18,3 +18,10 @@ enchantments:
 
 # Các khối cho phép Hoe tilled/hoable (để trống để nhận diện theo mặc định)
 breakable-blocks: []
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: ITEM_HOE_TILL
+  volume: 1.0
+  pitch: 1.0

@@ -9,7 +9,7 @@ material: NETHERITE_PICKAXE # Item ban đầu; tier này tự áp dụng cho cá
 display-name: "&x&a&5&0&3&f&cᴀᴍᴇᴛʜʏѕᴛ ᴍᴜʟᴛɪᴛᴏᴏʟ"
 enchantment-text: "§74 Dụng cụ trong một vật phẩm!"
 duration: 10080
-size: 3
+size: 3 # Có thể dùng 1x3, 2x3, 3x3
 
 # Chế độ hết hạn: "time" (theo thời gian) hoặc "uses" (theo số lần sử dụng)
 expiration-mode: time
@@ -24,3 +24,10 @@ enchantments:
   silk_touch: 1
 
 breakable-blocks: []
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: BLOCK_AMETHYST_BLOCK_CHIME
+  volume: 1.0
+  pitch: 1.0

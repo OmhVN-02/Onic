@@ -3,7 +3,7 @@ material: NETHERITE_PICKAXE # Loại item Minecraft dùng làm Drill
 display-name: "&x&a&5&0&3&f&cᴀᴍᴇᴛʜʏѕᴛ ᴅʀɪʟʟ"
 enchantment-text: "§7Phá vùng khối mỗi lần đào"
 duration: 4320  # Thời gian sử dụng tính bằng PHÚT (4320 = 3 ngày)
-size: 3         # Kích thước mặt phẳng đào (3 = 3x3)
+size: 3 # Có thể dùng 1x3, 2x3, 3x3; số 3 tương đương 3x3
 
 # Chế độ hết hạn: "time" (theo thời gian) hoặc "uses" (theo số lần sử dụng)
 expiration-mode: time
@@ -61,3 +61,11 @@ breakable-blocks:
   - RAW_IRON_BLOCK
   - RAW_COPPER_BLOCK
   - RAW_GOLD_BLOCK
+
+# Âm thanh phát một lần mỗi lần đào hợp lệ, kể cả size 1x1.
+# name: tên Bukkit hoặc khóa âm thanh minecraft:/resource pack.
+sound:
+  enabled: true
+  name: BLOCK_AMETHYST_BLOCK_CHIME
+  volume: 1.0 # 0 đến 16
+  pitch: 1.0 # 0.5 đến 2.0

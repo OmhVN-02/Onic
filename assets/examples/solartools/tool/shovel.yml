@@ -3,7 +3,7 @@ material: NETHERITE_SHOVEL # Loại item Minecraft dùng làm Shovel
 display-name: "&x&a&5&0&3&f&cᴀᴍᴇᴛʜʏѕᴛ ꜱʜᴏᴠᴇʟ"
 enchantment-text: "§7Phá vùng khối mỗi lần đào"
 duration: 4320
-size: 3
+size: 3 # Có thể dùng 1x3, 2x3, 3x3
 
 # Chế độ hết hạn: "time" (theo thời gian) hoặc "uses" (theo số lần sử dụng)
 expiration-mode: time
@@ -19,3 +19,10 @@ enchantments:
 
 # Các khối cho phép Shovel phá vùng diện rộng (để trống để tự động dùng SoilBlocks trong config.yml)
 breakable-blocks: []
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: BLOCK_GRAVEL_BREAK
+  volume: 1.0
+  pitch: 1.0

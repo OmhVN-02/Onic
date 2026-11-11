@@ -18,3 +18,10 @@ cooldown-ms: 0
 enchantments:
   unbreaking: 3
   mending: 1
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: ENTITY_FIREWORK_ROCKET_LAUNCH
+  volume: 1.0
+  pitch: 1.0

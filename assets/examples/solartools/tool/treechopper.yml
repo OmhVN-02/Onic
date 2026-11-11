@@ -38,3 +38,10 @@ breakable-blocks:
   - STRIPPED_CHERRY_LOG
   - STRIPPED_CRIMSON_STEM
   - STRIPPED_WARPED_STEM
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: BLOCK_WOOD_BREAK
+  volume: 1.0
+  pitch: 1.0

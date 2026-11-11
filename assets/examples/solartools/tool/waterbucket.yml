@@ -13,3 +13,10 @@ enchantments:
   unbreaking: 3
   mending: 1
   aqua_affinity: 1
+
+# Âm thanh khi sử dụng tool; hỗ trợ tên Bukkit hoặc khóa minecraft:/resource pack.
+sound:
+  enabled: true
+  name: ITEM_BUCKET_EMPTY
+  volume: 1.0
+  pitch: 1.0
