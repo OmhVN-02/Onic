@@ -132,3 +132,27 @@ html[data-theme=light] .syntax-keyword{color:#773ca6}html[data-theme=light] .syn
 .natural-screenshots img,.natural-screenshot img{width:auto;max-width:100%;height:auto;margin-inline:auto;image-rendering:pixelated}.natural-screenshot{margin:20px 0}.natural-screenshot figcaption{margin-top:12px;color:var(--muted);font-size:11px}
 
 .product-heading-logo{max-width:380px;margin:0 0 22px}.product-heading-logo .product-logo-frame{display:block;width:100%}.product-heading-logo img{display:block;width:100%;height:auto;object-fit:contain}
+
+.mobile-nav{display:none}
+@media(max-width:760px){
+  html{scroll-padding-bottom:115px}
+  main{padding-bottom:calc(118px + env(safe-area-inset-bottom,0px))}
+  .topbar #menu,.topbar .header-search{display:none}
+  .sidebar{padding-bottom:calc(116px + env(safe-area-inset-bottom,0px))}
+  .mobile-nav{position:fixed;z-index:40;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:calc(100% - 28px);max-width:470px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:6px;border:1px solid #ffffff29;border-radius:38px;background:rgba(24,30,26,.94);box-shadow:0 10px 36px #0005,inset 0 1px 0 #ffffff1c;isolation:isolate}
+  .mobile-nav>a,.mobile-nav>button{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;min-width:0;min-height:62px;padding:8px 3px;border:0;border-radius:30px;color:var(--muted);background:transparent;font:500 10px/1.25 'Be Vietnam Pro',system-ui,sans-serif;text-align:center;text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .mobile-nav svg{width:24px;height:24px;flex:none}
+  .mobile-nav .active{color:var(--accent);background:#ffffff12;box-shadow:inset 0 1px 0 #ffffff24,0 1px 5px #0002}
+  .mobile-nav>a:focus-visible,.mobile-nav>button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+  .mobile-nav>a:active,.mobile-nav>button:active{background:#ffffff1c}
+  #toast{bottom:calc(105px + env(safe-area-inset-bottom,0px));max-width:calc(100vw - 32px)}
+  html[data-theme=light] .mobile-nav{background:rgba(250,251,250,.95);border-color:#ffffffcc;box-shadow:0 9px 30px #18271c26,inset 0 1px 0 #fff}
+  html[data-theme=light] .mobile-nav>a,html[data-theme=light] .mobile-nav>button{color:#303b34}
+  html[data-theme=light] .mobile-nav .active{color:#286fbd;background:#658bb91a;box-shadow:inset 0 1px 0 #fff9,0 1px 4px #25352a0f}
+  @supports ((backdrop-filter:blur(20px)) or (-webkit-backdrop-filter:blur(20px))){
+    .mobile-nav{background:rgba(24,30,26,.72);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%)}
+    html[data-theme=light] .mobile-nav{background:rgba(250,251,250,.72)}
+  }
+  html.mobile-keyboard-open .mobile-nav{display:none}
+}
+@media(prefers-reduced-motion:no-preference){.mobile-nav>a,.mobile-nav>button{transition:background .18s,color .18s,box-shadow .18s}}

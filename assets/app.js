@@ -8,6 +8,21 @@
   let activeProduct = '';
   const localeButtons = [...document.querySelectorAll('[data-lang]')];
   const headerSearch = document.querySelector('.header-search');
+  const mobileNav = $('mobile-nav');
+  const mobileButtons = [...mobileNav.querySelectorAll('[data-mobile-nav]')];
+  let mobileMode = '';
+  function syncMobileNav(mode) {
+    const open = $('sidebar').classList.contains('open');
+    mobileMode = mode || (open ? (mobileMode === 'search' ? 'search' : 'contents') : currentId === 'wiki' ? (location.hash.includes('/plugins') ? 'products' : 'home') : 'contents');
+    mobileButtons.forEach(button => {
+      const active = button.dataset.mobileNav === mobileMode;
+      button.classList.toggle('active', active);
+      if (button.tagName === 'A') {
+        if (active) button.setAttribute('aria-current', 'page');
+        else button.removeAttribute('aria-current');
+      } else button.setAttribute('aria-expanded', String(open && active));
+    });
+  }
   let lang = new URLSearchParams(location.search).get('lang');
   if (!['vi','en'].includes(lang)) {
     try { lang = localStorage.getItem('onic-language'); } catch {  }
@@ -32,6 +47,12 @@
     document.querySelector('.sidebar-note').textContent = t('Tài liệu sản phẩm','Product documentation');
     $('theme').setAttribute('aria-label',t('Đổi giao diện sáng tối','Toggle light or dark theme'));
     $('menu').setAttribute('aria-label',t('Mở mục lục','Toggle navigation'));
+    mobileNav.setAttribute('aria-label',t('Điều hướng nhanh','Quick navigation'));
+    const labels = {home:t('Trang chủ','Home'),products:t('Sản phẩm','Products'),contents:t('Mục lục','Contents'),search:t('Tìm kiếm','Search')};
+    mobileButtons.forEach(button => {
+      button.querySelector('span').textContent = labels[button.dataset.mobileNav];
+      button.setAttribute('aria-label', labels[button.dataset.mobileNav]);
+    });
   }
   const newBadge = item => window.ONIC_IS_NEW(item) ? '<span class="new-badge" title="'+t('Tài liệu cập nhật trong 7 ngày qua','Documentation updated within the last 7 days')+'">NEW</span>' : '';
   let currentId = '', sectionObserver, toastTimer;
@@ -40,6 +61,7 @@
     $('menu').setAttribute('aria-expanded', String(open));
     $('scrim').hidden = !open;
     if (!open) picker.open = false;
+    syncMobileNav();
   }
   function renderPicker() {
     const plugins = window.ONIC_PLUGINS.filter(p => p.route);
@@ -54,7 +76,7 @@
     let count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
-      if (!activeProduct || doc.product !== activeProduct) continue;
+      if (activeProduct ? doc.product !== activeProduct : !query.trim()) continue;
       const template = document.createElement('template');
       template.innerHTML = doc.html;
       const text = normalized(`${doc.title} ${doc.lead} ${template.content.textContent}`);
@@ -65,7 +87,9 @@
       if (standalone) link.classList.add('standalone-nav');
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
-      const label = document.createElement('span'); label.textContent = doc.title;
+      const label = document.createElement('span');
+      const resultProduct = !activeProduct && window.ONIC_PLUGINS.find(p => p.id === doc.product);
+      label.textContent = resultProduct ? resultProduct.name + ' · ' + doc.title : doc.title;
       link.append(icon, label); if (window.ONIC_IS_NEW(doc)) link.insertAdjacentHTML('beforeend', newBadge(doc)); $('navigation').append(link);
     }
     if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = activeProduct ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
@@ -149,8 +173,41 @@
   }));
   function focusSearch() {
     if (window.innerWidth <= 760) menu(true);
-    if (activeProduct) search.focus();
-    else { picker.open = true; pickerTrigger.focus(); }
+    picker.open = false;
+    search.focus();
+    syncMobileNav('search');
+  }
+  mobileNav.addEventListener('click', event => {
+    const button = event.target.closest('[data-mobile-nav]');
+    if (!button) return;
+    const action = button.dataset.mobileNav;
+    if (action === 'search') { focusSearch(); return; }
+    if (action === 'contents') {
+      const close = $('sidebar').classList.contains('open') && mobileMode === 'contents';
+      menu(!close);
+      if (!close) {
+        syncMobileNav('contents');
+        if (!activeProduct) picker.open = true;
+        const firstLink = $('navigation').querySelector('a');
+        (activeProduct && firstLink ? firstLink : pickerTrigger).focus();
+      } else button.focus();
+      return;
+    }
+    search.blur();
+    menu(false);
+    if (location.hash === button.hash) {
+      event.preventDefault();
+      if (action === 'products') document.getElementById('plugins')?.scrollIntoView();
+      else window.scrollTo({top:0});
+      syncMobileNav(action);
+    }
+  });
+  search.addEventListener('focus', () => { if (window.innerWidth <= 760) syncMobileNav('search'); });
+  if (window.visualViewport) {
+    const updateKeyboard = () => document.documentElement.classList.toggle('mobile-keyboard-open',
+      window.innerWidth <= 760 && document.activeElement === search && window.visualViewport.height < window.innerHeight - 120);
+    window.visualViewport.addEventListener('resize', updateKeyboard);
+    search.addEventListener('blur', () => document.documentElement.classList.remove('mobile-keyboard-open'));
   }
   headerSearch.addEventListener('click', event => { event.preventDefault(); focusSearch(); });
   $('back-top').addEventListener('click', () => { window.scrollTo({top:0}); $('article').focus({preventScroll:true}); });
