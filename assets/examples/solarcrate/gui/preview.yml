@@ -1,0 +1,39 @@
+title: "ᴘʀᴇᴠɪᴇᴡ"
+
+layout:
+  - "RRRRRRRRR"
+  - "RRRRRRRRR"
+  - "RRRRRRRRR"
+  - "RRRRRRRRR"
+  - "RRRRRRRRR"
+  - "____O___X"
+
+items:
+  open_button:
+    char: "O"
+    material: "ENDER_CHEST"
+    name: "#00ff3cᴏᴘᴇɴ ᴄʀᴀᴛᴇ"
+    lore:
+      - "&7Yêu cầu: &6{required_keys} Key"
+      - "&7Hiện có: &a{keys} Key"
+
+  no_key_button:
+    char: "O"
+    material: "CHEST_MINECART"
+    name: "#ff3c3cɴᴏ ᴋᴇʏs"
+    lore:
+      - "&7Yêu cầu: &6{required_keys} Key"
+      - "&7Hiện có: &c{keys} Key"
+
+  choice_button:
+    char: "O"
+    material: "TARGET"
+    name: "#00BFFFᴄʜᴏᴏsᴇ ʀᴇᴡᴀʀᴅ"
+    lore:
+      - "&7Yêu cầu: &6{required_keys} Key"
+      - "&7Hiện có: &a{keys} Key"
+
+  close_button:
+    char: "X"
+    material: "BARRIER"
+    name: "#ff3c3cᴄʟᴏsᴇ"

@@ -1,0 +1,107 @@
+#  SOLAR CRATE  |  SOUNDS.YML
+#  enabled: bật/tắt | sound: tên âm thanh Minecraft | volume: âm lượng | pitch: cao độ.
+#  Giữ nguyên tên khóa cấu hình và thụt lề 2 dấu cách.
+sounds:
+  #  01  |  PHÁT KEY
+  # Âm thanh khi timer chạy (Sound when timer executes)
+  timer-execute:
+    enabled: false
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.0
+  
+  # Âm thanh khi nhận được key (Sound when receiving a key)
+  key-receive:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+  
+  #  02  |  THAO TÁC & GIAO DIỆN
+  # Âm thanh khi thực hiện thành công (Sound on success)
+  success:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+  
+  # Âm thanh khi xác nhận (Sound on confirmation)
+  confirm:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 0.8
+    pitch: 1.5
+  
+  # Âm thanh khi dùng lệnh (Sound on command usage)
+  command:
+    enabled: true
+    sound: "UI_BUTTON_CLICK"
+    volume: 0.5
+    pitch: 1.0
+  
+  # Âm thanh khi chọn vật phẩm (Sound on item selection)
+  item-select:
+    enabled: true
+    sound: "UI_BUTTON_CLICK"
+    volume: 0.7
+    pitch: 1.2
+  
+  # Âm thanh khi gặp lỗi (Sound on error)
+  error:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 1.0
+    pitch: 0.5
+  
+  # Âm thanh khi hủy bỏ (Sound on cancel)
+  cancel:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 0.6
+    pitch: 0.8
+  
+  # Âm thanh cảnh báo (Sound on warning)
+  warning:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_BELL"
+    volume: 0.8
+    pitch: 1.0
+  
+  # Âm thanh khi mở rương (Sound on crate open)
+  crate-open:
+    enabled: true
+    sound: "BLOCK_CHEST_OPEN"
+    volume: 1.0
+    pitch: 1.0
+  
+  # Âm thanh khi đóng rương (Sound on crate close)
+  crate-close:
+    enabled: true
+    sound: "BLOCK_CHEST_CLOSE"
+    volume: 1.0
+    pitch: 1.0
+  
+  # Âm thanh thông báo (Sound on info)
+  info:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 0.6
+    pitch: 1.2
+  
+  # Âm thanh khi mở GUI chỉnh sửa (Sound on edit GUI open)
+  edit-gui:
+    enabled: true
+    sound: "BLOCK_ENCHANTMENT_TABLE_USE"
+    volume: 0.7
+    pitch: 1.0
+  
+  # Âm thanh khi tải lại cấu hình (Sound on reload)
+  reload:
+    enabled: true
+    sound: "BLOCK_ANVIL_USE"
+    volume: 0.8
+    pitch: 1.0
+
+#  03  |  PHIÊN BẢN CẤU HÌNH
+# Không chỉnh sửa dòng dưới.
+config-version: "1.4"

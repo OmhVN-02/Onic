@@ -1,0 +1,33 @@
+display_name: "<#D000FF>AMETHYST CRATE"
+required_keys: 1
+open_mode: "MYSTERY_CHOICE"
+animation_type: "CSGO_ROULETTE"
+
+hologram:
+  enabled: true
+  offset_y: 1.25
+  lines:
+    - "&8[<#D000FF>ᴀᴍᴇᴛʜʏsᴛ ᴄʀᴀᴛᴇ&8]"
+    - "&7↓"
+    - "&8[&d☄&8] &f❑ ᴋᴇʏꜱ: <#D000FF>{required_keys} &7🔑 &8[&d☄&8]"
+    - ""
+    - "&8&m  <#D000FF>=&8&m  &r&8 [&6☀&8] &8&m  <#D000FF>=&8&m  "
+
+menu_item:
+  material: "AMETHYST_CLUSTER"
+  name: "<#D000FF>AMETHYST CRATE"
+  lore:
+    - "&7Hòm đồ quý phái."
+    - "&7Yêu cầu: &61 Key"
+
+particles:
+  enabled: true
+  ambient_particle: "DUST"
+  ambient_style: "DOUBLE_HELIX"
+  ambient_color_red: 180
+  ambient_color_green: 50
+  ambient_color_blue: 255
+  particle_density: 12
+  particle_size: 1.0
+  firework_enabled: true
+  firework_color: "PURPLE"

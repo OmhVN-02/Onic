@@ -1,0 +1,146 @@
+#  SOLAR AFK  |  CONFIG.YML
+#  Cấu hình hệ thống, khu vực AFK và phần thưởng.
+#  Dùng 2 dấu cách để thụt lề; giữ nguyên tên khóa cấu hình.
+
+#  01  |  LƯU TRỮ DỮ LIỆU
+database:
+  # Loại CSDL để lưu trữ dữ liệu người chơi và trạng thái (sqlite hoặc mysql)
+  # SQLite lưu tại data/solarafk.db; tự chuyển dữ liệu từ vị trí cũ.
+  type: "sqlite"
+
+  # Thông tin kết nối MySQL (Chỉ áp dụng nếu type là mysql)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: ""
+    useSSL: false
+
+#  02  |  KHU VỰC AFK & PHÒNG ẢO
+afk-zone:
+  # Điểm dịch chuyển: /solarafk setspawn, lưu trong database.
+  # Cấu hình phòng ảo (Virtual Instanced AFK Rooms) để chống lag
+  virtual-rooms:
+    enabled: true
+
+    # Số lượng phòng tự động tạo
+    count: 5
+
+    # Số người chơi tối đa trong mỗi phòng
+    max-players-per-room: 25
+
+    # Thời gian chờ dịch chuyển (giây), 0 = lập tức
+    teleport-delay: 5
+
+    # Trong phòng AFK: chỉ hiển thị người cùng phòng trong Tab.
+    # true = ẩn người khác; false = hiển thị tất cả.
+    only-show-same-room-in-tab: true
+
+#  03  |  AFK TỰ DO & CHẾ ĐỘ TỰ ĐỘNG
+afk-anywhere:
+  # Cho phép người chơi tự động vào trạng thái AFK nhận thưởng tại mọi nơi trên server
+  enabled: true
+
+  # Thời gian đứng yên cần thiết để kích hoạt trạng thái AFK (giây)
+  required-still-seconds: 5
+
+auto-afk:
+  # Chế độ áp dụng cho tất cả người chơi, kể cả người đã có dữ liệu cũ.
+  # Mỗi lần vào server đều tắt; dùng /autoafk để bật khi muốn nhận thưởng.
+  #   STILL = Bật tự động AFK và đứng yên đủ thời gian; di chuyển sẽ hủy AFK.
+  #   MOVE  = Bật tự động AFK là bắt đầu tính; di chuyển không hủy AFK.
+  default-mode: "STILL"
+
+#  04  |  PHẦN THƯỞNG & TÍCH LŨY
+rewards:
+  # Số lượng Shards nhận được khi AFK Tự do (Anywhere) mỗi chu kỳ
+  shards-per-interval-anywhere: 1
+
+  # Số lượng Shards nhận được khi AFK trong khu vực chỉ định (Zone) mỗi chu kỳ
+  shards-per-interval-zone: 2
+
+  # Chu kỳ nhận thưởng mặc định (giây)
+  reward-interval-seconds: 60
+
+  # Cấu hình chu kỳ nhận thưởng riêng cho từng Nhóm Quyền Hạn (Ranks/VIP)
+  # Quyền nào khớp trước sẽ được áp dụng (duyệt từ trên xuống dưới)
+  custom-intervals:
+    - permission: "solarafk.interval.vip3"
+      interval-seconds: 15
+    - permission: "solarafk.interval.vip2"
+      interval-seconds: 30
+    - permission: "solarafk.interval.vip1"
+      interval-seconds: 45
+
+  # Phần thưởng tích lũy theo giờ (Bonus)
+  bonus:
+    enabled: true
+
+    # Nhận bonus mỗi X giờ AFK liên tục
+    interval-hours: 2
+
+    # Số lượng Shards thưởng thêm
+    shards: 5
+
+    # Giới hạn tổng số Shards bonus tối đa mỗi ngày
+    max-total-bonus: 25
+
+  # Lệnh thực thi trao thưởng
+  # Tiền tố hỗ trợ: CONSOLE: (mặc định), PLAYER:, OP:
+  give-command:
+    - "CONSOLE: shards give {player} {amount}"
+
+#  05  |  VẬT PHẨM BOOSTER
+boost-item:
+  # Loại vật phẩm
+  material: "POTION"
+
+  # Hệ số nhân Shards nhận được
+  multiplier: 2
+
+  # Thời gian tác dụng (giây)
+  duration-seconds: 300
+
+  # Tên vật phẩm
+  name: "&x&a&5&0&3&f&cᴀᴍᴇᴛʜʏѕᴛ ʙᴏᴏѕᴛᴇʀ"
+  lore:
+    - "&7ɴʜâɴ &e{multiplier}x &7sʜᴀʀᴅs ᴀꜰᴋ"
+    - "&7ᴛʜờɪ ɢɪᴀɴ: &a{duration}"
+
+  # Kích hoạt hiệu ứng phát sáng (glow)
+  enchant-glow: true
+
+  # Cho phép cộng dồn thời gian khi dùng nhiều chai
+  allow-stack: false
+
+  # Hiệu ứng âm thanh khi sử dụng booster
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  sound-volume: 1.0
+  sound-pitch: 1.8
+
+#  06  |  HIỂN THỊ & ĐỊNH DẠNG THỜI GIAN
+# Định dạng hiển thị thời gian:
+#   1 = 00:00:00 (Giờ:Phút:Giây)
+#   2 = 1h 2m 3s (Ngắn gọn)
+#   3 = 01h 02m 03s (Đầy đủ)
+timer-format: 2
+
+# Actionbar hiển thị trạng thái và thời gian đếm ngược
+actionbar:
+  enabled: true
+
+  # Thời gian hiển thị mỗi lần cập nhật (giây)
+  show-duration-seconds: 4
+
+# Boss Bar đếm ngược nhận thưởng (độc lập với Action Bar).
+bossbar:
+  enabled: true
+  # Màu: YELLOW, GREEN, BLUE, RED, PURPLE, PINK hoặc WHITE.
+  color: "YELLOW"
+  # Kiểu thanh: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12 hoặc NOTCHED_20.
+  overlay: "PROGRESS"
+
+#  07  |  BẢN QUYỀN
+# Khóa bản quyền khi sử dụng chế độ standalone.
+license-key: ''

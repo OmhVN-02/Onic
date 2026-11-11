@@ -1,0 +1,67 @@
+title: "ᴇᴅɪᴛ ᴄʀᴀᴛᴇ"
+
+layout:
+  - "_W_S_E_M_"
+  - "_A_N_Q_D_"
+  - "_________"
+  - "____X____"
+
+items:
+  rewards_workbench:
+    char: "W"
+    material: "CHEST"
+    name: "#00F986ᴇᴅɪᴛ ʀᴇᴡᴀʀᴅs"
+    lore:
+      - "&7Hiện có: &b{items_count} món"
+
+  particles_button:
+    char: "S"
+    material: "BLAZE_POWDER"
+    name: "#ffaa00ᴘᴀʀᴛɪᴄʟᴇs"
+    lore:
+      - "&7Trạng thái: {particle_status}"
+      - "&7Kiểu: &f{particle_style}"
+
+  required_keys_button:
+    char: "E"
+    material: "TRIPWIRE_HOOK"
+    name: "#00BFFFʀᴇǫᴜɪʀᴇᴅ ᴋᴇʏs"
+    lore:
+      - "&7Cần: &6{required_keys} key"
+      - "&eLeft: &a+1 &7| Right: &c-1"
+
+  open_mode_button:
+    char: "M"
+    name: "#00F986ᴏᴘᴇɴ ᴍᴏᴅᴇ"
+    lore:
+      - "&7Chế độ: &e{open_mode}"
+
+  animation_type_button:
+    char: "A"
+    name: "#d000ffᴀɴɪᴍᴀᴛɪᴏɴ"
+    lore:
+      - "&7Hoạt ảnh: &e{animation_type}"
+
+  rename_button:
+    char: "N"
+    material: "NAME_TAG"
+    name: "#00BFFFʀᴇɴᴀᴍᴇ"
+    lore:
+      - "&7Tên: &f{crate_display}"
+
+  permission_button:
+    char: "Q"
+    material: "PAPER"
+    name: "#d000ffᴘᴇʀᴍɪssɪᴏɴ"
+    lore:
+      - "&7Quyền: &f{permission}"
+
+  delete_button:
+    char: "D"
+    material: "TNT"
+    name: "#ff3c3cᴅᴇʟᴇᴛᴇ ᴄʀᴀᴛᴇ"
+
+  close_button:
+    char: "X"
+    material: "BARRIER"
+    name: "#ff3c3cᴄʟᴏsᴇ"

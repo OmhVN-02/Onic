@@ -1,0 +1,59 @@
+#  SOLAR CRATE  |  TIẾNG VIỆT
+#  Tin nhắn hỗ trợ màu MiniMessage và {prefix}. Để trống tin nhắn để tắt.
+
+messages:
+  #  01  |  TIỀN TỐ
+  prefix: "<gradient:#00F986:#00BFFF>SolarCrate</gradient> <dark_gray>» <white>"
+  
+  #  02  |  THÔNG BÁO CHUNG
+  no-permission: "{prefix}<red>Bạn không đủ quyền hạn để thực hiện thao tác này!"
+  reload-success: "{prefix}<green>Đã tải lại toàn bộ cấu hình plugin thành công!"
+  player-not-found: "{prefix}<red>Không tìm thấy người chơi yêu cầu!"
+  console-specify-player: "{prefix}<red>Lệnh từ Console bắt buộc phải chỉ định tên người chơi!"
+  
+  #  03  |  PHIÊN BẢN
+  version-info: "{prefix}<gray>Phiên bản <gradient:#00F986:#00BFFF>v{version}</gradient> phát triển bởi <#00BFFF>{author}</#00BFFF>."
+  
+  #  04  |  QUẢN LÝ CRATE
+  crate-not-exists: "{prefix}<red>Hòm đồ <yellow>'{crate}'</yellow> không tồn tại trong hệ thống!"
+  crate-already-exists: "{prefix}<red>Hòm đồ <yellow>'{crate}'</yellow> đã tồn tại từ trước!"
+  crate-created: "{prefix}<green>Tạo mới hòm đồ <yellow>'{crate}'</yellow> thành công!"
+  crate-deleted: "{prefix}<green>Đã xóa hòm đồ <yellow>'{crate}'</yellow> thành công!"
+  
+  #  05  |  CÚ PHÁP & KIỂM TRA ĐẦU VÀO
+  open-usage: "{prefix}<red>Cú pháp: /sc open <tên_crate>"
+  edit-usage: "{prefix}<red>Cú pháp: /sca edit [tên_crate]"
+  give-key-usage: "{prefix}<red>Cú pháp: /sca give <tên_crate> <số_lượng> [người_chơi/*]"
+  givekeyitem-usage: "{prefix}<red>Cú pháp: /sca givekeyitem <tên_crate> <số_lượng> [người_chơi/*]"
+  take-key-usage: "{prefix}<red>Cú pháp: /sca take <tên_crate> <số_lượng|all> <người_chơi>"
+  setkey-usage: "{prefix}<red>Cú pháp: /sca setkey <tên_crate> <số_lượng> <người_chơi>"
+  keyall-usage: "{prefix}<red>Cú pháp: /sca keyall <tên_crate> <số_lượng>"
+  addcrate-usage: "{prefix}<red>Cú pháp: /sca addcrate <tên_crate>"
+  setblock-usage: "{prefix}<red>Cú pháp: /sca setblock <tên_crate>"
+  removeblock-usage: "{prefix}<red>Cú pháp: /sca removeblock <tên_crate>"
+  teleport-usage: "{prefix}<red>Cú pháp: /sca tp <tên_crate>"
+  create-usage: "{prefix}<red>Cú pháp: /sca create <tên_crate> [tên_hiển_thị]"
+  delete-usage: "{prefix}<red>Cú pháp: /sca delete <tên_crate>"
+  deletekey-usage: "{prefix}<red>Cú pháp: /sca deletekey <tên_crate> <người_chơi>"
+  setdisplayname-usage: "{prefix}<red>Cú pháp: /sca setdisplayname <tên_crate> <tên_hiển_thị>"
+  
+  invalid-crate-name: "{prefix}<red>Tên hòm đồ không hợp lệ! Chỉ dùng chữ cái, số và dấu gạch ngang/dưới."
+  invalid-key-amount: "{prefix}<red>Số lượng chìa khóa không hợp lệ!"
+  amount-must-be-number: "{prefix}<red>Số lượng phải là một số nguyên dương hợp lệ!"
+  
+  #  06  |  CHÌA KHÓA & PHẦN THƯỞNG
+  gave-keys: "{prefix}<gray>Đã gửi <gold>{amount}x</gold> chìa khóa <yellow>{crate}</yellow> cho người chơi <green>{player}</green>."
+  took-keys: "{prefix}<gray>Đã thu hồi <gold>{amount}x</gold> chìa khóa <yellow>{crate}</yellow> từ người chơi <green>{player}</green>."
+  gave-keys-to-all: "{prefix}<gray>Đã xếp lịch phát <gold>{amount}x</gold> chìa khóa <yellow>{crate}</yellow> cho <green>{count}</green> người chơi online!"
+  key-received-message: "{prefix}<gray>Bạn vừa nhận được <gold>{amount}x</gold> chìa khóa <yellow>{crate}</yellow>!"
+  not-enough-keys: "{prefix}<red>Bạn không có đủ chìa khóa để thực hiện thao tác này!"
+  no-key-for-crate: "{prefix}<red>Bạn cần có ít nhất <gold>{keys}x</gold> chìa khóa để mở hòm này!"
+  inventory-full-no-reward: "{prefix}<yellow>Túi đồ đã đầy! Phần thưởng đã rơi xuống đất xung quanh bạn."
+  
+  #  07  |  KHỐI CRATE & VỊ TRÍ
+  addcrate-hold-item: "{prefix}<red>Bạn phải cầm khối block cần gán Crate trên tay chính!"
+  addcrate-item-name: "<gradient:#00F986:#00BFFF>[Crate: {name}]</gradient>"
+  addcrate-received: "{prefix}<green>Đã tạo khối gán Crate <yellow>{name}</yellow>! Hãy đặt khối này xuống đất để xác định vị trí hòm."
+  addcrate-placed: "{prefix}<green>Đã thiết lập vị trí Crate <yellow>{name}</yellow> tại tọa độ <gold>{x}, {y}, {z}</gold>!"
+
+config-version: "1.4"

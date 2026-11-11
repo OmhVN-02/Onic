@@ -1,0 +1,59 @@
+#  SOLAR CRATE  |  ENGLISH
+#  Messages support MiniMessage and {prefix}. Use an empty message to disable it.
+
+messages:
+  #  01  |  PREFIX
+  prefix: "<gradient:#00F986:#00BFFF>SolarCrate</gradient> <dark_gray>» <white>"
+  
+  #  02  |  GENERAL
+  no-permission: "{prefix}<red>You do not have permission to perform this action!"
+  reload-success: "{prefix}<green>All plugin configurations have been reloaded successfully!"
+  player-not-found: "{prefix}<red>Player not found!"
+  console-specify-player: "{prefix}<red>You must specify a target player when executing from console!"
+  
+  #  03  |  VERSION
+  version-info: "{prefix}<gray>Running <gradient:#00F986:#00BFFF>v{version}</gradient> developed by <#00BFFF>{author}</#00BFFF>."
+  
+  #  04  |  CRATE MANAGEMENT
+  crate-not-exists: "{prefix}<red>Crate <yellow>'{crate}'</yellow> does not exist!"
+  crate-already-exists: "{prefix}<red>Crate <yellow>'{crate}'</yellow> already exists!"
+  crate-created: "{prefix}<green>Successfully created crate <yellow>'{crate}'</yellow>!"
+  crate-deleted: "{prefix}<green>Successfully deleted crate <yellow>'{crate}'</yellow>!"
+  
+  #  05  |  COMMAND USAGE & VALIDATION
+  open-usage: "{prefix}<red>Usage: /sc open <crate_name>"
+  edit-usage: "{prefix}<red>Usage: /sca edit [crate_name]"
+  give-key-usage: "{prefix}<red>Usage: /sca give <crate_name> <amount> [player/*]"
+  givekeyitem-usage: "{prefix}<red>Usage: /sca givekeyitem <crate_name> <amount> [player/*]"
+  take-key-usage: "{prefix}<red>Usage: /sca take <crate_name> <amount|all> <player>"
+  setkey-usage: "{prefix}<red>Usage: /sca setkey <crate_name> <amount> <player>"
+  keyall-usage: "{prefix}<red>Usage: /sca keyall <crate_name> <amount>"
+  addcrate-usage: "{prefix}<red>Usage: /sca addcrate <crate_name>"
+  setblock-usage: "{prefix}<red>Usage: /sca setblock <crate_name>"
+  removeblock-usage: "{prefix}<red>Usage: /sca removeblock <crate_name>"
+  teleport-usage: "{prefix}<red>Usage: /sca tp <crate_name>"
+  create-usage: "{prefix}<red>Usage: /sca create <crate_name> [display_name]"
+  delete-usage: "{prefix}<red>Usage: /sca delete <crate_name>"
+  deletekey-usage: "{prefix}<red>Usage: /sca deletekey <crate_name> <player>"
+  setdisplayname-usage: "{prefix}<red>Usage: /sca setdisplayname <crate_name> <display_name>"
+  
+  invalid-crate-name: "{prefix}<red>Invalid crate name! Only letters, numbers, and underscores are allowed."
+  invalid-key-amount: "{prefix}<red>Invalid key amount specified!"
+  amount-must-be-number: "{prefix}<red>Key amount must be a positive integer!"
+  
+  #  06  |  KEYS & REWARDS
+  gave-keys: "{prefix}<gray>Gave <gold>{amount}x</gold> <yellow>{crate}</yellow> key(s) to <green>{player}</green>."
+  took-keys: "{prefix}<gray>Took <gold>{amount}x</gold> <yellow>{crate}</yellow> key(s) from <green>{player}</green>."
+  gave-keys-to-all: "{prefix}<gray>Queued <gold>{amount}x</gold> <yellow>{crate}</yellow> key(s) for <green>{count}</green> online players!"
+  key-received-message: "{prefix}<gray>You received <gold>{amount}x</gold> <yellow>{crate}</yellow> key(s)!"
+  not-enough-keys: "{prefix}<red>You do not have enough keys to open this crate!"
+  no-key-for-crate: "{prefix}<red>You need at least <gold>{keys}x</gold> key(s) to open this crate!"
+  inventory-full-no-reward: "{prefix}<yellow>Your inventory was full! Reward dropped on the ground near you."
+  
+  #  07  |  CRATE BLOCKS & LOCATIONS
+  addcrate-hold-item: "{prefix}<red>You must hold the target crate block in your main hand!"
+  addcrate-item-name: "<gradient:#00F986:#00BFFF>[Crate: {name}]</gradient>"
+  addcrate-received: "{prefix}<green>Created crate placement block for <yellow>{name}</yellow>! Place it on the ground to set the crate location."
+  addcrate-placed: "{prefix}<green>Successfully set crate location for <yellow>{name}</yellow> at <gold>{x}, {y}, {z}</gold>!"
+
+config-version: "1.4"

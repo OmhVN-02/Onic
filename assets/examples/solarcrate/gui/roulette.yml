@@ -1,0 +1,22 @@
+title: "ʀᴏᴜʟᴇᴛᴛᴇ"
+
+layout:
+  - "____T____"
+  - "RRRRWRRRR"
+  - "____P____"
+
+items:
+  top_pointer:
+    char: "T"
+    material: "HOPPER"
+    name: "<#ffaa00>ᴘᴏɪɴᴛᴇʀ"
+
+  bottom_pointer:
+    char: "P"
+    material: "REDSTONE_TORCH"
+    name: "<#ffaa00>ᴘᴏɪɴᴛᴇʀ"
+
+  win_border_glass:
+    char: "W"
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "#00ff3cᴡɪɴɴᴇʀ"

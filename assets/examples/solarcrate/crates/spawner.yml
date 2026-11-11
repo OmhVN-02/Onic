@@ -1,0 +1,30 @@
+display_name: "<#FFAA00>SPAWNER CRATE"
+required_keys: 1
+open_mode: "PLAYER_CHOICE"
+animation_type: "CSGO_ROULETTE"
+
+hologram:
+  enabled: true
+  offset_y: 1.25
+  lines:
+    - "&8[<#FFAA00>sᴘᴀᴡɴᴇʀ ᴄʀᴀᴛᴇ&8]"
+    - "&7↓"
+    - "&8[&6☄&8] &f❑ ᴋᴇʏꜱ: <#FFAA00>{required_keys} &7🔑 &8[&6☄&8]"
+    - ""
+    - "&8&m  <#FFAA00>=&8&m  &r&8 [&6☀&8] &8&m  <#FFAA00>=&8&m  "
+
+menu_item:
+  material: "SPAWNER"
+  name: "<#FFAA00>SPAWNER CRATE"
+  lore:
+    - "&7Hòm đồ lồng quái."
+    - "&7Yêu cầu: &61 Key"
+
+particles:
+  enabled: true
+  ambient_particle: "SOUL_FIRE_FLAME"
+  ambient_style: "CIRCLE"
+  particle_density: 8
+  particle_size: 0.8
+  firework_enabled: true
+  firework_color: "ORANGE"

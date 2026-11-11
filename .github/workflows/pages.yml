@@ -65,7 +65,7 @@ jobs:
           runInNewContext(read('assets/beginner.js'), sandbox);
           runInNewContext(read('assets/rtp-config-data.js'), sandbox);
           runInNewContext(read('assets/rtp.js'), sandbox);
-          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/crystal-config-data.js') + '\n' + read('assets/crystal-guide.js') + '\n' + read('assets/product-images.js') + '\n' + read('assets/product-links.js'), sandbox);
+          runInNewContext(read('assets/catalog.js') + '\n' + read('assets/worth.js') + '\n' + read('assets/product-groups.js') + '\n' + read('assets/studio.js') + '\n' + read('assets/onickits-config-data.js') + '\n' + read('assets/onickits.js') + '\n' + read('assets/rtpzone-config-data.js') + '\n' + read('assets/rtpzone.js') + '\n' + read('assets/zone-updates.js') + '\n' + read('assets/worth-config-data.js') + '\n' + read('assets/worth-guide.js') + '\n' + read('assets/order-config-data.js') + '\n' + read('assets/order-guide.js') + '\n' + read('assets/order-releases.js') + '\n' + read('assets/duels-config-data.js') + '\n' + read('assets/duels-guide.js') + '\n' + read('assets/tools-config-data.js') + '\n' + read('assets/tools-guide.js') + '\n' + read('assets/tools-duels-releases.js') + '\n' + read('assets/elo-config-data.js') + '\n' + read('assets/elo-guide.js') + '\n' + read('assets/crystal-config-data.js') + '\n' + read('assets/crystal-guide.js') + '\n' + read('assets/afk-crate-config-data.js') + '\n' + read('assets/afk-crate-guide.js') + '\n' + read('assets/product-images.js') + '\n' + read('assets/product-links.js'), sandbox);
           for (const localized of [sandbox.window.SOLAR_DOCS, sandbox.window.ONIC_ENGLISH]) {
             if (!localized.find(d=>d.id==='wiki').html.includes('href="#solarrtp-home"')) throw Error('SolarRTP product card missing');
             if (localized.filter(d=>d.product==='solarrtp').length !== 5) throw Error('SolarRTP guides missing');
@@ -245,6 +245,21 @@ jobs:
               if(!card || !card[0].includes('assets/images/'+product.image)) throw Error('Missing product card logo: '+id);
             }
           }
+          for(const localized of [sandbox.window.SOLAR_DOCS,sandbox.window.ONIC_ENGLISH]) {
+            for(const product of ['solarafk','solarcrate']) {
+              if(localized.filter(d=>d.product===product).length!==8) throw Error('Missing guide pages: '+product);
+              if(sandbox.window.ONIC_PLUGINS.find(p=>p.id===product).status==='planned') throw Error('Guide still planned: '+product);
+            }
+            const afk=localized.find(d=>d.id==='solarafk-config').html;
+            for(const value of ['custom-intervals','bossbar','actionbar','give-command']) if(!afk.includes(value)) throw Error('AFK config missing: '+value);
+            const crate=localized.find(d=>d.id==='solarcrate-crates').html;
+            for(const value of ['RANDOM_CHANCE','PLAYER_CHOICE','Give Raw Item','setblock']) if(!crate.includes(value)) throw Error('Crate setup missing: '+value);
+            const afkApi=localized.find(d=>d.id==='solarafk-api').html;
+            for(const value of ['SolarAFKAPI','getGlobalBoostRemainingSeconds','setAutoAFKEnabled','syntax-keyword']) if(!afkApi.includes(value)) throw Error('AFK API missing: '+value);
+            const crateApi=localized.find(d=>d.id==='solarcrate-api').html;
+            for(const value of ['SolarCrateAPI','getCrateItems','getCrateFromKey','syntax-keyword','Optional&lt;Crate&gt;']) if(!crateApi.includes(value)) throw Error('Crate API missing: '+value);
+          }
+          if(sandbox.window.ONIC_AFK_CONFIGS.length!==4 || sandbox.window.ONIC_CRATE_CONFIGS.length!==17) throw Error('AFK/Crate YAML samples missing');
           const productIds = sandbox.window.ONIC_PLUGINS.map(product=>product.id);
           if (new Set(productIds).size!==productIds.length) throw Error('Duplicate product registry entry');
           const docs = sandbox.window.SOLAR_DOCS;
@@ -263,7 +278,7 @@ jobs:
             click(); assert(root.dataset.theme==='dark' && pressed==='false', 'Theme must switch back to dark');
           }
           const visibleDocs = [...docs, ...sandbox.window.ONIC_ENGLISH];
-          assert(!/\bno[\s-]?key\b/i.test(JSON.stringify([visibleDocs, sandbox.window.ONIC_PLUGINS, read('index.html')])), 'Internal edition label in public wiki');
+          assert(!/\bno[\s-]?key\b/i.test(JSON.stringify([visibleDocs, sandbox.window.ONIC_PLUGINS, read('index.html')]).replaceAll('no-key-for-crate','missing-crate-key')), 'Internal edition label in public wiki');
           for (const doc of docs) {
             assert(!ids.has(doc.id), 'Duplicate article: ' + doc.id); ids.add(doc.id);
             assert(doc.title && doc.lead && doc.html, 'Incomplete article: ' + doc.id);

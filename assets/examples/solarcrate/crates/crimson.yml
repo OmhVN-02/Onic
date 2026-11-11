@@ -1,0 +1,30 @@
+display_name: "<#EC0000>CRIMSON CRATE"
+required_keys: 1
+open_mode: "RANDOM_CHANCE"
+animation_type: "IN_WORLD_3D"
+
+hologram:
+  enabled: true
+  offset_y: 1.25
+  lines:
+    - "&8[<#EC0000>ᴄʀɪᴍꜱᴏɴ ᴄʀᴀᴛᴇ&8]"
+    - "&7↓"
+    - "&8[&c☄&8] &f❑ ᴋᴇʏꜱ: <#EC0000>{required_keys} &7🔑 &8[&c☄&8]"
+    - ""
+    - "&8&m  <#EC0000>=&8&m  &r&8 [&6☀&8] &8&m  <#EC0000>=&8&m  "
+
+menu_item:
+  material: "CRIMSON_HYPHAE"
+  name: "<#EC0000>CRIMSON CRATE"
+  lore:
+    - "&7Hòm đồ hỏa ngục."
+    - "&7Yêu cầu: &61 Key"
+
+particles:
+  enabled: true
+  ambient_particle: "FLAME"
+  ambient_style: "VORTEX"
+  particle_density: 10
+  particle_size: 0.8
+  firework_enabled: true
+  firework_color: "RED"

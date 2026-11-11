@@ -1,0 +1,72 @@
+#  SOLAR AFK  |  SOUNDS.YML
+#  Âm thanh và hiệu ứng cho các hoạt động AFK.
+#  Dùng 2 dấu cách để thụt lề; giữ nguyên tên khóa cấu hình.
+
+# volume: âm lượng | pitch: cao độ của âm thanh.
+
+#  01  |  THIẾT LẬP CHUNG
+# Bật/tắt tất cả âm thanh trong plugin
+enabled: true
+
+#  02  |  NHẬN PHẦN THƯỞNG
+# Âm thanh khi người chơi nhận Shards định kỳ
+reward:
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 0.6
+  pitch: 1.2
+
+# Âm thanh khi người chơi nhận Shards tích lũy (Bonus)
+bonus:
+  sound: "ENTITY_PLAYER_LEVELUP"
+  volume: 0.8
+  pitch: 1.0
+
+#  03  |  TRẠNG THÁI AFK
+# Âm thanh khi bắt đầu trạng thái AFK
+start:
+  enabled: true
+  sound: "BLOCK_NOTE_BLOCK_PLING"
+  volume: 0.7
+  pitch: 1.5
+
+# Âm thanh khi kết thúc trạng thái AFK
+stop:
+  enabled: true
+  sound: "BLOCK_NOTE_BLOCK_BASS"
+  volume: 0.5
+  pitch: 0.8
+
+#  04  |  DỊCH CHUYỂN
+# Âm thanh đếm ngược dịch chuyển vào phòng ảo
+teleport-countdown:
+  enabled: true
+  sound: "BLOCK_NOTE_BLOCK_PLING"
+  volume: 0.5
+  pitch: 1.2
+
+# Âm thanh dịch chuyển vào phòng ảo thành công
+teleport-success:
+  enabled: true
+  sound: "ENTITY_ENDERMAN_TELEPORT"
+  volume: 0.6
+  pitch: 1.0
+
+#  05  |  THIẾT LẬP KHU VỰC AFK
+# Hiệu ứng hạt và âm thanh khi thiết lập vùng AFK thành công
+crates:
+  enabled: true
+  particles:
+    enabled: true
+
+    # Loại hạt hiệu ứng
+    type: "HAPPY_VILLAGER"
+
+    # Số lượng hạt
+    count: 30
+  sound:
+    enabled: true
+
+    # Loại âm thanh
+    type: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.5

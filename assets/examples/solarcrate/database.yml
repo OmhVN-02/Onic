@@ -1,0 +1,18 @@
+#  SOLAR CRATE  |  DATABASE.YML
+#  Cấu hình lưu trữ key. Giữ nguyên tên khóa và thụt lề 2 dấu cách.
+
+#  01  |  LOẠI LƯU TRỮ
+database:
+  type: SQLITE   # SQLITE, MYSQL, or MARIADB
+  #  02  |  KẾT NỐI MYSQL / MARIADB
+  mysql:
+    host: localhost
+    port: 3306
+    database: solarcrate
+    username: root
+    password: ""
+    pool-size: 10
+
+#  03  |  PHIÊN BẢN CẤU HÌNH
+# Không chỉnh sửa dòng dưới.
+config-version: "1.4"

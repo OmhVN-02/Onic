@@ -1,0 +1,121 @@
+#  SOLAR AFK  |  MESSAGES.YML
+#  Thông báo trong chat, Action Bar và tiêu đề sự kiện.
+#  Dùng 2 dấu cách để thụt lề; giữ nguyên tên khóa cấu hình.
+
+# Giữ nguyên các biến {...} để plugin thay bằng dữ liệu thực tế.
+
+#  01  |  TIỀN TỐ THÔNG BÁO
+prefix: "#ff8a00sᴏʟᴀʀᴀꜰᴋ #555555» #aaaaaa"
+
+#  02  |  TRẠNG THÁI AFK
+afk-started: "{prefix}#00ff3cĐã vào khu vực AFK."
+afk-started-anywhere: "{prefix}#00ff3cĐã bật tự động AFK."
+afk-stopped: "{prefix}#ff3c3cĐã tắt trạng thái AFK."
+zone-full: "{prefix}#ff3c3cKhu vực AFK đã đầy ({current}/{max})."
+no-zone: "{prefix}#ff3c3cChưa thiết lập khu vực AFK."
+
+#  03  |  HỆ THỐNG QUÀ TẶNG
+shards-received: "#00ff3cNhận +{amount} Shards."
+bonus-received: "#ffaa00Tích lũy +{amount} Shards ({hours}h AFK)."
+
+#  04  |  ACTION BAR HIỂN THỊ THỜI GIAN THỰC
+actionbar:
+  afk-reminder: "#aaaaaaNhận sau: #ffaa00{time}"
+  shards-earned: "#00ff3c+{amount} Shards"
+  bonus-shards: "#ffaa00Bonus +{amount} Shards"
+  boost-active: "#ffaa00{multiplier}x #555555• #ffffff{time}"
+
+# Boss Bar đếm ngược; {time} được cập nhật theo thời gian còn lại.
+bossbar:
+  afk-reminder: "#aaaaaaNhận thưởng sau: #ffaa00{time}"
+
+#  05  |  BÌNH TĂNG TỐC (BOOST BOTTLES)
+boost-bottle:
+  activated: "{prefix}#00ff3cKích hoạt Booster #ffaa00{multiplier}x ({duration})."
+  expired: "{prefix}#ff3c3cBooster đã hết hạn."
+  already-active: "{prefix}#ff3c3cĐang có booster hoạt động ({time} còn lại)."
+  no-permission: "{prefix}#ff3c3cKhông có quyền dùng booster."
+  give: "{prefix}#00ff3cĐã gửi {amount}x booster cho {player}."
+  receive: "{prefix}#00ff3cNhận được {amount}x booster ({multiplier}x)."
+  actionbar: "#ffaa00{multiplier}x Boost #555555• #ffffff{duration}"
+
+#  06  |  QUẢN TRỊ VIÊN (ADMIN COMMANDS)
+zone-set: "{prefix}&fThiết lập khu vực AFK thành công."
+zone-cleared: "{prefix}&fĐã xóa khu vực AFK."
+spawn-set: "{prefix}&fĐã đặt điểm dịch chuyển phòng AFK."
+reload: "{prefix}&fReload cấu hình plugin thành công!"
+wand-select: "{prefix}&cDùng /aa wand để chọn vùng trước."
+crates-created: "{prefix}&fKhởi tạo khu vực AFK thành công!"
+crates-error: "{prefix}&cChưa chọn vùng để tạo AFK."
+crates-not-enabled: "{prefix}&cTính năng tạo khu vực AFK đang tắt."
+crates-info-header: "#555555&m         &r #ffaa00sᴏʟᴀʀᴀꜰᴋ ᴢᴏɴᴇ #555555- #ffffff{name} &r#555555&m         "
+crates-info-size: "  #555555- #aaaaaaDiện tích: #ffaa00{blocks} blocks"
+crates-info-coords: "  #555555- #aaaaaaTọa độ: #aaaaaa({x1}, {y1}, {z1}) #555555→ #ffffff({x2}, {y2}, {z2})"
+
+#  07  |  THỐNG KÊ HỆ THỐNG (/SOLARAFK INFO)
+info:
+  header: "#555555&m         &r #ffaa00sᴏʟᴀʀᴀꜰᴋ ɪɴꜰᴏ &r#555555&m         "
+  zone-active: "  #555555- #aaaaaaAFK Zone: #00ff3cĐang hoạt động"
+  base-reward: "  #555555- #aaaaaaThưởng: #ffaa00{amount} Shards / #ffffff{interval}s"
+  anywhere: "{prefix}#9CA3AFAFK tự do: {status}"
+  global-boost: "{prefix}#FBBF24Global Boost: {multiplier}x ({time} còn lại)"
+  bonus-info: "  #555555- #aaaaaaBonus: #ffaa00+{amount} Shards / #ffffff{hours}h"
+
+#  08  |  HỆ THỐNG DỊCH CHUYỂN
+teleport-countdown: "{prefix}Dịch chuyển sau #7DD3FC{time}s#E5E7EB. Đứng yên."
+teleport-cancelled: "{prefix}#ff3c3cDịch chuyển bị hủy do di chuyển."
+
+#  09  |  SỰ KIỆN TOÀN SERVER (GLOBAL BOOST)
+global-boost:
+  title: "#ff8a00&lsᴏʟᴀʀᴀꜰᴋ ɢʟᴏʙᴀʟ ʙᴏᴏsᴛ {multiplier}x"
+  subtitle: "&eNhân {multiplier}x Shards toàn server trong {duration}!"
+  expired: "{prefix}#ff3c3cSự kiện Global Boost đã kết thúc!"
+  activated-chat: "{prefix}#00ff3cKích hoạt Global Boost #ffaa00{multiplier}x ({duration})."
+
+#  10  |  BẬT/TẮT TỰ ĐỘNG AFK
+auto-afk:
+  enabled: "{prefix}#00ff3cĐã bật tính năng tự động AFK."
+  disabled: "{prefix}#ff3c3cĐã tắt tính năng tự động AFK."
+
+# Hướng dẫn lệnh người chơi và quản trị.
+commands:
+  auto-usage: "{prefix}#E5E7EBCách dùng: #7DD3FC/autoafk [on|off]"
+  create-usage: "{prefix}#E5E7EBCách dùng: #7DD3FC/aa create <tên>"
+  give-usage: "{prefix}#E5E7EBCách dùng: #7DD3FC/aa givebottle <người chơi> [1-64]"
+  boost-usage: "{prefix}#E5E7EBCách dùng: #7DD3FC/aa boostall <hệ số> <giây>"
+  wand-given: "{prefix}#22C55EĐã nhận wand chọn vùng AFK."
+  wand-hint: "{prefix}#9CA3AFNhấp trái: pos1 | Nhấp phải: pos2."
+  player-not-found: "{prefix}#EF4444Không tìm thấy người chơi {player}."
+  amount-range: "{prefix}#EF4444Số lượng phải từ 1 đến 64."
+  invalid-amount: "{prefix}#EF4444Số lượng không hợp lệ."
+  inventory-full: "{prefix}#FBBF24Túi đồ đầy; vật phẩm được thả tại {player}."
+  multiplier-range: "{prefix}#EF4444Hệ số phải lớn hơn 1."
+  duration-range: "{prefix}#EF4444Thời gian phải lớn hơn 0."
+  boost-started: "{prefix}#22C55EĐã kích hoạt Global Boost {multiplier}x trong {duration} giây."
+  invalid-boost: "{prefix}#EF4444Hệ số và thời gian phải là số nguyên."
+  state-on: "#22C55EĐang bật"
+  state-off: "#EF4444Đang tắt"
+  no-permission: "{prefix}#EF4444Bạn không có quyền dùng lệnh này."
+  player-only: "{prefix}#EF4444Lệnh này chỉ dành cho người chơi."
+  admin-route: "{prefix}#E5E7EBLệnh quản trị: #7DD3FC/aa {command}#E5E7EB."
+  admin-hint: "#9CA3AFQuản trị: #7DD3FC/aa help"
+  player-help:
+    header: "{prefix}#E5E7EBLệnh người chơi"
+    lines:
+      - "#7DD3FC/afk #9CA3AF— Mở menu phòng AFK"
+      - "#7DD3FC/autoafk #9CA3AF— Bật/tắt tự động AFK"
+      - "#7DD3FC/autoafk on|off #9CA3AF— Bật hoặc tắt trực tiếp"
+      - "#7DD3FC/{label} info #9CA3AF— Xem thông tin phần thưởng"
+      - "#7DD3FC/{label} help #9CA3AF— Xem hướng dẫn"
+  admin-help:
+    header: "{prefix}#E5E7EBLệnh quản trị"
+    lines:
+      - "#7DD3FC/{label} wand #9CA3AF— Nhận công cụ chọn vùng"
+      - "#7DD3FC/{label} create <tên> #9CA3AF— Tạo vùng từ hai điểm đã chọn"
+      - "#7DD3FC/{label} delete #9CA3AF— Xóa vùng AFK và điểm dịch chuyển"
+      - "#7DD3FC/{label} setspawn #9CA3AF— Lưu điểm dịch chuyển vào database"
+      - "#7DD3FC/{label} givebottle <người chơi> [1-64] #9CA3AF— Tặng booster"
+      - "#7DD3FC/{label} boostall <hệ số> <giây> #9CA3AF— Nhân thưởng toàn server"
+      - "#7DD3FC/{label} reload #9CA3AF— Tải lại cấu hình"
+      - "#7DD3FC/{label} info #9CA3AF— Xem thông tin hệ thống"
+      - "#7DD3FC/{label} help #9CA3AF— Xem hướng dẫn"

@@ -1,0 +1,78 @@
+#  SOLAR CRATE  |  CONFIG.YML
+#  Cấu hình hệ thống, phát key và hiển thị.
+#  Dùng 2 dấu cách để thụt lề; giữ nguyên tên khóa cấu hình.
+#  Database: database.yml | Âm thanh: sounds.yml | Tin nhắn: lang/
+
+#  01  |  HỆ THỐNG
+# Ngôn ngữ hiển thị (vi_vn / en_us)
+language: "vi_vn"
+
+# Sử dụng tiền tố (Prefix) trong tin nhắn
+use_prefix: true
+
+# Tự động kiểm tra bản cập nhật mới khi khởi động
+check-updates: true
+
+# Bật chế độ ghi log chi tiết trong Console (Debug mode)
+debug: false
+
+#  02  |  DỮ LIỆU & GIỚI HẠN KEY
+# Giới hạn key ảo mỗi người, mỗi crate. -1 = không giới hạn.
+max-keys-per-player: -1
+
+# Khoảng thời gian tự động lưu dữ liệu (phút)
+auto-save-interval: 5
+
+#  03  |  PHÁT KEY TỰ ĐỘNG & ĐẾM NGƯỢC PAPI
+timer:
+  # Chu kỳ phát quà (ví dụ: 1h, 30m, 1h30m, hoặc số giây: 3600 | -1: Tắt)
+  interval: "1h"
+  # Giữ số 0 trên PAPI sau khi phát key (giây). Có thể tăng lên 3, 5, 10...
+  # Tối thiểu 1 giây (kể cả cấu hình cũ đặt 0). Không làm chậm chu kỳ phát key.
+  # Nên đặt lớn hơn chu kỳ cập nhật PAPI của scoreboard/TAB (ví dụ cập nhật 2s: đặt 3-5).
+  # Giới hạn tối đa interval - 1 giây; riêng chu kỳ 1s giữ 0 trong 1s.
+  zero-display-seconds: 3
+  
+  # Lệnh chạy một lần cho mỗi người khi đến chu kỳ.
+  # Người đang mở menu SolarCrate được bỏ qua như trước.
+  # Placeholder: {player} (tên người chơi)
+  commands:
+    - "solarcrateadmin give common 1 {player}"
+
+#  04  |  PHÁT KEY KHI SERVER ĐÔNG NGƯỜI
+# Timer, /keyall, /sca keyall và give * dùng chung hàng đợi chia đợt.
+key-distribution:
+  # Số người tối đa được xếp lịch mỗi đợt (1-1000).
+  # Server đông/yếu: giảm xuống 20-30; muốn phát nhanh hơn: tăng lên 100.
+  players-per-batch: 50
+  # Khoảng cách giữa các đợt (tick, 1-1200). 20 tick ≈ 1 giây.
+  # 500 người, 50 người/đợt, 1 tick: xếp lịch trong khoảng 0.5 giây.
+  batch-interval-ticks: 1
+
+#  05  |  HIỂN THỊ SỰ KIỆN KEYALL
+# Give thông thường/timer chỉ dùng tin nhắn và âm thanh, không có title.
+keyall:
+  title-enabled: true
+  # Placeholder: {amount}, {crate}, {crate_display}, {crate_name}.
+  title: "<gradient:#00F986:#00BFFF>&lKEYALL EVENT</gradient>"
+  subtitle: "&fBạn nhận được &e{amount}x &fchìa khóa &a{crate}&f!"
+
+#  06  |  TIN NHẮN TƯƠNG TÁC KHI TIMER PHÁT KEY
+clickable:
+  # Lệnh thực thi khi người chơi nhấp vào tin nhắn
+  command: "/warp crates"
+  # Văn bản hiển thị trong khung chat. Để trống để tắt.
+  text: "&#00B2FF[ᴠɴᴄʀᴀꜰᴛ] &7» &fNhấn để dịch chuyển đến &#00B2FFKhu Vực Hòm Đồ"
+  # Văn bản gợi ý khi di chuột vào (Hover text)
+  hover: "&#00B2FF/warp crates &8— &7Click để dịch chuyển ngay"
+
+#  07  |  CHÌA KHÓA VẬT LÝ
+physical-key:
+  name: "{crate_display}"
+  lore:
+    - "&7Dùng để mở hòm &f{crate_display}&7."
+    - "&e▶ Click phải vào hòm để mở"
+
+#  08  |  PHIÊN BẢN CẤU HÌNH
+# Không chỉnh sửa dòng dưới.
+config-version: "1.4"

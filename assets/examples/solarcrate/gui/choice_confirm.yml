@@ -1,0 +1,20 @@
+title: "ᴄᴏɴꜰɪʀᴍ"
+
+layout:
+  - "_________"
+  - "__K_I_C__"
+  - "_________"
+
+items:
+  confirm_button:
+    char: "K"
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "#00ff3cᴄᴏɴꜰɪʀᴍ ᴄʜᴏɪᴄᴇ"
+    lore:
+      - "&7Dùng &6{required_keys} Key &7để nhận."
+      - "&7Hiện có: &a{keys} Key"
+
+  cancel_button:
+    char: "C"
+    material: "RED_STAINED_GLASS_PANE"
+    name: "#ff3c3cᴄᴀɴᴄᴇʟ"

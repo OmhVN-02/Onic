@@ -1,0 +1,32 @@
+title: "ᴄʀᴀᴛᴇs"
+
+layout:
+  - "FFFFFFFFF"
+  - "FCCCCCCCF"
+  - "FCCCCCCCF"
+  - "FCCCCCCCF"
+  - "FFFFXFFFF"
+
+items:
+  filler:
+    char: "F"
+    material: "BLACK_STAINED_GLASS_PANE"
+    name: "&7 "
+
+  close_button:
+    char: "X"
+    material: "BARRIER"
+    name: "#ff3c3cĐÓNG MENU"
+    lore:
+      - "&7Nhấp để đóng giao diện."
+
+crate_icon:
+  lore:
+    - "&7Mở hòm để thử vận may của bạn!"
+    - ""
+    - "&fYêu cầu: &6{required_keys}x Chìa khóa"
+    - "&fBạn có: &a{keys}x Chìa khóa"
+    - "&fChế độ: &b{open_mode}"
+    - "&fHoạt ảnh: &d{animation_type}"
+    - ""
+    - "&e▶ Click để xem & mở hòm!"

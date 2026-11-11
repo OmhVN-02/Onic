@@ -1,0 +1,58 @@
+#  SOLAR AFK  |  GUI.YML
+#  Bố cục menu phòng AFK và vật phẩm hiển thị.
+#  Dùng 2 dấu cách để thụt lề; giữ nguyên tên khóa cấu hình.
+
+#  01  |  TIÊU ĐỀ MENU
+# Tên giao diện (Small Caps English)
+title: "Aꜰᴋ Zᴏɴᴇ"
+
+#  02  |  BỐ CỤC MENU
+# Sắp xếp ma trận giao diện (3 hàng, mỗi hàng 9 ô)
+# Ký tự đại diện:
+#   v = Phòng AFK ảo (Virtual Instanced Room)
+#   r = Dịch chuyển ngẫu nhiên (Random Teleport)
+#   a = Vật phẩm bật/tắt tự động AFK, chế độ do server cấu hình
+#   # = Kính nền trang trí (nếu filler enabled = true) hoặc ô trống
+gui-disposition:
+  - "vvvvv####"
+  - "#########"
+  - "####r####"
+
+#  03  |  NỀN TRANG TRÍ
+# Kính nền trang trí các ô trống '#'
+filler:
+  enabled: false
+  material: "GRAY_STAINED_GLASS_PANE"
+
+#  04  |  VẬT PHẨM PHÒNG AFK
+# Vật phẩm đại diện cho các phòng AFK ảo 'v'
+virtual-room-item:
+  material: "ITEM_FRAME"
+  name: "&dᴀꜰᴋ ʀᴏᴏᴍ {room_id}"
+  lore:
+    - "&7Trạng thái phòng: &aHoạt động"
+    - "&7Số người chơi: &e{current}&7/&e{max}"
+    - ""
+    - "&eNhấp để dịch chuyển vào phòng!"
+
+#  05  |  DỊCH CHUYỂN NGẪU NHIÊN
+# Vật phẩm dịch chuyển ngẫu nhiên 'r'
+random-item:
+  material: "PURPLE_STAINED_GLASS_PANE"
+  name: "&dʀᴀɴᴅᴏᴍ ᴛeʟeᴘᴏʀᴛ"
+  lore:
+    - "&7Tìm kiếm và đưa bạn đến"
+    - "&7một phòng AFK còn chỗ trống."
+    - ""
+    - "&eNhấp để tự động dịch chuyển!"
+
+#  06  |  TÙY CHỌN TỰ ĐỘNG AFK
+# Vật phẩm cấu hình Tự động AFK 'a'
+auto-afk-item:
+  material: "COMPASS"
+  name: "&aᴛỰ ĐỘɴɢ ᴀꜰᴋ"
+  lore:
+    - "&7Trạng thái: &e%auto_afk_status%"
+    - "&7Chế độ server: &e%auto_afk_mode_text%"
+    - ""
+    - "&eNhấp để Bật/Tắt!"

@@ -1,0 +1,30 @@
+display_name: "<#00BFFF>COMMON CRATE"
+required_keys: 1
+open_mode: "RANDOM_CHANCE"
+animation_type: "CSGO_ROULETTE"
+
+hologram:
+  enabled: true
+  offset_y: 1.25
+  lines:
+    - "&8[<#00BFFF>ᴄᴏᴍᴍᴏɴ ᴄʀᴀᴛᴇ&8]"
+    - "&7↓"
+    - "&8[&b☄&8] &f❑ ᴋᴇʏꜱ: <#00BFFF>{required_keys} &7🔑 &8[&b☄&8]"
+    - ""
+    - "&8&m  <#00BFFF>=&8&m  &r&8 [&6☀&8] &8&m  <#00BFFF>=&8&m  "
+
+menu_item:
+  material: "CHEST"
+  name: "<#00BFFF>COMMON CRATE"
+  lore:
+    - "&7Hòm đồ thường."
+    - "&7Yêu cầu: &61 Key"
+
+particles:
+  enabled: true
+  ambient_particle: "HAPPY_VILLAGER"
+  ambient_style: "CIRCLE"
+  particle_density: 8
+  particle_size: 0.8
+  firework_enabled: true
+  firework_color: "GREEN"

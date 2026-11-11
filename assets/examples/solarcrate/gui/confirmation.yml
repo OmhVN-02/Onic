@@ -1,0 +1,28 @@
+title: "ᴄᴏɴꜰɪʀᴍ"
+
+layout:
+  - "_________"
+  - "__K_I_C__"
+  - "_________"
+
+items:
+  confirm_button:
+    char: "K"
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "#00ff3cᴄᴏɴꜰɪʀᴍ ᴏᴘᴇɴ"
+    lore:
+      - "&7Dùng &6{required_keys} Key &7để mở."
+
+  info_item:
+    char: "I"
+    material: "ENDER_CHEST"
+    name: "#ffaa00{crate_display}"
+    lore:
+      - "&7Yêu cầu: &6{required_keys} Key"
+      - "&7Hiện có: &a{keys} Key"
+      - "&7Vật phẩm: &f{items_count} món"
+
+  cancel_button:
+    char: "C"
+    material: "RED_STAINED_GLASS_PANE"
+    name: "#ff3c3cᴄᴀɴᴄᴇʟ"
