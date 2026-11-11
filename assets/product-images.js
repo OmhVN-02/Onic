@@ -1,5 +1,5 @@
 'use strict';
-const suppliedProductImages={solartpa:'SolarTPA.png',solarbounty:'SolarBounty.png',scombat:'Scombat.png',solarrtp:'SolarRTP.png',solarquest:'SolarQuest.png',solarorder:'SolarOrder.png',oniccraft:'OnicCraft.png',oniccore:'OnicCore.png',crystalguard:'CrystalGuard.png',antintr:'AntiNTR.png',onicsus:'OnicSUS.png',onickits:'onickits.png'};
+const suppliedProductImages={solartpa:'SolarTPA.png',solarbounty:'SolarBounty.png',scombat:'Scombat.png',solarrtp:'SolarRTP.png',solarquest:'SolarQuest.png',solarorder:'SolarOrder.png',oniccraft:'OnicCraft.png',oniccore:'OnicCore.png',crystalguard:'CrystalGuard.png',antintr:'AntiNTR.png',onicsus:'OnicSUS.png',onickits:'onickits.png',solarauctionhouse:'SAuctionHouse.png'};
 if(!window.ONIC_PLUGINS.some(p=>p.id==='oniccraft')) {
   window.ONIC_PLUGINS.push({id:'oniccraft',name:'OnicCraft',icon:'▦',category:'onic',route:'oniccraft-home',status:'planned',updatedAt:'2026-11-11'});
   for(const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) {
