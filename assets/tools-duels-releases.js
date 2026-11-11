@@ -1,6 +1,11 @@
 'use strict';
 const toolDuelReleases={
   solartools:[
+    {n:159,date:'2026-11-11',version:'1.0-C03',label:'SolarTool',title:'Sửa kích thước và hướng đào',titleEn:'Mining size and direction fixes',items:[
+      ['Cho phép đặt size theo dạng 1x1, 1x3, 2x3, 3x3… trong cấu hình Drill, Shovel, Hoe và Multitool.','Configure size as 1x1, 1x3, 2x3, 3x3 and similar dimensions for Drill, Shovel, Hoe and Multitool.'],
+      ['Với 1x3, khi nhìn ngang, mặt đào rộng 1 khối và cao 3 khối ở cả bốn hướng.','When mining horizontally with 1x3, the face is one block wide and three blocks high in all four directions.'],
+      ['Với 3x3, khi nhìn ngang, mặt đào rộng 3 và cao 3. Khi nhìn xuống, vùng đào tạo rãnh rộng 3, dài 1 và sâu 3 khối.','When mining horizontally with 3x3, the face is three blocks wide and three blocks high. Looking down creates a trench three blocks wide, one block long and three blocks deep.'],
+      ['Cấu hình cũ size: 3 vẫn tương đương 3x3.','The legacy setting size: 3 still means 3x3.']]},
     {n:158,date:'2026-11-11',version:'1.0-C03',label:'SolarTool',title:'Kích thước vùng đào và âm thanh công cụ',titleEn:'Mining dimensions and tool sounds',items:[
       ['Drill, Shovel, Hoe và Multitool hỗ trợ kích thước 1x1, 1x3, 2x2, 2x3, 3x3… Mỗi chiều từ 1 đến 64.','Drill, Shovel, Hoe and Multitool support sizes such as 1x1, 1x3, 2x2, 2x3 and 3x3. Each dimension ranges from 1 to 64.'],
       ['Bỏ giới hạn tối thiểu 3 và cơ chế ép kích thước thành số lẻ. Cấu hình cũ size: 3 vẫn tương đương 3x3.','Removes the minimum size of 3 and odd-number rounding. Existing size: 3 still means 3x3.'],

@@ -212,7 +212,7 @@ jobs:
             const menus=localized.find(doc=>doc.id==='solartools-menus').html;
             if((menus.match(/<img /g)||[]).length!==12) throw Error('SolarTools screenshots or GIFs missing');
             const toolsLog=localized.find(doc=>doc.id==='solartools-changelog').html;
-            for(const n of [180,189,194,199,233,145,158]) if(!toolsLog.includes('id="devlog-'+n+'"')) throw Error('SolarTools DevLog missing: '+n);
+            for(const n of [180,189,194,199,233,145,158,159]) if(!toolsLog.includes('id="devlog-'+n+'"')) throw Error('SolarTools DevLog missing: '+n);
             const duelsLog=localized.find(doc=>doc.id==='solarduels-changelog').html;
             for(const n of [201,209,229,144]) if(!duelsLog.includes('id="devlog-'+n+'"')) throw Error('SolarDuels DevLog missing: '+n);
             const toolsApi=localized.find(doc=>doc.id==='solartools-api').html;
