@@ -78,7 +78,7 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
   });
   docs.push({
     id:'solarshards-permissions', product:'solarshards', group:t('HƯỚNG DẪN','GUIDES'),
-    title:t('Quyền','Permissions'), icon:'◇', updatedAt:'2026-11-15',
+    title:t('Lệnh & quyền','Commands & permissions'), icon:'◇', updatedAt:'2026-11-15',
     lead:t('Quyền xem số dư, chuyển Shards và quản trị.','Permissions for balances, transfers and administration.'),
     html:'<h2 id="danh-sach">'+t('Danh sách quyền','Permission nodes')+'</h2>'+
       table([t('Quyền','Permission'),t('Mặc định','Default'),t('Công dụng','Purpose')],[
@@ -99,6 +99,7 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
         ['/shards pay &lt;player&gt; &lt;amount&gt;','solarshards.use + solarshards.pay'],
         ['/shards give · take · set · reset · reload','solarshards.use + solarshards.admin']
       ])+
+      '<p>'+t('Bí danh của /shardsbal gồm /shardbal, /shardsbalance và /shardbalance. Bí danh của /payshards gồm /pshards và /payshard. Bí danh dùng cùng quyền với lệnh gốc.','Aliases of /shardsbal are /shardbal, /shardsbalance and /shardbalance. Aliases of /payshards are /pshards and /payshard. Aliases require the same permissions as their original commands.')+'</p>'+
       '<h2 id="luckperms">LuckPerms</h2><p>'+t('Ví dụ dưới đây giới hạn xem số dư của người khác cho nhóm staff. Người chơi vẫn xem được số dư của mình. Thay staff bằng tên nhóm trên server.','This example restricts other players’ balances to staff. Players can still see their own balance. Replace staff with the group name on your server.')+'</p>'+
       code('LuckPerms','/lp group default permission set solarshards.balance.others false\n/lp group staff permission set solarshards.balance.others true')
   });
