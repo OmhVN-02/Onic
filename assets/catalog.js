@@ -76,6 +76,33 @@ for (const [docs,en] of [[window.SOLAR_DOCS,false],[window.ONIC_ENGLISH,true]]) 
       '<h2 id="async">Async</h2><p>'+t('getShardsAsync(uuid) đọc dữ liệu qua cache hoặc database bất đồng bộ. Các hàm thêm/trừ/đặt Async hiện chạy bản đồng bộ bằng CompletableFuture.runAsync, trong khi các sự kiện của thao tác là đồng bộ. Dùng thao tác thay đổi trên main thread của Paper hoặc entity thread của Folia như ví dụ trên. Future hoàn tất không phải cam kết database đã lưu xong.','getShardsAsync(uuid) reads from cache or asynchronously from the database. The Async mutation wrappers currently call synchronous methods through CompletableFuture.runAsync, while their events are synchronous. Run mutations on the Paper main thread or Folia entity thread as shown above. Future completion does not guarantee that database persistence has finished.')+'</p>'+
       '<h2 id="tham-chieu">'+t('Tham chiếu','Reference')+'</h2>'+code('SolarShardsAPI',signatures)
   });
+  docs.push({
+    id:'solarshards-permissions', product:'solarshards', group:t('HƯỚNG DẪN','GUIDES'),
+    title:t('Quyền','Permissions'), icon:'◇', updatedAt:'2026-11-15',
+    lead:t('Quyền xem số dư, chuyển Shards và quản trị.','Permissions for balances, transfers and administration.'),
+    html:'<h2 id="danh-sach">'+t('Danh sách quyền','Permission nodes')+'</h2>'+
+      table([t('Quyền','Permission'),t('Mặc định','Default'),t('Công dụng','Purpose')],[
+        ['solarshards.use','true',t('Cho phép dùng lệnh gốc /shards và các bí danh /shard, /solarshards, /sshards.','Allows /shards and its aliases /shard, /solarshards and /sshards.')],
+        ['solarshards.balance','true',t('Xem số dư của mình và truy cập lệnh /shardsbal.','View your own balance and access /shardsbal.')],
+        ['solarshards.balance.others','true',t('Xem số dư người khác bằng /shardsbal &lt;player&gt; hoặc /shards bal &lt;player&gt;.','Inspect another player’s balance with /shardsbal &lt;player&gt; or /shards bal &lt;player&gt;.')],
+        ['solarshards.pay','true',t('Chuyển Shards bằng /payshards &lt;player&gt; &lt;amount&gt; hoặc /shards pay.','Transfer Shards with /payshards &lt;player&gt; &lt;amount&gt; or /shards pay.')],
+        ['solarshards.pay.bypass-tax','OP',t('Miễn thuế cho người gửi. Lệnh chuyển vẫn yêu cầu solarshards.pay.','Exempts the sender from transfer tax. The command still requires solarshards.pay.')],
+        ['solarshards.admin','OP',t('Dùng /shards give, take, set, reset, reload. Give có bí danh add và take có bí danh remove.','Allows /shards give, take, set, reset and reload. Give also accepts add, and take accepts remove.')]
+      ])+
+      '<h2 id="theo-lenh">'+t('Quyền theo lệnh','Permissions by command')+'</h2>'+
+      table([t('Lệnh','Command'),t('Quyền cần có','Required permissions')],[
+        ['/shardsbal','solarshards.balance'],
+        ['/shardsbal &lt;player&gt;','solarshards.balance + solarshards.balance.others'],
+        ['/shards · /shards bal','solarshards.use + solarshards.balance'],
+        ['/shards bal &lt;player&gt;','solarshards.use + solarshards.balance.others'],
+        ['/payshards &lt;player&gt; &lt;amount&gt;','solarshards.pay'],
+        ['/shards pay &lt;player&gt; &lt;amount&gt;','solarshards.use + solarshards.pay'],
+        ['/shards give · take · set · reset · reload','solarshards.use + solarshards.admin']
+      ])+
+      '<h2 id="luckperms">LuckPerms</h2><p>'+t('Ví dụ dưới đây giới hạn xem số dư của người khác cho nhóm staff. Người chơi vẫn xem được số dư của mình. Thay staff bằng tên nhóm trên server.','This example restricts other players’ balances to staff. Players can still see their own balance. Replace staff with the group name on your server.')+'</p>'+
+      code('LuckPerms','/lp group default permission set solarshards.balance.others false\n/lp group staff permission set solarshards.balance.others true')
+  });
   const shards=docs.find(doc=>doc.id==='solarshards-home');
+  shards.html+='<h2 id="shards-permissions">'+t('Quyền','Permissions')+'</h2><div class="cards">'+card('solarshards-permissions','◇',t('Quyền theo lệnh','Permissions by command'),t('Xem số dư, chuyển Shards và quản trị.','Check balances, transfer Shards and manage accounts.'))+'</div>';
   shards.html+='<h2 id="api-plugin">API</h2><p>'+t('Tích hợp số dư, cộng/trừ Shards và lắng nghe sự kiện từ plugin khác.','Integrate balances, Shards mutations and events into other plugins.')+'</p><div class="cards">'+card('solarshards-api','◇','API',t('Service, provider, phương thức và ví dụ Java.','Service, provider, methods and Java examples.'))+'</div>';
 }
