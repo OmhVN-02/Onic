@@ -69,7 +69,10 @@ function classicProductOverview(p,overview,en,features){
   const guide=(route,vi,enTitle,viBody,enBody)=>[route,t(vi,enTitle),t(viBody,enBody)];
   const guides=[guide(p.setup,'Cài đặt lần đầu','First installation','Chuẩn bị Java, cài JAR và kiểm tra plugin đã chạy.','Prepare Java, install the JAR and verify startup.')];
   if(p.id==='solarquest')guides.push(guide('solarquest-play','Nhiệm vụ đầu tiên','Your first quest','Nhận việc, hoàn thành và kiểm tra phần thưởng.','Accept a task, complete it and check the rewards.'));
-  else if(p.id==='solarshards')guides.push(guide('solarshards-permissions','Lệnh & quyền','Commands & permissions','Xem quyền mặc định và quyền cần cấp cho từng lệnh.','See default permissions and the nodes each command requires.'));
+  else if(p.id==='solarshards') {
+    guides.push(guide('solarshards-permissions','Lệnh & quyền','Commands & permissions','Xem quyền mặc định và quyền cần cấp cho từng lệnh.','See default permissions and the nodes each command requires.'));
+    guides.push(guide('tien-te/solarshards','Dùng với SolarShop','Use with SolarShop','Chọn Shards làm tiền thanh toán cho mặt hàng.','Choose Shards as an item’s payment currency.'));
+  }
   else guides.push(guide(p.id+'-commands','Lệnh & quyền','Commands & permissions','Tra cứu lệnh người chơi và quản trị viên.','Find player and administrator commands.'));
   guides.push(guide(p.config,'Tùy chỉnh cấu hình','Customize configuration','Chọn đúng file, tìm key và sửa theo nhu cầu.','Find the right file and setting to customize.'));
   if(p.id==='solartpa')guides.push(guide('solartpa-api','API cho plugin','Plugin API','Tích hợp yêu cầu dịch chuyển vào plugin khác.','Integrate teleport requests into other plugins.'));
