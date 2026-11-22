@@ -13,7 +13,7 @@
   let mobileMode = '';
   function syncMobileNav(mode) {
     const open = $('sidebar').classList.contains('open');
-    mobileMode = mode || (open ? (mobileMode === 'search' ? 'search' : 'contents') : currentId === 'wiki' ? (location.hash.includes('/plugins') ? 'products' : 'home') : 'contents');
+    mobileMode = mode || (open ? 'contents' : currentId === 'search' ? 'search' : currentId === 'wiki' ? (location.hash.includes('/plugins') ? 'products' : 'home') : 'contents');
     mobileButtons.forEach(button => {
       const active = button.dataset.mobileNav === mobileMode;
       button.classList.toggle('active', active);
@@ -36,8 +36,8 @@
     headerSearch.querySelector('span').textContent = t('Tìm tài liệu','Search docs');
     headerSearch.setAttribute('aria-label', t('Tìm tài liệu','Search docs'));
     $('back-top').textContent = t('Về đầu trang ↑','Back to top ↑');
-    search.placeholder = t('Tìm hướng dẫn…','Search guides…');
-    search.setAttribute('aria-label',search.placeholder);
+    search.querySelector('.search-label').textContent = t('Tìm hướng dẫn…','Search guides…');
+    search.setAttribute('aria-label',search.querySelector('.search-label').textContent);
     document.querySelector('.plugin-label').textContent = t('SẢN PHẨM','PRODUCT');
     document.querySelector('.wiki-home').textContent = t('← Chọn plugin','← Choose plugin');
     $('picker-options').setAttribute('aria-label',t('Sản phẩm','Products'));
@@ -70,17 +70,11 @@
     $('picker-icon').textContent = selected?.icon || '✳';
     $('picker-options').innerHTML = window.ONIC_PRODUCT_GROUPS.map(group => '<div class="picker-group-title">'+esc(t(group.vi,group.en))+'</div>'+plugins.filter(p=>p.category===group.id).map(p => `<a href="#${p.route}" data-product="${p.id}" ${p.id === activeProduct ? 'aria-current="true"' : ''}><span class="picker-option-icon" aria-hidden="true">${esc(p.icon)}</span><span>${esc(p.name)} ${newBadge(p)}</span>${p.id === activeProduct ? '<span class="picker-check" aria-hidden="true">✓</span>' : ''}</a>`).join('')).join('');
   }
-  function navigation(query = '') {
-    const normalized = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
-    const keywords = normalized(query).split(/\s+/).filter(Boolean);
+  function navigation() {
     let count = 0;
     $('navigation').replaceChildren();
     for (const doc of docs) {
-      if (activeProduct ? doc.product !== activeProduct : !query.trim()) continue;
-      const template = document.createElement('template');
-      template.innerHTML = doc.html;
-      const text = normalized(`${doc.title} ${doc.lead} ${template.content.textContent}`);
-      if (!keywords.every(word => text.includes(word))) continue;
+      if (!activeProduct || doc.product !== activeProduct) continue;
       count++;
       const standalone = doc.id.endsWith('-changelog');
       const link = document.createElement('a'); link.className = 'nav-link'; link.href = '#' + doc.id;
@@ -88,14 +82,101 @@
       if (currentId === doc.id) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       const icon = document.createElement('span'); icon.className = 'nav-symbol'; icon.textContent = doc.icon; icon.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
-      const resultProduct = !activeProduct && window.ONIC_PLUGINS.find(p => p.id === doc.product);
-      label.textContent = resultProduct ? resultProduct.name + ' · ' + doc.title : doc.title;
+      label.textContent = doc.title;
       link.append(icon, label); if (window.ONIC_IS_NEW(doc)) link.insertAdjacentHTML('beforeend', newBadge(doc)); $('navigation').append(link);
     }
     if (!count) { const empty = document.createElement('p'); empty.className = 'search-empty'; empty.textContent = activeProduct ? t('Không có kết quả phù hợp.','No matching guides.') : t('Chọn plugin để xem tài liệu.','Choose a plugin to view its guides.'); $('navigation').append(empty); }
-    $('search-status').textContent = query ? count + t(' bài phù hợp',' matching guides') : '';
   }
+  const searchIndexes = new Map();
+  function normalizeSearch(value) {
+    return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
+  }
+  function searchIndex() {
+    if (!searchIndexes.has(lang)) {
+      const template=document.createElement('template');
+      const products=new Map(window.ONIC_PLUGINS.map(p=>[p.id,p]));
+      searchIndexes.set(lang,docs.filter(d=>d.id!=='wiki').map(doc=>{
+        const product=products.get(doc.product);
+        template.innerHTML=doc.html;
+        return {doc, product:product?.name || 'Onic Wiki', overview:product?.route===doc.id,
+          title:normalizeSearch(doc.title), name:normalizeSearch(product?.name || 'Onic Wiki'),
+          summary:normalizeSearch(doc.lead), body:normalizeSearch(template.content.textContent)};
+      }));
+    }
+    return searchIndexes.get(lang);
+  }
+  function renderSearchPage() {
+    const params=new URLSearchParams(location.hash.split('?')[1] || '');
+    const initial=params.get('q') || '';
+    currentId='search';
+    activeProduct='';
+    renderPicker();
+    navigation();
+    menu(false);
+    sectionObserver?.disconnect();
+    $('page-navigation').replaceChildren();
+    $('toc').replaceChildren();
+    const title=t('Tìm kiếm tài liệu','Search documentation');
+    document.title=title+' · Onic Wiki';
+    $('crumb').textContent=title;
+    const article=$('article');
+    article.classList.remove('catalog-view');
+    article.classList.add('search-view');
+    article.innerHTML='<h1>'+title+'</h1><label class="doc-search-field"><span aria-hidden="true">⌕</span><input id="doc-query" type="search" autocomplete="off" enterkeyhint="search"></label><p class="doc-search-status" role="status" aria-live="polite"></p><ul class="doc-results"></ul>';
+    const input=$('doc-query');
+    input.placeholder=t('Tên plugin, lệnh, quyền hoặc từ khóa…','Plugin name, command, permission or keyword…');
+    input.setAttribute('aria-label',title);
+    input.value=initial;
+    const status=article.querySelector('.doc-search-status');
+    const results=article.querySelector('.doc-results');
+    function updateResults() {
+      const query=normalizeSearch(input.value.trim());
+      const terms=query.split(/\s+/).filter(Boolean);
+      const fragment=document.createDocumentFragment();
+      let matches=[];
+      if (terms.length) {
+        for (const entry of searchIndex()) {
+          let score=0;
+          for (const word of terms) {
+            const weight=entry.title.includes(word)?8:entry.name.includes(word)?6:entry.summary.includes(word)?3:entry.body.includes(word)?1:0;
+            if (!weight) {score=0;break;}
+            score+=weight;
+          }
+          if (score) matches.push({entry,score:score+(entry.overview && entry.name===query?12:0)});
+        }
+        matches.sort((a,b)=>b.score-a.score);
+        for (const {entry} of matches) {
+          const li=document.createElement('li');
+          const link=document.createElement('a');
+          link.href='#'+entry.doc.id;
+          const product=document.createElement('small'),heading=document.createElement('strong'),summary=document.createElement('span');
+          product.textContent=entry.product;
+          heading.textContent=entry.doc.title;
+          summary.textContent=entry.doc.lead;
+          link.append(product,heading,summary);
+          li.append(link);
+          fragment.append(li);
+        }
+      }
+      results.replaceChildren(fragment);
+      status.textContent=!terms.length?t('Tìm trong toàn bộ thư viện plugin.','Search across the entire plugin library.'):matches.length?matches.length+t(' bài phù hợp',' matching guides'):t('Không tìm thấy bài phù hợp. Hãy thử tên plugin hoặc một từ khóa ngắn hơn.','No matching guides. Try a plugin name or a shorter keyword.');
+    }
+    function rememberQuery() {
+      const hash='search'+(input.value?'?'+new URLSearchParams({q:input.value}):'');
+      const url=window.ONIC_PRODUCT_LINK(location.href,null,hash);
+      if (/^https?:$/.test(location.protocol) && url!==location.href) history.replaceState(null,'',url);
+    }
+    input.addEventListener('input',()=>{rememberQuery();updateResults();});
+    rememberQuery();
+    updateResults();
+    window.scrollTo({top:0,behavior:'instant'});
+    input.focus({preventScroll:true});
+  }
+
+
   function render() {
+    if (location.hash.split('?')[0]==='#search') { renderSearchPage(); return; }
+    $('article').classList.remove('search-view');
     let route;
     try { route = decodeURIComponent(location.hash.slice(1) || window.ONIC_ENTRY_ROUTE || ''); } catch { route = ''; }
     let [requested, section] = route.split('/');
@@ -188,7 +269,7 @@
     const index = siblings.indexOf(doc), previous = siblings[index - 1], next = siblings[index + 1];
     $('page-navigation').innerHTML = `${previous ? `<a href="#${previous.id}"><small>${t('← TRƯỚC','← PREVIOUS')}</small>${esc(previous.title)}</a>` : '<span></span>'}${next ? `<a href="#${next.id}"><small>${t('TIẾP THEO →','NEXT →')}</small>${esc(next.title)}</a>` : ''}`;
     if (lang === 'en') $('article').querySelectorAll('.copy').forEach(button => { button.textContent = 'Copy ⧉'; button.setAttribute('aria-label','Copy example'); });
-    navigation(search.value);
+    navigation();
     menu(false);
     if (section && headings.some(h => h.id === section)) document.getElementById(section).scrollIntoView();
     else if (!samePage) window.scrollTo({ top: 0, behavior: 'instant' });
@@ -202,7 +283,7 @@
   }
   $('menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('open')));
   $('scrim').addEventListener('click', () => menu(false));
-  search.addEventListener('input', () => navigation(search.value));
+
   localeButtons.forEach(button => button.addEventListener('click', () => {
     if (lang === button.dataset.lang) return;
     lang = button.dataset.lang;
@@ -210,21 +291,19 @@
     const url = new URL(location.href);
     url.searchParams.set('lang',lang);
     history.replaceState(null,'',url);
-    search.value = '';
     applyLanguage();
     render();
   }));
   function focusSearch() {
-    if (window.innerWidth <= 760) menu(true);
-    picker.open = false;
-    search.focus();
-    syncMobileNav('search');
+    menu(false);
+    if (currentId === 'search') $('doc-query').focus();
+    else { history.pushState(null,'','#search'); renderLocation(); }
   }
   mobileNav.addEventListener('click', event => {
     const button = event.target.closest('[data-mobile-nav]');
     if (!button) return;
     const action = button.dataset.mobileNav;
-    if (action === 'search') { focusSearch(); return; }
+    if (action === 'search') { event.preventDefault(); focusSearch(); return; }
     if (action === 'contents') {
       const close = $('sidebar').classList.contains('open') && mobileMode === 'contents';
       menu(!close);
@@ -245,18 +324,17 @@
       syncMobileNav(action);
     }
   });
-  search.addEventListener('focus', () => { if (window.innerWidth <= 760) syncMobileNav('search'); });
+  search.addEventListener('click',event=>{event.preventDefault();focusSearch();});
   if (window.visualViewport) {
     const updateKeyboard = () => document.documentElement.classList.toggle('mobile-keyboard-open',
-      window.innerWidth <= 760 && document.activeElement === search && window.visualViewport.height < window.innerHeight - 120);
-    window.visualViewport.addEventListener('resize', updateKeyboard);
-    search.addEventListener('blur', () => document.documentElement.classList.remove('mobile-keyboard-open'));
+      window.innerWidth <= 760 && document.activeElement?.id === 'doc-query' && window.visualViewport.height < window.innerHeight - 120);
+    window.visualViewport.addEventListener('resize',updateKeyboard);
+    document.addEventListener('focusout',()=>document.documentElement.classList.remove('mobile-keyboard-open'));
   }
   headerSearch.addEventListener('click', event => { event.preventDefault(); focusSearch(); });
   $('back-top').addEventListener('click', () => { window.scrollTo({top:0}); $('article').focus({preventScroll:true}); });
   $('picker-options').addEventListener('click', event => {
     if (!event.target.closest('[data-product]')) return;
-    search.value = '';
     picker.open = false;
     pickerTrigger.focus();
   });
@@ -264,7 +342,7 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       if (picker.open) { picker.open = false; pickerTrigger.focus(); return; }
-      menu(false); search.blur();
+      menu(false); $('doc-query')?.blur();
     }
     if (event.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) && !event.ctrlKey && !event.metaKey && !event.altKey) {
       event.preventDefault(); focusSearch();
@@ -285,7 +363,14 @@
       clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 4000);
     }
   });
-  window.addEventListener('hashchange', render);
+  let renderedAddress;
+  function renderLocation() {
+    if (renderedAddress === location.href) return;
+    render();
+    renderedAddress = location.href;
+  }
+  window.addEventListener('popstate',renderLocation);
+  window.addEventListener('hashchange',renderLocation);
   applyLanguage();
   render();
 })();

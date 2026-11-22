@@ -12,7 +12,7 @@
   <script src="assets/loading.js?v=20261109-loading"></script>
   <link rel="icon" href="assets/favicon.svg?v=20261109-round" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/images/onic-studio.png">
-  <link rel="stylesheet" href="assets/style.css?v=20261122-library">
+  <link rel="stylesheet" href="assets/style.css?v=20261122-search">
   <link rel="preload" as="image" href="assets/images/onic-studio.png" media="(prefers-reduced-motion: no-preference)">
   <script src="assets/docs.js?v=20261109-code-colors" defer></script>
   <script src="assets/theme.js" defer></script>
@@ -60,7 +60,7 @@
   <script src="assets/core-homes-guide.js?v=20261122" defer></script>
   <script src="assets/product-images.js?v=20261122" defer></script>
   <script src="assets/product-links.js?v=20261110-sharing" defer></script>
-  <script src="assets/app.js?v=20261122-library" defer></script>
+  <script src="assets/app.js?v=20261122-search" defer></script>
 
 </head>
 <body>
@@ -69,7 +69,7 @@
   <header class="topbar">
     <a href="#wiki" class="brand" aria-label="Onic Wiki trang chủ"><img class="brand-icon" src="assets/images/onic-studio.png" alt="" width="37" height="37"> Onic <span class="docs-label">/ wiki</span></a>
     <div class="top-actions">
-      <a class="header-search" href="#navigation" aria-label="Tìm trong tài liệu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 4 4"/></svg><span>Tìm tài liệu</span><kbd>/</kbd></a>
+      <a class="header-search" href="#search" aria-label="Tìm trong tài liệu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 4 4"/></svg><span>Tìm tài liệu</span><kbd>/</kbd></a>
       <a class="github" href="https://github.com/OmhVN-02/Onic" target="_blank" rel="noopener">GitHub ↗</a>
       <div class="locale-switch" role="group" aria-label="Language / Ngôn ngữ"><button type="button" data-lang="vi" lang="vi" aria-label="Tiếng Việt" aria-pressed="true">VI</button><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button></div>
       <button type="button" id="theme" class="icon-button" aria-label="Đổi giao diện sáng tối"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15a8 8 0 0 1-11-11 8.5 8.5 0 1 0 11 11Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
@@ -78,8 +78,7 @@
   </header>
   <aside id="sidebar" class="sidebar" aria-label="Điều hướng tài liệu">
     <a href="#wiki" class="wiki-home">← Chọn plugin</a>
-    <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Tìm hướng dẫn…" aria-label="Tìm trong tài liệu"><kbd>/</kbd></label>
-    <p id="search-status" class="sr-only" aria-live="polite"></p>
+    <a class="search" id="search" href="#search"><span aria-hidden="true">⌕</span><span class="search-label">Tìm hướng dẫn…</span><kbd>/</kbd></a>
     <details id="plugin-picker">
       <summary><span id="picker-icon" aria-hidden="true">✳</span><span class="picker-text"><small class="plugin-label">SẢN PHẨM</small><strong id="picker-name">Chọn sản phẩm</strong></span><svg class="picker-arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
       <nav id="picker-options" aria-label="Sản phẩm"></nav>
@@ -94,7 +93,7 @@
     <a href="#wiki" data-mobile-nav="home" aria-label="Trang chủ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M9 21v-8h6v8"/></svg><span>Trang chủ</span></a>
     <a href="#wiki/plugins" data-mobile-nav="products" aria-label="Sản phẩm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Sản phẩm</span></a>
     <button type="button" data-mobile-nav="contents" aria-controls="sidebar" aria-expanded="false" aria-label="Mục lục"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Mục lục</span></button>
-    <button type="button" data-mobile-nav="search" aria-controls="sidebar" aria-expanded="false" aria-label="Tìm kiếm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg><span>Tìm kiếm</span></button>
+    <a href="#search" data-mobile-nav="search" aria-label="Tìm kiếm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg><span>Tìm kiếm</span></a>
   </nav>
 
   <div id="toast" role="status" aria-live="polite"></div>
