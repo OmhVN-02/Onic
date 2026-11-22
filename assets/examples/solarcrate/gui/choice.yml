@@ -1,5 +1,7 @@
 title: "{crate_display}"
+rows: 3
 
+# rows: 1–6 hàng. R là ô đặt quà. Các hàng thêm ngoài layout tự dùng làm ô quà.
 layout:
   - "RRRRRRRRR"
   - "RRRRRRRRR"

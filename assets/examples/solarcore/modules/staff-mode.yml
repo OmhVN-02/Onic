@@ -1,0 +1,125 @@
+# Chế độ staff của SolarCore.
+# Toàn bộ key được viết thường.
+#
+# HƯỚNG DẪN NHANH:
+# - /staffmode bật/tắt chế độ; /vanish bật/tắt tàng hình; /stafflist mở danh sách staff.
+# - Khi bật, túi đồ hiện tại được lưu trong database chung của SolarCore và khôi phục lúc tắt.
+# - hotbar_slots nhận giá trị từ 0 đến 8. Không đặt hai công cụ vào cùng một slot.
+# - custom_items cho phép chạy lệnh với placeholder {player}, {player_uuid}, {world},
+#   {target}, {target_uuid}. Hãy cấp permission riêng nếu execute_as là CONSOLE.
+# - Tệp này nằm tại modules/staff-mode.yml; menu nằm tại gui/staff-mode-gui.yml.
+# - Thông báo nằm tại messages.yml -> messages.staffmode.
+# - /fakeplayer tạo NPC mồi packet-only; cần cài PacketEvents để sử dụng.
+# - FakePlayer tự biến mất theo ttl_seconds và không tạo entity thật trong thế giới.
+# - Người chơi nhìn NPC xuyên khối đủ số lần sẽ gửi cảnh báo có thể nhấp cho staff.
+# - Sau khi chỉnh file, dùng /solarcore reload.
+
+staff_mode:
+  enabled: true
+  auto_vanish_on_enable: false
+  persist_on_quit: true
+  persist_on_restart: true
+  lock_tools: true
+  restore_inventory_on_disable: true
+
+  vanish_actionbar:
+    enabled: true
+    interval_ticks: 40
+
+  vanish_fake_messages:
+    fake_leave_on_vanish: true
+    fake_join_on_unvanish: true
+    only_to_regular_players: true
+
+  hotbar_slots:
+    vanish: 0
+    freeze: 1
+    staff_list: 4
+    better_view: 7
+    random_teleport: 8
+
+  better_view:
+    enable_night_vision: true
+    enable_flight: true
+    auto_fly: true
+
+  random_teleport:
+    exclude_staff: true
+    exclude_vanished: true
+    exclude_frozen: false
+    exclude_duels: true
+    exclude_ffa: true
+    notify_target: false
+
+fake_player:
+  # Cho phép nhiều NPC cùng lúc; mỗi lần tạo cách nhau tối thiểu 2 giây.
+  # NPC cũ không bị thay thế; tổng số NPC tối đa được giới hạn bên dưới.
+  spawn_cooldown_seconds: 2
+  max_sessions: 32
+  enabled: true
+  ttl_seconds: 20
+  view_radius: 64.0
+  detection_radius: 64.0
+  detection_angle_degrees: 8.0
+  blocked_check_threshold: 3
+  check_interval_ticks: 5
+  alert_cooldown_seconds: 30
+  spawn_at_look_target: true
+  look_range: 32.0
+  hide_from_tablist: true
+  tablist_remove_delay_ticks: 5
+  hide_nametag: true
+  sneak: true
+  use_default_skin: false
+  log_to_console: true
+  hit_response:
+    enabled: true
+
+items:
+  vanish:
+    enabled:
+      material: "LIME_DYE"
+      name: "&aĐang tàng hình"
+      lore:
+        - "&7Nhấn để hiện lại"
+    disabled:
+      material: "GRAY_DYE"
+      name: "&7Đang hiện"
+      lore:
+        - "&7Nhấn để tàng hình"
+  freeze:
+    material: "ICE"
+    name: "&bĐóng băng người chơi"
+    lore:
+      - "&7Chuột phải vào người chơi để đóng băng"
+      - "&7Chuột trái để xem danh sách đóng băng"
+  staff_list:
+    material: "CLOCK"
+    name: "&eDanh sách staff"
+    lore:
+      - "&7Nhấn để xem staff đang trực tuyến"
+  better_view:
+    material: "ORANGE_CARPET"
+    name: "&eTầm nhìn tốt hơn"
+    lore:
+      - "&7Nhấn để bật hoặc tắt chế độ quan sát"
+  random_teleport:
+    material: "PLAYER_HEAD"
+    name: "&eDịch chuyển ngẫu nhiên"
+    lore:
+      - "&7Nhấn để đến một người chơi ngẫu nhiên"
+
+# Có thể thêm công cụ chạy lệnh ở đây. Slot hợp lệ: 0-8.
+custom_items:
+  vi_du:
+    enabled: false
+    slot: 2
+    material: "DIRT"
+    name: "&eCông cụ tùy chỉnh"
+    lore:
+      - "&7Nhấn để chạy lệnh đã cấu hình"
+    execute_as: "PLAYER" # PLAYER hoặc CONSOLE
+    permission: ""
+    require_target: false
+    commands:
+      - "say Xin chào từ {player}"

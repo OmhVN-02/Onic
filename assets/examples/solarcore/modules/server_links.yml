@@ -1,0 +1,55 @@
+# MENU ESC VÀ BẢNG XẾP HẠNG
+# 1. Bật/tắt menu: enabled và command_menu.enabled.
+# 2. Đổi nút/lệnh: mở dialog/server-menu.yml (không chỉnh nút ở tệp này).
+# 3. Đổi top: leaderboard.enabled và display-mode ở phía dưới.
+# Server Links trong ESC mở menu máy chủ, không còn danh sách liên kết web riêng.
+# Cần PacketEvents và client Minecraft hỗ trợ Dialog (1.21.6+).
+# Chỉnh nút, lệnh, menu con trong dialog/server-menu.yml.
+# /solarcore reload áp dụng menu lệnh ngay; vào lại server để cập nhật menu ESC.
+enabled: true
+command_menu:
+  enabled: true
+  # Chỉ menu SolarCore nằm trên nút ESC để bấm mở thẳng, không có danh sách trung gian.
+  # false: giữ các Dialog của plugin khác trên ESC (Minecraft sẽ hiện màn chọn khi có nhiều mục).
+  direct_open: true
+  # Bổ sung nút RTP nhanh nếu tệp menu cũ chưa có nút này.
+  include_quick_rtp: true
+  # Bổ sung nút Bạn bè cho menu cũ; tắt hoặc đặt nút friends.enabled: false nếu muốn ẩn.
+  include_friends: true
+
+# Bảng xếp hạng: internal dùng Vault/statistic và database SolarCore.
+# papi dùng expansion bảng top bạn đã cài, không chỉ placeholder số dư của một người.
+# Thay {rank} bằng vị trí 1..N trong mẫu placeholder của expansion đó.
+# name/value để trống khi dùng internal. Không tự cài expansion PAPI.
+leaderboard:
+  # false: nhả /leaderboard và /baltop cho plugin khác; không tắt tiền/Vault.
+  # Sửa lệnh nút xếp hạng trong dialog/server-menu.yml khi dùng plugin khác.
+  enabled: true
+  # auto = chọn theo phiên bản người chơi; dialog = hộp thoại; gui = rương.
+  display-mode: auto
+  money:
+    source: internal
+    name: ''
+    value: ''
+  deaths:
+    source: internal
+    name: ''
+    value: ''
+  playtime:
+    source: internal
+    name: ''
+    value: ''
+    # Đơn vị PAPI: ticks, seconds, minutes, hours hoặc days.
+    unit: ticks
+  placed:
+    source: internal
+    name: ''
+    value: ''
+  broken:
+    source: internal
+    name: ''
+    value: ''
+  mobs:
+    source: internal
+    name: ''
+    value: ''

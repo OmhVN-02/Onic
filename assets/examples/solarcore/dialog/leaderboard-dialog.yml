@@ -1,0 +1,74 @@
+# Dialog như menu Minecraft; không dùng inventory/matrix.
+# /leaderboard mở danh mục; /baltop mở Top tiền 10 người.
+# Xóa tệp này để tắt dialog; /leaderboard install (quyền solarcore.admin) tạo lại mẫu.
+# Reload không tạo lại tệp đã xóa. Không cần enabled: true/false.
+# Tắt bảng xếp hạng: leaderboard.enabled: false trong modules/server_links.yml.
+# Chọn rương: leaderboard.display-mode: gui tại server_links.yml; bố cục tại gui/leaderboard-gui.yml.
+# Nguồn internal/PAPI giữ tại modules/server_links.yml để tương thích cấu hình cũ.
+# Có thể chuyển nguồn riêng vào tệp này (ưu tiên hơn server_links):
+# sources:
+#   money:
+#     source: papi
+#     name: "%your_top_name_{rank}%" # Ví dụ minh họa; thay bằng placeholder của expansion bạn cài.
+#     value: "%your_top_value_{rank}%"
+#   playtime:
+#     source: internal
+# Với PAPI playtime: unit nhận ticks, seconds, minutes, hours, days.
+# Các thống kê được chụp từ Minecraft trên luồng của người chơi và lưu DB chung.
+# Người chơi offline chưa có bản chụp thống kê sẽ xuất hiện sau lần vào server tiếp theo.
+title: "Bảng xếp hạng"
+preview_title: "%category%"
+full_title: "%category% (Top %limit%) — %page%/%pages%"
+main:
+  columns: 3
+  button_width: 200
+preview:
+  columns: 2
+  button_width: 200
+  page_size: 10
+full:
+  columns: 2
+  button_width: 200
+  page_size: 20
+# Xóa mục khỏi danh sách để ẩn; thứ tự ở đây là thứ tự nút.
+category_order:
+  - money
+  - deaths
+  - playtime
+  - placed
+  - broken
+  - mobs
+show_heads: true
+row_prefix: "%color%#%rank% "
+row_format: " %color%%player% &8- %value%"
+previous_button: "Trang trước"
+next_button: "Trang sau"
+preview_limit: 10
+full_limit: 200
+back_button: "Quay lại"
+full_button: "Xem bảng xếp hạng đầy đủ"
+empty: "Chưa có dữ liệu xếp hạng."
+money_value: "&a$ &f%value%"
+stat_value: "&f%value%"
+# Thời gian chơi theo tick Minecraft, bỏ phần giây lẻ; giờ/phút là phần còn lại.
+playtime_format: "%days% ngày / %hours% giờ / %minutes% phút"
+rank_colors:
+  '1': "&e"
+  '2': "&7"
+  '3': "&6"
+  other: "&7"
+categories:
+  money: "Tiền"
+  deaths: "Lần chết"
+  playtime: "Thời gian chơi"
+  placed: "Khối đã đặt"
+  broken: "Khối đã phá"
+  mobs: "Mob đã giết"
+category_titles:
+  money: "Top Tiền"
+  deaths: "Top Lần chết"
+  playtime: "Top Thời gian chơi"
+  placed: "Top Khối đã đặt"
+  broken: "Top Khối đã phá"
+  mobs: "Top Mob đã giết"
+# Dialog nằm cùng cấp với thư mục gui; reload bằng /solarcore reload.

@@ -1,0 +1,134 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# #######################################################################################################################
+
+# Bật / tắt tính năng TPA (true = bật, false = tắt hoàn toàn và nhả lệnh cho plugin khác)
+# Enable / disable TPA module (true = enable, false = disable and release command to fallback plugins)
+enabled: true
+
+# Tên hiển thị của các thế giới (World Display Names)
+# Display names for worlds in messages and GUI
+# Dùng để hiển thị tên thân thiện trong tin nhắn
+worlds:
+  world: "Overworld"       # Thế giới chính
+  world_nether: "Nether"   # Thế giới Nether
+  world_the_end: "End"     # Thế giới The End
+  spawn: "Spawn"           # Spawn
+  rtpq: "RTPQueue"         # RTP Queue
+  duels2: "Duels Map"      # Duels Map
+
+# Tùy chỉnh dịch chuyển (Teleportation Configuration)
+teleport:
+  # Thời gian đếm ngược trước khi dịch chuyển (giây)
+  # Countdown time before teleporting (seconds)
+  countdown: 5
+  
+  # Khoảng cách tối đa người chơi có thể di chuyển khi đang đếm ngược (0 = không giới hạn)
+  # Max distance player can move during countdown (0 = disabled)
+  allowed-walk-range: 0
+  
+  # Kiểm tra vị trí an toàn trước khi dịch chuyển
+  # Check if the destination is safe before teleporting
+  safe-teleport: false
+
+  # Hiệu ứng khi dịch chuyển thành công
+  # Teleportation effect settings
+  effect:
+    # Bật hiển thị tiêu đề (Title) giữa màn hình khi dịch chuyển thành công
+    # Enable title display on screen when teleport successfully
+    title-enabled: true
+    # Tiêu đề chính (Sử dụng chữ hoa nhỏ / Small caps)
+    # Main title text
+    title: "<gradient:#00B2FF:#00FFB2>&lᴛᴇʟᴇᴘᴏʀᴛ</gradient>"
+    # Phụ đề
+    # Subtitle text
+    subtitle: "&aDịch chuyển thành công!"
+
+    # Bật hiệu ứng hạt phù phép khi đếm ngược dịch chuyển
+    # Enable particle effect during teleport countdown
+    particle-enabled: true
+    # Loại hạt (Particle type)
+    particle-type: "ENCHANT"
+    # Số lượng hạt (Particle count)
+    particle-count: 50
+
+# Tùy chỉnh yêu cầu (Request Configuration)
+request:
+  # Thời gian yêu cầu hết hạn (giây)
+  # Time until request expires (seconds)
+  expiration-time: 120
+  
+  # Thời gian chờ giữa các lần gửi yêu cầu (giây)
+  # Cooldown between requests (seconds)
+  cooldown: 30
+  
+  # Giới hạn số lần dịch chuyển mỗi ngày (-1 = không giới hạn)
+  # Max teleports per day (-1 = disabled)
+  daily-limit: -1
+
+# Tùy chỉnh Giao diện (GUI Configuration)
+gui:
+  # Bật hệ thống GUI
+  # Enable GUI system
+  # true = hiển thị GUI | true = show GUI | false = chỉ dùng chat
+  enabled: true
+  
+  # Tự động mở menu danh sách yêu cầu dịch chuyển khi gõ /tpaccept (hoặc /tpa không tham số)
+  # Automatically open requests list GUI when executing /tpaccept or /tpa
+  open-list-on-accept: true
+
+  # Bật lệnh /gui để mở/đóng GUI
+  # Enable /gui command to toggle GUI for players
+  command-enabled: false
+
+  # Vật liệu biểu tượng thế giới trong GUI
+  # Material icons for worlds displayed in GUI
+  # Dùng để hiển thị thế giới đích trong GUI inventory
+  world-materials:
+    world: GRASS_BLOCK        # Thế giới chính (Overworld)
+    world_nether: NETHERRACK  # Thế giới Nether
+    world_the_end: END_STONE  # Thế giới The End
+    spawn: BEACON             # World Spawn
+    rtpq: COMPASS             # World RTP Queue
+    duels2: DIAMOND_SWORD     # World Duels Map
+
+# Tùy chỉnh BossBar (BossBar Configuration)
+boss-bar:
+  # Bật BossBar khi đang đếm ngược
+  # Enable BossBar during countdown
+  enabled: true
+  
+  # Màu sắc BossBar (BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW)
+  # BossBar Color
+  color: "YELLOW"
+  
+  # Kiểu dáng BossBar (PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20)
+  # BossBar Overlay phần này  hỗ trợ nhiều hơn khi vô khu vực blacklisted-worlds sẽ tự động tắt toàn bộ hệ thống tpauto và hiện thông báo cho họ biết
+  overlay: "PROGRESS"
+  
+  # Nội dung BossBar
+  # Hỗ trợ MiniMessage: <gradient:#ff0000:#0000ff>text</gradient>, <#RRGGBB>, <bold>, ...
+  # Legacy &-code: &a, &e, &l, ...
+  # Hex legacy: &#RRGGBB hoặc bare #RRGGBB
+  # BossBar Text
+  text: "&e&lAuto Accept &8&l| &aEnabled"
+
+# Thế giới bị cấm (Blacklisted Worlds)
+blacklisted-worlds:
+  # Bật danh sách đen
+  # Enable blacklist
+  enabled: true
+  
+  # Danh sách các thế giới không cho phép dịch chuyển
+  # List of worlds where teleportation is disabled
+  worlds:
+    - "world_nether"
+    - "world_the_end"

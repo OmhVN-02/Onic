@@ -1,0 +1,617 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# #######################################################################################################################
+
+messages:
+  home-dialog-saved: "&aĐã lưu thay đổi nhà."
+  home-dialog-write-failed: "&cKhông thể lưu nhà: tên đã có, đạt giới hạn, thao tác đang xử lý hoặc database lỗi. Dữ liệu cũ được giữ nguyên."
+  home-dialog-stale: "&eNhà đã thay đổi, vui lòng chọn lại."
+  combat:
+    pvp-off-deferred: "&eĐã lưu lựa chọn tắt PvP; chỉ có hiệu lực sau khi hết combat."
+    pvp-on: "&aĐã bật PvP và bỏ bảo vệ tân thủ/hồi sinh."
+    pvp-off: "&eĐã tắt PvP. Bạn không thể đánh hoặc bị người chơi khác đánh."
+    pvp-disabled: "&cTính năng bật/tắt PvP đang tắt."
+    pvp-in-combat: "&cKhông thể đổi trạng thái PvP khi đang giao tranh."
+    pvp-toggle-cooldown: "&cVui lòng chờ hết thời gian đổi PvP."
+    pvp-save-failed: "&cKhông lưu được trạng thái PvP; trạng thái cũ được giữ nguyên."
+    pvp-usage: "&e/pvp [on|off]"
+    protection-loading: "&eĐang tải dữ liệu PvP, vui lòng thử lại sau."
+    protection-disabled: "&eBạn hoặc đối phương đã tắt PvP."
+    protection-newbie: "&eBạn hoặc đối phương đang được bảo vệ tân thủ. Dùng /pvp on để bỏ bảo vệ của bạn."
+    protection-respawn: "&eĐối phương đang được bảo vệ sau hồi sinh."
+    protection-farm: "&cĐã đạt giới hạn giết cùng người trong khoảng thời gian này."
+    item-cooldown: "&e%item%: &f%seconds% giây"
+    safe-zone-blocked: "&cKhông thể vào vùng an toàn khi đang combat."
+    tagged: "&cBạn đang giao tranh với &f%opponent%&c. Đừng thoát máy chủ!"
+    ended: "&aBạn đã thoát trạng thái giao tranh."
+    action-bar: "&cĐang giao tranh &8| &f%seconds% giây &8| &7Không thoát máy chủ"
+    command-blocked: "&cKhông thể dùng lệnh này trong combat. Còn %seconds% giây."
+    teleport-blocked: "&cKhông thể dịch chuyển trong combat. Còn %seconds% giây."
+    flight-blocked: "&cKhông thể bật bay trong combat."
+    status: "&cBạn còn %seconds% giây combat."
+    safe: "&aBạn không trong trạng thái giao tranh."
+    disabled: "&cHệ thống combat đang tắt."
+    usage: "&e/combat &7hoặc &e/combat tag <người_chơi> [giây] &7| &e/combat clear <người_chơi>"
+    invalid-duration: "&cThời gian combat phải từ 1 đến 3600 giây."
+    target-exempt: "&cKhông thể tag %player%: ngoại lệ, đang chết hoặc ở world không áp dụng."
+    applied: "&aĐã tag %player% trong %seconds% giây."
+    cleared: "&aĐã xóa combat tag của %player%."
+  leaderboard-config-exists: "&eTệp dialog/leaderboard-dialog.yml đã có; không ghi đè tùy chỉnh."
+  leaderboard-config-installed: "&aĐã tạo dialog/leaderboard-dialog.yml. Xóa tệp để tắt; /solarcore reload để tải lại."
+  social-profile-loading: "&7Đang tải thống kê..."
+  social-profile-unavailable: "&eNgười này không còn trong danh sách bạn bè/theo dõi của bạn."
+  social-profile-offline: "&eNgười chơi không online hoặc không thể nhận yêu cầu dịch chuyển."
+  social-profile-setting-saved: "&aĐã lưu cài đặt riêng."
+  # /feed: %player% là người được hồi thức ăn, %sender% là người dùng lệnh.
+  feed-usage: "&e/feed [người_chơi]"
+  feed-self: "&aĐã hồi đầy thanh thức ăn."
+  feed-other: "&aĐã hồi thức ăn cho &f%player%&a."
+  feed-received: "&a%sender% đã hồi thức ăn cho bạn."
+  feed-blocked: "&cKhông thể hồi thức ăn ở đây."
+  solarcore-help-feed: "&eThức ăn: &f/feed [người_chơi]"
+  solarcore-help-punishments: "&eXử phạt: &f/ban, /tempban, /kick, /mute, /unban, /unmute, /banip, /tempbanip, /unbanip"
+  punishment-banip-usage: "&e/banip <ip|người_chơi_online> [lý_do]"
+  punishment-tempbanip-usage: "&e/tempbanip <ip|người_chơi_online> <10m|1h|1d|7d> [lý_do]"
+  punishment-unbanip-usage: "&e/unbanip <ip|người_chơi_online>"
+  punishment-invalid-ip: "&cNhập địa chỉ IPv4/IPv6 hợp lệ hoặc tên người đang online. Không hỗ trợ hostname."
+  punishment-banip-screen:
+    - "&cĐịa chỉ IP của bạn đã bị cấm."
+    - "&7Người xử phạt: &f%sender%"
+    - "&7Lý do: &f%reason%"
+    - "&7Thời hạn: &f%duration%"
+  punishment-tempbanip-screen:
+    - "&cĐịa chỉ IP của bạn đã bị cấm tạm thời."
+    - "&7Lý do: &f%reason%"
+    - "&7Còn lại: &f%duration%"
+    - "&7Hết hạn (UTC): &f%expires%"
+  punishment-banip-success: "&aĐã cấm IP %player%. &7Lý do: %reason%"
+  punishment-tempbanip-success: "&aĐã cấm IP %player% trong %duration%. &7Lý do: %reason%"
+  punishment-unbanip-success: "&aĐã gỡ ban IP SolarCore cho %player%."
+  # Không công khai IP trong broadcast mặc định; %player% ở các message banip chính là IP.
+  punishment-banip-broadcast: "&c%sender% &7đã cấm một địa chỉ IP. Lý do: &f%reason%"
+  punishment-tempbanip-broadcast: "&c%sender% &7đã cấm một địa chỉ IP trong &f%duration%&7. Lý do: &f%reason%"
+  punishment-unbanip-broadcast: "&a%sender% &7đã gỡ cấm một địa chỉ IP."
+  # Xử phạt: %player%, %sender%, %reason%, %duration%; màn ban có %expires% (UTC).
+  # Thông báo broadcast bật/tắt và giới hạn người nhận tại config.yml > punishments.
+  punishment-ban-usage: "&e/ban <người_chơi> [lý_do]"
+  punishment-tempban-usage: "&e/tempban <người_chơi> <10m|1h|1d|7d> [lý_do]"
+  punishment-kick-usage: "&e/kick <người_chơi> [lý_do]"
+  punishment-mute-usage: "&e/mute <người_chơi> [thời_gian] [lý_do] &7— không nhập thời gian/lý do lần nữa để gỡ mute"
+  punishment-unban-usage: "&e/unban <người_chơi>"
+  punishment-unmute-usage: "&e/unmute <người_chơi>"
+  punishment-disabled: "&cHệ thống xử phạt SolarCore đang tắt."
+  punishment-player-unknown: "&cKhông tìm thấy tài khoản đã biết: %player%."
+  punishment-self: "&cBạn không thể tự xử phạt chính mình."
+  punishment-exempt: "&c%player% được miễn xử phạt. Cần quyền solarcore.punishment.override để bỏ qua."
+  punishment-invalid-duration: "&cThời gian không hợp lệ hoặc vượt giới hạn. Ví dụ: 10m, 1h, 1d, 1d12h."
+  punishment-reason-too-long: "&cLý do không được vượt quá 256 ký tự."
+  punishment-busy: "&eMột thao tác xử phạt người này đang được lưu. Vui lòng đợi."
+  punishment-not-active: "&e%player% không có xử phạt SolarCore loại này còn hiệu lực."
+  punishment-save-failed: "&cKhông thể lưu xử phạt. Thao tác chưa được xác nhận; kiểm tra console."
+  punishment-cancelled: "&ePlugin khác đã hủy thao tác kick."
+  punishment-default-reason: "Vi phạm quy định máy chủ."
+  punishment-permanent: "Vĩnh viễn"
+  punishment-duration: "%days% ngày %hours% giờ %minutes% phút %seconds% giây"
+  punishment-ban-screen:
+    - "&cBạn đã bị cấm khỏi máy chủ."
+    - "&7Người xử phạt: &f%sender%"
+    - "&7Lý do: &f%reason%"
+    - "&7Thời hạn: &f%duration%"
+  punishment-tempban-screen:
+    - "&cBạn đã bị cấm tạm thời khỏi máy chủ."
+    - "&7Người xử phạt: &f%sender%"
+    - "&7Lý do: &f%reason%"
+    - "&7Còn lại: &f%duration%"
+    - "&7Hết hạn (UTC): &f%expires%"
+  punishment-kick-screen:
+    - "&cBạn đã bị đuổi khỏi máy chủ."
+    - "&7Người xử phạt: &f%sender%"
+    - "&7Lý do: &f%reason%"
+  punishment-muted: "&cBạn đang bị cấm chat. &7Thời hạn: &f%duration%&7. Lý do: &f%reason%"
+  punishment-unmuted: "&aBạn đã được phép chat trở lại."
+  punishment-ban-success: "&aĐã cấm %player%. &7Lý do: %reason%"
+  punishment-tempban-success: "&aĐã cấm %player% trong %duration%. &7Lý do: %reason%"
+  punishment-kick-success: "&aĐã kick %player%. &7Lý do: %reason%"
+  punishment-mute-success: "&aĐã cấm chat %player%: %duration%. &7Lý do: %reason%"
+  punishment-unban-success: "&aĐã gỡ ban SolarCore cho %player%."
+  punishment-unmute-success: "&aĐã gỡ mute SolarCore cho %player%."
+  punishment-ban-broadcast: "&c%sender% &7đã cấm &f%player%&7. Lý do: &f%reason%"
+  punishment-tempban-broadcast: "&c%sender% &7đã cấm &f%player% &7trong &f%duration%&7. Lý do: &f%reason%"
+  punishment-kick-broadcast: "&c%sender% &7đã kick &f%player%&7. Lý do: &f%reason%"
+  punishment-mute-broadcast: "&c%sender% &7đã cấm chat &f%player% &7trong &f%duration%&7. Lý do: &f%reason%"
+  punishment-unban-broadcast: "&a%sender% &7đã gỡ ban cho &f%player%&7."
+  punishment-unmute-broadcast: "&a%sender% &7đã gỡ mute cho &f%player%&7."
+  # Bạn bè / theo dõi: %player% là người được chọn.
+  social-usage: "&e/friends [add|accept|deny|cancel|remove|follow|unfollow] <tên> · /friends [list|requests|following|sent]"
+  social-disabled: "&cHệ thống bạn bè đang tắt."
+  social-self: "&cBạn không thể chọn chính mình."
+  social-already-friends: "&eBạn đã kết bạn với người này."
+  social-request-pending: "&eLời mời đang chờ chấp nhận."
+  social-request-missing: "&cKhông có lời mời còn hiệu lực từ người này."
+  social-not-friends: "&eBạn chưa kết bạn với %player%."
+  social-player-not-found: "&cKhông tìm thấy tài khoản đã từng tham gia với tên %player%."
+  social-already-following: "&eBạn đã theo dõi %player%."
+  social-not-following: "&eBạn chưa theo dõi %player%."
+  social-incoming-pending: "&e%player% đã mời bạn. Dùng /friend accept %player% để chấp nhận."
+  social-pending-requests: "&eBạn có %count% lời mời kết bạn đang chờ. Mở /friends để xem."
+  server-menu-friends: "Bạn bè"
+  social-limit: "&cDanh sách đã đạt giới hạn."
+  social-cooldown: "&eVui lòng đợi trước khi gửi lời mời tiếp theo."
+  social-save-failed: "&cKhông thể lưu thay đổi. Vui lòng thử lại."
+  social-add-success: "&aĐã gửi lời mời kết bạn tới %player%."
+  social-accept-success: "&aBạn và %player% đã trở thành bạn bè."
+  social-deny-success: "&eĐã từ chối lời mời của %player%."
+  social-cancel-success: "&eĐã hủy lời mời tới %player%."
+  social-remove-success: "&eĐã xóa %player% khỏi danh sách bạn bè."
+  social-follow-success: "&aBạn đang theo dõi %player%."
+  social-unfollow-success: "&eĐã bỏ theo dõi %player%."
+  social-add-received: "&e%player% gửi lời mời kết bạn. Dùng /friend accept %player% hoặc mở /friends."
+  social-accept-received: "&a%player% đã chấp nhận kết bạn với bạn."
+  social-follow-received: "&e%player% đang theo dõi bạn."
+  social-privacy-blocked: "&c%player% không cho phép bạn liên hệ ở chế độ quyền riêng tư hiện tại."
+  social-dialog-unavailable: "&cKhông thể mở Dialog. Dùng /friend để quản lý bằng lệnh."
+  hide-enabled: "&aĐã bật ẩn tên."
+  hide-disabled: "&eĐã tắt ẩn tên."
+  hide-usage: "&e/hide [on|off]"
+  nightvision-enabled: "&aĐã bật nhìn trong bóng tối."
+  nightvision-disabled: "&eĐã tắt nhìn trong bóng tối."
+  nightvision-usage: "&e/nightvision [on|off]"
+  prefix: ""
+  
+  player-not-found: "&#FF5555Người chơi &#FFB800%player% &#FF5555không trực tuyến!"
+  player-not-found-actionbar: "&#FF5555Người chơi &#FFB800%player% &#FF5555không trực tuyến!"
+
+  self-teleport: "&#FF5555Bạn không thể dịch chuyển đến chính mình!"
+  self-teleport-actionbar: "&#FF5555Bạn không thể dịch chuyển đến chính mình!"
+
+  tpa-usage: "&#FFB800/tpa <người chơi>"
+  tpahere-usage: "&#FFB800/tpahere <người chơi>"
+  stpa-usage: "&#FFB800/solarcore reload"
+
+  no-permission: "&#FF5555Bạn không có quyền sử dụng lệnh này."
+  player-only: "&#FF5555Lệnh này chỉ dành cho người chơi."
+  command-error: "&#FF5555Đã xảy ra lỗi khi thực thi lệnh này."
+
+  teleport-countdown: "&#AAAAAADịch chuyển trong &#0062FF%time%&#AAAAAA giây."
+  teleport-countdown-actionbar: "&#AAAAAADịch chuyển trong &#0062FF%time%&#AAAAAA giây."
+
+  teleport-cancelled: "&#FF5555Dịch chuyển đã bị hủy!"
+  teleport-cancelled-actionbar: "&#FF5555Dịch chuyển đã bị hủy!"
+
+  teleport-cancelled-movement: "&#FF5555Dịch chuyển bị hủy - bạn đã di chuyển quá xa!"
+  teleport-cancelled-movement-actionbar: "&#FF5555Dịch chuyển bị hủy - bạn đã di chuyển quá xa!"
+
+  teleport-success: "&#00B2FFDịch chuyển thành công!"
+  teleport-success-actionbar: "&#00B2FFDịch chuyển thành công!"
+
+  teleport-failed: "&#FF5555Dịch chuyển thất bại - thử lại."
+  teleport-failed-actionbar: "&#FF5555Dịch chuyển thất bại - thử lại."
+
+  teleport-unsafe: "&#FF5555Không tìm thấy vị trí an toàn để dịch chuyển!"
+  teleport-unsafe-actionbar: "&#FF5555Không tìm thấy vị trí an toàn để dịch chuyển!"
+
+  no-requests-found: "&#FF5555Không có yêu cầu dịch chuyển nào."
+  no-requests-found-actionbar: "&#FF5555Không có yêu cầu dịch chuyển nào."
+
+  accepted-teleport: "&#AAAAAABạn đã chấp nhận dịch chuyển này."
+  accepted-teleport-actionbar: "&#AAAAAABạn đã chấp nhận dịch chuyển này."
+
+  request-accepted: "&#AAAAAAYêu cầu dịch chuyển của bạn đã được chấp nhận."
+  request-accepted-actionbar: "&#AAAAAAYêu cầu dịch chuyển của bạn đã được chấp nhận."
+
+  teleport-to-you: "&#00B2FF%player% &#AAAAAAđã dịch chuyển đến bạn."
+  teleport-to-you-actionbar: "&#00B2FF%player% &#AAAAAAđã dịch chuyển đến bạn."
+
+  non-valid-request: "&#FF5555Yêu cầu dịch chuyển không tồn tại hoặc đã hết hạn."
+  non-valid-request-actionbar: "&#FF5555Yêu cầu dịch chuyển không tồn tại hoặc đã hết hạn."
+
+  receive-request: "&#00B2FF%player% &#AAAAAAgửi cho bạn một yêu cầu tpa.|<accept>&#00B2FF[Nhấn để chấp nhận]</accept> <deny>&#FF5555[Nhấn để từ chối]</deny> &#AAAAAAhoặc gõ &#00B2FF/yes &#AAAAAAhoặc &#FF5555/no"
+  receive-request-actionbar: "&#00B2FF%player% &#AAAAAAgửi cho bạn một yêu cầu tpa."
+
+  receive-here-request: "&#00B2FF%player% &#AAAAAAgửi cho bạn một yêu cầu tpahere.|<accept>&#00B2FF[Nhấn để chấp nhận]</accept> <deny>&#FF5555[Nhấn để từ chối]</deny> &#AAAAAAhoặc gõ &#00B2FF/yes &#AAAAAAhoặc &#FF5555/no"
+  receive-here-request-actionbar: "&#00B2FF%player% &#AAAAAAgửi cho bạn một yêu cầu tpahere."
+
+  sent-request: "&#AAAAAABạn đã gửi cho &#00B2FF%player% &#AAAAAAmột yêu cầu dịch chuyển."
+  sent-request-actionbar: "&#AAAAAABạn đã gửi cho &#00B2FF%player% &#AAAAAAmột yêu cầu dịch chuyển."
+
+  sent-here-request: "&#AAAAAABạn đã gửi cho &#00B2FF%player% &#AAAAAAmột yêu cầu tpahere."
+  sent-here-request-actionbar: "&#AAAAAABạn đã gửi cho &#00B2FF%player% &#AAAAAAmột yêu cầu tpahere."
+
+  cancelled-request: "&#FF5555Bạn đã từ chối yêu cầu của %player%."
+  cancelled-request-actionbar: "&#FF5555Bạn đã từ chối yêu cầu của %player%."
+
+  cancelled-request-sender: "&#FF5555%player% đã từ chối yêu cầu dịch chuyển của bạn."
+  cancelled-request-sender-actionbar: "&#FF5555%player% đã từ chối yêu cầu dịch chuyển của bạn."
+
+  already-sent-request: "&#FF5555Bạn đã gửi yêu cầu cho &#FFB800%player% &#FF5555rồi."
+  already-sent-request-actionbar: "&#FF5555Bạn đã gửi yêu cầu cho &#FFB800%player% &#FF5555rồi."
+
+  tpa-toggle-on: "&#00B2FFBạn đang chấp nhận yêu cầu tpa."
+  tpa-toggle-on-actionbar: "&#00B2FFBạn đang chấp nhận yêu cầu tpa."
+
+  tpa-toggle-off: "&#FF5555Bạn không còn chấp nhận yêu cầu tpa."
+  tpa-toggle-off-actionbar: "&#FF5555Bạn không còn chấp nhận yêu cầu tpa."
+
+  tpa-here-toggle-on: "&#00B2FFBạn đang chấp nhận yêu cầu tpahere."
+  tpa-here-toggle-on-actionbar: "&#00B2FFBạn đang chấp nhận yêu cầu tpahere."
+
+  tpa-here-toggle-off: "&#FF5555Bạn không còn chấp nhận yêu cầu tpahere."
+  tpa-here-toggle-off-actionbar: "&#FF5555Bạn không còn chấp nhận yêu cầu tpahere."
+
+  block-tpa-request: "&#FF5555Người chơi này không chấp nhận yêu cầu tpa."
+  block-tpa-request-actionbar: "&#FF5555Người chơi này không chấp nhận yêu cầu tpa."
+
+  block-tphere-request: "&#FF5555Người chơi này không chấp nhận yêu cầu tpahere."
+  block-tphere-request-actionbar: "&#FF5555Người chơi này không chấp nhận yêu cầu tpahere."
+
+  gui-toggle-on: "&#AAAAAABạn đã bật giao diện tpa &#00B2FF&lBẬT&#AAAAAA."
+  gui-toggle-on-actionbar: "&#AAAAAABạn đã bật giao diện tpa &#00B2FF&lBẬT&#AAAAAA."
+
+  gui-toggle-off: "&#AAAAAABạn đã tắt giao diện tpa &#FF5555&lTẮT&#AAAAAA."
+  gui-toggle-off-actionbar: "&#AAAAAABạn đã tắt giao diện tpa &#FF5555&lTẮT&#AAAAAA."
+
+  tp-auto-on: "&#AAAAAABạn đã bật tpauto."
+  tp-auto-on-actionbar: "&#AAAAAABạn đã bật tpauto."
+
+  tp-auto-off: "&#AAAAAABạn đã tắt tpauto."
+  tp-auto-off-actionbar: "&#AAAAAABạn đã tắt tpauto."
+
+  tp-auto-on-persistent: "&#00B2FFBạn đang bật tpauto."
+  tp-auto-accepted: "&#00B2FF✓ Tự động chấp nhận yêu cầu dịch chuyển từ %player%"
+
+  request-cooldown: "&#FF5555Bạn đang trong thời gian chờ để gửi yêu cầu cho người chơi này."
+  request-cooldown-actionbar: "&#FF5555Bạn đang trong thời gian chờ để gửi yêu cầu cho người chơi này."
+
+  request-limit: "&#FF5555Bạn đã đạt giới hạn hàng ngày để gửi yêu cầu cho người chơi này."
+  request-limit-actionbar: "&#FF5555Bạn đã đạt giới hạn hàng ngày để gửi yêu cầu cho người chơi này."
+
+  request-expired: "&#FF5555Yêu cầu dịch chuyển đến &#FFB800%player% &#FF5555đã hết hạn."
+  request-expired-actionbar: "&#FF5555Yêu cầu dịch chuyển đến &#FFB800%player% &#FF5555đã hết hạn."
+
+  cancel-requests: "&#FF5555Bạn đã hủy tất cả yêu cầu tpa của bạn."
+  cancel-requests-actionbar: "&#FF5555Bạn đã hủy tất cả yêu cầu tpa của bạn."
+
+  cancel-requests-failed: "&#FF5555Bạn không có yêu cầu tpa nào để hủy."
+  cancel-requests-failed-actionbar: "&#FF5555Bạn không có yêu cầu tpa nào để hủy."
+
+  teleport-cancelled-flying: "&#FF5555Dịch chuyển bị hủy: người chơi đang bay hoặc sử dụng elytra!"
+  teleport-cancelled-flying-actionbar: "&#FF5555Dịch chuyển bị hủy: dịch không an toàn!"
+
+  teleport-flying-warning: "&#FF5555Dịch chuyển đến bạn đã bị hủy vì bạn đang bay!"
+  teleport-flying-warning-actionbar: "&#FF5555Dịch chuyển đến bạn bị hủy - không bay khi dịch chuyển!"
+
+  blacklisted-world-sender: "&#FF5555Bạn không thể gửi yêu cầu tpa từ thế giới bị cấm!"
+  blacklisted-world-sender-actionbar: "&#FF5555Không thể gửi tpa từ thế giới bị cấm!"
+
+  blacklisted-world-target: "&#FF5555Bạn không thể gửi yêu cầu tpa đến người chơi trong thế giới bị cấm!"
+  blacklisted-world-target-actionbar: "&#FF5555Không thể gửi tpa đến thế giới bị cấm!"
+
+  blacklisted-world-accept: "&#FF5555Bạn không thể chấp nhận yêu cầu tpa khi đang trong thế giới bị cấm!"
+  blacklisted-world-accept-actionbar: "&#FF5555Không thể chấp nhận tpa trong thế giới bị cấm!"
+
+  blacklisted-world-requester: "&#FF5555Không thể chấp nhận yêu cầu tpa - người gửi đang trong thế giới bị cấm!"
+  blacklisted-world-requester-actionbar: "&#FF5555Không thể chấp nhận - người gửi trong thế giới bị cấm!"
+
+  reload-success: "&#00B2FFĐã tải lại cấu hình thành công trong %ms%ms."
+  reload-success-actionbar: "&#00B2FFĐã tải lại cấu hình thành công trong %ms%ms."
+
+  hover-accept: "&#00B2FFNhấn để chấp nhận yêu cầu dịch chuyển"
+  hover-deny: "&#FF5555Nhấn để từ chối yêu cầu dịch chuyển"
+  hover-clickable: "&#00B2FFNhấn để chấp nhận yêu cầu dịch chuyển"
+  blacklisted-world-tpauto: "&#FF5555Bạn không thể sử dụng tpauto trong thế giới bị cấm!"
+  blacklisted-world-tpauto-actionbar: "&#FF5555Không thể sử dụng tpauto trong thế giới bị cấm!"
+
+  blacklisted-world-tpauto-disabled: "&#FF5555tpauto đã tự động tắt vì bạn vào thế giới bị cấm lệnh tpauto!"
+  blacklisted-world-tpauto-disabled-actionbar: "&#FF5555tpauto đã tự tắt — thế giới bị cấm!"
+
+  setspawn: "&#AAAAAABạn đã đặt spawn &#00B2FF%spawn_number% &#AAAAAAtại &#00B2FF%location%"
+  delspawn: "&#AAAAAABạn đã xóa &#FF5555Spawn %spawn_number%"
+  spawn-not-set: "&#FF5555Chưa có spawn nào được thiết lập! Hãy dùng /setspawn trước."
+
+  spawn-countdown: "&#AAAAAADịch chuyển về spawn trong &#00B2FF%time%&#AAAAAA giây."
+  spawn-countdown-actionbar: "&#AAAAAADịch chuyển trong &#00B2FF%time%"
+
+  teleported: "&#AAAAAABạn đã được dịch chuyển về spawn!"
+  first-join-teleport: "&#AAAAAAChào mừng! Bạn đã được dịch chuyển về spawn."
+  join-teleport: "&#AAAAAABạn đã được dịch chuyển về spawn."
+  death-teleport: "&#AAAAAABạn đã hồi sinh tại spawn."
+
+  invalid-spawn-number: "&#FF5555Số spawn không hợp lệ! Hãy dùng từ 1-27."
+
+  warp-countdown: "&#AAAAAADịch chuyển đến warp trong &#00B2FF%time%&#AAAAAA giây."
+  warp-countdown-actionbar: "&#AAAAAADịch chuyển đến warp trong &#00B2FF%time%&#AAAAAA giây."
+
+  # RTP
+  rtp-disabled: "&#FF5555Tính năng RTP hiện đang bị tắt."
+  rtp-cooldown: "&#FF5555Bạn cần đợi &6{remaining}s &#FF5555trước khi dùng RTP."
+  rtp-max-players: "&#FF5555Quá nhiều người đang dùng RTP. Hãy thử lại sau."
+  rtp-world-not-exist: "&#FF5555Thế giới không tồn tại."
+  rtp-searching: "&#AAAAAAĐang tìm vị trí ngẫu nhiên trong &b{world}&7..."
+  rtp-max-attempts: "&#FF5555Không tìm được vị trí an toàn sau {attempts} lần thử."
+  rtp-destination-disabled: "&#FF5555Điểm đến RTP này hiện đang bị tắt."
+  rtp-countdown: "&#AAAAAADịch chuyển sau &#0062FF{countdown}&#AAAAAA giây."
+  rtp-countdown-actionbar: "&#00B2FF⚡ &#FFFFFFDịch chuyển sau: &#00FFB2{countdown}s"
+  rtp-title-countdown: "<gradient:#00B2FF:#00FFB2>&lᴛᴇʟᴇᴘᴏʀᴛ</gradient>"
+  rtp-subtitle-countdown: "&fDịch chuyển sau &b{countdown}s"
+  rtp-success: "&#AAAAAABạn đã được dịch chuyển đến vị trí ngẫu nhiên!"
+  rtp-success-actionbar: "&a✔ Thành công!"
+  rtp-title-success: "<gradient:#00B2FF:#00FFB2>&lᴛᴇʟᴇᴘᴏʀᴛ</gradient>"
+  rtp-subtitle-success: "&aThành công!"
+  rtp-cancelled: "&#FF5555Dịch chuyển bị hủy vì bạn đã di chuyển."
+  rtp-cancelled-actionbar: "&#FF5555Dịch chuyển bị hủy!"
+
+  # Home
+  home-set: "&#AAAAAAĐã đặt home &#00B2FF%home% &#AAAAAAtại vị trí hiện tại."
+  home-set-actionbar: "&#AAAAAAĐã đặt home &#00B2FF%home%&#AAAAAA."
+
+  home-teleported: "&#AAAAAABạn đã dịch chuyển về home &#00B2FF%home%&#AAAAAA."
+  home-teleported-actionbar: "&#AAAAAADịch chuyển về &#00B2FF%home%&#AAAAAA thành công!"
+
+  home-deleted: "&#FF5555Đã xóa home &#FFB800%home%&#FF5555."
+  home-deleted-actionbar: "&#FF5555Đã xóa home &#FFB800%home%&#FF5555."
+
+  home-not-found: "&#FF5555Home &#FFB800%home% &#FF5555không tồn tại!"
+  home-not-found-actionbar: "&#FF5555Home &#FFB800%home% &#FF5555không tồn tại!"
+
+  home-none: "&#FF5555Bạn chưa có home nào. Dùng &#FFB800/sethome <tên> &#FF5555để tạo."
+  home-none-actionbar: "&#FF5555Bạn chưa có home nào!"
+
+  home-limit-reached: "&#FF5555Bạn đã đạt giới hạn &#FFB800%max% &#FF5555home! Hãy xóa bớt để tiếp tục."
+  home-limit-reached-actionbar: "&#FF5555Đã đạt giới hạn %max% home!"
+
+  home-disabled: "&#FF5555Tính năng Home hiện đang bị tắt."
+  home-disabled-actionbar: "&#FF5555Tính năng Home đang bị tắt!"
+
+  home-cooldown: "&#FF5555Vui lòng đợi &#FFB800%time%s &#FF5555trước khi dịch chuyển về home."
+  home-cooldown-actionbar: "&#FF5555Cooldown: &#FFB800%time%s"
+
+  home-countdown: "&#AAAAAADịch chuyển về home trong &#00B2FF%time%&#AAAAAA giây."
+  home-countdown-actionbar: "&#AAAAAADịch chuyển về home trong &#00B2FF%time%&#AAAAAA giây."
+
+  home-rename-prompt: "&#00B2FF✏ &#AAAAAAHãy nhập tên mới cho điểm nhà &#00B2FF%home% &#AAAAAAvào khung chat (hoặc gõ &#FF5555cancel &#AAAAAAđể hủy):"
+  home-rename-success: "&#00FFB2✔ &#AAAAAAĐã đổi tên điểm nhà từ &#00B2FF%old_home% &#AAAAAAsang &#00FFB2%new_home% &#AAAAAAthành công!"
+  home-rename-cancelled: "&#FF5555Đã hủy thao tác đổi tên điểm nhà."
+  home-rename-invalid: "&#FF5555Tên điểm nhà không hợp lệ! (Chỉ dùng chữ, số, dấu gạch ngang, tối đa 16 ký tự)"
+  home-rename-exists: "&#FF5555Bạn đã có điểm nhà mang tên &#FFB800%home% &#FF5555rồi!"
+
+  home-invalid-name: "&#FF5555Tên home không hợp lệ! Chỉ dùng chữ cái, số, _ hoặc - (tối đa 24 ký tự)."
+  home-invalid-name-actionbar: "&#FF5555Tên home không hợp lệ!"
+
+  home-add-usage: "&#AAAAAADùng &#00B2FF/sethome <tên> &#AAAAAAvị trí của bạn."
+  home-delete-usage: "&#AAAAAADùng &#FF5555/delhome <tên> &#AAAAAAvị trí của bạn."
+  home-add-usage-actionbar: "&#AAAAAADùng &#00B2FF/sethome <tên>&#AAAAAA."
+
+  home-blacklisted-world: "&#FF5555Bạn không thể đặt home tại thế giới này!"
+  home-blacklisted-world-actionbar: "&#FF5555Thế giới này không cho phép đặt home!"
+
+  home-name-reserved: "&#FF5555Tên &b'team' &#FF5555được dành cho Team Home của BetterTeams!"
+  home-name-reserved-actionbar: "&#FF5555Tên 'team' đã được đặt trước!"
+
+  home-vault-insufficient: "&#FF5555Bạn cần &#FFB800%cost% &#FF5555để thực hiện hành động này!"
+  home-vault-insufficient-actionbar: "&#FF5555Không đủ tiền! Cần &#FFB800%cost%&#FF5555."
+
+  # Warp admin
+  warp-set: "&#AAAAAABạn đã đặt warp &#00B2FF%warp% &#AAAAAAtại vị trí hiện tại."
+  warp-deleted: "&#FF5555Đã xóa warp &#FFB800%warp%&#FF5555."
+  warp-not-found: "&#FF5555Warp không tồn tại!"
+  no-warps-available: "&#FF5555Chưa có warp nào được thiết lập."
+  warp-list: "&#AAAAAACác warp: &#00B2FF{warps}"
+  setwarp-usage: "&#FFB800Cách dùng: /setwarp <tên>"
+  delwarp-usage: "&#FFB800Cách dùng: /delwarp <tên>"
+
+  # SolarCore admin
+  solarcore-usage: "&#FFB800/solarcore help &8| &#FFB800/solarcore reload"
+  server-menu-unavailable: '&cMenu máy chủ chưa được bật hoặc không tồn tại.'
+  server-links-title: 'Liên kết máy chủ'
+  server-links-back: 'Quay lại'
+  economy-pay-usage: '&e/pay [người_chơi] [số_tiền]'
+  economy-pay-list-full: '&cDanh sách người nhận đã đầy.'
+  economy-pay-recipient-removed: '&aĐã xóa %player% khỏi danh sách người nhận.'
+  economy-pay-list-cleared: '&7Đã xóa danh sách người nhận pay.'
+  economy-pay-presets-saved: '&aĐã lưu các nút số tiền pay của bạn.'
+  server-menu-rtp-quick: 'RTP nhanh'
+  server-menu-links: 'Liên kết máy chủ'
+  solarcore-help:
+    - "&eBảng xếp hạng: &f/leaderboard, /baltop"
+    - "&eMenu máy chủ: &f/servermenu"
+    - "&8&m                                                    "
+    - "&#FFB800&lSolarCore &7v%version% &8— &fDanh sách lệnh"
+    - "&#FFB800/solarcore help &8— &7Hiện danh sách này"
+    - "&#FFB800/solarcore reload &8— &7Tải lại toàn bộ cấu hình"
+    - "&eTPA: &f/tpa, /tpahere, /tpaccept, /tpdeny, /tpacancel"
+    - "&eDịch chuyển: &f/spawn, /warp, /warps, /rtp"
+    - "&eNhà: &f/home, /homes, /sethome, /delhome"
+    - "&eTiện ích: &f/craft, /enderchest, /spawner"
+    - "&eKinh tế: &f/balance, /baltop, /eco, /pay, /paytoggle, /paynotify"
+    - "&eCài đặt: &f/settings, /hide, /nv"
+    - "&eBạn bè: &f/friends [follow|unfollow|add|list]"
+    - "&eBay: &f/fly [on|off] [người_chơi], /flyspeed <0-10> [người_chơi]"
+    - "&eChế độ chơi: &f/gm, /gms, /gmc, /gma, /gmsp"
+    - "&eKiểm tra: &f/inspect, /freeze, /staffmode, /stafflist, /vanish"
+    - "&eMồi phát hiện: &f/spawnstash, /fakeplayer"
+    - "&8&m                                                    "
+
+  # Bay yêu cầu quyền; tất cả thông báo có thể sửa tại đây.
+  fly-usage: "&e/fly [on|off] [người_chơi]"
+  flyspeed-usage: "&e/flyspeed <0-10> [người_chơi]"
+  flyspeed-invalid: "&cTốc độ phải là số từ 0 đến %max%."
+  fly-on: "&aĐã bật bay cho %player%."
+  fly-off: "&7Đã tắt bay cho %player%."
+  flyspeed-set: "&aTốc độ bay của %player%: %speed%."
+
+  # Thông báo toàn server; bật/tắt từng loại trong config.yml > join_quit.
+  first-join-broadcast: "&a%player% &7lần đầu tham gia máy chủ. Chào mừng bạn!"
+  join-broadcast: "&a+ &f%player% &7đã tham gia máy chủ."
+  quit-broadcast: "&c- &f%player% &7đã rời máy chủ."
+
+  # Kinh tế Vault; %amount% đã được định dạng theo plugin kinh tế.
+  economy-unavailable: "&cChưa có Vault Economy khả dụng. Cần Vault và một plugin kinh tế."
+  economy-balance-usage: "&e/balance <người_chơi>"
+  economy-balance: "&7Số dư của &f%player%&7: &a%balance%"
+  economy-player-unknown: "&cKhông tìm thấy tài khoản người chơi này."
+  leaderboard-papi-missing: "&cNguồn top đang dùng PAPI nhưng máy chủ chưa bật PlaceholderAPI."
+  leaderboard-papi-invalid: "&eChưa có dữ liệu top từ PAPI. Kiểm tra mẫu name/value và expansion trong modules/server_links.yml."
+  economy-player-offline: "&cKhông tìm thấy tài khoản người nhận."
+  economy-player-not-found: "&cKhông tìm thấy người chơi đã từng vào máy chủ với tên này."
+  economy-eco-usage: "&e/eco <give|take|set> <người_chơi|**> <số_tiền> &7hoặc &e/eco reset <người_chơi|**>"
+  economy-eco-busy: "&eĐang xử lý một lệnh /eco cho tất cả tài khoản. Vui lòng đợi."
+  economy-eco-all-start: "&eĐang xử lý /eco cho %count% tài khoản, gồm cả người offline đã biết."
+  economy-eco-all-result: "&a/eco %action% %amount%: thành công %success%, thất bại %failed%. &7Mỗi tài khoản được xử lý độc lập."
+  economy-eco-success: "&aĐã %action% tiền của &f%player%&a. Số dư hiện tại: &f%balance%&a."
+  economy-eco-failed: "&cKhông thể thay đổi số dư. Kiểm tra số tiền, số dư và nhà cung cấp Vault."
+  economy-dialog-unavailable: "&cMáy chủ không mở được hộp thoại. Hãy thử lại sau."
+  economy-invalid-amount: "&cSố tiền không hợp lệ hoặc vượt giới hạn cấu hình."
+  economy-pay-self: "&cBạn không thể chuyển tiền cho chính mình."
+  economy-pay-insufficient: "&cBạn không đủ tiền để chuyển."
+  economy-pay-failed: "&cGiao dịch không hoàn tất. Không tự gửi lại nếu số dư có bất thường; hãy liên hệ quản trị viên."
+  economy-pay-review-required: "&eGiao dịch chưa xác định kết quả. Không gửi lại; hãy liên hệ quản trị viên để đối soát."
+  economy-pay-refund-failed: "&cGiao dịch lỗi và không thể tự hoàn tiền. Hãy liên hệ quản trị viên ngay."
+  economy-pay-offline: "&cNgười nhận đã rời máy chủ."
+  economy-pay-blocked: "&cNgười chơi này đã tắt nhận chuyển tiền."
+  economy-pay-toggle-on: "&aBạn đã bật nhận chuyển tiền từ người khác."
+  economy-pay-toggle-off: "&eBạn đã tắt nhận chuyển tiền từ người khác."
+  economy-pay-notify-on: "&aBạn đã bật thông báo khi nhận tiền."
+  economy-pay-notify-off: "&eBạn đã tắt thông báo khi nhận tiền."
+  economy-pay-unavailable: "&cHệ thống kinh tế hiện không khả dụng."
+  economy-pay-invalid-amount: "&cSố tiền không hợp lệ."
+  economy-pay-sent: "&aBạn đã chuyển &f%amount% &acho &f%player%&a."
+  economy-pay-received: "&aBạn đã nhận &f%amount% &atừ &f%player%&a."
+
+  gamemode-usage: "&e/gm <survival|creative|adventure|spectator> [người_chơi]"
+  gamemode-invalid: "&cChế độ chơi không hợp lệ. Dùng s, c, a, sp hoặc 0-3."
+  gamemode-player-offline: "&cKhông tìm thấy người chơi trực tuyến."
+  gamemode-failed: "&cKhông thể đổi chế độ chơi."
+  gamemode-name-survival: "Sinh tồn"
+  gamemode-name-creative: "Sáng tạo"
+  gamemode-name-adventure: "Phiêu lưu"
+  gamemode-name-spectator: "Khán giả"
+  gamemode-self: "&aĐã chuyển sang chế độ &f%mode%&a."
+  gamemode-other: "&aĐã chuyển &f%player% &asang chế độ &f%mode%&a."
+  gamemode-target: "&eChế độ chơi của bạn đã được chuyển sang &f%mode%&e."
+
+  sus-tp-offline: "&#AAAAAA[Sus] Teleport đến tọa độ cuối của &#FFB800%player% &#AAAAAA(offline)."
+  sus-tp-offline-actionbar: "&#AAAAAA→ &#FFB800%player% &#AAAAAA(offline — tọa độ cuối)"
+  # Cả dòng cảnh báo có thể nhấp để mở /inspect <người_chơi>.
+  # Placeholder: %player%, %check%, %count%, %anticheat_color%.
+  sus-flag-alert: "&8[&cSus&8] &f%player% &7dính %check% &8(%anticheat_color%+%count%&8)"
+  sus-flag-alert-hover: "&eNhấp để mở hồ sơ vi phạm của &f%player%&e."
+  sus-alert-enabled: "&a[SolarCore] &fĐã bật thông báo Anti-Cheat cho bạn."
+  sus-alert-disabled: "&c[SolarCore] &fĐã tắt thông báo Anti-Cheat cho bạn."
+
+  # ── SpawnStash ───────────────────────────
+  # Placeholder: {label}, {type}, {id}, {count}, {reason}, {player}, {world},
+  # {x}, {y}, {z}, {creator}, {amount}, {spawner}.
+  spawnstash:
+    usage:
+      - '&8&m----------- &dspawnstash &8&m-----------'
+      - '&f/{label} &7- tạo ngẫu nhiên một stash mồi'
+      - '&f/{label} <loại> &7- tạo stash theo loại'
+      - '&f/{label} spawn <loại> &7- tạo stash theo loại'
+      - '&f/{label} list &7- xem loại và stash đang hoạt động'
+      - '&f/{label} remove <id|nearest|all> &7- gỡ và hoàn tác stash'
+    spawned: '&aĐã tạo stash loại &f#{type}&a thành công. &7(ID: {id})'
+    removed: '&aĐã gỡ và hoàn tác stash &f#{id}&a.'
+    removed-all: '&aĐã gỡ và hoàn tác &f{count}&a stash.'
+    expired: '&7SpawnStash #{id} đã hết hạn và được hoàn tác.'
+    disabled: '&cSpawnStash hiện đang bị tắt.'
+    player-only: '&cChỉ người chơi mới có thể dùng lệnh này.'
+    no-permission: '&cBạn không có quyền sử dụng lệnh này.'
+    no-active: '&cKhông tìm thấy stash đang hoạt động.'
+    blocked-break: '&cStash này đang được bảo vệ. Dùng &f/spawnstash remove nearest &cđể hoàn tác.'
+    spawner-claimed: '&aĐã nhận &f{amount}x {spawner}&a từ SpawnStash.'
+    spawner-claimed-dropped: '&aĐã nhận &f{amount}x {spawner}&a. &7Túi đồ đầy, vật phẩm đã rơi xuống đất.'
+    invalid-type: '&cKhông tìm thấy loại stash ''&f{type}&c''. Dùng &f/spawnstash list&c.'
+    invalid-config: '&cCấu hình SpawnStash không hợp lệ: &f{reason}&c.'
+    list-header: '&8&m----------- &dSpawnStash &8&m-----------'
+    list-types-header: '&7Các loại đã cấu hình:'
+    list-type-entry: '&f- &d{type} &8| &7{name} &8| &7TTL &f{ttl}s &8| &7bán kính &f{radius}'
+    list-active-header: '&7Stash đang hoạt động: &f{count}'
+    list-active-entry: '&f#{id} &8| &dloại {type} &8| &7{world} {x}, {y}, {z} &8| &7TTL &f{ttl}s &8| &7tạo bởi &f{creator}'
+    alert:
+      - '&8[&dSpawnStash&8] &f{player} &7đã kích hoạt &d{reason}&7 tại stash &f#{id}&7 (&f{type}&7)'
+      - '&7Vị trí: &f{world} {x}, {y}, {z} &8| &7Tạo bởi: &f{creator}'
+    alert-hover: '&eNhấn để dịch chuyển tới &f{player}'
+
+  # ── FakePlayer ───────────────────────────
+  # Placeholder: {fakeplayer}, {ttl}, {player}, {creator}, {world}, {x}, {y}, {z}.
+  fakeplayer:
+    already-active: '&7FakePlayer của bạn vẫn còn. Hãy đợi NPC hết hạn rồi tạo tiếp.'
+    cooldown: '&7Vui lòng đợi {seconds} giây trước khi tạo FakePlayer tiếp theo.'
+    limit: '&cĐã đạt giới hạn FakePlayer. Hãy đợi NPC cũ hết hạn.'
+    no-permission: '&cBạn không có quyền sử dụng FakePlayer.'
+    player-only: '&cChỉ người chơi mới có thể dùng lệnh này.'
+    dependency-missing: '&cFakePlayer cần PacketEvents. Hãy cài PacketEvents rồi khởi động lại máy chủ.'
+    disabled: '&cFakePlayer hiện đang bị tắt trong cấu hình.'
+    invalid-location: '&cKhông tìm được vị trí hợp lệ để tạo FakePlayer.'
+    spawn-failed: '&cKhông thể tạo FakePlayer. Hãy kiểm tra console để biết chi tiết.'
+    spawned: '&aĐã tạo FakePlayer &f{fakeplayer}&a trong &f{ttl} giây&a.'
+    alert:
+      - '&8[&cFakePlayer&8] &f{player} &7đang ngắm NPC mồi &f{fakeplayer} &7xuyên khối.'
+      - '&7Vị trí: &f{world} {x}, {y}, {z} &8| &7Tạo bởi: &f{creator}'
+    alert-hover: '&eNhấp để dịch chuyển tới &f{player}&e.'
+
+  # ── Đóng băng ────────────────────────────
+  # ── Freeze ──────────────────────────────
+  freeze-usage: '&cCú pháp: &f/freeze <người_chơi>'
+  unfreeze-usage: '&cCú pháp: &f/unfreeze <người_chơi>'
+  freeze-player-offline: '&cNgười chơi &e{player} &chiện không trực tuyến.'
+  not-frozen: '&e{player} &7hiện không bị đóng băng.'
+  staff-frozen: '&fĐã đóng băng &e{player} &fđể kiểm tra screenshare.'
+  staff-unfrozen: '&fĐã gỡ đóng băng cho &e{player}&f.'
+  target-unfrozen: '&aBạn đã được mở đóng băng. Cảm ơn bạn đã hợp tác!'
+  freeze-title: '&c&lBẠN ĐANG BỊ ĐÓNG BĂNG!'
+  freeze-subtitle: '&eĐừng thoát game! Hãy liên hệ staff trên Discord để kiểm tra'
+  unfreeze-title: '&a&lĐÃ MỞ ĐÓNG BĂNG'
+  unfreeze-subtitle: '&fBạn đã được xác nhận an toàn, chúc bạn chơi vui vẻ!'
+  break-blocked: '&cBạn đang bị đóng băng, không thể phá khối!'
+  place-blocked: '&cBạn đang bị đóng băng, không thể đặt khối!'
+  interact-blocked: '&cBạn đang bị đóng băng, không thể tương tác!'
+  attack-blocked: '&cBạn đang bị đóng băng, không thể tấn công!'
+  drop-blocked: '&cBạn đang bị đóng băng, không thể thả vật phẩm!'
+  command-blocked: '&cBạn đang bị đóng băng, chỉ có thể dùng lệnh nhắn tin riêng!'
+  logout-alert: '&f{player} &7đã thoát game trong khi đang bị đóng băng.'
+  logout-punished: '&f{player} &7đã thoát khi đang bị đóng băng và bị cấm &e{duration}&7.'
+  logout-punishment-failed: '&cKhông thể tự động cấm &f{player}&c. Hãy kiểm tra console.'
+  sus-check-logout: 'Freeze-Logout (Đóng băng thoát game)'
+
+  # ── Staff Mode ───────────────────────────
+  staffmode-no-permission: '&cBạn không có quyền sử dụng tính năng này.'
+  staffmode-feature-disabled: '&cChế độ staff hiện đang bị tắt trong cấu hình.'
+  not-in-staff-mode: '&cBạn cần bật Staff Mode trước khi dùng tính năng này.'
+  staffmode-player-only: '&cChỉ người chơi mới có thể dùng lệnh này.'
+  staffmode-player-not-found: '&cKhông tìm thấy người chơi &f{player}&c.'
+  staffmode-enabled: '&aĐã bật chế độ staff.'
+  staffmode-disabled: '&cĐã tắt chế độ staff.'
+  staffmode-enabled-other: '&aĐã bật chế độ staff cho &f{player}&a.'
+  staffmode-disabled-other: '&cĐã tắt chế độ staff cho &f{player}&c.'
+  staffmode-enabled-actionbar: '&aĐã bật chế độ staff'
+  staffmode-disabled-actionbar: '&cĐã tắt chế độ staff'
+  vanish-actionbar: '&aĐANG TÀNG HÌNH &7» &fNgười chơi thường không thể nhìn thấy bạn'
+  fake-leave: '&e{player} đã rời máy chủ'
+  fake-join: '&e{player} đã tham gia máy chủ'
+  vanish-on: '&aĐã bật tàng hình.'
+  vanish-off: '&cĐã tắt tàng hình.'
+  better-view-on: '&aĐã bật chế độ quan sát tốt hơn.'
+  better-view-off: '&cĐã tắt chế độ quan sát tốt hơn.'
+  random-teleport-no-target: '&cKhông tìm thấy người chơi phù hợp để dịch chuyển.'
+  random-teleport-success: '&eĐã dịch chuyển đến &f{player}&e.'
+  random-teleport-target: '&eStaff &f{player} &evừa dịch chuyển đến bạn.'
+  restore-failed: '&cKhông thể khôi phục túi đồ Staff Mode. Hãy liên hệ quản trị viên.'
+  recovered-after-restart: '&eStaff Mode đã được tắt sau khi máy chủ khởi động lại và túi đồ của bạn đã được khôi phục.'
+  tool-locked: '&cBạn không thể di chuyển công cụ khi Staff Mode đang bật.'
+  custom-item-no-target: '&cHãy nhấn chuột phải vào một người chơi để dùng công cụ này.'
+  custom-item-no-permission: '&cBạn không có quyền dùng công cụ này.'
+  already-self: '&7Bạn đang xem chính mình.'
+  target-offline: '&cNgười chơi đó đã ngoại tuyến.'
+  teleported-staff: '&eĐã dịch chuyển đến staff &f{player}&e.'
+  teleported-frozen: '&eĐã dịch chuyển đến người chơi bị đóng băng &f{player}&e.'
+
+leaderboard-disabled: "&cBảng xếp hạng SolarCore đã tắt."

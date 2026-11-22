@@ -1,0 +1,39 @@
+# ==========================================
+# CẤU HÌNH CHÍNH - ONICHOMES
+# ==========================================
+language: "Vi.yml"
+teleport-time: 5
+teleport-effects: false
+
+# Danh sách các thế giới KHÔNG CHO PHÉP người chơi đặt Home
+blacklist:
+  - "spawn"
+  - "Afkzone"
+
+permissions:
+  remove-home-after-lose-perm: false
+  home-admin: "home.admin"
+  home-limits:
+    - default:home.default:1
+    - vip:home.free:2
+    - mvp:home.viet:4
+    - mvp+:home.viet+:6
+    - pre:home.viet++:8
+    - pre+:home.vietx:10
+    - custom:home.vietx+:12
+    - custom1:home.custom:14
+
+database:
+  type: "sqlite"
+  threads: 5
+  mysql:
+    host: "localhost"
+    user: "root"
+    password: ""
+    database: "onichomes"
+    port: 3306
+    max-pool: 15
+    use-ssl: false
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    database: "onichomes"

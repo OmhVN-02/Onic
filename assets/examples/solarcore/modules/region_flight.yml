@@ -1,0 +1,50 @@
+# -------------------------------------------------------------------
+#  SolarCore Region Flight & Double Jump Module
+#  Cấu hình Tự đặt tên khu vực WorldGuard cho phép Bay (Fly) hoặc Nhảy 2 lần (Double Jump)
+# -------------------------------------------------------------------
+
+region-flight:
+  enabled: true
+
+  # Danh sách tên các khu vực WorldGuard được phép Fly / Double Jump
+  # Bạn có thể tự đặt tên khu vực WorldGuard ở đây (Ví dụ: spawn, pvp_safe, lobby, khuvuc_nhay)
+  # Sử dụng "*" để áp dụng toàn bộ world trong enabled-worlds, không cần WorldGuard.
+  # Với vùng đặt tên, cần WorldGuard hoạt động và player ở đúng vùng.
+  regions:
+    - "spawn"
+    - "lobby"
+    - "khuvuc_nhay"
+
+  # Danh sách thế giới áp dụng (để trống nếu áp dụng mọi thế giới)
+  enabled-worlds: []
+
+  # Cấu hình tính năng Fly (Bay) trong khu vực WorldGuard
+  fly:
+    enabled: true
+    # Yêu cầu quyền: solarcore.region.fly hoặc solarcore.region.fly.<tên_region>
+    require-permission: true
+    # Tự động bật chế độ bay khi người chơi có quyền đi vào khu vực
+    auto-enable-on-enter: true
+    # Luôn thu hồi quyền bay do vùng cấp khi ra vùng/mất quyền/tắt module.
+    # disable-on-exit cũ không còn áp dụng để tránh để sót quyền bay.
+    # Chống sát thương té ngã khi vừa bay ra khỏi khu vực
+    prevent-fall-damage: true
+
+  # Cấu hình tính năng Double Jump (Nhảy 2 lần) trong khu vực WorldGuard
+  double-jump:
+    # Bắt phím nhảy qua PlayerInputEvent (client hiện đại), KHÔNG cấp allowFlight.
+    # Không fallback cấp quyền bay khi client cũ/Via không gửi input.
+    enabled: true
+    # Yêu cầu quyền: solarcore.region.doublejump hoặc solarcore.region.doublejump.<tên_region>
+    require-permission: true
+    # Thời gian hồi / delay giữa mỗi lần nhảy đúp (tính bằng giây, ví dụ: 1.5, 2.0)
+    cooldown-seconds: 1.5
+    # Lực đẩy về phía trước (Multiplier)
+    multiplier: 1.2
+    # Độ cao nhảy (Vertical Height)
+    height: 0.8
+    # Âm thanh khi nhảy 2 lần
+    sound: "ENTITY_BAT_TAKEOFF"
+    # Hiệu ứng hạt (Particle)
+    particle: "CLOUD"
+    particle-count: 15

@@ -1,0 +1,5 @@
+# /nightvision hoặc /nv [on|off]; tùy chọn cũng nằm trong /settings.
+# Hiệu ứng và lựa chọn được khôi phục sau khi vào lại, hồi sinh hoặc đổi thế giới.
+# Dữ liệu nằm trong database chung; thông báo ở messages.yml.
+enabled: true
+amplifier: 0

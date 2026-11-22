@@ -1,0 +1,33 @@
+# Bảng xếp hạng số dư /baltop. GUI ma trận, 36 người chơi mỗi trang.
+# P = mục xếp hạng, < > = đổi trang, R = đọc lại, I = số trang, # = trang trí.
+top:
+  title: "&8Top tiền &7(%page%/%pages%)"
+  matrix:
+    - "#########"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "<..R.I..>"
+  entry:
+    material: GOLD_INGOT
+    name: "&e#%rank% &f%player%"
+    lore: ["&7Số dư: &a%balance%"]
+  empty:
+    material: BARRIER
+    name: "&7Chưa ghi nhận số dư"
+  previous:
+    material: ARROW
+    name: "&eTrang trước"
+  next:
+    material: ARROW
+    name: "&eTrang sau"
+  refresh:
+    material: CLOCK
+    name: "&eTải lại bảng top"
+  info:
+    material: BOOK
+    name: "&7Trang %page%/%pages%"
+  filler:
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "

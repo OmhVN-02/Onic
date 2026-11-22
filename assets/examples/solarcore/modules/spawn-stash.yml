@@ -1,0 +1,265 @@
+# SpawnStash: cấu trúc mồi tạm thời để phát hiện X-Ray/ESP.
+# Tệp cấu hình này nằm tại modules/spawn-stash.yml.
+#
+# HƯỚNG DẪN NHANH:
+# - Dùng /spawnstash để tạo ngẫu nhiên hoặc /spawnstash <loại> để chọn mẫu.
+# - Mỗi mẫu trong "types" là tập hợp block theo offset [x, y, z] tính từ vị trí đặt.
+# - ttl_seconds là thời gian tồn tại; khi hết hạn, block cũ được khôi phục tự động.
+# - Toàn bộ câu thông báo nằm tại messages.yml -> messages.spawnstash.
+# - Sau khi chỉnh file, dùng /solarcore reload.
+settings:
+  enabled: true
+  default_ttl_seconds: 900
+  default_alert_radius: 8.0
+  alert_cooldown_seconds: 30
+  check_interval_ticks: 20
+  overwrite_blocks: true
+  protect_blocks: false
+  claim_spawners_on_break: false
+  rollback_on_reload: true
+  log_to_console: true
+  max_blocks_per_stash: 256
+
+types:
+  '1':
+    enabled: true
+    display_name: '&dKho thạch anh tím nhỏ'
+    ttl_seconds: 900
+    alert_radius: 8.0
+    paste_offset: 0, 0, 0
+    blocks:
+      - offset: -1, 0, 0
+        material: DEEPSLATE
+      - offset: 0, 0, 0
+        material: SPAWNER
+        spawner_type: SKELETON
+        spawner_access: PUBLIC
+      - offset: 1, 0, 0
+        material: DEEPSLATE
+      - offset: -1, 0, 1
+        material: COBBLED_DEEPSLATE
+      - offset: 0, 0, 1
+        material: AMETHYST_BLOCK
+      - offset: 1, 0, 1
+        material: COBBLED_DEEPSLATE
+      - offset: -1, 1, 0
+        material: DEEPSLATE_TILES
+      - offset: 1, 1, 0
+        material: DEEPSLATE_TILES
+      - offset: -1, 1, 1
+        material: DEEPSLATE
+      - offset: 0, 1, 1
+        material: BUDDING_AMETHYST
+      - offset: 1, 1, 1
+        material: DEEPSLATE
+      - offset: 0, 2, 1
+        material: AMETHYST_CLUSTER
+      - offset: -1, 2, 1
+        material: POLISHED_DEEPSLATE
+      - offset: 1, 2, 1
+        material: POLISHED_DEEPSLATE
+
+  '2':
+    enabled: true
+    display_name: '&5Kho hai spawner và rương'
+    paste_offset: 0, 0, 0
+    blocks:
+      - offset: -1, 0, 0
+        material: COBBLED_DEEPSLATE
+      - offset: 0, 0, 0
+        material: COBBLED_DEEPSLATE
+      - offset: 1, 0, 0
+        material: COBBLED_DEEPSLATE
+      - offset: -1, 0, 1
+        material: SPAWNER
+        spawner_type: ZOMBIE
+        spawner_access: PUBLIC
+      - offset: 0, 0, 1
+        material: CHEST
+        container_items:
+          - slot: 10
+            material: DIAMOND
+            amount: 12
+          - slot: 13
+            material: EMERALD
+            amount: 16
+      - offset: 1, 0, 1
+        material: SPAWNER
+        spawner_type: SKELETON
+        spawner_access: PUBLIC
+      - offset: -1, 1, 1
+        material: CHEST
+        container_items:
+          - slot: 11
+            material: GOLD_INGOT
+            amount: 24
+          - slot: 15
+            material: AMETHYST_SHARD
+            amount: 32
+      - offset: 0, 1, 1
+        material: CHEST
+        container_items:
+          - slot: 13
+            material: ENCHANTED_GOLDEN_APPLE
+            amount: 1
+      - offset: 1, 1, 1
+        material: CHEST
+        container_items:
+          - slot: 13
+            material: NETHERITE_INGOT
+            amount: 2
+      - offset: -1, 2, 1
+        material: DEEPSLATE_BRICKS
+      - offset: 0, 2, 1
+        material: DEEPSLATE_BRICKS
+      - offset: 1, 2, 1
+        material: DEEPSLATE_BRICKS
+      - offset: -1, 3, 1
+        material: PURPLE_SHULKER_BOX
+        container_items:
+          - slot: 13
+            material: ECHO_SHARD
+            amount: 8
+      - offset: -1, 2, 0
+        material: ENDER_CHEST
+
+  '3':
+    enabled: true
+    display_name: '&aKho quặng phủ rêu'
+    paste_offset: 0, 0, 0
+    blocks:
+      - offset: -1, 0, 0
+        material: MOSSY_COBBLESTONE
+      - offset: 0, 0, 0
+        material: MOSSY_COBBLESTONE
+      - offset: 1, 0, 0
+        material: MOSSY_COBBLESTONE
+      - offset: -1, 0, 1
+        material: CHEST
+        container_items:
+          - slot: 13
+            material: REDSTONE
+            amount: 32
+      - offset: 0, 0, 1
+        material: SPAWNER
+        spawner_type: CREEPER
+        spawner_access: PUBLIC
+      - offset: 1, 0, 1
+        material: CHEST
+        container_items:
+          - slot: 13
+            material: GOLD_INGOT
+            amount: 20
+      - offset: -1, 1, 1
+        material: DEEPSLATE_REDSTONE_ORE
+      - offset: 0, 1, 1
+        material: LANTERN
+      - offset: 1, 1, 1
+        material: DEEPSLATE_GOLD_ORE
+      - offset: -1, 1, 0
+        material: MOSSY_COBBLESTONE
+      - offset: 1, 1, 0
+        material: MOSSY_COBBLESTONE
+      - offset: -1, 2, 1
+        material: MOSSY_COBBLESTONE
+      - offset: 0, 2, 1
+        material: MOSSY_COBBLESTONE
+      - offset: 1, 2, 1
+        material: MOSSY_COBBLESTONE
+
+  '4':
+    enabled: true
+    display_name: '&6Kho hầm mỏ có biển báo'
+    paste_offset: 0, 0, 0
+    blocks:
+      - offset: -1, 0, 0
+        material: DEEPSLATE
+      - offset: 0, 0, 0
+        material: RAIL
+      - offset: 1, 0, 0
+        material: DEEPSLATE
+      - offset: -1, 0, 1
+        material: CHEST
+        container_items:
+          - slot: 13
+            material: IRON_INGOT
+            amount: 32
+      - offset: 0, 0, 1
+        material: SPAWNER
+        spawner_type: ZOMBIE
+        spawner_access: PUBLIC
+      - offset: 1, 0, 1
+        material: DEEPSLATE_IRON_ORE
+      - offset: 0, 1, 0
+        material: OAK_SIGN
+        sign_lines:
+          - '&6private mine'
+          - '&7cấm vào'
+          - '&8- bẫy kiểm tra -'
+          - ''
+      - offset: -1, 1, 1
+        material: DEEPSLATE_BRICKS
+      - offset: 0, 1, 1
+        material: DEEPSLATE_BRICKS
+      - offset: 1, 1, 1
+        material: DEEPSLATE_BRICKS
+      - offset: -1, 2, 1
+        material: DEEPSLATE_TILES
+      - offset: 0, 2, 1
+        material: DEEPSLATE_TILES
+      - offset: 1, 2, 1
+        material: DEEPSLATE_TILES
+
+  '5':
+    enabled: true
+    display_name: '&dKho spawner thạch anh tím cao cấp'
+    ttl_seconds: 1200
+    alert_radius: 10.0
+    paste_offset: 0, 0, 0
+    blocks:
+      - offset: -1, 0, 0
+        material: CHISELED_DEEPSLATE
+      - offset: 0, 0, 0
+        material: AMETHYST_BLOCK
+      - offset: 1, 0, 0
+        material: CHISELED_DEEPSLATE
+      - offset: -1, 0, 1
+        material: SPAWNER
+        spawner_type: BLAZE
+        spawner_access: PUBLIC
+      - offset: 0, 0, 1
+        material: CHEST
+        container_items:
+          - slot: 11
+            material: DIAMOND
+            amount: 24
+          - slot: 13
+            material: NETHERITE_INGOT
+            amount: 3
+          - slot: 15
+            material: ENCHANTED_GOLDEN_APPLE
+            amount: 2
+      - offset: 1, 0, 1
+        material: SPAWNER
+        spawner_type: IRON_GOLEM
+        spawner_access: PUBLIC
+      - offset: -1, 1, 1
+        material: BUDDING_AMETHYST
+      - offset: 0, 1, 1
+        material: AMETHYST_CLUSTER
+      - offset: 1, 1, 1
+        material: BUDDING_AMETHYST
+      - offset: -1, 2, 1
+        material: POLISHED_BLACKSTONE_BRICKS
+      - offset: 0, 2, 1
+        material: REINFORCED_DEEPSLATE
+      - offset: 1, 2, 1
+        material: POLISHED_BLACKSTONE_BRICKS
+      - offset: 0, 3, 1
+        material: PURPLE_SHULKER_BOX
+        container_items:
+          - slot: 13
+            material: ECHO_SHARD
+            amount: 12
+
+

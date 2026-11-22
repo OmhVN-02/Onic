@@ -1,0 +1,145 @@
+# Ẩn lệnh bằng PacketEvents và chặn chạy lệnh phía server.
+# false: dừng lọc/chặn, gửi lại cây lệnh gốc cho người đang online.
+enabled: true
+# Đổi tên phần mềm/fork trong F3 (ví dụ thay Folia bằng tên máy chủ).
+# Đặt enabled: true, chỉnh text và kết nối lại để áp dụng.
+# Không thay đổi phiên bản giao thức, mod client, phần cứng hay thêm ảnh vào F3 vanilla.
+# Hoạt động độc lập với enabled của ẩn lệnh ở trên. Cần PacketEvents.
+f3-brand:
+  enabled: false
+  text: "SolarCore"
+# Chỉ tên lệnh GỐC, không có dấu /. Không hỗ trợ regex, ! hoặc giới hạn subcommand.
+# Namespace phải khai báo chính xác: spawn KHÔNG cho phép minecraft:spawn/plugin:spawn.
+# Tính năng này không cấp quyền chạy lệnh của plugin khác.
+# Quyền group: solarcore.commandhide.group.<group>.
+# Group cùng priority cao nhất được gộp. Không có group thì dùng default.
+# OP không tự bypass. Thêm group op phía dưới nếu muốn.
+# Bypass riêng: solarcore.commandhide.bypass (mặc định false).
+# Console không bị lọc; cấp quyền qua console để tránh tự khóa quyền quản trị.
+# Muốn /help hiện và chạy được thì thêm help vào cả hai danh sách.
+groups:
+  default:
+    commands:
+      - combat
+      - pvp
+      - spawn
+      - tpa
+      - tpaccept
+      - tpdeny
+      - pay
+      - money
+      - balance
+      - warp
+      - msg
+      - duel
+      - queue
+      - rtpq
+      - sell
+      - worth
+      - sellhistory
+      - sellmulti
+      - afk
+      - shop
+      - ah
+      - quest
+      - orders
+      - order
+      - elo
+      - shards
+      - cf
+      - settings
+      - team
+      - duatop
+      - key
+      - rank
+      - afks
+      - rules
+      - luat
+      - media
+      - listcode
+      - onicwarps
+      - rtp
+      - viewstats
+      - home
+      - discord
+      - kit
+      - skins
+      - skin
+      - nightvision
+      - report
+      - sb
+      - hide
+      - tbtoggle
+      - friends
+    tabcomplete:
+      - combat
+      - pvp
+      - spawn
+      - tpa
+      - tpaccept
+      - tpdeny
+      - pay
+      - money
+      - balance
+      - warp
+      - msg
+      - duel
+      - queue
+      - rtpq
+      - sell
+      - worth
+      - sellhistory
+      - sellmulti
+      - afk
+      - shop
+      - ah
+      - quest
+      - orders
+      - order
+      - elo
+      - shards
+      - cf
+      - settings
+      - team
+      - duatop
+      - key
+      - rank
+      - afks
+      - rules
+      - luat
+      - media
+      - listcode
+      - onicwarps
+      - rtp
+      - viewstats
+      - home
+      - discord
+      - kit
+      - skins
+      - skin
+      - nightvision
+      - report
+      - sb
+      - hide
+      - friends
+    priority: 0
+    blocked-command-message: '<red>[!]<white> Lệnh không tồn tại! <gray>Gõ <yellow>/help <gray>để xem trợ giúp.'
+    inherited-groups: []
+  # Bỏ comment để OP tự được gán group này.
+  # op:
+  #   commands:
+  #     - "*"
+  #   tabcomplete:
+  #     - "*"
+  #   priority: 10
+  #   blocked-command-message: none
+  #   inherited-groups: []
+  # Tự gán group omhvn cho người có quyền *; hoặc cấp solarcore.commandhide.group.omhvn.
+  omhvn:
+    commands:
+      - "*"
+    tabcomplete:
+      - "*"
+    priority: 11
+    blocked-command-message: none
+    inherited-groups: []

@@ -1,0 +1,37 @@
+
+cooldown:
+  enabled: true
+  duration: 3
+  message: "&#FF9600Vui lòng đợi %time% giây trước khi thay đổi cài đặt một lần nữa!"
+
+status:
+  on: "&a&lBẬT"
+  off: "&c&lTẮT"
+
+
+
+
+# Visibility setting only works in specified worlds/regions
+# If regions are specified, they take priority over worlds
+player-visibility:
+  worlds:
+    - world
+    - world_nether
+    - world_the_end
+  # WorldGuard regions where player visibility setting applies
+  # Leave empty to use world-based check instead
+  regions:
+    - spawn
+    - hub
+
+# Database và reload chung với SolarCore.
+enabled: true
+
+# Hiển thị prefix LuckPerms của chính người chơi trên TAB cho mọi người thấy.
+# Khi cài TAB của NEZNAMY trên server: dùng API TAB để ẩn prefix, giữ tên/suffix.
+# Bật lại khôi phục prefix TAB gốc (TAB tự xử lý LuckPerms và placeholder).
+# Cần bật tablist-name-formatting trong TAB. TAB trên proxy không có API tại Bukkit.
+# Không cài TAB: dùng tên TAB Bukkit với prefix LuckPerms đã cache.
+tab-rank:
+  enabled: true
+  format: "%prefix% %player%"

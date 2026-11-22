@@ -1,0 +1,25 @@
+prefix: ""
+
+messages:
+  home-set: "&#A7D687Đã đặt vị trí homes %home%"
+  home-deleted: "&#E9010DĐã xóa homes %home%"
+  home-not-set: "&#E9010D%home% chưa được tạo! Hãy nhấn vào nút phía dưới."
+  name-updated: "&#A7D687Đã cập nhật tên homes %name%"
+  name-exists: "&#E9010DKhông được đặt tên homes trùng với nhau."
+  material-updated: "&#A7D687Đã cập nhật display homes %home%!"
+  dev-feature: "&eTính năng chọn hiển thị đang được phát triển!"
+  world-blacklisted: "&#E9010DBạn không thể đặt homes ở đây!"
+  home-not-found: "&#E9010DKhông tìm thấy homes với tên này!"
+  home-limit-reached: "&#E9010DBạn đã đạt giới hạn số homes cho phép!"
+
+  cmd-only-player: "&#A7D687Chỉ người chơi mới có thể sử dụng!"
+  cmd-use-gui: "&#A7D687Vui lòng gõ lệnh /homes "
+  cmd-no-perm: "&#A7D687Bạn không có quyền sử dụng lệnh này!"
+  cmd-reload-success: "&#A7D687Đã tải lại cấu hình và ngôn ngữ OnicHomes thành công!"
+  cmd-usage-reload: "&#A7D687Sử dụng lệnh: /onichomes reload"
+
+actionbar:
+  teleporting: "&#A7D687Dịch chuyển tới home %home% trong %time%s."
+  teleport-success: "&#A7D687Dịch chuyển thành công tới home %home%."
+  teleport-cancel: "&#FE020FVui lòng không di chuyển khi đang dịch chuyển."
+  delete-confirm: "&#FF0022Bạn chắc chắn muốn xóa home này chứ?"

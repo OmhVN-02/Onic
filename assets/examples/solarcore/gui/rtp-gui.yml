@@ -1,0 +1,49 @@
+# ───────────────────────────────────────────
+#   SolarCore — RTP Selection GUI
+# ───────────────────────────────────────────
+
+rtp-gui:
+  title: "&#2C2C2Cʀᴀɴᴅᴏᴍ ᴛᴇʟᴇᴘᴏʀᴛ"
+
+  # Ma trận bố cục (O = Overworld, N = Nether, E = The End, . = Trống)
+  matrix:
+    - "........."
+    - "..O.N.E.."
+    - "........."
+
+  buttons:
+    overworld:
+      symbol: "O"
+      display-name: "&#0bee88ᴏᴠᴇʀᴡᴏʀʟᴅ"
+      material: "GRASS_BLOCK"
+      world: "world"
+      enabled: true
+      lore:
+        - "&fNhấp để dịch chuyển ngẫu nhiên tại Overworld."
+        - ""
+        - "&7Người chơi: &b{players}"
+        - "&7Độ trễ: &b{ping}ms"
+
+    nether:
+      symbol: "N"
+      display-name: "&#ff4422ɴᴇᴛʜᴇʀ"
+      material: "NETHERRACK"
+      world: "world_nether"
+      enabled: true
+      lore:
+        - "&fNhấp để dịch chuyển ngẫu nhiên tại Nether."
+        - ""
+        - "&7Người chơi: &b{players}"
+        - "&7Độ trễ: &b{ping}ms"
+
+    the-end:
+      symbol: "E"
+      display-name: "&#ccaaffᴛʜᴇ ᴇɴᴅ"
+      material: "END_STONE"
+      world: "world_the_end"
+      enabled: true
+      lore:
+        - "&fNhấp để dịch chuyển ngẫu nhiên tại The End."
+        - ""
+        - "&7Người chơi: &b{players}"
+        - "&7Độ trễ: &b{ping}ms"

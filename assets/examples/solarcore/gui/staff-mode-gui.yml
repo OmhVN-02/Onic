@@ -1,0 +1,58 @@
+# Giao diện của Staff Mode.
+#
+# HƯỚNG DẪN:
+# - Mỗi dòng matrix có 9 ký tự, tối đa 6 dòng.
+# - P là ô hiển thị người chơi, R là nút làm mới, . là ô trang trí.
+# - Có thể dùng mã màu & hoặc MiniMessage trong title, name và lore.
+# - Dùng /solarcore reload sau khi chỉnh file.
+
+staff_list:
+  title: "&8Staff đang trực tuyến"
+  matrix:
+    - "........."
+    - ".PPPPPPP."
+    - ".PPPPPPP."
+    - ".PPPPPPP."
+    - "........."
+    - "....R...."
+  placeholder_material: "GRAY_STAINED_GLASS_PANE"
+  empty_material: "BARRIER"
+  empty_name: "&cKhông có staff trực tuyến"
+  empty_lore:
+    - "&7Hiện chưa có staff nào đang trực tuyến."
+  player_name: "&e{player}"
+  player_lore:
+    - "&7Thế giới: &f{world}"
+    - "&7Tàng hình: {vanished}"
+    - "&7Tầm nhìn tốt hơn: {better_view}"
+    - "{action}"
+
+frozen_players:
+  title: "&8Người chơi bị đóng băng"
+  matrix:
+    - "........."
+    - ".PPPPPPP."
+    - ".PPPPPPP."
+    - ".PPPPPPP."
+    - "........."
+    - "....R...."
+  placeholder_material: "LIGHT_BLUE_STAINED_GLASS_PANE"
+  empty_material: "BARRIER"
+  empty_name: "&aKhông có người chơi bị đóng băng"
+  empty_lore:
+    - "&7Hiện không có phiên đóng băng nào."
+  player_name: "&b{player}"
+  player_lore:
+    - "&aĐang trực tuyến"
+    - "&7Thế giới: &f{world}"
+    - "&eNhấn để dịch chuyển"
+
+common:
+  refresh_material: "SUNFLOWER"
+  refresh_name: "&eLàm mới"
+  refresh_lore:
+    - "&7Nhấn để cập nhật danh sách."
+  state_on: "&aCó"
+  state_off: "&cKhông"
+  self_action: "&7Đây là bạn."
+  teleport_action: "&eNhấn để dịch chuyển"

@@ -1,0 +1,121 @@
+# Combat tag tích hợp SolarCore, không cần cài PvPManager.
+# Khi dùng plugin combat khác, đặt enabled: false để tránh xử lý trùng.
+enabled: true
+
+# Mỗi đòn đánh PvP hợp lệ làm mới thời gian của hai người. Không tag đòn bị plugin khác chặn.
+tag-seconds: 15
+action-bar: true
+
+# Không cấp allowFlight hay quyền miễn kiểm tra cho anti-cheat.
+# Khi hết combat KHÔNG tự bật lại bay. Người chơi cần bật lại /fly nếu có quyền.
+disable-flight: true
+block-gliding: true
+
+# World không áp dụng combat tag. Không bỏ qua bảo vệ PvP của WorldGuard.
+excluded-worlds: []
+
+logout:
+  # Chết ngay khi thoát trong combat. Rơi đồ/kinh nghiệm theo gamerule và plugin xử lý chết đang có.
+  # Không phạt khi server đang dừng hoặc SolarCore đang tắt.
+  kill: true
+  # Mặc định không phạt kick từ quản trị viên/plugin. Tự thoát/mất mạng vẫn tính combat-log.
+  punish-kicks: false
+
+# Chặn TOÀN BỘ lệnh khi combat, kể cả /combat, alias và namespace.
+# Console không bị chặn. Quyền bypass.commands được cấp tường minh nếu cần.
+block-commands: true
+
+# Giây; 0 = SolarCore không thêm cooldown (giữ cooldown vanilla/plugin khác).
+# Trong combat: dùng giá trị combat nếu có, nếu không dùng global.
+# LUNGE là nhóm dùng chung mọi loại giáo. TRIDENT dùng chung ném/Riptide.
+# Vật phẩm ăn/uống bắt đầu sau khi dùng thành công; vật phẩm khác bắt đầu khi nhấp phải được cho phép.
+cooldowns:
+  # Thanh hiển thị vật phẩm đang hồi. Tên vật phẩm lấy từ names bên dưới.
+  action-bar:
+    enabled: true
+    format: "&e%item%: %seconds%s"
+    separator: " &8| "
+    # Ngăn cách đồng hồ giao tranh với danh sách vật phẩm.
+    combat-separator: " &8| "
+    # 0 = giây nguyên (làm tròn lên), 1 hoặc 2 = số chữ số thập phân.
+    decimals: 1
+  global:
+    ENDER_PEARL: 15
+    TRIDENT: 10
+    LUNGE: 3
+    GOLDEN_APPLE: 30
+    ENCHANTED_GOLDEN_APPLE: 120
+  # Ví dụ GOLDEN_CARROT: 5 hoặc WIND_CHARGE: 2.
+  combat: {}
+  # Tên trong thông báo/ActionBar; hiệu ứng hồi trên ô vật phẩm dùng cơ chế gốc Minecraft.
+  names:
+    pearl: "Ngọc Ender"
+    trident: "Đinh ba"
+    spear: "Giáo Lunge"
+    GOLDEN_APPLE: "Táo vàng"
+    ENCHANTED_GOLDEN_APPLE: "Táo vàng phù phép"
+
+safe-zone-guard:
+  # Cần WorldGuard 7 hoặc fork có API tương thích. Không hủy bảo vệ PvP của WorldGuard.
+  enabled: true
+  # Chặn pearl đến vùng có cờ pvp: deny, kiểm tra tại thời điểm dịch chuyển (không chỉ lúc ném).
+  block-pearls: true
+  # Chặn chạy/đinh ba/Lunge/Elytra vượt qua ranh giới vào vùng pvp: deny khi đang combat.
+  # Kiểm tra cả đường đi để không lướt xuyên vùng an toàn mỏng.
+  block-movement: true
+  # Nên bật cả kính và đẩy lùi. Kính chỉ hiện cho người bị chặn, không đặt khối thật.
+  # Tối đa 9 khối/lần, tự xóa sau 2 giây; không tải chunk.
+  block-barrier:
+    enabled: true
+    material: RED_STAINED_GLASS
+  push-back:
+    enabled: true
+    # 0.1..4, lực ngang. Chặn di chuyển vẫn hoạt động khi tắt đẩy lùi.
+    force: 1.2
+  # Hai tùy chọn sau cấm dùng hẳn Riptide/Lunge trong combat khi hook WG đang hoạt động.
+  # false vẫn chặn vượt ranh giới bằng block-movement nhưng cho dùng ở bên ngoài vùng an toàn.
+  block-riptide: false
+  block-lunge: false
+  # Cấm bắt đầu bay/boost Elytra trong combat (không cấp miễn kiểm tra anti-cheat).
+  block-elytra: true
+
+pvp-toggle:
+  enabled: true
+  default: true
+  cooldown-seconds: 15
+
+newbie-protection:
+  enabled: true
+  seconds: 300
+  # Người chơi dùng /pvp on để chủ động bỏ bảo vệ tân thủ.
+
+respawn-protection:
+  enabled: true
+  seconds: 10
+  cancel-on-attack: true
+  environmental-damage: true
+
+anti-farm:
+  enabled: true
+  # Sau 3 lần giết cùng người trong 30 phút, chặn sát thương từ người giết tới người đó.
+  # Không xóa đồ/XP hoặc giả mạo số kill cho plugin khác.
+  maximum-kills: 3
+  window-seconds: 1800
+
+# Chặn cả teleport từ menu/plugin để không lách bằng GUI.
+# Muốn cho dùng ngọc Ender: đừng thêm ENDER_PEARL vào danh sách.
+# CONSUMABLE_EFFECT bao gồm dịch chuyển do chorus fruit trên bản Minecraft mới.
+blocked-teleport-causes:
+  - COMMAND
+  - PLUGIN
+  - NETHER_PORTAL
+  - END_PORTAL
+  - END_GATEWAY
+  - CONSUMABLE_EFFECT
+
+# Quyền cố định:
+# solarcore.combat.admin: /combat tag <player> [seconds], /combat clear <player>.
+# solarcore.combat.bypass: không bị tag (mặc định false, kể cả operator).
+# solarcore.combat.bypass.commands: bỏ chặn lệnh (mặc định false).
+# solarcore.combat.bypass.teleport: bỏ chặn dịch chuyển (mặc định false).
+# /combat không tham số: xem thời gian còn lại. Thông báo chỉnh trong messages.yml -> combat.

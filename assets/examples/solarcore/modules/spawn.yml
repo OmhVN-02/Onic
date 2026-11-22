@@ -1,0 +1,44 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# #######################################################################################################################
+
+# Tùy chỉnh Spawn (Spawn Configuration)
+spawn:
+  # Bật hệ thống Spawn
+  # Enable Spawn system
+  enabled: true
+  
+  # Tự động dịch chuyển về Spawn khi vào máy chủ lần đầu
+  # Teleport to spawn on first join
+  on-first-join: true
+  
+  # Tự động dịch chuyển về Spawn mỗi khi vào máy chủ
+  # Teleport to spawn on every join
+  on-join: true
+  
+  # Tự động dịch chuyển về Spawn khi hồi sinh
+  # Teleport to spawn on death
+  on-death: true
+
+  # Thời gian chờ (ticks) trước khi cưỡng chế dịch chuyển người chơi về spawn khi hồi sinh
+  # Delay (ticks) before forcing teleporting player to spawn on respawn
+  respawn-delay: 5
+  
+  # Thời gian đếm ngược khi về Spawn (giây)
+  # Countdown before teleporting to spawn (seconds)
+  teleport-countdown: 5
+
+  # Tùy chỉnh GUI Spawn
+  # Spawn GUI Configuration
+  gui:
+    # Bật GUI chọn Spawn (nếu có nhiều spawn)
+    # Enable GUI for spawn selection
+    enabled: true

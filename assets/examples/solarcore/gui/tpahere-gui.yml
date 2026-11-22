@@ -1,0 +1,93 @@
+# ───────────────────────────────────────────
+#   SolarCore — TPAHere Request & Accept GUI
+# ───────────────────────────────────────────
+
+request-gui:
+  name: "&#2C2C2Cᴛᴘᴀʜᴇʀᴇ ʀᴇꞯᴜᴇꜱᴛ"
+
+  # Ma trận bố cục (X = Hủy, L = Tọa độ, P = Player Info, F = Trạng thái bay, C = Xác nhận)
+  matrix:
+    - "........."
+    - ".X.LPF.C."
+    - "........."
+
+  icons:
+    cancel-icon:
+      symbol: "X"
+      material: RED_STAINED_GLASS_PANE
+      display-name: "&cᴄᴀɴᴄᴇʟ"
+      lore:
+        - "&7Nhấp để hủy yêu cầu này."
+
+    location-icon:
+      symbol: "L"
+      display-name: "&eʟᴏᴄᴀᴛɪᴏɴ"
+      lore:
+        - "&7Thế giới: &f%world%"
+
+    player-icon:
+      symbol: "P"
+      material: PLAYER_HEAD
+      display-name: "&aᴘʟᴀʏᴇʀ ɪɴꜰᴏ"
+      lore:
+        - "&7Tên: &f%player%"
+
+    confirm-icon:
+      symbol: "C"
+      material: LIME_STAINED_GLASS_PANE
+      display-name: "&aᴄᴏɴꜰɪʀᴍ"
+      lore:
+        - "&7Nhấp để yêu cầu &f%player%"
+        - "&7dịch chuyển đến bạn."
+
+    fly-icon:
+      symbol: "F"
+      material: FEATHER
+      display-name: "&bꜰʟʏ ꜱᴛᴀᴛᴜꜱ"
+      lore:
+        - "&7Trạng thái bay: &f%is_flying%"
+
+accept-gui:
+  name: "&#2C2C2Cᴀᴄᴄᴇᴘᴛ ᴛᴘᴀʜᴇʀᴇ"
+
+  # Ma trận bố cục (X = Từ chối, L = Tọa độ, P = Player Info, F = Trạng thái bay, C = Chấp nhận)
+  matrix:
+    - "........."
+    - ".X.LPF.C."
+    - "........."
+
+  icons:
+    cancel-icon:
+      symbol: "X"
+      material: RED_STAINED_GLASS_PANE
+      display-name: "&cᴅᴇɴʏ"
+      lore:
+        - "&7Nhấp để từ chối yêu cầu này."
+
+    location-icon:
+      symbol: "L"
+      display-name: "&eʟᴏᴄᴀᴛɪᴏɴ"
+      lore:
+        - "&7Thế giới: &f%world%"
+
+    player-icon:
+      symbol: "P"
+      material: PLAYER_HEAD
+      display-name: "&aᴘʟᴀʏᴇʀ ɪɴꜰᴏ"
+      lore:
+        - "&7Tên: &f%player%"
+
+    confirm-icon:
+      symbol: "C"
+      material: LIME_STAINED_GLASS_PANE
+      display-name: "&aᴀᴄᴄᴇᴘᴛ"
+      lore:
+        - "&7Nhấp để chấp nhận yêu cầu dịch chuyển"
+        - "&7đến chỗ &f%player%&7."
+
+    fly-icon:
+      symbol: "F"
+      material: FEATHER
+      display-name: "&bꜰʟʏ ꜱᴛᴀᴛᴜꜱ"
+      lore:
+        - "&7Trạng thái bay: &f%is_flying%"

@@ -1,0 +1,21 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# #######################################################################################################################
+
+# Tùy chỉnh Warps (Warp Configuration)
+warp:
+  # Bật / tắt tính năng Warp (true = bật, false = tắt hoàn toàn và nhả lệnh cho plugin khác)
+  # Enable / disable Warp module (true = enable, false = disable and release command to fallback plugins)
+  enabled: true
+
+  # Thời gian đếm ngược khi dịch chuyển đến Warp (giây)
+  # Countdown before teleporting to warp (seconds)
+  teleport-countdown: 5

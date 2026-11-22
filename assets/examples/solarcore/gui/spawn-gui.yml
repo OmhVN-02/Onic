@@ -1,0 +1,68 @@
+# ───────────────────────────────────────────
+#   SolarCore — Spawn Selection GUI
+# ───────────────────────────────────────────
+
+spawn-gui:
+  name: "&#2C2C2Cꜱᴘᴀᴡɴ ꜱᴇʟᴇᴄᴛɪᴏɴ"
+
+  # Ma trận bố cục (1-5 = Điểm Spawn 1-5, . = Trống, # = Viền)
+  matrix:
+    - "........."
+    - "..12345.."
+    - "........."
+
+  icons:
+    spawn1:
+      symbol: "1"
+      material: "LIGHT_BLUE_DYE"
+      display-name: "&#00B2FFꜱᴘᴀᴡɴ #1"
+      lore:
+        - "&7Số người chơi: &f%players_spawn1%/%max_players_spawn1%"
+        - ""
+        - "&7Nhấp để dịch chuyển đến"
+        - "&7khu vực Spawn này."
+      spawn-number: 1
+
+    spawn2:
+      symbol: "2"
+      material: "LIME_DYE"
+      display-name: "&#00FF00ꜱᴘᴀᴡɴ #2"
+      lore:
+        - "&7Số người chơi: &f%players_spawn2%/%max_players_spawn2%"
+        - ""
+        - "&7Nhấp để dịch chuyển đến"
+        - "&7khu vực Spawn này."
+      spawn-number: 2
+
+    spawn3:
+      symbol: "3"
+      material: "YELLOW_DYE"
+      display-name: "&#FFFF00ꜱᴘᴀᴡɴ #3"
+      lore:
+        - "&7Số người chơi: &f%players_spawn3%/%max_players_spawn3%"
+        - ""
+        - "&7Nhấp để dịch chuyển đến"
+        - "&7khu vực Spawn này."
+      spawn-number: 3
+
+    spawn4:
+      symbol: "4"
+      material: "ORANGE_DYE"
+      display-name: "&#FF8800ꜱᴘᴀᴡɴ #4"
+      lore:
+        - "&7Số người chơi: &f%players_spawn4%/%max_players_spawn4%"
+        - ""
+        - "&7Nhấp để dịch chuyển đến"
+        - "&7khu vực Spawn này."
+      spawn-number: 4
+
+    spawn5:
+      symbol: "5"
+      material: "RED_DYE"
+      display-name: "&#FF0000ꜱᴘᴀᴡɴ #5"
+      lore:
+        - "&7Số người chơi: &f%players_spawn5%/%max_players_spawn5%"
+        - ""
+        - "&7Nhấp để dịch chuyển đến"
+        - "&7khu vực Spawn này."
+      spawn-number: 5

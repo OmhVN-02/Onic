@@ -1,0 +1,102 @@
+title: "Bạn bè"
+# columns: số cột nút; button_width: rộng mỗi nút (được giới hạn để vừa dialog).
+# Nút Quay lại luôn nằm ở footer, không tính vào số cột.
+main:
+  columns: 2
+  button_width: 120
+lists:
+  friends:
+    columns: 2
+    button_width: 120
+  following:
+    columns: 2
+    button_width: 120
+  requests:
+    columns: 2
+    button_width: 120
+  sent:
+    columns: 2
+    button_width: 120
+page_size: 10
+friends: "Bạn bè"
+requests: "Lời mời kết bạn"
+sent: "Lời mời đã gửi"
+following: "Đang theo dõi"
+follow_button: "Theo dõi người chơi"
+cancel: "Hủy lời mời tới %player%?"
+add_button: "Thêm người chơi"
+player_input: "Tên người chơi"
+accept: "&aChấp nhận %player%"
+deny: "&cTừ chối %player%"
+remove: "Xóa bạn %player%?"
+unfollow: "Bỏ theo dõi %player%?"
+confirm: "Xác nhận"
+back: "Quay lại"
+close: "Trở lại trò chơi"
+previous: "Trang trước"
+next: "Trang sau"
+empty: "Danh sách trống"
+friends_empty: "Bạn chưa có bạn bè."
+following_empty: "Bạn chưa theo dõi người chơi nào."
+requests_empty: "Không có lời mời kết bạn."
+sent_empty: "Bạn chưa gửi lời mời kết bạn nào."
+continue: "Tiếp tục"
+search_empty: "Không tìm thấy người chơi."
+search_description: "Chọn người chơi bên dưới hoặc nhập tên rồi bấm Tiếp tục để tìm kiếm."
+# Dialog nằm cùng cấp với thư mục gui; reload bằng /solarcore reload.
+entry:
+  online: "&aOnline"
+  offline: "&7Offline"
+  tooltip: "%relationship%\n%status%\n\n&eNhấp để chỉnh sửa"
+search:
+  columns: 2
+  button_width: 120
+  # Lưới kết quả phía dưới ô tìm kiếm và nút Tiếp tục.
+  results:
+    columns: 2
+    button_width: 120
+  title: "Tìm bạn bè"
+  description: "Nhập tên người chơi để tìm kiếm."
+  confirm: "&aTìm kiếm"
+  cancel: "&cHủy"
+# Menu hồ sơ khi bấm một người trong danh sách bạn bè/theo dõi.
+# Quyền riêng chỉ giới hạn thêm, không bỏ qua quyền riêng tư chung trong Settings.
+profile:
+  columns: 2
+  title: "%player%"
+  button_width: 120
+  stats_button: "Xem thống kê"
+  pay_button: "Thanh toán"
+  teleport_button: "Dịch chuyển"
+  settings_button: "Cài đặt riêng"
+  unfollow_button: "&cBỏ theo dõi"
+  remove_button: "&cXóa bạn"
+  unfollow_confirm: "Bỏ theo dõi %player%?"
+  remove_confirm: "Xóa bạn %player%?"
+  confirm: "Xác nhận"
+  back: "Quay lại"
+  stats_title: "Thống kê %player%"
+  money: "&7Tiền: &a$ &f%value%"
+  kills: "&7Mạng giết: &f%value%"
+  deaths: "&7Lần chết: &f%value%"
+  playtime: "&7Thời gian chơi: &f%value%"
+  playtime_format: "%days% ngày / %hours% giờ / %minutes% phút"
+  unknown: "Chưa có dữ liệu"
+  offline_note: "&8Offline — thống kê lần lưu gần nhất."
+  teleport_title: "Dịch chuyển với %player%"
+  teleport_to: "Dịch chuyển đến"
+  teleport_here: "Mời dịch chuyển đến đây"
+  settings_title: "%player% — Cài đặt riêng"
+  settings_description: "Quyền người này tương tác với bạn; vẫn áp dụng cài đặt riêng tư chung."
+  status_on: "&aBật"
+  status_off: "&cTắt"
+  settings:
+    columns: 2
+    button_width: 120
+    tpa_requests: "Có thể gửi TPA đến bạn: %status%"
+    tpa_here_requests: "Có thể mời bạn dịch chuyển: %status%"
+    tpa_auto: "Tự động chấp nhận TPA: %status%"
+    payments: "Có thể trả tiền cho bạn: %status%"
+  teleport:
+    columns: 2
+    button_width: 120

@@ -1,0 +1,44 @@
+home:
+  # Bật/tắt tính năng Home (true/false)
+  # Enable/disable Home feature (true/false)
+  enabled: true
+  teleport-countdown: 3
+  teleport-cooldown: 3
+  gui-enabled: true
+  per-home-cooldown: -1
+
+  # Giới hạn home mặc định (không có permission nào khớp)
+  default-limit: 3
+  # Ô Nhà #1...#N hiện sẵn; bấm ô trống mới nhập tên và lưu vị trí.
+
+  # Các tier giới hạn home — từ 1 đến 100, không có quyền vô hạn.
+  # Plugin sẽ lấy limit cao nhất mà player có permission
+  # Quyền OP hoặc * cũng không vượt quá 100 nhà.
+  limit-tiers:
+    vip:
+      permission: "solarcore.home.vip"
+      limit: 5
+    vip-plus:
+      permission: "solarcore.home.vip+"
+      limit: 8
+    mvp:
+      permission: "solarcore.home.mvp"
+      limit: 12
+    mvp-plus:
+      permission: "solarcore.home.mvp+"
+      limit: 16
+    titan:
+      permission: "solarcore.home.titan"
+      limit: 24
+    admin:
+      permission: "solarcore.home.admin"
+      limit: 50
+
+  # Blacklist world — không cho phép đặt home tại đây
+  # Áp dụng cả lệnh /sethome lẫn click ô trống trong GUI
+  # Tên world phân biệt hoa thường, phải khớp chính xác với tên trong server
+  blacklisted-worlds:
+    enabled: true
+    worlds:
+      - "world_nether"
+      - "world_the_end"

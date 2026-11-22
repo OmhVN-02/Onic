@@ -1,0 +1,76 @@
+# Menu Dialog gốc, không phải inventory GUI nên không dùng matrix.
+# /servermenu mở menu này trực tiếp. ESC sử dụng menu root khi có PacketEvents.
+# Đổi bố cục ESC: /solarcore reload rồi kết nối lại. Lệnh nút cập nhật ngay.
+# Thêm bao nhiêu nút/menu tùy ý; id và key dùng chữ thường.
+# action: player_command (quyền của người chơi), console_command (quyền console),
+# url (http/https), menu (id menu con), rtp_quick, close.
+# permission để trống là ai cũng bấm được; console_command phải đặt quyền phù hợp.
+# Placeholder lệnh: %player%, %uuid%. URL không thực thi lệnh.
+# footer: true đặt nút dưới cùng, tách khỏi lưới. Mỗi menu chỉ nên có một footer.
+# columns của từng menu quyết định số cột (>= 1), không tự đổi theo menu cha.
+# /solarcore reload cập nhật menu mở bằng lệnh; kết nối lại để cập nhật menu ESC.
+root: main
+menus:
+  main:
+    title: "SolarCore"
+    external_title: "SolarCore"
+    body: []
+    columns: 2
+    button_width: 150
+    buttons:
+      homes:
+        label: "Nhà"
+        action: player_command
+        value: homes
+      rtp:
+        label: "Dịch chuyển ngẫu nhiên"
+        action: player_command
+        value: rtp
+      rtp_quick:
+        label: "RTP nhanh"
+        action: rtp_quick
+        permission: solarcore.rtp.use
+      balance:
+        label: "Số dư"
+        action: player_command
+        value: balance
+      pay:
+        label: "Thanh toán"
+        action: player_command
+        value: pay
+      top:
+        label: "Bảng xếp hạng"
+        action: player_command
+        value: leaderboard
+      settings:
+        label: "Cài đặt"
+        action: player_command
+        value: settings
+      friends:
+        label: "Bạn bè"
+        action: player_command
+        value: "solarcore:friends"
+        permission: solarcore.social
+      close:
+        footer: true
+        label: "Trở lại trò chơi"
+        action: close
+  settings:
+    title: "Cài đặt chuyển tiền"
+    columns: 2
+    button_width: 150
+    buttons:
+      acceptance:
+        label: "Bật / tắt nhận pay"
+        action: player_command
+        value: paytoggle
+      notifications:
+        label: "Bật / tắt thông báo pay"
+        action: player_command
+        value: paynotify
+      back:
+        footer: true
+        label: "Quay lại"
+        action: menu
+        value: main
+# Dialog nằm cùng cấp với thư mục gui; reload bằng /solarcore reload.

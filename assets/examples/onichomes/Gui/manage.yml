@@ -1,0 +1,33 @@
+title: "§8            ᴍᴀɴᴀɢᴇ ʜᴏᴍᴇ"
+# Hopper có 5 slot. '#' là slot trống.
+layout:
+  - "crm#t"
+
+items:
+  coordinate:
+    material: OAK_SIGN
+    name: "&#7BFF00ᴄᴏᴏʀᴅɪɴᴀᴛᴇ"
+    lore:
+      - "&fNhấn để xem tọa độ"
+    symbol: 'c'
+  rename:
+    material: NAME_TAG
+    name: "&#7BFF00ʀᴇɴᴀᴍᴇ"
+    lore:
+      - "&fNhấn để đổi tên"
+    symbol: 'r'
+  material:
+    material: YELLOW_BED
+    name: "&#7BFF00ᴍᴀᴛᴇʀɪᴀʟ"
+    lore:
+      - "&fNhấn để chọn item hiển thị"
+    symbol: 'm'
+  teleport:
+    material: ENDER_PEARL
+    name: "&#7BFF00ᴛᴇʟᴇᴘᴏʀᴛ"
+    lore:
+      - "&fNhấn để dịch chuyển"
+    symbol: 't'
+      
+sounds:
+  click: "UI_BUTTON_CLICK"

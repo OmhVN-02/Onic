@@ -1,0 +1,159 @@
+# ───────────────────────────────────────────
+#   SolarCore — Home GUI
+# ───────────────────────────────────────────
+
+home-gui:
+  title: "&#2C2C2Cʜᴏᴍᴇ ᴍᴀɴᴀɢᴇʀ"
+
+  # Ma trận bố cục (H = Ô Home, < = Trang trước, > = Trang tiếp, . = Ô trống)
+  # Hai hàng nhà, mỗi biểu tượng có nút tạo/xóa ngay bên dưới.
+  matrix:
+    - "........."
+    - ".HHHHHHH."
+    - ".AAAAAAA."
+    - ".HHHHHHH."
+    - ".AAAAAAA."
+    - "<.......>"
+  create-button:
+    material: LIGHT_GRAY_DYE
+    display-name: "&7Tạo nhà"
+    lore:
+      - "&fNhấn để đặt tên và lưu vị trí hiện tại."
+  remove-button:
+    material: YELLOW_DYE
+    display-name: "&eXóa %home_name%"
+    lore:
+      - "&fNhấn để xác nhận xóa nhà."
+
+  # ── Icon home đã có ──────────────────────────────────────────
+  home-icon:
+    material: "YELLOW_BED"
+    display-name: "&fʜᴏᴍᴇ &b%home_name%"
+    lore:
+      - "&7Thế giới: &f%world%"
+      - ""
+      - "&eNhấp để mở menu chỉnh sửa & quản lý."
+
+  # ── Icon home bị khóa tạm ─────────────────────────────────────
+  locked-home-icon:
+    material: "GRAY_BED"
+    display-name: "&8ʜᴏᴍᴇ &7%home_name% &4[ʟᴏᴄᴋᴇᴅ]"
+    lore:
+      - "&7Thế giới: &f%world%"
+      - ""
+      - "&cĐiểm nhà này bị khóa do vượt quá giới hạn."
+      - "&7Khôi phục quyền hạn để mở lại."
+      - ""
+      - "&eNhấp để mở menu chỉnh sửa / xóa."
+
+  # ── Ô trống trong giới hạn ────────────────────────────────────
+  empty-slot-icon:
+    material: "LIGHT_GRAY_BED"
+    display-name: "&7Nhà #%home_index%"
+    lore:
+      - "&7Nhấp để đặt tên và lưu nhà tại vị trí này."
+
+  # ── Ô bị khóa (vượt giới hạn) ────────────────────────────────
+  locked-slot-icon:
+    material: "GRAY_STAINED_GLASS_PANE"
+    display-name: "&4ʟᴏᴄᴋᴇᴅ"
+    lore:
+      - "&7Cần thêm quyền hạn để mở rộng điểm nhà."
+      - "&7Nâng cấp tại &b/store&7."
+
+  # ── Nút trang trước ──────────────────────────────────────────
+  prev-page-button:
+    material: "ARROW"
+    display-name: "&7« ᴘʀᴇᴠɪᴏᴜꜱ ᴘᴀɢᴇ"
+    lore:
+      - "&7Nhấp để quay lại trang trước."
+
+  # ── Nút trang tiếp ───────────────────────────────────────────
+  next-page-button:
+    material: "ARROW"
+    display-name: "&7ɴᴇxᴛ ᴘᴀɢᴇ »"
+    lore:
+      - "&7Nhấp để chuyển sang trang tiếp theo."
+
+# ───────────────────────────────────────────
+#   GUI Quản lý / Chỉnh sửa Home
+# ───────────────────────────────────────────
+edit-home-gui:
+  title: "&#2C2C2Cʜᴏᴍᴇ: &b%home_name%"
+
+  # Ma trận bố cục (T = Dịch chuyển, I = Info, R = Đổi tên, D = Xóa, < = Quay lại, . = Trống)
+  type: HOPPER
+  matrix:
+    - "RI<.T"
+
+  # Icon thông tin Home
+  info-icon:
+    material: "BLUE_BED"
+    display-name: "&fʜᴏᴍᴇ &b%home_name%"
+    lore:
+      - "&7Thế giới: &f%world%"
+      - ""
+      - "&7Quản lý điểm nhà của bạn."
+
+  # Nút Dịch chuyển (Teleport)
+  teleport-button:
+    material: "ENDER_PEARL"
+    display-name: "&aᴅịᴄʜ ᴄʜᴜʏểɴ"
+    lore:
+      - "&7Nhấp để dịch chuyển về &b%home_name%&7."
+
+  # Nút Đổi tên Home (Rename)
+  rename-button:
+    material: "NAME_TAG"
+    display-name: "&eđổɪ ᴛêɴ ʜᴏᴍᴇ"
+    lore:
+      - "&7Tên hiện tại: &b%home_name%"
+      - ""
+      - "&eNhấp để nhập tên mới."
+
+  # Nút Xóa Home (Delete)
+  delete-button:
+    material: "LAVA_BUCKET"
+    display-name: "&cxóᴀ ʜᴏᴍᴇ"
+    lore:
+      - "&7Nhấp để xóa điểm nhà &c%home_name%&7."
+
+  # Nút Quay lại (Back)
+  back-button:
+    material: "ARROW"
+    display-name: "&7« ǫᴜᴀʏ ʟạɪ"
+    lore:
+      - "&7Nhấp để quay lại danh sách Home."
+
+# ───────────────────────────────────────────
+#   GUI Xác nhận xóa Home
+# ───────────────────────────────────────────
+delete-confirm-gui:
+  title: "&#2C2C2Cᴄᴏɴꜰɪʀᴍ ᴅᴇʟᴇᴛᴇ ʜᴏᴍᴇ"
+
+  # Ma trận bố cục (C = Confirm Xóa, A = Cancel Hủy, . = Trống)
+  type: HOPPER
+  matrix:
+    - "C.I.A"
+  info-icon:
+    material: YELLOW_BED
+    display-name: "&e%home_name%"
+    lore:
+      - "&7Xác nhận xóa nhà này."
+
+  # Nút XÁC NHẬN XÓA (Kính Xanh)
+  confirm-button:
+    material: "LIME_STAINED_GLASS_PANE"
+    display-name: "&a✔ ᴄᴏɴꜰɪʀᴍ ᴅᴇʟᴇᴛᴇ"
+    lore:
+      - "&7Xác nhận xóa điểm nhà &b%home_name%&7."
+      - "&7Thế giới: &f%world%"
+      - ""
+      - "&cHành động này không thể hoàn tác!"
+
+  # Nút HỦY BỎ (Kính Đỏ)
+  cancel-button:
+    material: "RED_STAINED_GLASS_PANE"
+    display-name: "&c✖ ᴄᴀɴᴄᴇʟ"
+    lore:
+      - "&7Nhấp để hủy thao tác xóa điểm nhà."

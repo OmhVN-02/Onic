@@ -6,6 +6,7 @@ window.ONIC_PRODUCT_GROUPS = [
   {id:'beta',vi:'Beta (thử nghiệm)',en:'Beta (experimental)'}
 ];
 const additionalProducts = [
+  {id:'onichomes',name:'OnicHomes',icon:'⌂',category:'onic'},
   {id:'scombat',name:'Scombat',icon:'⚔',category:'solar'},
   {id:'onicsus',name:'OnicSus',icon:'◈',category:'onic'},
   {id:'onickits',name:'OnicKits',icon:'▣',category:'onic'},

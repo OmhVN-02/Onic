@@ -1,0 +1,62 @@
+# Xóa tệp rồi reload để dùng GUI rương. Không tự tạo lại sau khi đã cài lần đầu.
+# Đơn vị chiều rộng là GUI unit; client tự cuộn. columns giữ đúng cấu hình.
+columns: 2
+button_width: 150
+main:
+  # auto = tự chọn theo phiên bản người chơi; gui = danh sách nhà dạng rương OnicHomes, dialog = danh sách dạng dialog.
+  display-mode: auto
+  title: "Nhà"
+  description: "Chọn nhà để quản lý (%count%/%limit%)"
+  columns: 2
+  button_width: 150
+  # Mỗi cột luôn có 5 biểu tượng. Số mục mỗi trang = columns × 5.
+  home-button: "&a%home%"
+  empty-button: "&7Nhà #%slot%"
+  empty-tooltip: "&eNhấp để đặt tên và lưu nhà tại vị trí hiện tại."
+details:
+  title: "%home%"
+  columns: 1
+  button_width: 300
+  teleport: "&aDịch chuyển"
+  rename: "Đổi tên"
+  icon: "Đổi biểu tượng"
+  delete: "&cXóa nhà"
+create:
+  title: "Tạo nhà"
+  columns: 1
+  button_width: 300
+rename:
+  title: "Đổi tên nhà"
+  columns: 1
+  button_width: 300
+input:
+  description: "Để trống để dùng tên Nhà # theo số ô. Tên riêng gồm 1–24 chữ, số, dấu - hoặc _."
+  label: "Tên nhà"
+  confirm: "&aLưu"
+icons:
+  title: "Biểu tượng: %home%"
+  description: "Chọn biểu tượng Minecraft cho nhà này. Không tiêu hao vật phẩm."
+  columns: 4
+  rows: 10
+  button-width: 135
+  search-label: "Tìm biểu tượng"
+  search-button: "Tìm kiếm"
+  search-empty: "&cKhông tìm thấy biểu tượng. Xóa nội dung ô tìm để hiện tất cả."
+  # Tự chọn atlas: 1.21.9–1.21.10 dùng blocks, 1.21.11+ dùng items cho vật phẩm.
+  atlas: "auto"
+  # Danh sách tự lấy toàn bộ vật phẩm Minecraft của server và chia trang.
+  # Plugin tự chọn texture vật phẩm hoặc mặt đại diện của block.
+  # Có thể ghi đè texture riêng theo Material.
+  # Ví dụ: DIAMOND: "minecraft:item/diamond"
+  sprites: {}
+delete:
+  title: "Xóa nhà %home%?"
+  description: "&cXóa nhà này? Hành động không thể hoàn tác."
+  confirm: "&cXóa nhà"
+  columns: 1
+  button_width: 300
+common:
+  back: "Quay lại"
+  close: "Trở lại trò chơi"
+  previous: "« Trang trước"
+  next: "Trang sau »"

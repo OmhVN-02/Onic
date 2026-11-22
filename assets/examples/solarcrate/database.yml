@@ -3,6 +3,12 @@
 
 #  01  |  LOẠI LƯU TRỮ
 database:
+  # Key ảo mặc định lưu bằng SQL. Đặt key-store: REDIS để dùng Redis.
+  # Đổi backend không tự chuyển số dư. Bật AOF/RDB trên Redis để lưu bền.
+  key-store: SQL
+  redis:
+    uri: "redis://localhost:6379/0"
+    prefix: "solarcrate:keys:"
   type: SQLITE   # SQLITE, MYSQL, or MARIADB
   #  02  |  KẾT NỐI MYSQL / MARIADB
   mysql:
@@ -10,9 +16,9 @@ database:
     port: 3306
     database: solarcrate
     username: root
-    password: ""
+    password: "CHANGE_ME"
     pool-size: 10
 
 #  03  |  PHIÊN BẢN CẤU HÌNH
 # Không chỉnh sửa dòng dưới.
-config-version: "1.4"
+config-version: "${project.version}"

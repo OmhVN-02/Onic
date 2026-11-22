@@ -1,0 +1,301 @@
+# ==============================================================
+#           Configuration for Modern Paper Dialog GUI
+#         Supports Minecraft 1.21.6+ Paper Dialog Form API
+# ==============================================================
+
+dialog:
+  # auto: chọn theo phiên bản client | dialog: ưu tiên dialog | gui: luôn mở rương.
+  display-mode: auto
+  title: "Cài đặt"
+  external-title: "Cài đặt"
+  description: "Chọn mục bạn muốn thay đổi."
+  status-on: "&aBẬT"
+  status-off: "&cTẮT"
+  back-button: "Quay lại"
+  saved-sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  submenu-columns: 1
+  submenu-button-width: 308
+  submenu-exit-width: 200
+
+main-menu:
+  columns: 2
+  button-width: 150
+  exit-button-width: 200
+  exit-button: "Quay về"
+  actions:
+    - general
+    - chat
+    - notifications
+    - pvp
+    - display
+    - privacy
+    - scoreboard
+
+categories:
+  chat:
+    name: "Trò chuyện"
+    title: "Cài đặt – Trò chuyện"
+    back-button: "Quay lại"
+    items:
+      public_chat:
+        label: "Trò chuyện chung"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      private_messages:
+        label: "Tin nhắn riêng"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 1
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      chat_ping:
+        label: "Ping trong chat"
+        description: "Chọn ai được ping bạn qua SolarChat."
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 0
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      chat_server_messages:
+        label: "Thông báo máy chủ trong chat"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      hotbar_server_messages:
+        label: "Thông báo trên thanh trạng thái"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      advancement_messages:
+        label: "Thông báo thành tựu"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 1
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      join_leave_messages:
+        label: "Thông báo tham gia và rời máy chủ"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 1
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  notifications:
+    name: "Thông báo"
+    title: "Cài đặt – Thông báo"
+    back-button: "Quay lại"
+    items:
+      pay_alerts:
+        label: "Thông báo nhận tiền"
+        command: "paynotify"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      teleport_alerts:
+        label: "Thông báo dịch chuyển"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      bounty_alerts:
+        label: "Thông báo truy nã"
+        command: "bountytoggle"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      auction_alerts:
+        label: "Thông báo đấu giá"
+        command: "auctiontoggle"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      order_alerts:
+        label: "Thông báo đơn hàng"
+        command: "order toggle"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      server_sounds:
+        label: "Âm thanh máy chủ"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      follow_alerts:
+        label: "Thông báo theo dõi"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  pvp:
+    name: "PvP"
+    title: "Cài đặt – PvP"
+    back-button: "Quay lại"
+    items:
+      totem_particles:
+        label: "Hiệu ứng vật tổ"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      explosion_particles:
+        label: "Hiệu ứng vụ nổ"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      explosion_sounds:
+        label: "Âm thanh vụ nổ"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      combat_timer:
+        label: "Hẹn giờ giao tranh"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  display:
+    name: "Hiển thị"
+    title: "Cài đặt – Hiển thị"
+    back-button: "Quay lại"
+    items:
+      # Bật: thấy người chơi khác. Tắt: ẩn họ trong world/region cấu hình.
+      # Không phải vanish và không thay đổi cài đặt ẩn tên của chính bạn.
+      player_visibility:
+        label: "Hiển thị người chơi"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      display_rank:
+        label: "Hiển thị hạng trên TAB"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      worth_display:
+        label: "Giá trị vật phẩm"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      tpa_confirm_menu:
+        label: "Xác nhận dịch chuyển"
+        command: "tpaconfirmtoggle"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  privacy:
+    name: "Quyền riêng tư"
+    title: "Cài đặt – Quyền riêng tư"
+    back-button: "Quay lại"
+    items:
+      duels_requests:
+        label: "Nhận lời mời đấu tay đôi"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      tpa_requests:
+        label: "Yêu cầu dịch chuyển"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 0
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      tpa_here_requests:
+        label: "Yêu cầu dịch chuyển đến đây"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 0
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      payments:
+        label: "Cho phép nhận tiền"
+        type: CYCLE
+        options:
+          - "&aBất kỳ ai"
+          - "&eBạn bè/Đang theo dõi"
+          - "&cTẮT"
+        default: 0
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      randomized_coords:
+        label: "Ẩn tọa độ F3"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      private_transactions:
+        label: "Giao dịch riêng tư"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  scoreboard:
+    name: "Bảng điểm"
+    command: "sb"
+    setting_key: "scoreboard"
+    default: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  general:
+    name: "Chung"
+    title: "Cài đặt – Chung"
+    back-button: "Quay lại"
+    items:
+      auto_afk:
+        label: "Tự động AFK"
+        description: "Bật hoặc tắt tự động AFK của SolarAFK, giữ nguyên chế độ đang dùng."
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      pay_presets:
+        label: "Số tiền chuyển nhanh"
+        type: ACTION
+        action: pay_presets
+      quick_auction_buy:
+        label: "Mua đấu giá nhanh"
+        command: "quickbuy"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      quick_auction_sell:
+        label: "Bán đấu giá nhanh"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      mob_spawns:
+        label: "Cho phép sinh quái"
+        type: BOOLEAN
+        default: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      phantom_spawning:
+        label: "Cho phép sinh ma bay"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      hide_name:
+        label: "Ẩn tên"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      night_vision:
+        label: "Nhìn trong bóng tối"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      destroy_pearl_death:
+        # Xóa thực thể ngọc đã ném đang được theo dõi; không xóa vật phẩm trong túi.
+        # Không thay đổi gamerule enderPearlsVanishOnDeath của world.
+        label: "Xóa ngọc Ender khi chết"
+        type: BOOLEAN
+        default: false
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+# Dialog nằm cùng cấp với thư mục gui; reload bằng /solarcore reload.

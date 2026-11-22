@@ -1,0 +1,11 @@
+title: "&fRename Home"
+icon: "OAK_SIGN"
+input-label: "&fNew Name"
+
+buttons:
+  cancel: "&cCancel"
+  confirm: "&aRename"
+
+# Client tự phát tiếng click khi bấm nút Dialog; chỉ cấu hình âm báo lỗi trùng tên.
+sounds:
+  error: "ENTITY_VILLAGER_NO"

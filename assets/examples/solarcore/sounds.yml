@@ -1,0 +1,181 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# Danh sách sound Minecraft: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+# Tất cả âm thanh của toàn bộ modules SolarCore đều được cấu hình tập trung tại đây.
+#
+# #######################################################################################################################
+
+sounds:
+
+  # ── TPA / Teleport ───────────────────────────────────────────────────────────
+
+  # Khi gửi yêu cầu TPA thành công
+  request-sent: "BLOCK_NOTE_BLOCK_CHIME"
+
+  # Khi nhận được yêu cầu TPA từ người khác
+  request-received: "BLOCK_NOTE_BLOCK_PLING"
+
+  # Tick đếm ngược teleport (phát mỗi giây)
+  countdown: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Khi teleport hoàn tất
+  teleport: "ENTITY_PLAYER_LEVELUP"
+
+  # Khi click icon thông tin (info)
+  info-click: "BLOCK_TRIPWIRE_CLICK_ON"
+
+  # Khi xảy ra lỗi (ví dụ: hết cooldown, không đủ quyền...)
+  error: "ENTITY_VILLAGER_NO"
+
+  # Khi chấp nhận yêu cầu TPA
+  accept: "ENTITY_PLAYER_LEVELUP"
+
+  # Khi huỷ / từ chối yêu cầu TPA
+  cancel: "ENTITY_ITEM_BREAK"
+
+  # Khi bật chế độ TPAuto
+  tpauto-enable: "BLOCK_BEACON_ACTIVATE"
+
+  # Khi tắt chế độ TPAuto
+  tpauto-disable: "BLOCK_BEACON_DEACTIVATE"
+
+  # ── RTP ──────────────────────────────────────────────────────────────────────
+
+  # Tick đếm ngược RTP
+  rtp-countdown: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Khi RTP teleport hoàn tất
+  rtp-success: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  # Khi RTP bị huỷ (do di chuyển / bị tấn công)
+  rtp-cancelled: "ENTITY_VILLAGER_NO"
+
+  # ── Sus GUI / Inspect ─────────────────────────────────────────────────────────
+
+  # Mở GUI Sus
+  sus-open: "BLOCK_CHEST_OPEN"
+
+  # Click vào item trong GUI Sus
+  sus-click: "UI_BUTTON_CLICK"
+
+  # Teleport đến vị trí player trong Sus
+  sus-teleport: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Thực hiện ban player
+  sus-ban: "ENTITY_WITHER_SPAWN"
+
+  # Thực hiện banip player
+  sus-banip: "ENTITY_WITHER_SPAWN"
+
+  # Đổi kiểu sắp xếp danh sách Sus
+  sus-sort: "BLOCK_TRIPWIRE_CLICK_ON"
+
+  # Chuyển trang trong danh sách Sus
+  sus-page: "ITEM_BOOK_PAGE_TURN"
+
+  # Xác nhận hành động trong Sus
+  sus-confirm: "BLOCK_NOTE_BLOCK_BASS"
+
+  # Huỷ hành động trong Sus
+  sus-cancel: "ENTITY_VILLAGER_NO"
+
+  # Xoá dữ liệu Sus của player
+  sus-clear: "BLOCK_GRAVEL_BREAK"
+
+  # ── Freeze (Đóng Băng) ───────────────────────────────────────────────────────
+
+  # Âm thanh khi người chơi bị đóng băng (Freeze)
+  freeze: "BLOCK_ANVIL_LAND"
+
+  # Âm thanh khi người chơi được mở đóng băng (Unfreeze)
+  freeze-unfreeze: "ENTITY_PLAYER_LEVELUP"
+
+  # Âm thanh cảnh báo cho Staff khi người chơi thoát game trong lúc đang bị Freeze
+  freeze-logout-alert: "ENTITY_ENDER_DRAGON_GROWL"
+
+  # ── Staff Mode (Chế Độ Staff) ────────────────────────────────────────────────
+
+  # Khi bật Staff Mode
+  staffmode-enable: "BLOCK_BEACON_ACTIVATE"
+
+  # Khi tắt Staff Mode
+  staffmode-disable: "BLOCK_BEACON_DEACTIVATE"
+
+  # Khi bật tàng hình (Vanish On)
+  staffmode-vanish-on: "ENTITY_ILLUSIONER_MIRROR_MOVE"
+
+  # Khi tắt tàng hình (Vanish Off)
+  staffmode-vanish-off: "ENTITY_ILLUSIONER_PREPARE_BLINDNESS"
+
+  # Khi bật chế độ quan sát BetterView On
+  staffmode-betterview-on: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  # Khi tắt chế độ quan sát BetterView Off
+  staffmode-betterview-off: "BLOCK_NOTE_BLOCK_BASS"
+
+  # Khi dịch chuyển ngẫu nhiên người chơi (Random TP)
+  staffmode-randomtp: "ENTITY_ENDERMAN_TELEPORT"
+
+  # ── Vault (Kho Cá Nhân - PlayerVaults) ────────────────────────────────────────
+
+  # Khi mở kho cá nhân Vault
+  vault-open: "BLOCK_CHEST_OPEN"
+
+  # Khi đóng / lưu kho cá nhân Vault
+  vault-close: "BLOCK_CHEST_CLOSE"
+
+  # Khi bấm vào Vault đang bị khóa (chưa có quyền)
+  vault-locked: "ENTITY_VILLAGER_NO"
+
+  # Khi mở khóa hoặc thao tác thành công trong Vault
+  vault-success: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  # ── Region Flight & Double Jump ──────────────────────────────────────────────
+
+  # Khi được cấp quyền bay trong khu vực
+  flight-enable: "BLOCK_BEACON_ACTIVATE"
+
+  # Khi mất quyền bay ra khỏi khu vực
+  flight-disable: "BLOCK_BEACON_DEACTIVATE"
+
+  # Khi thực hiện nhảy 2 lần (Double Jump)
+  flight-double-jump: "ENTITY_BAT_TAKEOFF"
+
+  # ── Spawn Stash (Kho Rơi Đồ Khi Chết Tại Spawn) ──────────────────────────────
+
+  # Khi nhận thông báo đồ rơi được chuyển vào Spawn Stash
+  spawnstash-receive: "BLOCK_NOTE_BLOCK_BELL"
+
+  # Khi nhận lại đồ từ Spawn Stash
+  spawnstash-claim: "ENTITY_ITEM_PICKUP"
+
+  # ── Home, Spawn, Warps, Death ────────────────────────────────────────────────
+
+  # Dịch chuyển về Home
+  home-teleport: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Đặt điểm Home mới
+  home-set: "BLOCK_NOTE_BLOCK_PLING"
+
+  # Xóa điểm Home
+  home-delete: "BLOCK_NOTE_BLOCK_BASS"
+
+  # Dịch chuyển về Spawn
+  spawn-teleport: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Dịch chuyển đến Warp
+  warp-teleport: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Dịch chuyển về điểm chết (Back)
+  back-teleport: "ENTITY_ENDERMAN_TELEPORT"
+
+  # Ghi nhận vị trí tử vong
+  death-recorded: "ENTITY_EXPERIENCE_ORB_PICKUP"

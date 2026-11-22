@@ -1,0 +1,54 @@
+title: "§8ʏᴏᴜʀ ʜᴏᴍᴇs"
+# Cấu trúc Ma trận: 
+# '#' = Ô trống (Không có item)
+layout:
+  - "#########"
+  - "#bbbbbbb#"
+  - "#ddddddd#"
+  - "#bbbbbbb#"
+  - "#ddddddd#"
+  - "#########"
+
+# Định nghĩa Symbol cho các loại Slot hiển thị Home
+symbols:
+  bed: 'b'
+  dye: 'd'
+
+sounds:
+  click-no-perm: "ENTITY_VILLAGER_NO"
+  click-success: "UI_BUTTON_CLICK"
+
+states:
+  has-home:
+    bed:
+      fallback-material: "YELLOW_BED"
+      name: "&#FFEE00%home_name_smallcaps%"
+      lore:
+        - "&fNhấn để quản lí home."
+    dye:
+      material: "YELLOW_DYE"
+      name: "&#FFEE00ʀᴇᴍᴏᴠᴇ ʜᴏᴍᴇ"
+      lore:
+        - "&fNhấn để xóa home."
+  no-home:
+    bed:
+      material: "LIGHT_GRAY_BED"
+      name: "&7%home_name_smallcaps%"
+      lore:
+        - "&fNhấn để tạo home."
+    dye:
+      material: "LIGHT_GRAY_DYE"
+      name: "&7ᴄʀᴇᴀᴛᴇ ʜᴏᴍᴇ"
+      lore:
+        - "&fNhấn để tạo home."
+  no-perm:
+    bed:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: "&#FF001Aɴᴏ ᴘᴇʀᴍɪssɪᴏɴ"
+      lore:
+        - "&fBạn cần mua &#FF001Aʀᴀɴᴋ &fđể tạo thêm home."
+    dye:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: "&#FF001Aɴᴏ ᴘᴇʀᴍɪssɪᴏɴ"
+      lore:
+        - "&fBạn cần mua &#FF001Aʀᴀɴᴋ &fđể tạo thêm home."

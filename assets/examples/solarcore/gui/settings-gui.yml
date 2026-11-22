@@ -1,0 +1,223 @@
+title: "Cài đặt"
+matrix:
+  - "....c...."
+  - ".ABCDEFG."
+  - ".HIJKLMN."
+  - ".OPQRSTU."
+  - ".VWXYZab."
+  - "........."
+items:
+  auto_afk:
+    symbol: "c"
+    material: "CLOCK"
+    display-name: "&aTự động AFK"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  chat_ping:
+    symbol: "M"
+    material: "BELL"
+    display-name: "&aPing trong chat"
+    lore: "&fAi được ping bạn: %status%"
+    options:
+      - "&aBất kỳ ai"
+      - "&eBạn bè/Đang theo dõi"
+      - "&cTẮT"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  public_chat:
+    symbol: "A"
+    material: "OAK_SIGN"
+    display-name: "&aTrò chuyện chung"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  private_messages:
+    symbol: "B"
+    material: "PAPER"
+    display-name: "&aTin nhắn riêng"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  chat_server_messages:
+    symbol: "C"
+    material: "WRITABLE_BOOK"
+    display-name: "&aThông báo máy chủ trong chat"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  hotbar_server_messages:
+    symbol: "D"
+    material: "COMPASS"
+    display-name: "&aThông báo trên thanh trạng thái"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  pay_alerts:
+    symbol: "E"
+    material: "GOLD_INGOT"
+    display-name: "&aThông báo nhận tiền"
+    command: "paynotify"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  bounty_alerts:
+    symbol: "F"
+    material: "DIAMOND_SWORD"
+    display-name: "&aThông báo truy nã"
+    lore: "&fTrạng thái: %status%"
+    command: "bountytoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  auction_alerts:
+    symbol: "G"
+    material: "CHEST"
+    display-name: "&aThông báo đấu giá"
+    lore: "&fTrạng thái: %status%"
+    command: "auctiontoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  totem_particles:
+    symbol: "I"
+    material: "TOTEM_OF_UNDYING"
+    display-name: "&aHiệu ứng vật tổ"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  explosion_particles:
+    symbol: "J"
+    material: "TNT"
+    display-name: "&aHiệu ứng vụ nổ"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  explosion_sounds:
+    symbol: "K"
+    material: "BELL"
+    display-name: "&aÂm thanh vụ nổ"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  quick_auction_buy:
+    symbol: "L"
+    material: "GOLD_BLOCK"
+    display-name: "&aMua đấu giá nhanh"
+    lore: "&fTrạng thái: %status%"
+    command: "quickbuy"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: false
+  holograms:
+    symbol: "N"
+    material: "GLOW_ITEM_FRAME"
+    display-name: "&aHiển thị chữ nổi"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  player_visibility:
+    symbol: "O"
+    material: "ENDER_EYE"
+    display-name: "&aHiển thị người chơi"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  scoreboard:
+    symbol: "P"
+    material: "NAME_TAG"
+    display-name: "&#08FB7Bsᴄᴏʀᴇʙᴏᴀʀᴅ"
+    lore: "&fTrạng thái: %status%"
+    command: "sb"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  tpa_confirm_menu:
+    symbol: "Q"
+    material: "ENDER_PEARL"
+    display-name: "&aXác nhận dịch chuyển"
+    lore: "&fTrạng thái: %status%"
+    command: "tpaconfirmtoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  after_duel_songs:
+    symbol: "R"
+    material: "JUKEBOX"
+    display-name: "&aNhạc sau trận đấu"
+    lore: "&fTrạng thái: %status%"
+    command: "duelsongtoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  mob_spawns:
+    symbol: "S"
+    material: "ZOMBIE_HEAD"
+    display-name: "&aCho phép sinh quái"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  sounds_notifications:
+    symbol: "T"
+    material: "NOTE_BLOCK"
+    display-name: "&aÂm thanh thông báo"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  order_notifications:
+    symbol: "U"
+    material: "HOPPER"
+    display-name: "&aThông báo đơn hàng"
+    lore: "&fTrạng thái: %status%"
+    command: "order toggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  duels_requests:
+    symbol: "V"
+    material: "DIAMOND_SWORD"
+    display-name: "&aYêu cầu đấu tay đôi"
+    lore: "&fTrạng thái: %status%"
+    command: "duelstoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  tpa_requests:
+    symbol: "W"
+    material: "ENDER_PEARL"
+    display-name: "&aYêu cầu dịch chuyển"
+    lore: "&fTrạng thái: %status%"
+    command: "tpatoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  tpa_here_requests:
+    symbol: "X"
+    material: "CLOCK"
+    display-name: "&aYêu cầu dịch chuyển đến đây"
+    lore: "&fTrạng thái: %status%"
+    command: "tpaheretoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  team_invites:
+    symbol: "Y"
+    material: "SHIELD"
+    display-name: "&aLời mời vào đội"
+    lore: "&fTrạng thái: %status%"
+    command: "teamtoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  payments:
+    symbol: "Z"
+    material: "EMERALD"
+    display-name: "&aCho phép nhận tiền"
+    lore: "&fTrạng thái: %status%"
+    command: "paytoggle"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true
+  team_chat:
+    symbol: "a"
+    material: "BOOK"
+    display-name: "&aTrò chuyện đội"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    command: "team chat"
+    default: false
+  worth_display:
+    symbol: "b"
+    material: "EXPERIENCE_BOTTLE"
+    display-name: "&aGiá trị vật phẩm"
+    lore: "&fTrạng thái: %status%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    default: true

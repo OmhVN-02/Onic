@@ -1,0 +1,88 @@
+# ───────────────────────────────────────────
+#   SolarCore — Random Teleport (RTP) Module
+# ───────────────────────────────────────────
+
+settings:
+  # /rtp quick và nút RTP nhanh: world hiện tại, không menu/đếm ngược/chat/title/sound.
+  # Vẫn kiểm tra vị trí an toàn, giới hạn và cooldown; có thời gian tìm chunk hợp lệ.
+  quick:
+    enabled: true
+  # Bật/Tắt tính năng RTP
+  enabled: true
+
+  # Số player tối đa dùng RTP cùng lúc
+  players-in-rtp: 3
+
+  # Số lần thử tối đa để tìm vị trí mặt đất hợp lệ trước khi thất bại
+  max-attempts: 32
+
+  # Thời gian đếm ngược dịch chuyển (giây)
+  teleport-countdown: 5
+
+  # Các block không an toàn (không được đáp xuống)
+  unavailable-blocks:
+    - "LAVA"
+    - "WATER"
+    - "POWDER_SNOW"
+    - "MAGMA_BLOCK"
+    - "CACTUS"
+    - "FIRE"
+    - "SOUL_FIRE"
+    - "CAMPFIRE"
+    - "SOUL_CAMPFIRE"
+    - "SWEET_BERRY_BUSH"
+    - "WITHER_ROSE"
+    - "BEDROCK"
+    - "POINTED_DRIPSTONE"
+
+  # Các biome không được dịch chuyển đến (đại dương, sông sâu)
+  unavailable-biomes:
+    - "OCEAN"
+    - "DEEP_OCEAN"
+    - "WARM_OCEAN"
+    - "LUKEWARM_OCEAN"
+    - "COLD_OCEAN"
+    - "DEEP_COLD_OCEAN"
+    - "FROZEN_OCEAN"
+    - "DEEP_FROZEN_OCEAN"
+    - "DEEP_LUKEWARM_OCEAN"
+
+  # Hiệu ứng khi dịch chuyển thành công
+  effect:
+    title-enabled: true
+    title: "<gradient:#00B2FF:#00FFB2>&lᴛᴇʟᴇᴘᴏʀᴛ</gradient>"
+    subtitle: "&aThành công!"
+    particle-enabled: true
+    particle-type: "ENCHANT"
+    particle-count: 50
+
+# ───────────────────────────────────────────
+#   Cấu hình bán kính theo từng thế giới
+# ───────────────────────────────────────────
+world-settings:
+  world:
+    max-radius: 5000
+    min-radius: 500
+    min-y: 60
+    max-y: 319
+    center-x: 0
+    center-z: 0
+    cooldown: 30 # Giây
+
+  world_nether:
+    max-radius: 500
+    min-radius: 50
+    min-y: 35
+    max-y: 115
+    center-x: 0
+    center-z: 0
+    cooldown: 30
+
+  world_the_end:
+    max-radius: 2000
+    min-radius: 1000  # Tránh spawn island (0,0) và void
+    min-y: 45
+    max-y: 100
+    center-x: 0
+    center-z: 0
+    cooldown: 30

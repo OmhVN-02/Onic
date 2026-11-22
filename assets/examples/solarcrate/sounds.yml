@@ -104,4 +104,4 @@ sounds:
 
 #  03  |  PHIÊN BẢN CẤU HÌNH
 # Không chỉnh sửa dòng dưới.
-config-version: "1.4"
+config-version: "${project.version}"

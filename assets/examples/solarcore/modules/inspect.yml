@@ -1,0 +1,64 @@
+# #######################################################################################################################
+#
+#    ____        _              ____
+#   / ___|  ___ | | __ _ _ __ / ___|___  _ __ ___
+#   \___ \ / _ \| |/ _` | '__| |   / _ \| '__/ _ \
+#    ___) | (_) | | (_| | |  | |__| (_) | | |  __/
+#   |____/ \___/|_|\__,_|_|   \____\___/|_|  \___|
+#
+# Documentation: https://discord.gg/HpGguZ4hJn
+#
+# #######################################################################################################################
+
+# Tùy chỉnh Kiểm tra Người chơi & Giám sát Vi phạm Anti-Cheat (Inspect / Spectator Configuration)
+inspect:
+  # Bật / tắt tính năng Kiểm tra / Spectator (true = bật, false = tắt hoàn toàn và nhả lệnh /inspect)
+  # Enable / disable Inspect module (true = enable, false = disable)
+  enabled: true
+
+  # Cấu hình thông báo vi phạm Anti-Cheat (Anti-Cheat Flag Alerts)
+  alert:
+    # Bật / tắt thông báo vi phạm gửi vào chat cho Staff (true = bật, false = tắt)
+    # Staff cũng có thể tự bật/tắt riêng bằng /inspect alert.
+    enabled: true
+
+    # Tự động tắt thông báo mặc định của TotemGuard khi SolarCore đã quản lý thông báo chung
+    suppress-totemguard-alerts: true
+
+    # Bật API event của TotemGuard 2.x trong phiên chạy nếu máy chủ đang tắt API này.
+    # Cần bật để SolarCore nhận được các check như InventoryB, AutoTotemA/G...
+    force-totemguard-api: true
+
+    # Màu sắc nhận diện riêng cho tên check và số flag của từng Anti-Cheat trong chat
+    colors:
+      grimac: "&c"
+      totemguard: "&6"
+      vulcan: "&b"
+      matrix: "&d"
+      freeze: "&4"
+      default: "&e"
+
+  # Thời gian tự động dọn dẹp các ghi nhận vi phạm đã hết hạn (giờ)
+  # Expire time for flag records (hours)
+  expire-hours: 24
+
+  # Số người chơi hiển thị trên mỗi trang trong menu chính
+  # Players per page in main inspect GUI
+  players-per-page: 45
+
+  # Thời lượng cấm tạm thời mặc định
+  # Default tempban duration
+  default-tempban-duration: "14d"
+
+  # Danh sách thời lượng cấm tạm thời có thể chọn trong GUI
+  # Selectable tempban durations in GUI
+  tempban-durations:
+    - "1d"
+    - "3d"
+    - "7d"
+    - "14d"
+    - "30d"
+    - "60d"
+    - "90d"
+    - "365d"
+    - "permanent"

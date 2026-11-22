@@ -1,0 +1,17 @@
+# ───────────────────────────────────────────
+#   SolarCore — Freeze
+# ───────────────────────────────────────────
+# Tệp được nạp lại bằng lệnh /solarcore reload.
+# Thời lượng hỗ trợ: s (giây), m (phút), h (giờ), d (ngày), w (tuần).
+# Có thể ghép nhiều đơn vị, ví dụ: 1d12h. Dùng "permanent" để cấm vĩnh viễn.
+
+freeze:
+  # Tự động cấm người chơi thoát game trong khi đang bị đóng băng.
+  quit-punishment:
+    enabled: true
+    duration: "1d"
+    reason: "Thoát game khi đang bị đóng băng kiểm tra."
+    source: "SolarCore"
+    # Các lệnh console thực thi bổ sung khi người chơi thoát trong lúc bị freeze
+    # Hỗ trợ placeholder: %player%, %duration%, %reason%
+    commands: []

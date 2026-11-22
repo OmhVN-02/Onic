@@ -1,0 +1,10 @@
+# /friends: menu; /friend add|accept|deny|cancel|remove <tên>
+# /friends follow <tên>, /friends unfollow <tên>: theo dõi một chiều, không tự thành bạn bè.
+# Bạn bè phải chấp nhận lời mời. Người nhận ở chế độ Bạn bè/Đang theo dõi
+# chỉ nhận từ bạn đã chấp nhận hoặc người mà chính người nhận theo dõi.
+# Dữ liệu dùng database chung SolarCore, có hỗ trợ người chơi đã từng vào nhưng offline.
+enabled: true
+max_friends: 100
+max_requests: 50
+request_expiry_days: 7
+request_cooldown_seconds: 3

@@ -1,0 +1,7 @@
+# /hide [on|off], /hidename hoặc /settings để đổi tên hiển thị dạng mã hóa.
+# Staff có solarcore.hide.bypass nhìn thấy tên thật.
+# Có hook TAB, UnlimitedNametags, NametagEdit; cần kiểm tra tương thích phiên bản đang dùng.
+# Dữ liệu lựa chọn lưu chung SolarCore, không tạo hidden_players.yml.
+enabled: true
+length-mode: fixed
+fixed-length: 8

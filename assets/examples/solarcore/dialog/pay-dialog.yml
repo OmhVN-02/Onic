@@ -1,0 +1,60 @@
+# Toàn bộ luồng /pay dùng dialog gốc của Minecraft: chọn người, tìm kiếm,
+# phân trang, chọn số tiền, nhập số tiền khác và xác nhận.
+# Có thể thêm/chuyển tiền cho tài khoản đã từng vào server dù đang offline.
+# Tiền vào ví Vault ngay; thông báo lưu database chung và gửi khi người nhận online.
+# Mỗi màn hình có columns và button_width riêng; thứ tự nút giữ theo danh sách.
+# Quay lại nằm ở footer, không bị ghép vào lưới.
+common:
+  continue_button: "&aTiếp tục"
+  back_button: "Quay lại"
+players:
+  columns: 2
+  button_width: 120
+  add_button: "+ Thêm người vào danh sách"
+  add_title: "Thêm người nhận"
+  maximum_saved: 50
+  no_candidates: "Không có người phù hợp hoặc người đó đã nằm trong danh sách."
+  title: "Thanh toán"
+  body: "Chọn người trong danh sách để chuyển tiền (trang %page%/%pages%)"
+  empty: "Nhấn + Thêm người vào danh sách trước khi chọn người nhận."
+  page_size: 8
+  player_button: "%player%"
+  previous_button: "« Trang trước"
+  next_button: "Trang sau »"
+search:
+  columns: 2
+  button_width: 120
+  title: "Tìm người chơi"
+  label: "Tên người chơi"
+amounts:
+  columns: 2
+  button_width: 120
+  # Mặc định tại config.yml > economy.preset_amounts; sửa riêng trong /settings > Chung.
+  # Hỗ trợ số hoặc hậu tố k/m/b/t, tối đa 6 nút để bố cục gọn.
+  # Để trống để dùng economy.preset_amounts trong config.yml.
+  # Có thể đặt danh sách riêng bằng các dòng '- 10k', không cần dấu [].
+  presets:
+  title: "Pay %player%"
+  body: "Chọn số tiền muốn chuyển"
+  preset_button: "&a$ &f%amount%"
+  custom_button: "Nhập số tiền khác"
+  # Xóa riêng người nhận khỏi danh sách; không đổi số dư hoặc quyền nhận tiền.
+  remove_button: "&cXóa người nhận"
+custom:
+  columns: 2
+  button_width: 120
+  title: "Nhập số tiền muốn chuyển cho %player%"
+  body: ""
+  label: "Số tiền"
+confirm:
+  title: "Bạn có chắc muốn chuyển tiền cho %player%?"
+  body: "&a$ &f%amount%"
+  yes_button: "&aCó"
+  no_button: "&cKhông"
+presets:
+  columns: 2
+  button_width: 120
+  title: "Sửa số tiền có sẵn"
+  body: "Nhập 1–6 số tiền, ngăn cách bằng dấu phẩy. Ví dụ: 10k, 30k, 100k."
+  label: "Các số tiền"
+# Dialog nằm cùng cấp với thư mục gui; reload bằng /solarcore reload.

@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#   SolarCore — TPA Requests List GUI (Danh sách yêu cầu dịch chuyển)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Tiêu đề Menu (Hỗ trợ MiniMessage & Mã màu &)
+title: "&8Danh sách yêu cầu dịch chuyển"
+
+matrix:
+  - "#########"
+  - "#RRRRRRR#"
+  - "#RRRRRRR#"
+  - "#<# D #>#"
+
+# Icon hiển thị khi người chơi không có yêu cầu nào đang chờ
+empty-icon:
+  symbol: "E"
+  material: BARRIER
+  display-name: "&c&lKhông có yêu cầu nào"
+  lore:
+    - "&7Hiện tại bạn không có bất kỳ"
+    - "&7yêu cầu dịch chuyển nào đang chờ."
+
+# Nút từ chối toàn bộ yêu cầu
+deny-all-button:
+  symbol: "D"
+  material: RED_STAINED_GLASS_PANE
+  display-name: "&c&lTừ chối tất cả"
+  lore:
+    - "&7Nhấn để từ chối toàn bộ"
+    - "&7yêu cầu dịch chuyển đang chờ."
+
+previous-page:
+  symbol: "<"
+  material: ARROW
+  display-name: "&aTrang Trước"
+  lore:
+    - "&7Quay lại trang %page%"
+
+next-page:
+  symbol: ">"
+  material: ARROW
+  display-name: "&aTrang Sau"
+  lore:
+    - "&7Chuyển sang trang %page%"
+
+# Thiết lập hiển thị của từng yêu cầu trong danh sách
+request-item:
+  symbol: "R"
+  display-name: "&a%player%"
+  type-tpa: "&b&lTPA"
+  type-tpahere: "&d&lTPAHERE"
+  lore:
+    - "&7Loại: %type%"
+    - "&7Thế giới: &f%world%"
+    - "&7Còn lại: &f%time_left%s"
+    - ""
+    - "&aNhấn để đồng ý yêu cầu"
+    - "&cChuột phải để từ chối"
+
+# Trang trí các ô trống xung quanh
+decoration:
+  enabled: true
+  symbol: "#"
+  material: BLACK_STAINED_GLASS_PANE
+  display-name: " "
+

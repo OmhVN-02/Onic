@@ -1,0 +1,164 @@
+# SOLARCORE — CẤU HÌNH CHÍNH
+# config.yml: cấu hình chung, database, tiền tệ và lệnh tiện ích.
+# modules/: bật/tắt và quy tắc từng tính năng.
+# dialog/: giao diện Dialog Minecraft. gui/: giao diện rương. data/: dữ liệu, không sửa.
+# Ẩn lệnh: modules/command_hide.yml | Menu ESC và top: modules/server_links.yml
+# Sau khi sửa: /solarcore reload. Thay JAR native: dừng server rồi khởi động lại.
+# YAML: chỉ dùng dấu cách, không dùng Tab; true = bật, false = tắt.
+#
+# Tải chunk trước RTP/TPA/spawn và dịch chuyển an toàn; fallback Paper async nếu NMS không tương thích.
+chunk-loading:
+  # Khi Chunky đang tạo map, SolarCore chỉ tải chunk đích đã có, không tải trước các chunk lân cận.
+  respect-chunky: true
+  nms: true
+  generate: true
+  urgent: false
+  timeout-ms: 15000
+  teleport-radius: 1
+
+
+# -------------------------------------------------------
+# SolarCore - License Verification
+# Vui lòng nhập license-key của bạn bên dưới để kích hoạt plugin.
+# Sau khi xác thực thành công, toàn bộ cấu hình sẽ tự động nạp.
+# -------------------------------------------------------
+license-key: ""
+
+# Plugin configuration version
+config-version: 1.0
+
+# false: console gọn; true: hiện log kỹ thuật để hỗ trợ chẩn đoán.
+# Cảnh báo và lỗi vẫn hiện khi false. Không tắt log của plugin khác.
+enable-debug: false
+
+# PlaceholderAPI placeholders
+# Hiển thị ON/OFF cho placeholders trong plugins khác
+placeholders:
+  # Tương thích layout cũ: %essentials_nickname% -> tên hiển thị online/tên tài khoản offline.
+  # Không cần EssentialsX. Không ghi đè expansion essentials khác đã đăng ký.
+  # Placeholder gốc luôn có: %solarcore_nickname%. Nạp lại bằng /solarcore reload.
+  essentials_nickname: true
+  ON: "&a&lON"     # Màu xanh lá + đậm
+  OFF: "&c&lOFF"   # Màu đỏ + đậm
+
+# Tùy chỉnh tin nhắn (Message Configuration)
+messages:
+  # Bật tin nhắn action bar
+  # Enable action bar messages (text at top of screen)
+  action-bar-messages: true
+  
+  # Bật tin nhắn chat
+  # Enable chat messages
+  chat-messages: true
+  
+  # Chỉ hiển thị tin nhắn action bar, không hiển thị ở chat
+  # Show only action bar messages, disable chat messages
+  use-action-bar-only: false
+
+# Ghi đè lệnh Essentials
+# Override Essentials /tpa and /tpahere commands with SolarCore commands
+# true = SolarCore sẽ xử lý các lệnh | true = SolarCore handles commands
+override-essentials: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Tùy chỉnh lưu trữ (Storage & Database Configuration)
+# ─────────────────────────────────────────────────────────────────────────────
+database:
+  # Available databases:
+  # - YAML    (lightweight, file-based, no database required)
+  # - SQLITE  (local database, good for medium servers)
+  # - MYSQL   (recommended for larger/networked servers)
+  # If type is null or blank, SQLITE will be used by default.
+  type: "SQLITE"
+
+  # Lưu trữ YAML (Mặc định - Không cần phụ thuộc bổ sung)
+  # YAML Storage (Default - No extra dependencies needed)
+  yml:
+    folder: "playerdata"
+
+  # Lưu trữ SQLite (Tùy chọn - Dành cho các máy chủ lớn hơn)
+  # SQLite Storage (Optional - For larger servers)
+  sqlite:
+    file: "solar_core.db"
+
+  # MySQL Storage (Recommended for large/networked servers)
+  # Set type: "MYSQL" above to use this section.
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: ""
+    user: ""
+    password: ""
+    max-pool: 15
+    use-ssl: false
+
+storage:
+  # Số luồng xử lý cho async operations
+  # Number of threads for asynchronous operations
+  # Tăng nếu máy chủ có nhiều CPU cores
+  thread-pool-size: 2
+
+# Lệnh chế độ chơi: /gm, /gms, /gmc, /gma, /gmsp.
+# Tắt để nhả lệnh cho plugin khác nếu có.
+gamemode:
+  enabled: true
+
+# /feed [tên]: hồi thanh thức ăn, không hồi máu. Quyền: solarcore.feed / .others.
+feed:
+  enabled: true
+  saturation: 10
+
+# SolarCore tự xử phạt; tắt để nhả lệnh cho plugin khác.
+# Mute chặn chat và các lệnh nhắn tin dưới đây, không chặn toàn bộ lệnh.
+# Thông báo trong messages.yml, quyền nhận thông báo: solarcore.punishment.notify.
+punishments:
+  # /banip, /tempbanip, /unbanip nhận IP hoặc tên người online.
+  # Cấm toàn bộ kết nối cùng IP (có thể ảnh hưởng người chung mạng); không hỗ trợ subnet/hostname.
+  enabled: true
+  broadcast: true
+  maximum_duration_days: 3650
+  muted_commands:
+    - msg
+    - tell
+    - whisper
+    - w
+    - m
+    - r
+    - reply
+    - me
+    - say
+
+# /fly [on|off] [tên], /flyspeed <0-10> [tên]; phải có permission.
+fly:
+  enabled: true
+  maximum_speed: 10
+  default_speed: 1
+
+# Nội dung chỉnh ở messages.yml: first-join-broadcast, join-broadcast, quit-broadcast.
+join_quit:
+  first_join:
+    enabled: true
+  join:
+    enabled: true
+  quit:
+    enabled: true
+
+# Vault: chỉ đăng ký provider nội bộ nếu chưa có provider khác.
+# /pay: Dialog; /pay <tên> <số tiền>: chuyển nhanh, hỗ trợ tài khoản offline đã biết.
+# /paytoggle và /paynotify: quyền nhận tiền và thông báo; /settings có chế độ bạn bè.
+economy:
+  enabled: true
+  internal_provider: true
+  # Cache đọc số dư Vault (ms); giao dịch vẫn kiểm tra trực tiếp trong SQL, 0 để tắt.
+  balance_cache_ms: 250
+  maximum_payment: 1000000000
+  preset_amounts:
+    - 1000
+    - 3000
+    - 10000
+    - 15000
+    - 30000
+    - 100000
+  refresh_interval_seconds: 60
+  import_known_players: true
+  import_batch_size: 10

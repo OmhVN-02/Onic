@@ -74,5 +74,10 @@ physical-key:
     - "&e▶ Click phải vào hòm để mở"
 
 #  08  |  PHIÊN BẢN CẤU HÌNH
+effects:
+  # 20 tick = 1 giây. Tăng khoảng cách cập nhật để giảm tải.
+  ambient-period-ticks: 8
+  hologram-period-ticks: 80
+
 # Không chỉnh sửa dòng dưới.
-config-version: "1.4"
+config-version: "${project.version}"

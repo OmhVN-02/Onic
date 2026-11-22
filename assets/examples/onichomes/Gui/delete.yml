@@ -1,0 +1,22 @@
+title: "              §8ᴄᴏɴғɪʀᴍ"
+# 'h' được code cứng trong Java là điểm hiển thị Home hiện tại
+layout:
+  - "c#h#a"
+
+items:
+  cancel:
+    material: RED_STAINED_GLASS_PANE
+    name: "&#FF000Dᴄᴀɴᴄᴇʟ"
+    lore:
+      - "&fNhấn để hủy"
+    symbol: 'c'
+  accept:
+    material: LIME_STAINED_GLASS_PANE
+    name: "&aᴄᴏɴғɪʀᴍ"
+    lore:
+      - "&fNhấn để chấp nhận xóa home %home%"
+    symbol: 'a'
+      
+sounds:
+  click: "UI_BUTTON_CLICK"
+  click-confirm-warning: "ENTITY_VILLAGER_NO"

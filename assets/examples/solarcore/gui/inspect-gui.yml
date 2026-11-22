@@ -1,0 +1,232 @@
+# ───────────────────────────────────────────
+#   SolarCore — Anti-Cheat Inspect & Spectator GUI
+# ───────────────────────────────────────────
+
+inspect-gui:
+  title: "&#2C2C2Cɪɴꜱᴘᴇᴄᴛ ᴘʟᴀʏᴇʀꜱ (Page {currentPage}/{maxPages})"
+
+  # Ma trận bố cục (P = Đầu người chơi nghi vấn, < = Trang trước, > = Trang tiếp, S = Sắp xếp, . = Trống)
+  matrix:
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "PPPPPPPPP"
+    - "<...S...>"
+
+  player-icon:
+    material: "PLAYER_HEAD"
+    display-name: "&e{player}"
+    lore:
+      - "&8Loại vi phạm: &c{topCheck}"
+      - ""
+      - "&8◦ &7Tổng vi phạm: &c{totalFlags}"
+      - "&8◦ &7Lần cuối: &f{lastFlag}"
+      - "&8◦ &7Thế giới: &f{world}"
+      - ""
+      - "&8Tự xóa sau: &7{expireIn}"
+      - "&8&m                    "
+      - "&eNhấp &7để xem chi tiết và xử lý."
+
+  detail-gui:
+    title: "&#2C2C2C{player} ꜰʟᴀɢꜱ ({page}/{maxPages})"
+
+    # C = check, < và > = đổi trang, P = xử phạt, T = dịch chuyển.
+    matrix:
+      - "CCCCCCCCC"
+      - "CCCCCCCCC"
+      - "CCCCCCCCC"
+      - "..P...T.."
+
+    check-icon:
+      material: "PAPER"
+      display-name: "&c{check}"
+      lore:
+        - "&7Số vi phạm: &c{violations} lần"
+
+    punish-button:
+      material: "ANVIL"
+      display-name: "&cXử phạt &7— {player}"
+      lore:
+        - "&7Chọn Ban, TempBan hoặc BanIP."
+
+    tp-button:
+      material: "ENDER_PEARL"
+      display-name: "#00F986ᴛᴇʟᴇᴘᴏʀᴛ"
+      lore:
+        - "&7Dịch chuyển đến người chơi &c{player}&7."
+        - "&8◦ &fTrực tuyến &7→ Dịch chuyển trực tiếp"
+        - "&8◦ &7Ngoại tuyến &7→ Dịch chuyển tọa độ cuối"
+
+  punish-menu:
+    title: "&cXử phạt &7— {player}"
+    # B = Ban, T = TempBan, I = BanIP.
+    matrix:
+      - "..B.T.I.."
+    ban-button:
+      material: "IRON_AXE"
+      display-name: "&cBan"
+      lore:
+        - "&7Cấm vĩnh viễn."
+        - "&eNhấp để chọn lý do."
+    tempban-button:
+      material: "CLOCK"
+      display-name: "&6TempBan"
+      lore:
+        - "&7Cấm có thời hạn."
+        - "&eNhấp để chọn thời gian."
+    banip-button:
+      material: "BARRIER"
+      display-name: "&4BanIP"
+      lore:
+        - "&7Cấm theo địa chỉ IP."
+        - "&eNhấp để chọn lý do."
+  ban-template-gui:
+    title: "&#2C2C2Cʙᴀɴ ʀᴇᴀꜱᴏɴꜱ — {player}"
+
+    # Ma trận bố cục (1-6 = Lý do Ban, . = Trống)
+    matrix:
+      - "........."
+      - ".123456.."
+
+    templates:
+      cheater:
+        symbol: "1"
+        material: "DIAMOND_SWORD"
+        display-name: "&cᴄʜᴇᴀᴛᴇʀ"
+        lore:
+          - "&7Sử dụng phần mềm gian lận (Hack/Cheat)"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fBị phát hiện sử dụng cheat."
+        banip-command: "banip {player} &c[SolarCore] &fBị phát hiện sử dụng cheat."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fBị phát hiện sử dụng cheat."
+
+      xray:
+        symbol: "2"
+        material: "DIAMOND_ORE"
+        display-name: "&6x-ʀᴀʏ"
+        lore:
+          - "&7Sử dụng X-Ray / soi khoáng"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fBị phát hiện sử dụng X-Ray."
+        banip-command: "banip {player} &c[SolarCore] &fBị phát hiện sử dụng X-Ray."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fBị phát hiện sử dụng X-Ray."
+
+      fly-hack:
+        symbol: "3"
+        material: "FEATHER"
+        display-name: "&bꜰʟʏ ʜᴀᴄᴋ"
+        lore:
+          - "&7Bay bất hợp lệ"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fBay bất hợp lệ (Fly Hack)."
+        banip-command: "banip {player} &c[SolarCore] &fBay bất hợp lệ (Fly Hack)."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fBay bất hợp lệ (Fly Hack)."
+
+      kill-aura:
+        symbol: "4"
+        material: "GOLDEN_SWORD"
+        display-name: "&eᴋɪʟʟ ᴀᴜʀᴀ"
+        lore:
+          - "&7Tự động tấn công bất hợp lệ"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fSử dụng Kill Aura."
+        banip-command: "banip {player} &c[SolarCore] &fSử dụng Kill Aura."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fSử dụng Kill Aura."
+
+      speed-hack:
+        symbol: "5"
+        material: "SUGAR"
+        display-name: "&aꜱᴘᴇᴇᴅ ʜᴀᴄᴋ"
+        lore:
+          - "&7Di chuyển tốc độ bất thường"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fDi chuyển bất hợp lệ (Speed Hack)."
+        banip-command: "banip {player} &c[SolarCore] &fDi chuyển bất hợp lệ (Speed Hack)."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fDi chuyển bất hợp lệ (Speed Hack)."
+
+      reach-hack:
+        symbol: "6"
+        material: "FISHING_ROD"
+        display-name: "&dʀᴇᴀᴄʜ ʜᴀᴄᴋ"
+        lore:
+          - "&7Tầm đánh vượt giới hạn"
+          - ""
+          - "&eNhấp để áp dụng cấm"
+        ban-command:  "ban {player} &c[SolarCore] &fTầm đánh bất hợp lệ (Reach)."
+        banip-command: "banip {player} &c[SolarCore] &fTầm đánh bất hợp lệ (Reach)."
+        tempban-command: "tempban {player} {duration} &c[SolarCore] &fTầm đánh bất hợp lệ (Reach)."
+
+  tempban-duration-gui:
+    title: "&#2C2C2Cᴛᴇᴍᴘʙᴀɴ ᴅᴜʀᴀᴛɪᴏɴ — {player}"
+
+    # Ma trận bố cục (D = Duration Icon)
+    matrix:
+      - "DDDDDDDDD"
+
+    duration-icon:
+      material: "CLOCK"
+      display-name: "&e{duration}"
+      lore:
+        - "&7Cấm &c{player} &7trong thời gian &e{duration}&7."
+        - ""
+        - "&aNhấp để xác nhận."
+
+  ban-confirm-gui:
+    title: "&#2C2C2Cᴄᴏɴꜰɪʀᴍ ʙᴀɴ — {action} {player}"
+
+    # Ma trận bố cục (C = Confirm Xác nhận, X = Cancel Hủy, . = Trống)
+    matrix:
+      - "........."
+      - "..C...X.."
+      - "........."
+
+    confirm-button:
+      material: "LIME_STAINED_GLASS_PANE"
+      display-name: "&aᴄᴏɴꜰɪʀᴍ"
+      lore:
+        - "&7Thực hiện &c{action} &f{player}&7."
+        - "&cHành động này không thể hoàn tác!"
+
+    cancel-button:
+      material: "RED_STAINED_GLASS_PANE"
+      display-name: "&cᴄᴀɴᴄᴇʟ"
+      lore:
+        - "&7Hủy bỏ, quay về chi tiết."
+
+  items:
+    back:
+      material: "ARROW"
+      name: "#00F986ʙᴀᴄᴋ"
+      lore:
+        - "&fNhấp để về trang trước."
+
+    next:
+      material: "ARROW"
+      name: "#00F986ɴᴇxᴛ"
+      lore:
+        - "&fNhấp để sang trang tiếp."
+
+    sorting:
+      material: "COMPASS"
+      name: "#00F986ɪɴꜱᴘᴇᴄᴛ ʟɪꜱᴛ"
+      lore:
+        - "&fNhấp để đổi kiểu sắp xếp"
+        - ""
+        - "&7Người chơi bị flag: &f{totalFlagged}"
+        - "&7Trang: &f{currentPage}&8/&f{maxPages}"
+        - ""
+        - "&8Sắp xếp: &7({currentSort})"
+
+sort-modes:
+  - id: "MOST_FLAGS"
+    display: "Nhiều vi phạm nhất"
+  - id: "NEWEST"
+    display: "Mới nhất"
+  - id: "OLDEST"
+    display: "Cũ nhất"

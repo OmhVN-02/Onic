@@ -1,0 +1,91 @@
+# Giao diện theo bố cục SolarElo; bật display-mode: gui tại modules/server_links.yml.
+# x = đầu người chơi, b/n = trước/sau, s = bạn, r = tải lại, f = danh mục.
+# c vẫn là ký hiệu danh mục của cấu hình cũ. # trang trí, . để trống.
+style-version: 2
+categories:
+  title: "&#00BFFFBảng xếp hạng"
+  hint: "&7Nhấp để xem bảng xếp hạng"
+  gui-disposition:
+    - "........."
+    - ".xxx.xxx."
+    - "....b...."
+top:
+  title: "&8%category% &7— Trang %page%/%pages%"
+  gui-disposition:
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "xxxxxxxxx"
+    - "b##srf##n"
+player-head:
+  material: PLAYER_HEAD
+  name: "%color%#%rank% &f%player%"
+  lore:
+    - ""
+    - "&7Thống kê: &f%category%"
+    - "&7Giá trị: &#FFAA00%value%"
+    - ""
+    - "%color%Thứ hạng #%rank%"
+rank-colors:
+  top-5: "&#FFAA00"
+  top-10: "&#55FFFF"
+  top-50: "&#00FF3C"
+  top-100: "&#AAAAAA"
+  default: "&f"
+self-player-head:
+  enabled: true
+  name: "&#00BFFFHồ sơ của bạn &f%player%"
+  lore:
+    - ""
+    - "&7Thống kê: &f%category%"
+    - "&7Giá trị: &#FFAA00%value%"
+    - "&7Thứ hạng: &#00BFFF%rank%"
+    - ""
+    - "&8Dựa trên danh sách top đang tải"
+  unranked: "Ngoài top đang tải"
+  unknown-value: "Chưa có dữ liệu trong top"
+category-materials:
+  money: GOLD_INGOT
+  deaths: SKELETON_SKULL
+  playtime: CLOCK
+  placed: BRICKS
+  broken: DIAMOND_PICKAXE
+  mobs: ZOMBIE_HEAD
+filler:
+  enabled: false
+  material: GRAY_STAINED_GLASS_PANE
+  name: " "
+previous:
+  material: ARROW
+  name: "&#00BFFFTrang trước"
+  lore:
+    - "&7Nhấp để xem trang trước"
+next:
+  material: ARROW
+  name: "&#00BFFFTrang sau"
+  lore:
+    - "&7Nhấp để xem trang tiếp theo"
+refresh:
+  material: ANVIL
+  name: "&#00BFFFTải lại"
+  lore:
+    - "&7Cập nhật bảng xếp hạng"
+categories-button:
+  material: HOPPER
+  name: "&#00BFFFLoại xếp hạng"
+  lore:
+    - "&7Tiền, thời gian chơi, số lần chết..."
+    - ""
+    - "&#00BFFFNhấp để chọn loại thống kê"
+back:
+  material: ARROW
+  name: "&#00BFFFQuay lại"
+  lore:
+    - "&7Trở về danh mục xếp hạng"
+close:
+  material: ARROW
+  name: "&#00BFFFMenu máy chủ"
+  lore:
+    - "&7Trở về menu chính"
+empty: "&7Chưa có dữ liệu xếp hạng."

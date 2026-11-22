@@ -1,0 +1,15 @@
+title: "&fChoose Icon"
+default-material: "YELLOW_BED"
+search-label: "&fSearch"
+
+buttons:
+  search: "&fSearch"
+  default: "&fDefault"
+  back: "&fBack"
+  selected-color: "&a"
+  normal-color: "&f"
+
+# Hiển thị icon item trước tên (dùng sprite có sẵn của client, không cần resource pack)
+show-icons: true
+
+# Client tự phát tiếng click khi bấm nút Dialog, nên không cần cấu hình sound ở đây.

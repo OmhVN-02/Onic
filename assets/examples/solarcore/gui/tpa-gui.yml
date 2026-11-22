@@ -1,0 +1,123 @@
+# ───────────────────────────────────────────
+#   SolarCore — TPA Request & Accept GUI
+# ───────────────────────────────────────────
+
+request-gui:
+  name: "&#2C2C2Cᴛᴘᴀ ʀᴇꞯᴜᴇꜱᴛ"
+
+  # Ma trận bố cục (X = Hủy/Từ chối, L = Tọa độ, P = Player Info, F = Trạng thái bay, C = Xác nhận)
+  matrix:
+    - "........."
+    - ".X.LPF.C."
+    - "........."
+
+  icons:
+    cancel-icon:
+      symbol: "X"
+      material: RED_STAINED_GLASS_PANE
+      display-name: "&cᴄᴀɴᴄᴇʟ"
+      lore:
+        - "&7Nhấp để hủy yêu cầu này."
+
+    location-icon:
+      symbol: "L"
+      display-name: "&eʟᴏᴄᴀᴛɪᴏɴ"
+      lore:
+        - "&7Thế giới: &f%world%"
+
+    player-icon:
+      symbol: "P"
+      material: PLAYER_HEAD
+      display-name: "&aᴘʟᴀʏᴇʀ ɪɴꜰᴏ"
+      lore:
+        - "&7Tên: &f%player%"
+
+    confirm-icon:
+      symbol: "C"
+      material: LIME_STAINED_GLASS_PANE
+      display-name: "&aᴄᴏɴꜰɪʀᴍ"
+      lore:
+        - "&7Nhấp để gửi yêu cầu dịch chuyển"
+        - "&7đến người chơi &f%player%&7."
+
+    fly-icon:
+      symbol: "F"
+      material: FEATHER
+      display-name: "&bꜰʟʏ ꜱᴛᴀᴛᴜꜱ"
+      lore:
+        - "&7Trạng thái bay: &f%is_flying%"
+
+accept-gui:
+  name: "&#2C2C2Cᴀᴄᴄᴇᴘᴛ ᴛᴘᴀ"
+
+  # Ma trận bố cục (X = Từ chối, L = Tọa độ, P = Player Info, F = Trạng thái bay, C = Chấp nhận)
+  matrix:
+    - "........."
+    - ".X.LPF.C."
+    - "........."
+
+  icons:
+    cancel-icon:
+      symbol: "X"
+      material: RED_STAINED_GLASS_PANE
+      display-name: "&cᴅᴇɴʏ"
+      lore:
+        - "&7Nhấp để từ chối yêu cầu này."
+
+    location-icon:
+      symbol: "L"
+      display-name: "&eʟᴏᴄᴀᴛɪᴏɴ"
+      lore:
+        - "&7Thế giới: &f%world%"
+
+    player-icon:
+      symbol: "P"
+      material: PLAYER_HEAD
+      display-name: "&aᴘʟᴀʏᴇʀ ɪɴꜰᴏ"
+      lore:
+        - "&7Tên: &f%player%"
+
+    confirm-icon:
+      symbol: "C"
+      material: LIME_STAINED_GLASS_PANE
+      display-name: "&aᴀᴄᴄᴇᴘᴛ"
+      lore:
+        - "&7Nhấp để chấp nhận yêu cầu dịch chuyển"
+        - "&7từ người chơi &f%player%&7."
+
+    fly-icon:
+      symbol: "F"
+      material: FEATHER
+      display-name: "&bꜰʟʏ ꜱᴛᴀᴛᴜꜱ"
+      lore:
+        - "&7Trạng thái bay: &f%is_flying%"
+
+list-gui:
+  title: "&8Danh sách yêu cầu dịch chuyển"
+  rows: 4
+  empty-icon:
+    slot: 13
+    material: BARRIER
+    display-name: "&c&lKhông có yêu cầu nào"
+    lore:
+      - "&7Hiện tại bạn không có bất kỳ"
+      - "&7yêu cầu dịch chuyển nào đang chờ."
+  deny-all-button:
+    slot: 31
+    material: RED_STAINED_GLASS_PANE
+    display-name: "&c&lTừ chối tất cả"
+    lore:
+      - "&7Nhấn để từ chối toàn bộ"
+      - "&7yêu cầu dịch chuyển đang chờ."
+  request-item:
+    display-name: "&a%player%"
+    type-tpa: "&b&lTPA"
+    type-tpahere: "&d&lTPAHERE"
+    lore:
+      - "&7Loại: %type%"
+      - "&7Thế giới: &f%world%"
+      - "&7Còn lại: &f%time_left%s"
+      - ""
+      - "&aNhấn để đồng ý yêu cầu"
+      - "&cChuột phải để từ chối"
+
