@@ -159,96 +159,73 @@ html[data-theme=light] .syntax-keyword{color:#773ca6}html[data-theme=light] .syn
 
 @media screen {
   :root {
-    --bg:#11151e; --panel:#191f29; --panel2:#242d39; --text:#eff3f4; --muted:#acb9c5;
-    --line:#333f4c; --accent:#8ce2c4; --code:#111720; --head:rgba(17,21,30,.94);
+    --bg:#191a17; --panel:#20211e; --panel2:#2c2e28; --text:#f1efe7; --muted:#b2b2a7;
+    --line:#3c3e35; --accent:#dec48c; --head:rgba(25,26,23,.97); --code:#151613;
   }
   html[data-theme=light] {
-    --bg:#f7f8f6; --panel:#fff; --panel2:#edf3ef; --text:#192f31; --muted:#526567;
-    --line:#d5dfda; --accent:#126753; --code:#f2f5f2; --head:rgba(247,248,246,.94);
+    --bg:#faf9f5; --panel:#fffefb; --panel2:#efeee6; --text:#24261f; --muted:#626457;
+    --line:#d9d9cd; --accent:#735522; --head:rgba(250,249,245,.97); --code:#f1f0e9;
   }
-  .topbar {box-shadow:0 2px 18px #07141d0b}
-  .brand {letter-spacing:-.055em}
-  .docs-label {color:var(--muted);font-weight:500}
-  .top-actions .icon-button,.header-search,.locale-switch,.sidebar .search {border-radius:12px}
+  .topbar {box-shadow:none}
   .sidebar {background:var(--bg)}
-  .nav-link {border-radius:9px;padding-block:9px}
-  .nav-link.active {box-shadow:inset 3px 0 var(--accent);background:var(--panel2)}
-  main {min-width:0}
-  article h1 {font-size:clamp(2rem,4vw,3.25rem);line-height:1.14;letter-spacing:-.047em}
-  article h2 {letter-spacing:-.032em;margin-top:2.3rem}
-  article .lead {max-width:66ch;line-height:1.75}
-  .eyebrow,.breadcrumbs,.toc {color:var(--muted)}
-  .card,.table-wrap,.code-block,.page-navigation a,.beginner-intro {border-radius:14px}
-  .card {background:var(--panel)}
-  .card:hover {border-color:var(--accent);box-shadow:0 8px 22px #09192312}
-  .page-navigation a:hover {border-color:var(--accent)}
-  .table-wrap th {background:var(--panel2)}
-  tr:nth-child(even) td {background:color-mix(in srgb,var(--panel) 48%,transparent)}
-  .hero-art {border-radius:18px}
-  .atlas-hero {
-    isolation:isolate;overflow:hidden;position:relative;display:grid;
-    grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;
-    min-height:clamp(280px,27vw,370px);padding:clamp(22px,3.3vw,52px);
-    border:1px solid #506870;border-radius:24px;color:#f3f7f3;
-    background:radial-gradient(ellipse at 84% 45%,#396455 0%,transparent 50%),linear-gradient(125deg,#1a293b 10%,#203642 65%,#2c4950);
-  }
-  .atlas-hero::before {
-    content:"";position:absolute;z-index:-1;inset:0;opacity:.32;
-    background-image:radial-gradient(#a8d7c3 1px,transparent 1.2px);background-size:22px 22px;
-    mask-image:linear-gradient(110deg,transparent 28%,black);
-  }
-  .atlas-copy {z-index:1}
-  .atlas-hero .eyebrow {margin:0 0 16px;color:#aee9ce;font:650 11px 'Be Vietnam Pro',sans-serif;letter-spacing:.14em;text-transform:uppercase}
-  .atlas-hero h1 {font-size:clamp(2.5rem,4.6vw,4.9rem);color:#fff;margin:0;max-width:12ch;line-height:1.08;letter-spacing:-.055em}
-  .atlas-hero .lead {font-size:clamp(13px,1.1vw,16px);line-height:1.7;color:#d7e5e2;margin:16px 0 0}
-  .atlas-hero .wiki-cta {margin:24px 0 0;gap:16px}
-  article .atlas-hero .primary-cta {color:#12332d;background:#ade7cb;border-radius:10px}
-  article .atlas-hero .secondary-cta {color:#f0f7f3;text-decoration:underline;text-underline-offset:4px}
-  .atlas-art {position:relative;width:115%;max-width:none;margin-left:-6%;filter:drop-shadow(0 20px 13px #08152069);pointer-events:none}
-  .catalog-view .beginner-intro {padding:15px 20px;background:var(--panel);border:1px solid var(--line);border-inline-start:4px solid var(--accent);margin:16px 0}
-  .catalog-view .ai-disclosure {margin:12px 0;color:var(--muted)}
-  .catalog-view #plugins {margin-bottom:12px;font-size:clamp(25px,3vw,36px)}
-  .catalog-filters {display:flex;flex-wrap:wrap;gap:7px;margin:0 0 25px}
-  .catalog-filters button {background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:999px;font-weight:600;line-height:1.35;font-family:inherit;font-size:12px;min-height:38px;padding:7px 14px}
-  .catalog-filters button[aria-pressed=true] {background:var(--text);border-color:var(--text);color:var(--bg)}
-  .catalog-filters button:hover {border-color:var(--accent)}
+  .nav-link.active {box-shadow:inset 2px 0 var(--accent)}
+  article h1,article h2 {letter-spacing:-.035em;line-height:1.22}
+  article h1 {font-size:clamp(2rem,3.6vw,3.2rem)}
+  article .lead {line-height:1.7}
+  .card,.code-block,.table-wrap,.page-navigation a {border-radius:6px}
+  article .card:hover {transform:none}
+  .hero-art {border-radius:8px}
+  main:has(.catalog-view)>.breadcrumbs {display:none}
+  .directory-head {border-bottom:2px solid var(--text);padding:4px 0 22px}
+  .directory-head h1 {font:normal clamp(38px,4.2vw,62px)/1.16 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:0;color:var(--text)}
+  .directory-tools {margin:14px 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 22px}
+  .directory-tools .beginner-intro {margin:0;padding:0;border:0;background:none;border-radius:0;max-width:56ch}
+  .directory-tools summary,.directory-tools a {min-height:32px;line-height:1.6;font-family:inherit;font-size:13px;color:var(--muted);cursor:pointer}
+  .directory-tools summary {padding:0}
+  .directory-tools summary:hover,.directory-tools a:hover {color:var(--accent)}
+  .directory-tools .beginner-intro p {padding:0;margin:6px 0 10px}
+  .catalog-filters {display:flex;flex-wrap:wrap;align-items:center;gap:3px 20px;border-bottom:1px solid var(--line)}
+  .catalog-filters button {position:relative;border:none;border-radius:0;min-height:44px;background:none;padding:4px 0;color:var(--muted);font:inherit;font-size:13px;cursor:pointer}
+  .catalog-filters button[aria-pressed=true] {color:var(--text);font-weight:700;box-shadow:inset 0 -2px var(--text)}
+  .catalog-filters button:hover {color:var(--accent)}
   .product-group[hidden] {display:none}
-  .product-group>h3 {display:flex;align-items:center;gap:14px;font-size:18px;margin-block:28px 14px}
-  .product-group>h3::after {content:"";height:1px;background:var(--line);flex:1}
-  .product-group .plugin-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
-  .plugin-cards .card {display:flex;flex-direction:column;align-items:stretch;min-width:0;overflow:hidden;padding:16px;height:100%;border-style:solid}
-  .plugin-cards .product-logo-frame {width:100%;max-width:none;height:82px;aspect-ratio:auto;margin:0 0 14px;border-radius:8px;background:linear-gradient(135deg,var(--panel2),var(--bg));display:grid;place-items:center}
-  .plugin-cards .product-logo-frame img {position:static;transform:none;width:86%;height:100%;object-fit:contain}
-  .plugin-cards .card strong {font-size:16px;letter-spacing:-.035em}
-  .plugin-cards .card p {font-size:12px;line-height:1.65}
-  .catalog-view .plugin-cards .planned {opacity:.88}
+  .product-group {margin:28px 0 40px}
+  .product-group>h3 {font:normal 26px/1.3 Georgia,serif;letter-spacing:-.025em;margin:0 0 8px}
+  .product-group .plugin-cards {display:grid;grid-template-columns:1fr;gap:0;margin:0}
+  .plugin-cards a.card {
+    display:grid;grid-template-columns:104px minmax(110px, .8fr) minmax(0,1.6fr) auto;
+    align-items:center;gap:4px 18px;min-height:68px;padding:8px 4px;
+    border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;background:transparent;
+  }
+  .plugin-cards a.card:is(:hover,:focus-visible) {background:var(--panel2);box-shadow:none;text-decoration:none}
+  .plugin-cards .product-logo-frame {grid-column:1;width:100%;height:45px;aspect-ratio:auto;margin:0;overflow:hidden}
+  .plugin-cards .product-logo-frame img {position:absolute;top:50%;left:0;transform:translateY(-50%);width:100%;height:auto}
+  .plugin-cards .card-icon,.plugin-cards .product-symbol {grid-column:1;margin:0}
+  .plugin-cards .card strong {grid-column:2;font-size:15px;line-height:1.45;letter-spacing:-.03em;margin:0}
+  .plugin-cards .card strong>span {display:none}
+  .plugin-cards .card p {grid-column:3;margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+  .plugin-cards .card-status-row,.plugin-cards .product-status {grid-column:4;margin:0;font-size:10px}
+  .catalog-view .ai-disclosure {background:none;border:0;color:var(--muted);padding:0}
   @media(min-width:1151px) {
-    body:has(.catalog-view) main {max-width:1510px;margin-right:auto;padding-right:clamp(35px,5vw,84px)}
+    body:has(.catalog-view) main {margin-right:auto;max-width:1450px;padding-right:clamp(40px,7vw,140px)}
     body:has(.catalog-view) .toc {display:none}
+  }
+  @media(max-width:1050px) {
+    .plugin-cards a.card {grid-template-columns:82px 1fr auto;gap:2px 14px;padding-block:12px}
+    .plugin-cards .product-logo-frame {grid-row:1 / span 2}
+    .plugin-cards .card p {grid-column:2 / -1;grid-row:2}
+    .plugin-cards .product-status,.plugin-cards .card-status-row {grid-column:3;grid-row:1}
   }
   @media(max-width:760px) {
     main {padding-inline:18px}
-    .atlas-hero {min-height:0;grid-template-columns:1fr;padding:24px;border-radius:19px}
-    .atlas-copy {grid-area:1 / 1}
-    .atlas-art {grid-area:2 / 1;width:min(84%,310px);justify-self:end;margin:-7px -8px -5px 0}
-    .atlas-hero h1 {font-size:clamp(34px,8vw,52px);max-width:none}
-    .atlas-hero .lead {font-size:14px}
-    .catalog-view .breadcrumbs {margin-bottom:14px}
-    .mobile-nav {border-color:var(--line)}
-  }
-  @media(min-width:520px) and (max-width:760px) {
-    .atlas-hero {grid-template-columns:1.2fr 1fr}
-    .atlas-art {grid-area:1 / 2;width:108%;margin:0 -5%}
+    .directory-head {padding:0 0 8px}
+    .directory-tools {gap:5px 14px;margin-top:9px}
+    .catalog-filters {gap:0 14px}
+    .catalog-filters button {min-height:42px;font-size:12px}
+    .product-group {margin:22px 0 28px}
+    .product-group>h3 {font-size:22px}
+    .plugin-cards a.card {grid-template-columns:72px 1fr auto;gap:2px 10px}
+    .plugin-cards .card p {font-size:12px}
   }
 }
 
-@media screen {
-  .catalog-view details.beginner-intro {padding:0;overflow:hidden}
-  .catalog-view .beginner-intro summary {padding:12px 16px;cursor:pointer}
-  .catalog-view .beginner-intro p {margin:0;padding:0 16px 14px}
-  .catalog-view .ai-disclosure {border:0;background:transparent;padding-inline:0}
-  .atlas-art {width:100%;max-height:320px;object-fit:contain;justify-self:center;margin:0}
-}
-@media screen and (max-width:519px) {
-  .atlas-art {width:72%;max-height:168px;justify-self:end;margin:8px 0 -6px}
-}

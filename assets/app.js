@@ -124,15 +124,18 @@
     $('article').classList.toggle('catalog-view', doc.id === 'wiki');
     if (doc.id === 'wiki') {
       const article = $('article');
-      const hero = document.createElement('header');
-      hero.className = 'atlas-hero';
-      const copy = document.createElement('div');
-      copy.className = 'atlas-copy';
-      for (const selector of ['.eyebrow','h1','.lead']) copy.append(article.querySelector(selector));
-      copy.insertAdjacentHTML('beforeend','<div class="wiki-cta"><a class="primary-cta" href="#wiki/plugins">'+t('Xem tài liệu','Browse docs')+' ↓</a><a class="secondary-cta" href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' ↗</a></div>');
-      hero.append(copy);
-      hero.insertAdjacentHTML('beforeend','<img class="atlas-art" src="assets/images/onic-island.webp" alt="" fetchpriority="high">');
-      article.prepend(hero);
+      const directory = document.createElement('header');
+      directory.className = 'directory-head';
+      const title = article.querySelector('h1');
+      title.textContent = t('Thư viện plugin','Plugin library');
+      directory.append(title);
+      article.querySelector('.eyebrow').remove();
+      article.querySelector('.lead').remove();
+      const tools = document.createElement('div');
+      tools.className = 'directory-tools';
+      directory.append(tools);
+      article.prepend(directory);
+      tools.insertAdjacentHTML('beforeend','<a href="https://discord.gg/d3QfdMdsd2" target="_blank" rel="noopener">'+t('Mua sản phẩm','Buy products')+' ↗</a>');
       article.insertAdjacentHTML('beforeend','<p class="ai-disclosure"><span aria-hidden="true">✦</span>'+t('Một số sản phẩm có sự hỗ trợ của AI trong quá trình phát triển.','Some products are developed with AI assistance.')+'</p>');
       const intro = article.querySelector('.beginner-intro');
       if (intro) {
@@ -141,13 +144,14 @@
         const summary = document.createElement('summary');
         summary.textContent = intro.querySelector('strong').textContent;
         guide.append(summary, intro.querySelector('p'));
-        intro.replaceWith(guide);
+        tools.prepend(guide);
+        intro.remove();
       }
       const groups = [...article.querySelectorAll('.product-group')];
       const filters = document.createElement('div');
       filters.className = 'catalog-filters';
       filters.setAttribute('role','group');
-      filters.setAttribute('aria-label',t('Lọc theo nhóm sản phẩm','Filter by product group'));
+      filters.setAttribute('aria-label',t('Xem tài liệu theo nhóm plugin','Browse docs by plugin group'));
       const labels = [t('Tất cả','All'), ...groups.map(group=>group.querySelector('h3').textContent)];
       labels.forEach((label,index)=>{
         const button = document.createElement('button');
@@ -160,7 +164,9 @@
         });
         filters.append(button);
       });
-      article.querySelector('#plugins').after(filters);
+      const directoryHeading = article.querySelector('#plugins');
+      directoryHeading.classList.add('sr-only');
+      directoryHeading.after(filters);
     }
     $('article').querySelectorAll('a.card[href^="#"]').forEach(link => {
       const targetId = link.getAttribute('href').slice(1).split('/')[0];
